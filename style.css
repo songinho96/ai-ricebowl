@@ -52,6 +52,10 @@
   box-sizing: border-box;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 body {
   font-family: var(--font-body);
   background: var(--bg-base);
@@ -99,6 +103,12 @@ header {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+}
+
+.logo-button {
+  border: 0;
+  background: transparent;
+  font: inherit;
 }
 
 .logo span {
@@ -299,6 +309,25 @@ main {
   flex-wrap: wrap;
 }
 
+.sub-filter-row {
+  width: 100%;
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sub-filter-row span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
 .tag-filter-btn {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -457,6 +486,66 @@ main {
   border-radius: 4px;
 }
 
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem;
+  background: var(--bg-panel);
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+}
+
+.empty-state i {
+  font-size: 3rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.empty-state h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.section-title-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.section-title-wrapper h2 {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.section-title-wrapper h2 i {
+  color: var(--accent-light);
+}
+
+.section-title-wrapper p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.section-divider {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.job-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
 /* Blog Section List Grid */
 .blog-grid {
   display: grid;
@@ -579,6 +668,10 @@ main {
   animation: fadeIn 0.4s ease;
 }
 
+.blog-reader.active-reader {
+  display: block;
+}
+
 .reader-header {
   border-bottom: 1px solid var(--border);
   padding-bottom: 2rem;
@@ -667,6 +760,16 @@ main {
 
 .reader-body p {
   margin-bottom: 1.8rem;
+}
+
+.reader-body .introduction {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 2rem;
 }
 
 .reader-body h3, .reader-body h4 {
@@ -854,7 +957,7 @@ footer {
 }
 
 /* ==========================================================================
-   Gemini AI Trend Summary Panel and Real-time News styling
+   Trend Summary Panel and Real-time News styling
    ========================================================================== */
 .summary-panel {
   background: var(--bg-panel);

@@ -5,11 +5,8 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import json
 import re
-import os
-from datetime import datetime
-
-# API Key provided by the user
-API_KEY = "AIzaSyCNrwiZW_x4OqCmCF8bWVw5rxyGj_FvW00"
+from collections import Counter
+from pathlib import Path
 
 FEEDS = [
     {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "lang": "en"},
@@ -91,72 +88,43 @@ def parse_rss(xml_data, source_name):
         print(f"[{source_name}] XML 파싱 오류: {e}")
     return items
 
-def generate_gemini_summaries(news_items):
-    print("Gemini API 호출 및 최신 AI/IT 트렌드 분석 요약 생성 중...")
-    
-    # 기사 리스트를 텍스트로 축약
-    news_text = ""
-    for idx, item in enumerate(news_items[:25], 1):  # 최신 기사 25개 위주로 요약
-        news_text += f"{idx}. [{item['source']}] {item['title']}\n"
-        if item['description']:
-            news_text += f"   - 요약: {item['description']}\n"
-    
-    prompt = f"""
-너는 IT 및 최신 인공지능(AI) 기술 동향 분석 전문가이다.
-아래 제공된 최신 개발/AI 관련 기사 목록을 읽고, 개발자들의 기술 학습 방향과 실무 관점에서 유용한 요약 보고서를 작성해라.
+def generate_local_summaries(news_items):
+    print("로컬 규칙 기반 최신 AI/IT 트렌드 요약 생성 중...")
 
-[최신 IT 뉴스 목록]
-{news_text}
+    category_counter = Counter()
+    source_counter = Counter(item["source"] for item in news_items)
+    for item in news_items:
+        category_counter.update(item.get("categories", []))
 
-[요구사항]
-1. 아래 3가지 유형의 요약을 격식 있고 실무 지향적인 한글 마크다운 형식으로 작성해라:
-   - **일별 요약 (Daily)**: 가장 최신 기사들 중 오늘 당장 주목해야 할 단 하나의 핵심 트렌드와 그 이유.
-   - **주별 요약 (Weekly)**: 최근 일주일간 흐르는 주요 기술의 변화 흐름과 개발자들이 준비해야 할 역량.
-   - **월별 요약 (Monthly)**: 수집된 전체 소식을 포괄하는 거시적인 산업 방향성, AI 에이전트 도입에 따른 생존 방향성 예측.
-2. 각 요약은 최소 3~4문장 이상의 풍부한 설명과 핵심 키워드를 포함해야 한다.
-3. 반드시 아래 JSON 스키마를 엄격히 만족하는 순수 JSON 형식으로만 반환해라. (마크다운 코드 블록(```json) 없이 JSON 문자열만 반환해야 파싱이 가능하다):
-{{
-  "daily": "일별 마크다운 요약 텍스트",
-  "weekly": "주별 마크다운 요약 텍스트",
-  "monthly": "월별 마크다운 요약 텍스트"
-}}
-"""
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
-    headers = {"Content-Type": "application/json"}
-    payload = {
-        "contents": [{
-            "parts": [{
-                "text": prompt
-            }]
-        }],
-        "generationConfig": {
-            "responseMimeType": "application/json"
-        }
-    }
-    
-    try:
-        req = urllib.request.Request(
-            url, 
-            data=json.dumps(payload).encode('utf-8'), 
-            headers=headers,
-            method='POST'
+    top_categories = [name for name, _ in category_counter.most_common(3) if name != "General"]
+    top_sources = [name for name, _ in source_counter.most_common(3)]
+    latest_titles = [item["title"] for item in news_items[:5]]
+
+    category_text = ", ".join(top_categories) if top_categories else "General"
+    source_text = ", ".join(top_sources) if top_sources else "RSS 피드"
+    title_lines = "\n".join(f"* **{title}**" for title in latest_titles)
+
+    return {
+        "daily": (
+            "### 오늘 핵심 트렌드 요약\n\n"
+            f"* 총 **{len(news_items)}개**의 최신 RSS 항목을 수집했습니다.\n"
+            f"* 현재 가장 자주 감지된 직무/기술 축은 **{category_text}** 입니다.\n"
+            f"* 주요 수집 출처는 **{source_text}** 입니다.\n\n"
+            f"{title_lines}"
+        ),
+        "weekly": (
+            "### 주간 기술 흐름 분석\n\n"
+            f"* 최근 피드에서는 **{category_text}** 관련 항목의 비중이 높습니다.\n"
+            "* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n"
+            "* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다."
+        ),
+        "monthly": (
+            "### 월간 산업 방향성 전망\n\n"
+            "* 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n"
+            "* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n"
+            "* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
         )
-        with urllib.request.urlopen(req, timeout=30) as response:
-            res_data = json.loads(response.read().decode('utf-8'))
-            text_response = res_data['candidates'][0]['content']['parts'][0]['text']
-            
-            # JSON 파싱 검증
-            summaries = json.loads(text_response.strip())
-            return summaries
-    except Exception as e:
-        print(f"Gemini API 요약 생성 실패: {e}")
-        # Fallback 구조화된 데이터 제공
-        return {
-            "daily": "### 📢 오늘 핵심 트렌드 요약\n\n* **Gemini 실시간 요약 실패로 인한 대체 동향입니다.**\n* 최신 Geeknews 및 Hacker News의 실시간 기술 공유에 따르면 오픈소스 거대언어모델의 가볍고 강력한 에지 서빙 기법과 개발 도구(Cursor, Copilot Workspace)의 확산이 중심 트렌드입니다.\n* 개발자들은 이제 API 기반 구현 뿐만 아니라 로컬 서빙 가속화(ONNX, Apple Silicon 가속)에 관심을 높여야 합니다.",
-            "weekly": "### 📅 주간 AI 기술 흐름 분석\n\n* **Gemini 실시간 요약 실패로 인한 대체 동향입니다.**\n* 한 주간의 흐름은 AI Agent의 상용화 흐름이 매우 짙게 나타납니다. 에이전트 아키텍처(LangGraph, CrewAI)에 대한 실제 제품 수준의 레퍼런스가 활발히 논의 중이며, 단일 대화 챗봇 형태에서 특정 트리거에 반응하는 자동화 에이전트로 이동하고 있습니다.",
-            "monthly": "### 📊 월간 거시적 산업 동향\n\n* **Gemini 실시간 요약 실패로 인한 대체 동향입니다.**\n* 이번 달에는 빅테크의 최신 AI 추론 모델 출시와 오픈소스 진영(Llama 3, DeepSeek)의 대규모 가격 인하 경쟁이 맞물려 있습니다. 이는 개발 조직에게 인프라 선택권을 크게 넓혀주었으며, 사내 독자 온프레미스 AI 가동이 비용적으로 타당성을 가지게 된 분기점입니다."
-        }
+    }
 
 def main():
     print("=== AI 밥그릇 실시간 뉴스 크롤러 가동 ===")
@@ -171,14 +139,13 @@ def main():
         
     print(f"총 {len(all_items)}개의 뉴스 항목이 수집되었습니다.")
     
-    # Gemini 요약본 생성
-    summaries = generate_gemini_summaries(all_items)
+    summaries = generate_local_summaries(all_items)
     
     # data.js에 로드할 수 있도록 javascript 변수 파일 생성
-    output_path = "/Users/songinho/Desktop/AI밥그릇/crawled_data.js"
+    output_path = Path(__file__).with_name("crawled_data.js")
     print(f"데이터 파일 작성 중: {output_path}")
     
-    js_content = f"""// 자동 생성된 실시간 크롤링 기사 및 Gemini 요약본
+    js_content = f"""// 자동 생성된 실시간 크롤링 기사 및 로컬 요약본
 window.crawledNews = {json.dumps(all_items, ensure_ascii=False, indent=2)};
 
 window.crawledSummaries = {json.dumps(summaries, ensure_ascii=False, indent=2)};
