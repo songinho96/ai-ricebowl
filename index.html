@@ -3,209 +3,284 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Tags -->
+
   <title>AI 밥그릇 | 최신 AI 기술 트렌드 & 개발자 생존 전략</title>
-  <meta name="description" content="AI 시대에 개발자가 살아남기 위해 필요한 핵심 지식과 실무 활용 방안, 최신 인공지능 트렌드를 종합 정리하는 최첨단 개발자용 허브 웹사이트입니다.">
+  <meta name="description" content="AI 시대에 개발자가 살아남기 위해 필요한 핵심 지식과 실무 활용 방안, 최신 인공지능 트렌드를 종합 정리하는 개발자용 허브 웹사이트입니다.">
   <meta name="keywords" content="AI, 인공지능, 개발자 생존, Cursor IDE, LLM 트렌드, LangGraph, 에이전트, 개발 생산성">
   <meta property="og:title" content="AI 밥그릇 | 최신 AI 기술 트렌드 & 개발자 생존 전략">
-  <meta property="og:description" content="AI 시대의 격변 속에서 개발자가 나아갈 방향과 실무에서 10배의 생산성을 내는 구체적인 가이드 및 최신 기술 요약을 확인하세요.">
+  <meta property="og:description" content="AI 시대의 격변 속에서 개발자가 나아갈 방향과 실무에서 생산성을 높이는 구체적인 가이드를 확인하세요.">
   <meta property="og:type" content="website">
-  
-  <!-- Styling and Fonts -->
+
   <link rel="stylesheet" href="style.css">
-  
-  <!-- FontAwesome Icons for modern aesthetic -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- Sticky Header Navigation -->
-  <header>
-    <div class="nav-container">
-      <div class="logo" id="nav-logo">
-        <span>🍚</span> AI 밥그릇
-      </div>
-      <nav class="nav-menu">
-        <button class="nav-btn active" id="tab-trends-btn" data-tab="trends">
-          <i class="fa-solid fa-chart-line"></i> 최신 AI 트렌드
+  <div id="app" v-cloak>
+    <header>
+      <div class="nav-container">
+        <button class="logo logo-button" type="button" @click="goHome">
+          <span>🍚</span> AI 밥그릇
         </button>
-        <button class="nav-btn" id="tab-blog-btn" data-tab="blog">
-          <i class="fa-solid fa-book-open"></i> 개발자 생존 가이드
+        <nav class="nav-menu" aria-label="주요 메뉴">
+          <button
+            v-for="tab in tabs"
+            :key="tab.id"
+            class="nav-btn"
+            :class="{ active: activeTab === tab.id && !selectedPost }"
+            type="button"
+            @click="switchTab(tab.id)"
+          >
+            <i :class="tab.icon"></i> {{ tab.label }}
+          </button>
+          <button class="theme-toggle-btn" type="button" aria-label="테마 전환" @click="toggleTheme">
+            <i :class="theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section v-if="!selectedPost" class="hero">
+        <img :src="hero.image" :alt="hero.alt" class="hero-img">
+        <div class="hero-content">
+          <span class="hero-tag">{{ hero.tag }}</span>
+          <h1 v-html="hero.title"></h1>
+          <p>{{ hero.description }}</p>
+        </div>
+      </section>
+
+      <section v-if="activeTab === 'trends' && !selectedPost" class="tab-content active">
+        <div class="summary-panel">
+          <div class="summary-header">
+            <h2><i class="fa-solid fa-brain"></i> 로컬 AI/IT 트렌드 리포트</h2>
+            <div class="summary-tabs">
+              <button
+                v-for="period in summaryPeriods"
+                :key="period.id"
+                class="summary-tab-btn"
+                :class="{ active: activeSummaryPeriod === period.id }"
+                type="button"
+                @click="activeSummaryPeriod = period.id"
+              >
+                {{ period.label }}
+              </button>
+            </div>
+          </div>
+          <div class="summary-body" v-html="currentSummaryHtml"></div>
+        </div>
+
+        <div class="dashboard-control">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input v-model.trim="searchQuery" type="text" placeholder="트렌드, 키워드, 기술 스택 검색...">
+          </div>
+          <div class="filter-tags">
+            <button
+              v-for="filter in categoryFilters"
+              :key="filter.id"
+              class="tag-filter-btn"
+              :class="{ active: activeCategoryFilter === filter.id }"
+              type="button"
+              @click="setCategoryFilter(filter.id)"
+            >
+              <i v-if="filter.icon" :class="filter.icon" :style="{ color: filter.iconColor }"></i>
+              {{ filter.label }}
+            </button>
+          </div>
+
+          <div v-if="activeCategoryFilter === 'realtime'" class="sub-filter-row">
+            <span><i class="fa-solid fa-user-gear"></i> 직무 분류:</span>
+            <button
+              v-for="job in realtimeJobFilters"
+              :key="job.id"
+              class="job-sub-btn"
+              :class="{ active: activeJobFilter === job.id }"
+              type="button"
+              @click="activeJobFilter = job.id"
+            >
+              {{ job.label }}
+            </button>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article v-for="item in displayedTrendItems" :key="item.key" class="trend-card">
+            <template v-if="item.kind === 'realtime'">
+              <div>
+                <div class="card-header">
+                  <span class="card-category" :class="`realtime-tag-${sourceCode(item.source)}`">{{ item.source }}</span>
+                </div>
+                <h3>{{ item.title }}</h3>
+                <p class="summary">{{ item.description || '상세 내용 요약이 없습니다. 원문 보기 링크를 통해 전체 기사를 확인하세요.' }}</p>
+              </div>
+              <div class="card-footer">
+                <span><i class="fa-regular fa-clock"></i> {{ shortDate(item.pubDate) }}</span>
+                <a :href="safeUrl(item.link)" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+                  원문 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </template>
+
+            <template v-else>
+              <div>
+                <div class="card-header">
+                  <span class="card-category">{{ item.category }}</span>
+                  <button
+                    class="bookmark-btn"
+                    :class="{ active: isBookmarked(item.id) }"
+                    type="button"
+                    aria-label="북마크 토글"
+                    @click="toggleBookmark(item.id)"
+                  >
+                    <i :class="isBookmarked(item.id) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark'"></i>
+                  </button>
+                </div>
+                <h3>{{ item.title }}</h3>
+                <p class="summary">{{ item.summary }}</p>
+                <ul class="trend-bullets">
+                  <li v-for="trend in item.trends" :key="trend">{{ trend }}</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  <span v-for="tag in item.tags" :key="tag" class="card-tag">#{{ tag }}</span>
+                </div>
+                <div><i class="fa-regular fa-eye"></i> {{ item.views }}</div>
+              </div>
+            </template>
+          </article>
+
+          <div v-if="displayedTrendItems.length === 0" class="empty-state">
+            <i class="fa-solid fa-folder-open"></i>
+            <h4>{{ emptyTrendTitle }}</h4>
+            <p>{{ emptyTrendDescription }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section v-if="activeTab === 'blog' && !selectedPost" class="tab-content active">
+        <div class="job-guide-section">
+          <div class="section-title-wrapper">
+            <h2><i class="fa-solid fa-user-shield"></i> 직무별 AI 활용 가이드북</h2>
+            <p>각 직무에 최적화된 최신 AI 트렌드와 구체적인 업무 활용 및 생존 가이드를 확인하세요.</p>
+          </div>
+
+          <div class="job-selector">
+            <button
+              v-for="job in jobTabs"
+              :key="job.id"
+              class="job-tab-btn"
+              :class="{ active: activeJobGuide === job.id }"
+              type="button"
+              @click="activeJobGuide = job.id"
+            >
+              <i :class="job.icon"></i> {{ job.label }}
+            </button>
+          </div>
+
+          <article v-if="currentJobGuide" class="job-guide-card">
+            <div class="job-guide-header">
+              <i :class="`fa-solid ${currentJobGuide.icon}`" :style="{ color: currentJobGuide.color }"></i>
+              <h3>{{ currentJobGuide.name }} AI 생존 가이드</h3>
+            </div>
+            <div class="job-guide-grid">
+              <div>
+                <div class="job-guide-section-block">
+                  <h4><i class="fa-solid fa-chart-line"></i> 직무별 AI 기술 트렌드</h4>
+                  <p>{{ currentJobGuide.trend }}</p>
+                </div>
+                <div class="job-guide-section-block">
+                  <h4><i class="fa-solid fa-toolbox"></i> 추천 생산성 AI 도구</h4>
+                  <div class="job-guide-tools">
+                    <span v-for="tool in currentJobGuide.tools" :key="tool" class="job-guide-tool-badge">{{ tool }}</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="job-guide-section-block">
+                  <h4><i class="fa-solid fa-circle-info"></i> 주요 실무 가이드라인</h4>
+                  <p>{{ currentJobGuide.guideline }}</p>
+                </div>
+                <div class="job-guide-section-block">
+                  <h4><i class="fa-solid fa-graduation-cap"></i> 추천 학습 로드맵</h4>
+                  <ul class="job-guide-roadmap">
+                    <li v-for="step in currentJobGuide.roadmap" :key="step">{{ step }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-title-wrapper section-divider">
+          <h2><i class="fa-solid fa-book-open"></i> 심층 분석 컬럼</h2>
+        </div>
+
+        <div class="blog-grid">
+          <article v-for="post in blogPosts" :key="post.id" class="blog-card">
+            <div class="blog-card-img-wrapper">
+              <img :src="post.image" :alt="post.title" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>{{ post.category }}</span>
+                <span>&bull;</span>
+                <span>{{ post.readTime }}</span>
+              </div>
+              <h2>{{ post.title }}</h2>
+              <p class="subtitle">{{ post.subtitle }}</p>
+              <button class="read-more-btn" type="button" @click="openPost(post.id)">
+                자세히 보기 <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <article v-if="selectedPost" class="blog-reader active-reader">
+        <button class="back-btn" type="button" @click="closePost">
+          <i class="fa-solid fa-arrow-left"></i> 목록으로 돌아가기
         </button>
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="테마 전환">
-          <i class="fa-solid fa-sun" id="theme-icon"></i>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main Workspace -->
-  <main>
-    <!-- Hero Banner Section -->
-    <section class="hero" id="hero-section">
-      <img src="assets/hero_banner.png" alt="Futuristic AI Workspace" class="hero-img" id="hero-image">
-      <div class="hero-content">
-        <span class="hero-tag" id="hero-tag-text">AI TREND AGGREGATOR</span>
-        <h1 id="hero-title">AI 격변의 시대,<br>우리의 밥그릇을 더 단단하게.</h1>
-        <p id="hero-desc">최신 인공지능 기술 동향을 분석하고, 실무 워크플로우에 결합하여 개발 생산성을 혁신하는 방법을 제안합니다.</p>
-      </div>
-    </section>
-
-    <!-- TAB 1: AI Trends Aggregator Dashboard -->
-    <div class="tab-content active" id="tab-trends">
-      <!-- Gemini AI Trend Report Panel -->
-      <div class="summary-panel" id="summary-panel">
-        <div class="summary-header">
-          <h2><i class="fa-solid fa-brain"></i> Gemini AI 실시간 트렌드 리포트</h2>
-          <div class="summary-tabs" id="summary-tabs">
-            <button class="summary-tab-btn active" data-period="daily">오늘의 동향</button>
-            <button class="summary-tab-btn" data-period="weekly">주간 분석</button>
-            <button class="summary-tab-btn" data-period="monthly">월간 전망</button>
+        <div class="reader-header">
+          <span class="reader-category">{{ selectedPost.category }}</span>
+          <h1>{{ selectedPost.title }}</h1>
+          <p class="reader-subtitle">{{ selectedPost.subtitle }}</p>
+          <div class="reader-meta">
+            <div class="reader-meta-item"><i class="fa-regular fa-user"></i> <span>{{ selectedPost.author }}</span></div>
+            <div class="reader-meta-item"><i class="fa-regular fa-calendar"></i> <span>{{ selectedPost.date }}</span></div>
+            <div class="reader-meta-item"><i class="fa-regular fa-clock"></i> <span>{{ selectedPost.readTime }}</span></div>
           </div>
         </div>
-        <div class="summary-body" id="gemini-summary-content">
-          <!-- Dynamically parsed Markdown from Gemini output -->
+        <div class="reader-hero-img-wrapper">
+          <img :src="selectedPost.image" :alt="selectedPost.title" class="reader-hero-img">
         </div>
-      </div>
-
-      <!-- Search & Filter Controls -->
-      <div class="dashboard-control">
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="trends-search" placeholder="트렌드, 키워드, 기술 스택 검색...">
-        </div>
-        <div class="filter-tags" id="trends-filter-tags">
-          <button class="tag-filter-btn active" data-category="all">전체보기</button>
-          <button class="tag-filter-btn" data-category="LLM"># LLM</button>
-          <button class="tag-filter-btn" data-category="Agent"># Agent</button>
-          <button class="tag-filter-btn" data-category="Tool"># Tool</button>
-          <button class="tag-filter-btn" data-category="OpenSource"># OpenSource</button>
-          <button class="tag-filter-btn" data-category="realtime"><i class="fa-solid fa-rss" style="color: #10b981;"></i> 실시간 뉴스 피드</button>
-          <button class="tag-filter-btn" data-category="bookmarks"><i class="fa-solid fa-bookmark" style="color: #fbbf24;"></i> 북마크</button>
-        </div>
-        
-        <!-- Job sub-filter row for real-time news -->
-        <div class="sub-filter-row" id="realtime-job-filter" style="display: none; width: 100%; margin-top: 1rem; border-top: 1px dashed var(--border); padding-top: 1rem; justify-content: flex-start; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-          <span style="font-size: 0.85rem; color: var(--text-secondary); margin-right: 0.5rem; font-weight: 600;"><i class="fa-solid fa-user-gear"></i> 직무 분류:</span>
-          <button class="job-sub-btn active" data-job="all">전체</button>
-          <button class="job-sub-btn" data-job="FE">Frontend</button>
-          <button class="job-sub-btn" data-job="BE">Backend</button>
-          <button class="job-sub-btn" data-job="DevOps">DevOps</button>
-          <button class="job-sub-btn" data-job="AI">AI/Data</button>
-          <button class="job-sub-btn" data-job="Mobile">Mobile</button>
-          <button class="job-sub-btn" data-job="DBA">Database</button>
-          <button class="job-sub-btn" data-job="QA">QA</button>
-          <button class="job-sub-btn" data-job="Security">Security</button>
-        </div>
-      </div>
-
-      <!-- Cards Container Grid -->
-      <div class="cards-grid" id="trends-grid">
-        <!-- Dynanically populated cards via Javascript -->
-      </div>
-    </div>
-
-    <!-- TAB 2: Developer Survival Blog -->
-    <div class="tab-content" id="tab-blog">
-      <!-- Job-specific AI Guidebook Section -->
-      <div class="job-guide-section">
-        <div class="section-title-wrapper" style="margin-bottom: 1.5rem;">
-          <h2 style="font-family: var(--font-title); font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem;">
-            <i class="fa-solid fa-user-shield" style="color: var(--accent-light);"></i> 직무별 AI 활용 가이드북
-          </h2>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">각 직무에 최적화된 최신 AI 트렌드와 구체적인 업무 활용 및 생존 가이드를 확인하세요.</p>
-        </div>
-        
-        <!-- Job selector buttons -->
-        <div class="job-selector" id="job-selector-tabs" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <button class="job-tab-btn active" data-job="FE"><i class="fa-solid fa-code"></i> FE</button>
-          <button class="job-tab-btn" data-job="BE"><i class="fa-solid fa-server"></i> BE</button>
-          <button class="job-tab-btn" data-job="DevOps"><i class="fa-solid fa-cloud"></i> DevOps</button>
-          <button class="job-tab-btn" data-job="AI"><i class="fa-solid fa-brain"></i> AI / Data</button>
-          <button class="job-tab-btn" data-job="Mobile"><i class="fa-solid fa-mobile-screen-button"></i> Mobile</button>
-          <button class="job-tab-btn" data-job="DBA"><i class="fa-solid fa-database"></i> DBA</button>
-          <button class="job-tab-btn" data-job="QA"><i class="fa-solid fa-vial"></i> QA</button>
-          <button class="job-tab-btn" data-job="Security"><i class="fa-solid fa-shield-halved"></i> Security</button>
-        </div>
-        
-        <!-- Selected job detail card -->
-        <div class="job-guide-card" id="job-guide-display-card" style="margin-bottom: 3.5rem;">
-          <!-- Dynamically populated from jobRolesData -->
-        </div>
-      </div>
-
-      <div class="section-title-wrapper" style="margin-bottom: 1.5rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-        <h2 style="font-family: var(--font-title); font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem;">
-          <i class="fa-solid fa-book-open" style="color: var(--accent-light);"></i> 심층 분석 컬럼
-        </h2>
-      </div>
-
-      <div class="blog-grid" id="blog-grid">
-        <!-- Dynanically populated blog posts via Javascript -->
-      </div>
-    </div>
-
-    <!-- TAB 3: Dedicated Blog Article Reader Mode -->
-    <div class="blog-reader" id="blog-reader-view">
-      <button class="back-btn" id="reader-back-btn">
-        <i class="fa-solid fa-arrow-left"></i> 목록으로 돌아가기
-      </button>
-      
-      <div class="reader-header">
-        <span class="reader-category" id="reader-category">카테고리</span>
-        <h1 id="reader-title">포스팅 제목</h1>
-        <p class="reader-subtitle" id="reader-subtitle">부제목</p>
-        <div class="reader-meta">
-          <div class="reader-meta-item">
-            <i class="fa-regular fa-user"></i> <span id="reader-author">작성자</span>
-          </div>
-          <div class="reader-meta-item">
-            <i class="fa-regular fa-calendar"></i> <span id="reader-date">2026-06-30</span>
-          </div>
-          <div class="reader-meta-item">
-            <i class="fa-regular fa-clock"></i> <span id="reader-readtime">10 min read</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="reader-hero-img-wrapper">
-        <img src="" alt="Blog Post Image" class="reader-hero-img" id="reader-image">
-      </div>
-      
-      <article class="reader-body" id="reader-body-content">
-        <!-- Dynamically populated rich content with headings and paragraphs -->
+        <div class="reader-body" v-html="selectedPostHtml"></div>
       </article>
-    </div>
-  </main>
+    </main>
 
-  <!-- Scroll to top floating button -->
-  <button class="back-to-top" id="back-to-top" aria-label="맨 위로 가기">
-    <i class="fa-solid fa-chevron-up"></i>
-  </button>
+    <button class="back-to-top" :class="{ visible: showBackToTop }" type="button" aria-label="맨 위로 가기" @click="scrollTop">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="logo">🍚 AI 밥그릇</div>
-      <div class="footer-text">
-        &copy; 2026 AI 밥그릇 Project. All rights reserved. Created with Advanced Agentic AI Coding.
+    <footer>
+      <div class="footer-container">
+        <div class="logo"><span>🍚</span> AI 밥그릇</div>
+        <div class="footer-text">&copy; 2026 AI 밥그릇 Project. All rights reserved. Built with Vue.</div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
-  <!-- Code Scripts -->
   <script>
-    // crawled_data.js 로드 실패 시 예외 처리용 폴백 정의
     window.crawledNews = window.crawledNews || [];
     window.crawledSummaries = window.crawledSummaries || {
-      daily: "### 📢 오늘 핵심 트렌드 요약\\n\\n* **크롤링 작업이 아직 수행되지 않았습니다.**\\n* 터미널에서 `/usr/bin/python3 crawler.py`를 실행하여 실시간 데이터를 수집해 보세요.\\n* 기본 요약 데이터가 대신 표시됩니다.\\n\\n* **오늘의 트렌드**: LLM 가성비 대격변과 NPU 온프레미스 에이전트 설계 활성화.",
-      weekly: "### 📅 주간 AI 기술 흐름 분석\\n\\n* **크롤링 작업이 아직 수행되지 않았습니다.**\\n* 터미널에서 `/usr/bin/python3 crawler.py`를 실행하여 실시간 데이터를 수집해 보세요.\\n* 기본 요약 데이터가 대신 표시됩니다.\\n\\n* **주간 핵심 흐름**: LangGraph 기반 Multi-Agent와 Cursor IDE 연동 규칙 강제(.cursorrules) 모범 사례 확산.",
-      monthly: "### 📊 월간 거시적 산업 동향\\n\\n* **크롤링 작업이 아직 수행되지 않았습니다.**\\n* 터미널에서 `/usr/bin/python3 crawler.py`를 실행하여 실시간 데이터를 수집해 보세요.\\n* 기본 요약 데이터가 대신 표시됩니다.\\n\\n* **월간 장기 전망**: 오픈소스 대형 언어모델들의 연산 단가 하락으로 기업용 프라이빗 AI PC 및 로컬 NPU 클러스터링 도입 증가."
+      daily: "### 오늘 핵심 트렌드 요약\n\n* 크롤링 작업이 아직 수행되지 않았습니다.\n* 터미널에서 `bash run_crawler.sh`를 실행하여 실시간 데이터를 수집해 보세요.\n* 기본 요약 데이터가 대신 표시됩니다.",
+      weekly: "### 주간 AI 기술 흐름 분석\n\n* 크롤링 데이터가 없을 때 표시되는 기본 주간 요약입니다.\n* RSS 수집 후에는 수집된 기사 분포를 기반으로 로컬 요약이 생성됩니다.",
+      monthly: "### 월간 산업 방향성 전망\n\n* 외부 생성형 API 없이 RSS 피드만으로 가볍게 동작합니다.\n* 크롤러 실행 후 최신 수집 결과가 이 영역에 반영됩니다."
     };
   </script>
   <script src="crawled_data.js" onerror="console.log('crawled_data.js not found, using fallback summaries')"></script>
   <script src="data.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

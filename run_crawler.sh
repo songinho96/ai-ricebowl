@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # AI 밥그릇 실시간 크롤러 실행기
-# 이 스크립트를 주기적으로 실행하면 최신 IT 뉴스가 갱신되고 Gemini API를 통해 일/주/월별 요약본이 재생성됩니다.
+# 이 스크립트를 주기적으로 실행하면 최신 IT 뉴스와 로컬 요약본이 갱신됩니다.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LOG_FILE="$SCRIPT_DIR/crawler.log"
