@@ -57,6 +57,8 @@ AI밥그릇/
 bash run_crawler.sh
 ```
 
+OpenClaw로 매일 오전 9시에 자동 수집하려면 [docs/openclaw-automation.md](docs/openclaw-automation.md)를 참고하세요.
+
 ### 2. 프론트엔드 웹 대시보드 구동
 로컬 웹 서버를 띄워 대시보드 화면을 확인합니다.
 ```bash
@@ -158,4 +160,3 @@ gitGraph
 ---
 
 * **PR 자동화 연동 테스트 완료**: 2026-07-01 14:49 (KST)
-
