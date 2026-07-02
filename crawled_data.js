@@ -263,6 +263,31 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
+    "title": "Kimi K2.7 Code is generally available in GitHub Copilot",
+    "link": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 04:32:41 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "A new Android malware from Google",
+    "link": "https://f-droid.org/2026/07/01/adv-malware.html",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 03:00:15 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "Hacker News",
     "title": "ZCode – Harness for GLM-5.2",
     "link": "https://zcode.z.ai/en",
     "description": "Comments",
@@ -287,30 +312,6 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Senior SWE-Bench: open-source benchmark that assesses agents as senior engineers",
-    "link": "https://senior-swe-bench.snorkel.ai/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 02:55:16 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "For first time, a cell built from scratch grows and divides",
-    "link": "https://www.quantamagazine.org/for-the-first-time-a-cell-built-from-scratch-grows-and-divides-20260701/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 14:20:52 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
     "title": "Bring back crappy forums",
     "link": "https://tedium.co/2026/07/01/online-web-forums-retrospective/",
     "description": "Comments",
@@ -323,10 +324,46 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
+    "title": "CursorBench 3.1",
+    "link": "https://cursor.com/evals",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 05:19:34 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Asymmetric Quantization: Near-Lossless Retrieval with 97% Storage Reduction",
+    "link": "https://www.mixedbread.com/blog/asymmetric-quant",
+    "description": "Comments",
+    "pubDate": "Mon, 29 Jun 2026 19:42:15 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
     "title": "What to learn to be a graphics programmer",
     "link": "https://blog.demofox.org/2026/07/01/what-to-learn-to-be-a-graphics-programmer/",
     "description": "Comments",
     "pubDate": "Wed, 01 Jul 2026 17:53:44 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "FFmpeg 9.1's new AAC encoder",
+    "link": "https://hydrogenaudio.org/index.php/topic,129691.0.html",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 14:10:28 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -347,14 +384,14 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "FFmpeg 9.1's new AAC encoder",
-    "link": "https://hydrogenaudio.org/index.php/topic,129691.0.html",
+    "title": "MarketFish – Simulate a market with 128 AI consumers before you launch",
+    "link": "https://github.com/Key-wxh/market-fish",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 14:10:28 +0000",
+    "pubDate": "Thu, 02 Jul 2026 06:53:51 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "AI"
     ]
   },
   {
@@ -395,30 +432,6 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Qualcomm Linux 2.0",
-    "link": "https://www.qualcomm.com/developer/blog/2026/06/qualcomm-linux-2-now-available",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:01:42 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Show HN: Searchable directory of 22k+ products from worker-owned co-ops",
-    "link": "https://www.workerowned.info/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 20:47:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
     "title": "Learn Vim motions with an ice-cream van",
     "link": "https://thisismodest.com/vimscoops/",
     "description": "Comments",
@@ -443,22 +456,71 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Database Traffic Control",
-    "link": "https://planetscale.com/blog/introducing-database-traffic-control",
+    "title": "Qualcomm Linux 2.0",
+    "link": "https://www.qualcomm.com/developer/blog/2026/06/qualcomm-linux-2-now-available",
     "description": "Comments",
-    "pubDate": "Tue, 30 Jun 2026 08:58:41 +0000",
+    "pubDate": "Wed, 01 Jul 2026 21:01:42 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "DBA"
+      "FE"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Internal Combustion Engine (2021)",
-    "link": "https://ciechanow.ski/internal-combustion-engine/",
+    "title": "Show HN: Searchable directory of 22k+ products from worker-owned co-ops",
+    "link": "https://www.workerowned.info/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 13:04:16 +0000",
+    "pubDate": "Wed, 01 Jul 2026 20:47:41 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "For first time, a cell built from scratch grows and divides",
+    "link": "https://www.quantamagazine.org/for-the-first-time-a-cell-built-from-scratch-grows-and-divides-20260701/",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 14:20:52 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Wisdom of Quinn the Eskimo (Apple Developer Technical Support Engineer)",
+    "link": "https://github.com/macshome/The-Wisdom-of-Quinn",
+    "description": "Comments",
+    "pubDate": "Mon, 29 Jun 2026 17:19:08 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Senior SWE-Bench: open-source benchmark that assesses agents as senior engineers",
+    "link": "https://senior-swe-bench.snorkel.ai/",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 02:55:16 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Why jet engines aren't made in China",
+    "link": "https://aakash.substack.com/p/why-jet-engines-arent-made-in-china",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 00:22:41 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -479,94 +541,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Chip Off The Old Block",
-    "link": "https://www.astralcodexten.com/p/chip-off-the-old-block",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:42:57 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
     "title": "Ask HN: Who wants to be hired? (July 2026)",
     "link": "https://news.ycombinator.com/item?id=48747975",
     "description": "Comments",
     "pubDate": "Wed, 01 Jul 2026 15:01:21 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The <Usermedia> HTML Element",
-    "link": "https://developer.chrome.com/blog/usermedia-html-element",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 23:56:15 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The vibration of the pager has a sound all its own",
-    "link": "https://www.notyouremergency.com/triage-intro",
-    "description": "Comments",
-    "pubDate": "Sun, 28 Jun 2026 15:06:43 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Avo 4 released – 15 months and 2000 commits later",
-    "link": "https://avohq.io/blog/avo-4",
-    "description": "Comments",
-    "pubDate": "Mon, 29 Jun 2026 18:04:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Proliferate (YC S25) Is Hiring",
-    "link": "https://www.ycombinator.com/companies/proliferate/jobs/mMHvKR9-founding-product-engineer",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:00:14 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Why jet engines aren't made in China",
-    "link": "https://aakash.substack.com/p/why-jet-engines-arent-made-in-china",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 00:22:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Global review confirms mRNA vaccines are safe, effective and full of promise ",
-    "link": "https://news.ubc.ca/2026/06/mrna-vaccines-are-safe-effective-and-full-of-promise/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 00:40:14 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -587,22 +565,34 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Kimi K2.7 Code is generally available in GitHub Copilot",
-    "link": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
+    "title": "Chip Off The Old Block",
+    "link": "https://www.astralcodexten.com/p/chip-off-the-old-block",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 04:32:41 +0000",
+    "pubDate": "Wed, 01 Jul 2026 21:42:57 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "AI"
+      "General"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Healthy but sedentary people show early decline in cellular energy production",
-    "link": "https://news.cuanschutz.edu/news-stories/healthy-but-sedentary-individuals-show-early-decline-in-cellular-energy-production",
+    "title": "Proliferate (YC S25) Is Hiring",
+    "link": "https://www.ycombinator.com/companies/proliferate/jobs/mMHvKR9-founding-product-engineer",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 22:48:56 +0000",
+    "pubDate": "Wed, 01 Jul 2026 21:00:14 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The vibration of the pager has a sound all its own",
+    "link": "https://www.notyouremergency.com/triage-intro",
+    "description": "Comments",
+    "pubDate": "Sun, 28 Jun 2026 15:06:43 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -619,6 +609,18 @@ window.crawledNews = [
     "regionLabel": "해외",
     "categories": [
       "BE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "How We Made IPFS Content Publishing 10x Faster",
+    "link": "https://probelab.io/blog/optimistic-provide/",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 15:30:35 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
     ]
   },
   {
@@ -3084,8 +3086,8 @@ window.crawledNews = [
 
 window.crawledSummaries = {
   "overseas": {
-    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office**\n* **SpaceX has an AI device prototype, and it sure sounds phone-ish**\n* **Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller**\n* **Cloudflare’s new policy pushes AI companies to pay for publishers’ content**\n* **Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off**",
-    "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
+    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE, DevOps** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office**\n* **SpaceX has an AI device prototype, and it sure sounds phone-ish**\n* **Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller**\n* **Cloudflare’s new policy pushes AI companies to pay for publishers’ content**\n* **Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off**",
+    "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE, DevOps** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
     "monthly": "### 해외 월간 산업 방향성 전망\n\n* 해외에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
   },
   "domestic": {
