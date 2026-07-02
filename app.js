@@ -130,6 +130,18 @@ function normalizeTrendCard(card) {
   };
 }
 
+function normalizeSurvivalGuide(post) {
+  return {
+    readTime: '8 min read',
+    category: '개발자 생존 가이드',
+    author: 'AI 밥그릇',
+    image: 'assets/blog_survival.png',
+    introduction: '',
+    sections: [],
+    ...post
+  };
+}
+
 function readJsonStorage(key, fallback) {
   try {
     const stored = localStorage.getItem(key);
@@ -156,7 +168,7 @@ createApp({
       selectedTrendId: null,
       showBackToTop: false,
       trends: (window.dailyTrendCards || window.aiTrendsData || []).map(normalizeTrendCard),
-      blogPosts: window.blogPostsData || [],
+      blogPosts: (window.dailySurvivalGuides || window.blogPostsData || []).map(normalizeSurvivalGuide),
       jobRoles: window.jobRolesData || {},
       crawledNews: window.crawledNews || [],
       crawledSummaries: window.crawledSummaries || {},
