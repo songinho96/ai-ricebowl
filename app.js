@@ -138,6 +138,7 @@ createApp({
       theme: localStorage.getItem(STORAGE_KEYS.theme) || 'dark',
       bookmarkedIds: readJsonStorage(STORAGE_KEYS.bookmarks, []),
       selectedPostId: null,
+      selectedNewsKey: null,
       showBackToTop: false,
       trends: window.aiTrendsData || [],
       blogPosts: window.blogPostsData || [],
@@ -220,6 +221,39 @@ createApp({
       return renderSafeMarkdown(summary || '요약 데이터를 불러올 수 없습니다.');
     },
 
+    regionalNews() {
+      return this.crawledNews.filter((item) => this.normalizedRegion(item) === this.activeNewsRegion);
+    },
+
+    selectedNews() {
+      if (!this.selectedNewsKey) return null;
+      return this.crawledNews
+        .map((item, index) => this.decorateNewsItem(item, index))
+        .find((item) => item.key === this.selectedNewsKey) || null;
+    },
+
+    categoryChartRows() {
+      return this.buildChartRows(this.regionalNews.flatMap((item) => item.categories || []), 8);
+    },
+
+    sourceChartRows() {
+      return this.buildChartRows(this.regionalNews.map((item) => item.source), 8);
+    },
+
+    selectedRelatedNews() {
+      if (!this.selectedNews) return [];
+      const selectedCategories = new Set(this.selectedNews.categories || []);
+
+      return this.crawledNews
+        .map((item, index) => this.decorateNewsItem(item, index))
+        .filter((item) => {
+          if (item.key === this.selectedNews.key) return false;
+          if (this.normalizedRegion(item) !== this.normalizedRegion(this.selectedNews)) return false;
+          return (item.categories || []).some((category) => selectedCategories.has(category));
+        })
+        .slice(0, 4);
+    },
+
     normalizedSearchQuery() {
       return this.searchQuery.toLowerCase();
     },
@@ -245,11 +279,7 @@ createApp({
               item.regionLabel
             ].some((value) => String(value || '').toLowerCase().includes(this.normalizedSearchQuery));
           })
-          .map((item, index) => ({
-            ...item,
-            key: `realtime-${index}-${item.link}`,
-            kind: 'realtime'
-          }));
+          .map((item, index) => this.decorateNewsItem(item, index));
       }
 
       return this.trends
@@ -339,12 +369,14 @@ createApp({
   methods: {
     goHome() {
       this.selectedPostId = null;
+      this.selectedNewsKey = null;
       this.activeTab = 'trends';
       this.scrollTop();
     },
 
     switchTab(tabId) {
       this.selectedPostId = null;
+      this.selectedNewsKey = null;
       this.activeTab = tabId;
       this.scrollTop();
     },
@@ -374,12 +406,25 @@ createApp({
 
     openPost(postId) {
       this.selectedPostId = postId;
+      this.selectedNewsKey = null;
       this.scrollTop();
     },
 
     closePost() {
       this.selectedPostId = null;
       this.activeTab = 'blog';
+      this.scrollTop();
+    },
+
+    openNewsDetail(item) {
+      this.selectedNewsKey = item.key;
+      this.selectedPostId = null;
+      this.activeTab = 'trends';
+      this.scrollTop();
+    },
+
+    closeNewsDetail() {
+      this.selectedNewsKey = null;
       this.scrollTop();
     },
 
@@ -397,11 +442,32 @@ createApp({
       return this.normalizedRegion(item) === 'domestic' ? '국내' : '해외';
     },
 
-    openNews(item) {
-      const url = this.safeUrl(item.link);
-      if (url !== '#') {
-        window.open(url, '_blank', 'noopener,noreferrer');
-      }
+    decorateNewsItem(item, index) {
+      return {
+        ...item,
+        key: `realtime-${index}-${item.link}`,
+        kind: 'realtime'
+      };
+    },
+
+    buildChartRows(values, limit = 8) {
+      const counts = values
+        .filter(Boolean)
+        .reduce((acc, value) => {
+          const key = String(value);
+          acc[key] = (acc[key] || 0) + 1;
+          return acc;
+        }, {});
+      const rows = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, limit);
+      const max = rows[0]?.[1] || 1;
+
+      return rows.map(([label, count]) => ({
+        label,
+        count,
+        width: `${Math.max(8, Math.round((count / max) * 100))}%`
+      }));
     },
 
     sourceCode(source = '') {
