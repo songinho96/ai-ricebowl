@@ -68,9 +68,33 @@ The report should help the user understand:
    - `risks`
    - `sourceLinks`
 
-6. Keep the report concise but analytical. Prefer judgment over volume.
+6. Update the website's developer survival guide posts in:
 
-7. If Discord delivery is available in the environment, send a short digest to the configured AI RiceBowl Discord channel. If delivery fails or is unavailable, leave the report file and mention the failure in the final automation result.
+   ```text
+   daily_survival_guides.js
+   ```
+
+   Write `window.dailySurvivalGuides = [...]` with 2-4 practical long-form guide posts. Each post should include:
+
+   - `id`
+   - `title`
+   - `subtitle`
+   - `date`
+   - `readTime`
+   - `category`
+   - `author`
+   - `image`
+   - `introduction`
+   - `sections`
+
+   Each `sections` item must include:
+
+   - `title`
+   - `content`
+
+7. Keep the report concise but analytical. Prefer judgment over volume.
+
+8. If Discord delivery is available in the environment, send a short digest to the configured AI RiceBowl Discord channel. If delivery fails or is unavailable, leave the report file and mention the failure in the final automation result.
 
 ## Report Format
 
@@ -105,6 +129,10 @@ Use this structure:
 - For `daily_trends.js`, every card must include source links that justify the analysis.
 - Prefer developer-useful topics such as architecture, tooling, testing, security, data pipelines, AI workflow design, infrastructure, and product engineering changes.
 - Avoid vague "AI is changing everything" summaries. Explain what a developer should do differently.
+- For `daily_survival_guides.js`, write evergreen but current developer survival advice grounded in the day's RSS signals.
+- Survival guide posts should be detailed enough to act on: include checklists, review questions, operational failure modes, testing guidance, architecture trade-offs, and concrete prompt/workflow examples when useful.
+- Do not write generic motivation. Each guide should answer "what should a working developer do differently tomorrow morning?"
+- Prefer topics such as AI-assisted development discipline, code review, test strategy, observability, security hygiene, architecture decision-making, career resilience, documentation, and team workflow design.
 
 ## Discord Digest Format
 
