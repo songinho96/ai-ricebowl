@@ -26,7 +26,7 @@
             v-for="tab in tabs"
             :key="tab.id"
             class="nav-btn"
-            :class="{ active: activeTab === tab.id && !selectedPost }"
+            :class="{ active: activeTab === tab.id && !selectedPost && !selectedNews && !selectedTrend }"
             type="button"
             @click="switchTab(tab.id)"
           >
@@ -40,7 +40,7 @@
     </header>
 
     <main>
-      <section v-if="!selectedPost && !selectedNews" class="hero">
+      <section v-if="!selectedPost && !selectedNews && !selectedTrend" class="hero">
         <img :src="hero.image" :alt="hero.alt" class="hero-img">
         <div class="hero-content">
           <span class="hero-tag">{{ hero.tag }}</span>
@@ -121,7 +121,70 @@
         </article>
       </section>
 
-      <section v-if="activeTab === 'trends' && !selectedPost && !selectedNews" class="tab-content active">
+      <article v-if="selectedTrend" class="trend-reader active-reader">
+        <button class="back-btn" type="button" @click="closeTrendDetail">
+          <i class="fa-solid fa-arrow-left"></i> 트렌드 목록으로 돌아가기
+        </button>
+        <div class="reader-header">
+          <span class="reader-category">{{ selectedTrend.category }}</span>
+          <h1>{{ selectedTrend.title }}</h1>
+          <p class="reader-subtitle">{{ selectedTrend.summary }}</p>
+          <div class="reader-meta">
+            <div class="reader-meta-item"><i class="fa-regular fa-calendar"></i> <span>{{ selectedTrend.date }}</span></div>
+            <div class="reader-meta-item"><i class="fa-regular fa-clock"></i> <span>{{ selectedTrend.readTime }}</span></div>
+            <div class="reader-meta-item"><i class="fa-solid fa-signal"></i> <span>{{ selectedTrend.views }}</span></div>
+          </div>
+        </div>
+
+        <div class="trend-detail-grid">
+          <section class="insight-panel">
+            <h2><i class="fa-solid fa-magnifying-glass-chart"></i> 핵심 분석</h2>
+            <p>{{ selectedTrend.content }}</p>
+          </section>
+
+          <section class="source-panel">
+            <h2><i class="fa-solid fa-link"></i> 근거 출처</h2>
+            <ul class="source-link-list">
+              <li v-for="source in selectedTrend.sourceLinks" :key="source.url">
+                <a :href="safeUrl(source.url)" target="_blank" rel="noopener noreferrer">{{ source.title }}</a>
+                <span>{{ source.source }}</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="trend-detail-sections">
+          <section class="insight-panel">
+            <h2><i class="fa-solid fa-chart-line"></i> 관측된 신호</h2>
+            <ul>
+              <li v-for="trend in selectedTrend.trends" :key="trend">{{ trend }}</li>
+            </ul>
+          </section>
+
+          <section class="insight-panel">
+            <h2><i class="fa-solid fa-user-gear"></i> 개발자에게 의미있는 이유</h2>
+            <ul>
+              <li v-for="reason in selectedTrend.whyMatters" :key="reason">{{ reason }}</li>
+            </ul>
+          </section>
+
+          <section class="insight-panel">
+            <h2><i class="fa-solid fa-list-check"></i> 추천 액션</h2>
+            <ul>
+              <li v-for="action in selectedTrend.developerActions" :key="action">{{ action }}</li>
+            </ul>
+          </section>
+
+          <section class="insight-panel">
+            <h2><i class="fa-solid fa-triangle-exclamation"></i> 리스크와 확인할 점</h2>
+            <ul>
+              <li v-for="risk in selectedTrend.risks" :key="risk">{{ risk }}</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <section v-if="activeTab === 'trends' && !selectedPost && !selectedNews && !selectedTrend" class="tab-content active">
         <div class="summary-panel">
           <div class="summary-header">
             <h2><i class="fa-solid fa-brain"></i> 로컬 AI/IT 트렌드 리포트</h2>
@@ -230,8 +293,8 @@
             v-for="item in displayedTrendItems"
             :key="item.key"
             class="trend-card"
-            :class="{ 'clickable-card': item.kind === 'realtime' }"
-            @click="item.kind === 'realtime' && openNewsDetail(item)"
+            :class="{ 'clickable-card': true }"
+            @click="item.kind === 'realtime' ? openNewsDetail(item) : openTrendDetail(item.id)"
           >
             <template v-if="item.kind === 'realtime'">
               <div>
@@ -274,7 +337,9 @@
                 <div class="card-tags">
                   <span v-for="tag in item.tags" :key="tag" class="card-tag">#{{ tag }}</span>
                 </div>
-                <div><i class="fa-regular fa-eye"></i> {{ item.views }}</div>
+                <button class="inline-detail-btn" type="button" @click.stop="openTrendDetail(item.id)">
+                  상세 인사이트 <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
             </template>
           </article>
@@ -287,7 +352,7 @@
         </div>
       </section>
 
-      <section v-if="activeTab === 'blog' && !selectedPost" class="tab-content active">
+      <section v-if="activeTab === 'blog' && !selectedPost && !selectedNews && !selectedTrend" class="tab-content active">
         <div class="job-guide-section">
           <div class="section-title-wrapper">
             <h2><i class="fa-solid fa-user-shield"></i> 직무별 AI 활용 가이드북</h2>
@@ -415,6 +480,7 @@
     };
   </script>
   <script src="crawled_data.js" onerror="console.log('crawled_data.js not found, using fallback summaries')"></script>
+  <script src="daily_trends.js" onerror="console.log('daily_trends.js not found, using static trend cards')"></script>
   <script src="data.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="app.js"></script>
