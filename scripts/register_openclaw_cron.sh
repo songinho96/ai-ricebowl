@@ -4,6 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 JOB_NAME="ai-ricebowl-daily-rss"
+DISCORD_NOTIFY_TO="${DISCORD_NOTIFY_TO:-}"
 
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
   # shellcheck disable=SC1091
@@ -25,6 +26,22 @@ fi
 
 EXISTING_ID="$(openclaw cron list --json 2>/dev/null | node -e "let data=''; process.stdin.on('data', c => data += c); process.stdin.on('end', () => { const parsed = JSON.parse(data || '{}'); const jobs = parsed.jobs || parsed.entries || []; const hit = jobs.find(j => j.name === '$JOB_NAME'); if (hit) process.stdout.write(hit.id || ''); });")"
 
+DELIVERY_ARGS=(--no-deliver --clear-channel --clear-to --no-failure-alert)
+if [ -n "$DISCORD_NOTIFY_TO" ]; then
+  DELIVERY_ARGS=(
+    --announce
+    --best-effort-deliver
+    --channel discord
+    --to "$DISCORD_NOTIFY_TO"
+    --failure-alert
+    --failure-alert-mode announce
+    --failure-alert-channel discord
+    --failure-alert-to "$DISCORD_NOTIFY_TO"
+    --failure-alert-after 1
+    --failure-alert-cooldown 1h
+  )
+fi
+
 if [ -n "$EXISTING_ID" ]; then
   echo "기존 OpenClaw cron job 업데이트: $EXISTING_ID"
   openclaw cron edit "$EXISTING_ID" \
@@ -34,8 +51,7 @@ if [ -n "$EXISTING_ID" ]; then
     --command-cwd "$PROJECT_DIR" \
     --timeout-seconds 300 \
     --output-max-bytes 20000 \
-    --no-deliver \
-    --clear-channel
+    "${DELIVERY_ARGS[@]}"
 else
   echo "OpenClaw cron job 생성: $JOB_NAME"
   openclaw cron add \
@@ -47,7 +63,7 @@ else
     --command-cwd "$PROJECT_DIR" \
     --timeout-seconds 300 \
     --output-max-bytes 20000 \
-    --no-deliver
+    "${DELIVERY_ARGS[@]}"
 fi
 
 echo "등록 완료. 확인: openclaw cron show <job-id>"

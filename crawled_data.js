@@ -2,6 +2,22 @@
 window.crawledNews = [
   {
     "source": "TechCrunch AI",
+    "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
+    "link": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
+    "description": "Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office, Google Apps with AI.",
+    "pubDate": "Thu, 02 Jul 2026 05:30:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "BE",
+      "AI",
+      "Mobile",
+      "QA"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
     "title": "SpaceX has an AI device prototype, and it sure sounds phone-ish",
     "link": "https://techcrunch.com/2026/07/01/spacex-has-an-ai-device-prototype-and-it-sure-sounds-phone-ish/",
     "description": "SpaceX reportedly showed investors a \"handset-like\" AI device before going public. It could be another signal SpaceX wants to expand into wireless.",
@@ -246,19 +262,6 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "Amazon launches new $1 billion FDE org, following OpenAI and Anthropic",
-    "link": "https://techcrunch.com/2026/06/30/amazon-launches-new-1-billion-fde-org-following-openai-and-anthropic/",
-    "description": "Engineers on the new team will embed within companies to deploy purpose-built agents, focusing on fast deployments and customer self-sufficiency.",
-    "pubDate": "Tue, 30 Jun 2026 15:00:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
     "source": "Hacker News",
     "title": "ZCode – Harness for GLM-5.2",
     "link": "https://zcode.z.ai/en",
@@ -308,18 +311,6 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Global review confirms mRNA vaccines are safe, effective and full of promise ",
-    "link": "https://news.ubc.ca/2026/06/mrna-vaccines-are-safe-effective-and-full-of-promise/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 00:40:14 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
     "title": "Bring back crappy forums",
     "link": "https://tedium.co/2026/07/01/online-web-forums-retrospective/",
     "description": "Comments",
@@ -336,30 +327,6 @@ window.crawledNews = [
     "link": "https://blog.demofox.org/2026/07/01/what-to-learn-to-be-a-graphics-programmer/",
     "description": "Comments",
     "pubDate": "Wed, 01 Jul 2026 17:53:44 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Database Traffic Control",
-    "link": "https://planetscale.com/blog/introducing-database-traffic-control",
-    "description": "Comments",
-    "pubDate": "Tue, 30 Jun 2026 08:58:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DBA"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Physical disc production ending in Jan 2028 for new games on PlayStation",
-    "link": "https://blog.playstation.com/2026/07/01/physical-disc-production-ending-in-january-2028-for-new-games-releasing-on-playstation-consoles/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 12:13:34 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -392,18 +359,6 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "The Underhanded C Contest",
-    "link": "https://underhanded-c.org/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 22:39:15 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "QA"
-    ]
-  },
-  {
-    "source": "Hacker News",
     "title": "Ask HN: Who is hiring? (July 2026)",
     "link": "https://news.ycombinator.com/item?id=48747976",
     "description": "Comments",
@@ -428,14 +383,14 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Show HN: Searchable directory of 22k+ products from worker-owned co-ops",
-    "link": "https://www.workerowned.info/",
+    "title": "The Underhanded C Contest",
+    "link": "https://underhanded-c.org/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 20:47:41 +0000",
+    "pubDate": "Wed, 01 Jul 2026 22:39:15 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "QA"
     ]
   },
   {
@@ -452,34 +407,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "The <Usermedia> HTML Element",
-    "link": "https://developer.chrome.com/blog/usermedia-html-element",
+    "title": "Show HN: Searchable directory of 22k+ products from worker-owned co-ops",
+    "link": "https://www.workerowned.info/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 23:56:15 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Box3D, an open source 3D physics engine",
-    "link": "https://box2d.org/posts/2026/06/announcing-box3d/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 12:12:17 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Weave Robotics launches Isaac 1, a $7,999 home robot with Fall 2026 deliveries",
-    "link": "https://www.weaverobotics.com/isaac-1",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 18:12:18 +0000",
+    "pubDate": "Wed, 01 Jul 2026 20:47:41 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -500,10 +431,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "The vibration of the pager has a sound all its own",
-    "link": "https://www.notyouremergency.com/triage-intro",
+    "title": "Weave Robotics launches Isaac 1, a $7,999 home robot with Fall 2026 deliveries",
+    "link": "https://www.weaverobotics.com/isaac-1",
     "description": "Comments",
-    "pubDate": "Sun, 28 Jun 2026 15:06:43 +0000",
+    "pubDate": "Wed, 01 Jul 2026 18:12:18 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -512,14 +443,14 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Proliferate (YC S25) Is Hiring",
-    "link": "https://www.ycombinator.com/companies/proliferate/jobs/mMHvKR9-founding-product-engineer",
+    "title": "Database Traffic Control",
+    "link": "https://planetscale.com/blog/introducing-database-traffic-control",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:00:14 +0000",
+    "pubDate": "Tue, 30 Jun 2026 08:58:41 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "DBA"
     ]
   },
   {
@@ -548,6 +479,18 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
+    "title": "Chip Off The Old Block",
+    "link": "https://www.astralcodexten.com/p/chip-off-the-old-block",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 21:42:57 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
     "title": "Ask HN: Who wants to be hired? (July 2026)",
     "link": "https://news.ycombinator.com/item?id=48747975",
     "description": "Comments",
@@ -560,10 +503,70 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Chip Off The Old Block",
-    "link": "https://www.astralcodexten.com/p/chip-off-the-old-block",
+    "title": "The <Usermedia> HTML Element",
+    "link": "https://developer.chrome.com/blog/usermedia-html-element",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:42:57 +0000",
+    "pubDate": "Wed, 01 Jul 2026 23:56:15 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The vibration of the pager has a sound all its own",
+    "link": "https://www.notyouremergency.com/triage-intro",
+    "description": "Comments",
+    "pubDate": "Sun, 28 Jun 2026 15:06:43 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Avo 4 released – 15 months and 2000 commits later",
+    "link": "https://avohq.io/blog/avo-4",
+    "description": "Comments",
+    "pubDate": "Mon, 29 Jun 2026 18:04:41 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Proliferate (YC S25) Is Hiring",
+    "link": "https://www.ycombinator.com/companies/proliferate/jobs/mMHvKR9-founding-product-engineer",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 21:00:14 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Why jet engines aren't made in China",
+    "link": "https://aakash.substack.com/p/why-jet-engines-arent-made-in-china",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 00:22:41 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Global review confirms mRNA vaccines are safe, effective and full of promise ",
+    "link": "https://news.ubc.ca/2026/06/mrna-vaccines-are-safe-effective-and-full-of-promise/",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 00:40:14 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -584,14 +587,14 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Why jet engines aren't made in China",
-    "link": "https://aakash.substack.com/p/why-jet-engines-arent-made-in-china",
+    "title": "Kimi K2.7 Code is generally available in GitHub Copilot",
+    "link": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 00:22:41 +0000",
+    "pubDate": "Thu, 02 Jul 2026 04:32:41 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "AI"
     ]
   },
   {
@@ -3081,7 +3084,7 @@ window.crawledNews = [
 
 window.crawledSummaries = {
   "overseas": {
-    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **SpaceX has an AI device prototype, and it sure sounds phone-ish**\n* **Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller**\n* **Cloudflare’s new policy pushes AI companies to pay for publishers’ content**\n* **Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off**\n* **Gemini Spark, Google’s agentic assistant, is now available on Mac**",
+    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office**\n* **SpaceX has an AI device prototype, and it sure sounds phone-ish**\n* **Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller**\n* **Cloudflare’s new policy pushes AI companies to pay for publishers’ content**\n* **Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off**",
     "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
     "monthly": "### 해외 월간 산업 방향성 전망\n\n* 해외에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
   },
