@@ -9,13 +9,30 @@ from collections import Counter
 from pathlib import Path
 
 FEEDS = [
-    {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "lang": "en"},
-    {"name": "Hacker News", "url": "https://news.ycombinator.com/rss", "lang": "en"},
-    {"name": "Toss Tech", "url": "https://toss.tech/rss.xml", "lang": "ko"},
-    {"name": "Kakao Tech", "url": "https://tech.kakao.com/feed/", "lang": "ko"}
+    {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "lang": "en", "region": "overseas"},
+    {"name": "Hacker News", "url": "https://news.ycombinator.com/rss", "lang": "en", "region": "overseas"},
+    {"name": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/", "lang": "en", "region": "overseas"},
+    {"name": "Ars Technica AI", "url": "https://arstechnica.com/ai/feed/", "lang": "en", "region": "overseas"},
+    {"name": "GitHub Engineering", "url": "https://github.blog/engineering/feed/", "lang": "en", "region": "overseas"},
+    {"name": "Netflix TechBlog", "url": "https://netflixtechblog.com/feed", "lang": "en", "region": "overseas"},
+    {"name": "Cloudflare Blog", "url": "https://blog.cloudflare.com/rss/", "lang": "en", "region": "overseas"},
+    {"name": "AWS ML Blog", "url": "https://aws.amazon.com/blogs/machine-learning/feed/", "lang": "en", "region": "overseas"},
+    {"name": "Toss Tech", "url": "https://toss.tech/rss.xml", "lang": "ko", "region": "domestic"},
+    {"name": "Kakao Tech", "url": "https://tech.kakao.com/feed/", "lang": "ko", "region": "domestic"},
+    {"name": "NAVER D2", "url": "https://d2.naver.com/d2.atom", "lang": "ko", "region": "domestic"},
+    {"name": "LINE Engineering", "url": "https://engineering.linecorp.com/ko/feed/", "lang": "ko", "region": "domestic"},
+    {"name": "Woowahan Tech", "url": "https://techblog.woowahan.com/feed/", "lang": "ko", "region": "domestic"},
+    {"name": "Daangn Tech", "url": "https://medium.com/feed/daangn", "lang": "ko", "region": "domestic"}
 ]
 
-def fetch_rss_feed(feed_name, url):
+REGION_LABELS = {
+    "overseas": "해외",
+    "domestic": "국내"
+}
+
+def fetch_rss_feed(feed):
+    feed_name = feed["name"]
+    url = feed["url"]
     print(f"[{feed_name}] RSS 피드 수집 중...")
     try:
         req = urllib.request.Request(
@@ -24,7 +41,7 @@ def fetch_rss_feed(feed_name, url):
         )
         with urllib.request.urlopen(req, timeout=10) as response:
             xml_data = response.read()
-            return parse_rss(xml_data, feed_name)
+            return parse_rss(xml_data, feed)
     except Exception as e:
         print(f"[{feed_name}] 피드 가져오기 실패: {e}")
         return []
@@ -56,40 +73,83 @@ def classify_article(title, description):
         
     return categories
 
-def parse_rss(xml_data, source_name):
+def parse_rss(xml_data, feed):
     items = []
+    source_name = feed["name"]
     try:
         root = ET.fromstring(xml_data)
-        for item in root.findall('.//item'):
-            title = item.find('title')
-            link = item.find('link')
-            desc = item.find('description')
-            pub_date = item.find('pubDate')
-            
-            title_text = title.text if title is not None else "제목 없음"
-            link_text = link.text if link is not None else "#"
-            desc_text = desc.text if desc is not None else ""
-            pub_date_text = pub_date.text if pub_date is not None else ""
-            
-            # HTML 태그 제거 및 텍스트 정리
-            clean_desc = re.sub('<[^<]+?>', '', desc_text).strip() if desc_text else ""
-            if len(clean_desc) > 150:
-                clean_desc = clean_desc[:150] + "..."
+        rss_items = root.findall('.//item')
+        atom_entries = root.findall('.//{http://www.w3.org/2005/Atom}entry')
 
-            items.append({
-                "source": source_name,
-                "title": title_text,
-                "link": link_text,
-                "description": clean_desc,
-                "pubDate": pub_date_text,
-                "categories": classify_article(title_text, clean_desc)
-            })
+        for item in rss_items:
+            add_parsed_item(
+                items,
+                feed,
+                title=get_text(item.find('title'), "제목 없음"),
+                link=get_text(item.find('link'), "#"),
+                description=get_text(item.find('description'), ""),
+                pub_date=get_text(item.find('pubDate'), "")
+            )
+
+        for entry in atom_entries:
+            link_node = entry.find('{http://www.w3.org/2005/Atom}link')
+            link_text = link_node.get('href') if link_node is not None else "#"
+            summary = (
+                get_text(entry.find('{http://www.w3.org/2005/Atom}summary'), "")
+                or get_text(entry.find('{http://www.w3.org/2005/Atom}content'), "")
+            )
+            pub_date = (
+                get_text(entry.find('{http://www.w3.org/2005/Atom}updated'), "")
+                or get_text(entry.find('{http://www.w3.org/2005/Atom}published'), "")
+            )
+            add_parsed_item(
+                items,
+                feed,
+                title=get_text(entry.find('{http://www.w3.org/2005/Atom}title'), "제목 없음"),
+                link=link_text,
+                description=summary,
+                pub_date=pub_date
+            )
     except Exception as e:
         print(f"[{source_name}] XML 파싱 오류: {e}")
     return items
 
-def generate_local_summaries(news_items):
-    print("로컬 규칙 기반 최신 AI/IT 트렌드 요약 생성 중...")
+def get_text(node, fallback=""):
+    return node.text if node is not None and node.text is not None else fallback
+
+def add_parsed_item(items, feed, title, link, description, pub_date):
+    clean_desc = re.sub('<[^<]+?>', '', description).strip() if description else ""
+    if len(clean_desc) > 150:
+        clean_desc = clean_desc[:150] + "..."
+
+    items.append({
+        "source": feed["name"],
+        "title": title,
+        "link": link,
+        "description": clean_desc,
+        "pubDate": pub_date,
+        "region": feed["region"],
+        "regionLabel": REGION_LABELS.get(feed["region"], "기타"),
+        "categories": classify_article(title, clean_desc)
+    })
+
+def generate_region_summary(news_items, region_label):
+    if not news_items:
+        return {
+            "daily": (
+                f"### {region_label} 핵심 트렌드 요약\n\n"
+                f"* 아직 수집된 {region_label} RSS 항목이 없습니다.\n"
+                "* 크롤러 설정과 RSS 피드 상태를 확인해 주세요."
+            ),
+            "weekly": (
+                f"### {region_label} 주간 기술 흐름 분석\n\n"
+                f"* {region_label} 데이터가 수집되면 주요 직무/기술 태그 분포를 기반으로 요약이 표시됩니다."
+            ),
+            "monthly": (
+                f"### {region_label} 월간 산업 방향성 전망\n\n"
+                f"* {region_label} RSS 신호가 충분히 쌓이면 장기 흐름을 더 안정적으로 읽을 수 있습니다."
+            )
+        }
 
     category_counter = Counter()
     source_counter = Counter(item["source"] for item in news_items)
@@ -106,23 +166,37 @@ def generate_local_summaries(news_items):
 
     return {
         "daily": (
-            "### 오늘 핵심 트렌드 요약\n\n"
-            f"* 총 **{len(news_items)}개**의 최신 RSS 항목을 수집했습니다.\n"
+            f"### {region_label} 핵심 트렌드 요약\n\n"
+            f"* 총 **{len(news_items)}개**의 {region_label} RSS 항목을 수집했습니다.\n"
             f"* 현재 가장 자주 감지된 직무/기술 축은 **{category_text}** 입니다.\n"
             f"* 주요 수집 출처는 **{source_text}** 입니다.\n\n"
             f"{title_lines}"
         ),
         "weekly": (
-            "### 주간 기술 흐름 분석\n\n"
-            f"* 최근 피드에서는 **{category_text}** 관련 항목의 비중이 높습니다.\n"
+            f"### {region_label} 주간 기술 흐름 분석\n\n"
+            f"* 최근 {region_label} 피드에서는 **{category_text}** 관련 항목의 비중이 높습니다.\n"
             "* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n"
             "* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다."
         ),
         "monthly": (
-            "### 월간 산업 방향성 전망\n\n"
-            "* 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n"
+            f"### {region_label} 월간 산업 방향성 전망\n\n"
+            f"* {region_label}에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n"
             "* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n"
             "* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
+        )
+    }
+
+def generate_local_summaries(news_items):
+    print("로컬 규칙 기반 최신 AI/IT 트렌드 요약 생성 중...")
+
+    return {
+        "overseas": generate_region_summary(
+            [item for item in news_items if item.get("region") == "overseas"],
+            "해외"
+        ),
+        "domestic": generate_region_summary(
+            [item for item in news_items if item.get("region") == "domestic"],
+            "국내"
         )
     }
 
@@ -130,7 +204,7 @@ def main():
     print("=== AI 밥그릇 실시간 뉴스 크롤러 가동 ===")
     all_items = []
     for feed in FEEDS:
-        items = fetch_rss_feed(feed["name"], feed["url"])
+        items = fetch_rss_feed(feed)
         all_items.extend(items)
     
     if not all_items:
