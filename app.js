@@ -116,6 +116,20 @@ function renderBlogSectionHtml(post) {
   return html.join('\n');
 }
 
+function normalizeTrendCard(card) {
+  return {
+    readTime: '6 min read',
+    views: 'Daily',
+    tags: [],
+    trends: [],
+    sourceLinks: [],
+    whyMatters: [],
+    developerActions: [],
+    risks: [],
+    ...card
+  };
+}
+
 function readJsonStorage(key, fallback) {
   try {
     const stored = localStorage.getItem(key);
@@ -139,8 +153,9 @@ createApp({
       bookmarkedIds: readJsonStorage(STORAGE_KEYS.bookmarks, []),
       selectedPostId: null,
       selectedNewsKey: null,
+      selectedTrendId: null,
       showBackToTop: false,
-      trends: window.aiTrendsData || [],
+      trends: (window.dailyTrendCards || window.aiTrendsData || []).map(normalizeTrendCard),
       blogPosts: window.blogPostsData || [],
       jobRoles: window.jobRolesData || {},
       crawledNews: window.crawledNews || [],
@@ -340,6 +355,10 @@ createApp({
 
     selectedPostHtml() {
       return renderBlogSectionHtml(this.selectedPost);
+    },
+
+    selectedTrend() {
+      return this.trends.find((trend) => trend.id === this.selectedTrendId) || null;
     }
   },
 
@@ -370,6 +389,7 @@ createApp({
     goHome() {
       this.selectedPostId = null;
       this.selectedNewsKey = null;
+      this.selectedTrendId = null;
       this.activeTab = 'trends';
       this.scrollTop();
     },
@@ -377,6 +397,7 @@ createApp({
     switchTab(tabId) {
       this.selectedPostId = null;
       this.selectedNewsKey = null;
+      this.selectedTrendId = null;
       this.activeTab = tabId;
       this.scrollTop();
     },
@@ -407,6 +428,7 @@ createApp({
     openPost(postId) {
       this.selectedPostId = postId;
       this.selectedNewsKey = null;
+      this.selectedTrendId = null;
       this.scrollTop();
     },
 
@@ -416,9 +438,23 @@ createApp({
       this.scrollTop();
     },
 
+    openTrendDetail(trendId) {
+      this.selectedTrendId = trendId;
+      this.selectedPostId = null;
+      this.selectedNewsKey = null;
+      this.activeTab = 'trends';
+      this.scrollTop();
+    },
+
+    closeTrendDetail() {
+      this.selectedTrendId = null;
+      this.scrollTop();
+    },
+
     openNewsDetail(item) {
       this.selectedNewsKey = item.key;
       this.selectedPostId = null;
+      this.selectedTrendId = null;
       this.activeTab = 'trends';
       this.scrollTop();
     },
