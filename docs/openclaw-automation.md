@@ -37,8 +37,14 @@ bash scripts/register_openclaw_cron.sh
 - 명령: `bash run_crawler.sh`
 - 작업 디렉터리: 프로젝트 루트
 - 동작: RSS 수집 후 `crawled_data.js` 갱신
-- 알림: 없음
+- 알림: 기본 없음. `DISCORD_NOTIFY_TO`를 지정하면 Discord 완료/실패 알림 전송
 - Python: 기본값 `/usr/bin/python3`, 필요하면 `PYTHON_BIN` 환경 변수로 변경 가능
+
+Discord 알림을 함께 등록하려면 OpenClaw Discord 채널을 먼저 설정한 뒤 다음처럼 실행한다.
+
+```bash
+DISCORD_NOTIFY_TO="channel:<discord-channel-id>" bash scripts/register_openclaw_cron.sh
+```
 
 ## 수동 실행 및 확인
 
@@ -56,6 +62,7 @@ tail -80 crawler.log
 
 - job id: `68c1a4e2-6039-4205-8e02-97082672c3d4`
 - next run: 매일 오전 9시, `Asia/Seoul`
+- delivery: `discord:channel:1522113030924664934`
 
 이 값은 로컬 OpenClaw 상태에 저장되므로 다른 환경에서는 `scripts/register_openclaw_cron.sh`로 다시 등록하면 된다.
 
