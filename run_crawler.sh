@@ -1,13 +1,15 @@
 #!/bin/bash
+set -euo pipefail
 
 # AI 밥그릇 실시간 크롤러 실행기
 # 이 스크립트를 주기적으로 실행하면 최신 IT 뉴스와 로컬 요약본이 갱신됩니다.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 LOG_FILE="$SCRIPT_DIR/crawler.log"
+PYTHON_BIN="${PYTHON_BIN:-/usr/bin/python3}"
 
 echo "[$(date)] 크롤링 작업 시작..." >> "$LOG_FILE"
-python3 "$SCRIPT_DIR/crawler.py" >> "$LOG_FILE" 2>&1
+"$PYTHON_BIN" "$SCRIPT_DIR/crawler.py" >> "$LOG_FILE" 2>&1
 echo "[$(date)] 크롤링 작업 종료." >> "$LOG_FILE"
 
 # --- cron 스케줄링 가이드 ---

@@ -11,7 +11,7 @@ from pathlib import Path
 FEEDS = [
     {"name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "lang": "en", "region": "overseas"},
     {"name": "Hacker News", "url": "https://news.ycombinator.com/rss", "lang": "en", "region": "overseas"},
-    {"name": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/", "lang": "en", "region": "overseas"},
+    {"name": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed", "lang": "en", "region": "overseas"},
     {"name": "Ars Technica AI", "url": "https://arstechnica.com/ai/feed/", "lang": "en", "region": "overseas"},
     {"name": "GitHub Engineering", "url": "https://github.blog/engineering/feed/", "lang": "en", "region": "overseas"},
     {"name": "Netflix TechBlog", "url": "https://netflixtechblog.com/feed", "lang": "en", "region": "overseas"},
