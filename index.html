@@ -53,17 +53,31 @@
         <div class="summary-panel">
           <div class="summary-header">
             <h2><i class="fa-solid fa-brain"></i> 로컬 AI/IT 트렌드 리포트</h2>
-            <div class="summary-tabs">
-              <button
-                v-for="period in summaryPeriods"
-                :key="period.id"
-                class="summary-tab-btn"
-                :class="{ active: activeSummaryPeriod === period.id }"
-                type="button"
-                @click="activeSummaryPeriod = period.id"
-              >
-                {{ period.label }}
-              </button>
+            <div class="summary-controls">
+              <div class="summary-tabs">
+                <button
+                  v-for="region in newsRegions"
+                  :key="region.id"
+                  class="summary-tab-btn"
+                  :class="{ active: activeNewsRegion === region.id }"
+                  type="button"
+                  @click="activeNewsRegion = region.id"
+                >
+                  <i :class="region.icon"></i> {{ region.label }}
+                </button>
+              </div>
+              <div class="summary-tabs">
+                <button
+                  v-for="period in summaryPeriods"
+                  :key="period.id"
+                  class="summary-tab-btn"
+                  :class="{ active: activeSummaryPeriod === period.id }"
+                  type="button"
+                  @click="activeSummaryPeriod = period.id"
+                >
+                  {{ period.label }}
+                </button>
+              </div>
             </div>
           </div>
           <div class="summary-body" v-html="currentSummaryHtml"></div>
@@ -89,6 +103,20 @@
           </div>
 
           <div v-if="activeCategoryFilter === 'realtime'" class="sub-filter-row">
+            <span><i class="fa-solid fa-globe"></i> 뉴스 권역:</span>
+            <button
+              v-for="region in newsRegions"
+              :key="region.id"
+              class="job-sub-btn"
+              :class="{ active: activeNewsRegion === region.id }"
+              type="button"
+              @click="activeNewsRegion = region.id"
+            >
+              {{ region.label }}
+            </button>
+          </div>
+
+          <div v-if="activeCategoryFilter === 'realtime'" class="sub-filter-row">
             <span><i class="fa-solid fa-user-gear"></i> 직무 분류:</span>
             <button
               v-for="job in realtimeJobFilters"
@@ -104,18 +132,25 @@
         </div>
 
         <div class="cards-grid">
-          <article v-for="item in displayedTrendItems" :key="item.key" class="trend-card">
+          <article
+            v-for="item in displayedTrendItems"
+            :key="item.key"
+            class="trend-card"
+            :class="{ 'clickable-card': item.kind === 'realtime' }"
+            @click="item.kind === 'realtime' && openNews(item)"
+          >
             <template v-if="item.kind === 'realtime'">
               <div>
                 <div class="card-header">
                   <span class="card-category" :class="`realtime-tag-${sourceCode(item.source)}`">{{ item.source }}</span>
+                  <span class="card-region">{{ regionLabel(item) }}</span>
                 </div>
                 <h3>{{ item.title }}</h3>
                 <p class="summary">{{ item.description || '상세 내용 요약이 없습니다. 원문 보기 링크를 통해 전체 기사를 확인하세요.' }}</p>
               </div>
               <div class="card-footer">
                 <span><i class="fa-regular fa-clock"></i> {{ shortDate(item.pubDate) }}</span>
-                <a :href="safeUrl(item.link)" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+                <a :href="safeUrl(item.link)" target="_blank" rel="noopener noreferrer" class="news-link-btn" @click.stop>
                   원문 보기 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
@@ -273,9 +308,16 @@
   <script>
     window.crawledNews = window.crawledNews || [];
     window.crawledSummaries = window.crawledSummaries || {
-      daily: "### 오늘 핵심 트렌드 요약\n\n* 크롤링 작업이 아직 수행되지 않았습니다.\n* 터미널에서 `bash run_crawler.sh`를 실행하여 실시간 데이터를 수집해 보세요.\n* 기본 요약 데이터가 대신 표시됩니다.",
-      weekly: "### 주간 AI 기술 흐름 분석\n\n* 크롤링 데이터가 없을 때 표시되는 기본 주간 요약입니다.\n* RSS 수집 후에는 수집된 기사 분포를 기반으로 로컬 요약이 생성됩니다.",
-      monthly: "### 월간 산업 방향성 전망\n\n* 외부 생성형 API 없이 RSS 피드만으로 가볍게 동작합니다.\n* 크롤러 실행 후 최신 수집 결과가 이 영역에 반영됩니다."
+      overseas: {
+        daily: "### 해외 핵심 트렌드 요약\n\n* 크롤링 작업이 아직 수행되지 않았습니다.\n* 터미널에서 `bash run_crawler.sh`를 실행하여 해외 RSS 데이터를 수집해 보세요.\n* 기본 요약 데이터가 대신 표시됩니다.",
+        weekly: "### 해외 주간 기술 흐름 분석\n\n* 해외 크롤링 데이터가 없을 때 표시되는 기본 주간 요약입니다.\n* RSS 수집 후에는 해외 기사 분포를 기반으로 로컬 요약이 생성됩니다.",
+        monthly: "### 해외 월간 산업 방향성 전망\n\n* 외부 생성형 API 없이 해외 RSS 피드만으로 가볍게 동작합니다.\n* 크롤러 실행 후 최신 수집 결과가 이 영역에 반영됩니다."
+      },
+      domestic: {
+        daily: "### 국내 핵심 트렌드 요약\n\n* 크롤링 작업이 아직 수행되지 않았습니다.\n* 터미널에서 `bash run_crawler.sh`를 실행하여 국내 RSS 데이터를 수집해 보세요.\n* 기본 요약 데이터가 대신 표시됩니다.",
+        weekly: "### 국내 주간 기술 흐름 분석\n\n* 국내 크롤링 데이터가 없을 때 표시되는 기본 주간 요약입니다.\n* RSS 수집 후에는 국내 기사 분포를 기반으로 로컬 요약이 생성됩니다.",
+        monthly: "### 국내 월간 산업 방향성 전망\n\n* 외부 생성형 API 없이 국내 RSS 피드만으로 가볍게 동작합니다.\n* 크롤러 실행 후 최신 수집 결과가 이 영역에 반영됩니다."
+      }
     };
   </script>
   <script src="crawled_data.js" onerror="console.log('crawled_data.js not found, using fallback summaries')"></script>

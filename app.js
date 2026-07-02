@@ -131,6 +131,7 @@ createApp({
       activeTab: 'trends',
       activeCategoryFilter: 'all',
       activeJobFilter: 'all',
+      activeNewsRegion: 'overseas',
       activeSummaryPeriod: 'daily',
       activeJobGuide: 'FE',
       searchQuery: '',
@@ -151,6 +152,10 @@ createApp({
         { id: 'daily', label: '오늘의 동향' },
         { id: 'weekly', label: '주간 분석' },
         { id: 'monthly', label: '월간 전망' }
+      ],
+      newsRegions: [
+        { id: 'overseas', label: '해외', icon: 'fa-solid fa-globe' },
+        { id: 'domestic', label: '국내', icon: 'fa-solid fa-location-dot' }
       ],
       categoryFilters: [
         { id: 'all', label: '전체보기' },
@@ -207,7 +212,12 @@ createApp({
     },
 
     currentSummaryHtml() {
-      return renderSafeMarkdown(this.crawledSummaries[this.activeSummaryPeriod] || '요약 데이터를 불러올 수 없습니다.');
+      const regionSummary = this.crawledSummaries[this.activeNewsRegion];
+      const summary = typeof regionSummary === 'object'
+        ? regionSummary[this.activeSummaryPeriod]
+        : this.crawledSummaries[this.activeSummaryPeriod];
+
+      return renderSafeMarkdown(summary || '요약 데이터를 불러올 수 없습니다.');
     },
 
     normalizedSearchQuery() {
@@ -218,6 +228,10 @@ createApp({
       if (this.activeCategoryFilter === 'realtime') {
         return this.crawledNews
           .filter((item) => {
+            if (this.normalizedRegion(item) !== this.activeNewsRegion) {
+              return false;
+            }
+
             if (this.activeJobFilter !== 'all' && !(item.categories || []).includes(this.activeJobFilter)) {
               return false;
             }
@@ -227,7 +241,8 @@ createApp({
             return [
               item.title,
               item.description,
-              item.source
+              item.source,
+              item.regionLabel
             ].some((value) => String(value || '').toLowerCase().includes(this.normalizedSearchQuery));
           })
           .map((item, index) => ({
@@ -265,6 +280,9 @@ createApp({
       if (this.activeCategoryFilter === 'realtime' && this.crawledNews.length === 0) {
         return '수집된 실시간 뉴스 데이터가 없습니다';
       }
+      if (this.activeCategoryFilter === 'realtime') {
+        return `${this.activeRegionLabel} 뉴스 검색 결과가 없습니다`;
+      }
       return '일치하는 검색 결과가 없습니다';
     },
 
@@ -272,7 +290,14 @@ createApp({
       if (this.activeCategoryFilter === 'realtime' && this.crawledNews.length === 0) {
         return '터미널에서 bash run_crawler.sh 명령어를 실행해 RSS 데이터를 수집해 보세요.';
       }
+      if (this.activeCategoryFilter === 'realtime') {
+        return '다른 권역, 직무 필터, 검색어로 다시 확인해 보세요.';
+      }
       return '다른 검색어를 입력하시거나 카테고리 필터를 변경해 보세요.';
+    },
+
+    activeRegionLabel() {
+      return this.newsRegions.find((region) => region.id === this.activeNewsRegion)?.label || '선택한 권역';
     },
 
     currentJobGuide() {
@@ -356,6 +381,27 @@ createApp({
       this.selectedPostId = null;
       this.activeTab = 'blog';
       this.scrollTop();
+    },
+
+    normalizedRegion(item) {
+      if (item.region === 'domestic' || item.region === 'overseas') {
+        return item.region;
+      }
+
+      const source = String(item.source || '');
+      const domesticSources = ['Toss', 'Kakao', 'NAVER', 'LINE', 'Woowahan', 'Daangn'];
+      return domesticSources.some((domesticSource) => source.includes(domesticSource)) ? 'domestic' : 'overseas';
+    },
+
+    regionLabel(item) {
+      return this.normalizedRegion(item) === 'domestic' ? '국내' : '해외';
+    },
+
+    openNews(item) {
+      const url = this.safeUrl(item.link);
+      if (url !== '#') {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
     },
 
     sourceCode(source = '') {

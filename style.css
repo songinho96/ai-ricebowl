@@ -387,6 +387,10 @@ main {
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25);
 }
 
+.clickable-card {
+  cursor: pointer;
+}
+
 .trend-card:hover::before {
   opacity: 1;
 }
@@ -407,6 +411,15 @@ main {
   border-radius: 12px;
   text-transform: uppercase;
   border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.card-region {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.2rem 0.6rem;
 }
 
 .bookmark-btn {
@@ -999,6 +1012,13 @@ footer {
 .summary-tabs {
   display: flex;
   gap: 0.5rem;
+}
+
+.summary-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .summary-tab-btn {
