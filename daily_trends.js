@@ -2,10 +2,10 @@
 // 파일이 없거나 로드에 실패하면 data.js의 기본 aiTrendsData가 사용됩니다.
 window.dailyTrendCards = [
   {
-    id: "daily-2026-07-02-agent-runtime-infra",
+    id: "daily-2026-07-03-agent-runtime-infra",
     title: "에이전트는 앱 기능이 아니라 런타임 인프라가 되고 있다",
     category: "Agent",
-    date: "2026-07-02",
+    date: "2026-07-03",
     readTime: "8 min read",
     views: "Codex Daily",
     tags: ["Agent", "Runtime", "MCP", "A2A", "Cloudflare", "AWS"],
@@ -56,10 +56,10 @@ window.dailyTrendCards = [
     ]
   },
   {
-    id: "daily-2026-07-02-context-engineering",
+    id: "daily-2026-07-03-context-engineering",
     title: "컨텍스트 엔지니어링이 AI 개발 생산성의 병목으로 부상",
     category: "AI",
-    date: "2026-07-02",
+    date: "2026-07-03",
     readTime: "7 min read",
     views: "Codex Daily",
     tags: ["Context Engineering", "RAG", "Memory", "Token Cost", "Developer Experience"],
@@ -110,10 +110,10 @@ window.dailyTrendCards = [
     ]
   },
   {
-    id: "daily-2026-07-02-ai-verification-loop",
+    id: "daily-2026-07-03-ai-verification-loop",
     title: "AI 시대 개발 능력은 생성보다 검증 루프에서 갈린다",
     category: "Tool",
-    date: "2026-07-02",
+    date: "2026-07-03",
     readTime: "7 min read",
     views: "Codex Daily",
     tags: ["Testing", "E2E", "Observability", "Code Review", "QA"],
@@ -164,10 +164,10 @@ window.dailyTrendCards = [
     ]
   },
   {
-    id: "daily-2026-07-02-agent-security-monetization",
+    id: "daily-2026-07-03-agent-security-monetization",
     title: "에이전트 보안과 콘텐츠 과금이 AI 제품의 기본 설계 항목으로 들어왔다",
     category: "Security",
-    date: "2026-07-02",
+    date: "2026-07-03",
     readTime: "6 min read",
     views: "Codex Daily",
     tags: ["Security", "AuthZ", "Crawler", "Monetization", "Supply Chain"],
@@ -218,10 +218,10 @@ window.dailyTrendCards = [
     ]
   },
   {
-    id: "daily-2026-07-02-korea-ai-workflow",
+    id: "daily-2026-07-03-korea-ai-workflow",
     title: "국내 기술 조직은 AI를 개인 도구가 아니라 조직 학습 시스템으로 다루기 시작했다",
     category: "AI",
-    date: "2026-07-02",
+    date: "2026-07-03",
     readTime: "6 min read",
     views: "Codex Daily",
     tags: ["Organization", "Workshop", "Documentation", "Workflow", "AI Adoption"],
