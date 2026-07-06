@@ -59,6 +59,11 @@ bash run_crawler.sh
 
 OpenClaw로 매일 오전 9시에 자동 수집하려면 [docs/openclaw-automation.md](docs/openclaw-automation.md)를 참고하세요.
 
+제품 방향성과 OpenClaw 스킬 운영 기준은 다음 문서를 참고하세요.
+
+- [docs/product-direction.md](docs/product-direction.md)
+- [docs/openclaw-skill-roadmap.md](docs/openclaw-skill-roadmap.md)
+
 ### 2. 프론트엔드 웹 대시보드 구동
 로컬 웹 서버를 띄워 대시보드 화면을 확인합니다.
 ```bash

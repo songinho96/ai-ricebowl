@@ -18,6 +18,7 @@ The report should help the user understand:
 - Which stories matter most for developers and product builders
 - Which signals are worth watching next
 - What concrete follow-up actions make sense
+- Which product or team workflow opportunities are emerging
 
 ## Standard Workflow
 
@@ -38,6 +39,8 @@ The report should help the user understand:
    - recurring technical themes
    - high-signal articles
    - weak/noisy/duplicated articles
+   - product opportunities for AI RiceBowl
+   - developer survival guide themes
 
 4. Produce a Korean markdown report under:
 
@@ -96,6 +99,8 @@ The report should help the user understand:
 
 8. If Discord delivery is available in the environment, send a short digest to the configured AI RiceBowl Discord channel. If delivery fails or is unavailable, leave the report file and mention the failure in the final automation result.
 
+9. When useful, update planning notes or recommend backlog changes using `docs/product-direction.md` as the product north star. Do not turn every daily run into a planning rewrite; only update planning docs when a repeated signal changes product direction.
+
 ## Report Format
 
 Use this structure:
@@ -133,6 +138,9 @@ Use this structure:
 - Survival guide posts should be detailed enough to act on: include checklists, review questions, operational failure modes, testing guidance, architecture trade-offs, and concrete prompt/workflow examples when useful.
 - Do not write generic motivation. Each guide should answer "what should a working developer do differently tomorrow morning?"
 - Prefer topics such as AI-assisted development discipline, code review, test strategy, observability, security hygiene, architecture decision-making, career resilience, documentation, and team workflow design.
+- Treat AI RiceBowl as a developer operating brief, not a general news portal.
+- Prefer insights that can become a team checklist, adoption decision, risk guardrail, or product opportunity.
+- Track repeated signals over time. A single article can justify a card; repeated source patterns should justify roadmap or product-direction notes.
 
 ## Discord Digest Format
 

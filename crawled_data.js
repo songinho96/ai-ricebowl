@@ -2,9 +2,172 @@
 window.crawledNews = [
   {
     "source": "TechCrunch AI",
+    "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
+    "link": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
+    "description": "Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Go...",
+    "pubDate": "Sat, 04 Jul 2026 20:55:25 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
+    "link": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
+    "description": "As part of an ongoing legal dispute with three Hollywood studios, Midjourney is seeking to compel those studios to reveal how they use AI themselves.",
+    "pubDate": "Sat, 04 Jul 2026 18:00:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Alibaba reportedly bans employees from using Claude Code",
+    "link": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+    "description": "Alibaba has reportedly classified Claude Code as high-risk software.",
+    "pubDate": "Sat, 04 Jul 2026 16:32:08 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
+    "link": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
+    "description": "Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to “put frontier AI ...",
+    "pubDate": "Sat, 04 Jul 2026 15:51:32 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The only AI glossary you’ll need this year",
+    "link": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+    "description": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases yo...",
+    "pubDate": "Fri, 03 Jul 2026 21:20:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari",
+    "link": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/",
+    "description": "We’ve compiled an overview of some of the top alternative browsers available today aiming to challenge Chrome and Safari.",
+    "pubDate": "Fri, 03 Jul 2026 18:43:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Mark Zuckerberg tells staff that AI agents haven’t progressed as quickly as he’d hoped",
+    "link": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
+    "description": "At an internal meeting, the Meta CEO reportedly said that AI development efforts were not moving as quickly as anticipated.",
+    "pubDate": "Thu, 02 Jul 2026 23:38:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Jersey Mike’s IPO illustrates how bad the AI hype has become",
+    "link": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/",
+    "description": "Just for kicks, I took a look at Jersey Mike's IPO documents. Surely a sandwich shop would have no need to mention AI. But lo and behold.",
+    "pubDate": "Thu, 02 Jul 2026 20:11:59 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Meta quietly launches vibe-coded gaming app Pocket",
+    "link": "https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/",
+    "description": "Meta has quietly launched Pocket, an experimental AI app that lets users generate and share interactive mini games using text prompts.",
+    "pubDate": "Thu, 02 Jul 2026 18:44:02 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Anthropic is discussing a new custom chip with Samsung",
+    "link": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
+    "description": "The news comes about a week after OpenAI announced its own custom AI chip in a partnership with Broadcom.",
+    "pubDate": "Thu, 02 Jul 2026 18:31:09 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "OpenAI proposed donating 5% of its equity to a US sovereign wealth fund",
+    "link": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
+    "description": "OpenAI CEO Sam Altman has reportedly proposed giving 5% of the company’s equity to a U.S. sovereign wealth fund, reviving discussions about letting th...",
+    "pubDate": "Thu, 02 Jul 2026 15:20:51 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Microsoft launches its own AI deployment company with $2.5 billion commitment",
+    "link": "https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/",
+    "description": "Microsoft follows Amazon, OpenAI, and Anthropic with its new AI deployment group.",
+    "pubDate": "Thu, 02 Jul 2026 13:53:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Yep, we’re using OpenClaw to date now",
+    "link": "https://techcrunch.com/2026/07/02/yep-were-using-openclaw-to-date-now/",
+    "description": "Ben Guez has \"a bunch of potential international wives in [his] DMs,\" thanks to an automated script he set up using OpenClaw, Claude code, and Instagr...",
+    "pubDate": "Thu, 02 Jul 2026 12:00:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
     "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
     "link": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
-    "description": "Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office, Google Apps with AI.",
+    "description": "Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office and Google Apps with AI...",
     "pubDate": "Thu, 02 Jul 2026 05:30:00 +0000",
     "region": "overseas",
     "regionLabel": "해외",
@@ -97,24 +260,132 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "Meta, like SpaceX, looks to turn excess AI compute into cash",
-    "link": "https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/",
-    "description": "Meta is developing plans for a cloud infrastructure business, selling access to AI compute power and models. The move would pit it against the big clo...",
-    "pubDate": "Wed, 01 Jul 2026 13:43:07 +0000",
+    "source": "Hacker News",
+    "title": "Shadcn/UI now defaults to Base UI instead of Radix",
+    "link": "https://ui.shadcn.com/docs/changelog",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 04:46:08 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "DevOps",
-      "AI"
+      "FE"
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "The ‘Father of the Internet’ is finally retiring",
-    "link": "https://techcrunch.com/2026/06/30/the-father-of-the-internet-is-finally-retiring/",
-    "description": "Vinton Cerf, one of the creators of the protocols underlying the internet, will step down as Google's chief internet evangelist next week.",
-    "pubDate": "Wed, 01 Jul 2026 03:15:37 +0000",
+    "source": "Hacker News",
+    "title": "sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25)",
+    "link": "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 06:19:34 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "DBA"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Command and Conquer Generals natively ported to macOS, iPhone, iPad using Fable",
+    "link": "https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 19:41:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "If you're a button, you have one job",
+    "link": "https://unsung.aresluna.org/if-youre-a-button-you-have-one-job/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 02:01:03 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Pandoc Lua Filters",
+    "link": "https://pandoc.org/lua-filters.html",
+    "description": "Comments",
+    "pubDate": "Fri, 03 Jul 2026 09:52:51 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "GPT-5.5 Codex reasoning-token clustering may be leading to degraded performance",
+    "link": "https://github.com/openai/codex/issues/30364",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 21:51:09 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Apocketlypse",
+    "link": "https://0dd.company/galleries/triumph/1.html",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 08:32:09 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Megawatts by Microwave",
+    "link": "https://computer.rip/2026-07-04-microwave-and-power.html",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 05:56:03 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Is The Economist Always Wrong?",
+    "link": "https://economist.com/interactive/finance-and-economics/2026/07/02/is-the-economist-always-wrong",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 06:40:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Jellyfish can heal wounds in minutes. Scientists want their secrets",
+    "link": "https://www.mbl.edu/news/jellyfish-can-heal-wounds-minutes-scientists-want-their-secrets",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 22:36:28 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Google Books (or similar) all book scans – $200k bounty (2025)",
+    "link": "https://software.annas-archive.gl/AnnaArchivist/annas-archive/-/work_items/234",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 16:51:26 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -122,151 +393,11 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "Trump drops restrictions on Anthropic’s Mythos and Fable models",
-    "link": "https://techcrunch.com/2026/06/30/trump-drops-restrictions-on-anthropics-mythos-and-fable-models/",
-    "description": "The Trump administration's erratic approach to AI policymaking has left companies across the industry with little clarity about what will govern futur...",
-    "pubDate": "Wed, 01 Jul 2026 02:16:06 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Wayve launches $85M employee tender offer at $8.5B valuation",
-    "link": "https://techcrunch.com/2026/06/30/wayve-launches-85m-employee-tender-offer-at-8-5b-valuation/",
-    "description": "Wayve’s offering is part of a growing trend of AI startups using employee tenders as a strategic tool to attract and retain talent.",
-    "pubDate": "Wed, 01 Jul 2026 02:04:40 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "OpenClaw is finally available on Android and iOS",
-    "link": "https://techcrunch.com/2026/06/30/openclaw-is-finally-available-on-android-and-ios/",
-    "description": "The free open source agentic program is finally invading your phone.",
-    "pubDate": "Tue, 30 Jun 2026 21:53:28 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The DeepMind trio who built a poker AI are now making money for quant hedge funds",
-    "link": "https://techcrunch.com/2026/06/30/the-deepmind-trio-who-built-a-poker-ai-are-now-making-money-for-quant-hedge-funds/",
-    "description": "EquiLibre Technologies, a Prague-based AI lab founded by three ex-DeepMind researchers, is now valued at more than $500 million.",
-    "pubDate": "Tue, 30 Jun 2026 20:33:48 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Google introduces a faster, cheaper image generator with Nano Banana 2 Lite",
-    "link": "https://techcrunch.com/2026/06/30/google-introduces-a-faster-cheaper-image-generator-with-nano-banana-2-lite/",
-    "description": "Google is updating its image generator to make it faster and cheaper, making it a more useful tool for creators looking to make AI content.",
-    "pubDate": "Tue, 30 Jun 2026 19:02:38 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Nvidia competitor Etched hits $5B valuation, $1B in sales for AI chip",
-    "link": "https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/",
-    "description": "Nvidia AI chip competitor Etched says it has already booked $1 billion under contract for the inference systems powered by its chip.",
-    "pubDate": "Tue, 30 Jun 2026 18:13:02 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Anthropic launches Claude Sonnet 5 as a cheaper way to run agents",
-    "link": "https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/",
-    "description": "Anthropic’s Claude Sonnet 5 brings stronger agentic capabilities, lower pricing, and improved safety, positioning the model as a cheaper alternative t...",
-    "pubDate": "Tue, 30 Jun 2026 18:00:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Acti puts AI agents directly into your smartphone keyboard",
-    "link": "https://techcrunch.com/2026/06/30/acti-puts-ai-agents-directly-into-your-smartphone-keyboard/",
-    "description": "Acti is betting the smartphone keyboard is the next home for AI assistants. The startup's new keyboard for iOS and Android works across apps and lets ...",
-    "pubDate": "Tue, 30 Jun 2026 17:52:46 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Anthropic’s Claude Science bets on workflow, not a new model, to win over scientists",
-    "link": "https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/",
-    "description": "Anthropic's Claude Science is a workbench that gives scientists one environment to do computational research, saving them from the need to bounce betw...",
-    "pubDate": "Tue, 30 Jun 2026 17:00:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "X now offers an MCP server to make its platform easier for AI tools to use",
-    "link": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/",
-    "description": "X has launched a hosted MCP server, making it easier for developers to connect AI applications with the company’s API.",
-    "pubDate": "Tue, 30 Jun 2026 15:08:42 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Podcasting platform Riverside enters the newsletter publishing game",
-    "link": "https://techcrunch.com/2026/06/30/podcasting-platform-riverside-enters-the-newsletter-publishing-game/",
-    "description": "Users will be able use AI to create newsletters based on their recordings.",
-    "pubDate": "Tue, 30 Jun 2026 15:00:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
     "source": "Hacker News",
-    "title": "ZCode – Harness for GLM-5.2",
-    "link": "https://zcode.z.ai/en",
+    "title": "Leaking YouTube creators' private videos",
+    "link": "https://javoriuski.com/post/youtube",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 22:03:36 +0000",
+    "pubDate": "Sat, 04 Jul 2026 16:45:10 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -275,10 +406,70 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Oomwoo, an open-source robot vacuum you build yourself",
-    "link": "https://makerspet.com/blog/building-an-open-source-robot-vacuum-meet-oomwoo/",
+    "title": "Moby Dick Workout",
+    "link": "https://www.hogbaysoftware.com/posts/moby-dick-workout/",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 00:48:01 +0000",
+    "pubDate": "Sun, 05 Jul 2026 04:30:33 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Artful Cats: Feline-Inspired Art and Artifacts",
+    "link": "https://www.si.edu/spotlight/art-cats",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 18:23:45 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Atomic Force Microscope high-speed video, stainless etching, bacteria, and more",
+    "link": "https://www.youtube.com/watch?v=DyIQkqBXhS0",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 19:03:54 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Better Models: Worse Tools",
+    "link": "https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 20:16:22 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Log Is the Agent",
+    "link": "https://arxiv.org/abs/2605.21997",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 02:57:38 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Return of the Nigerian Prince Redux: Beware Book Club and Book Review Scams (2025)",
+    "link": "https://writerbeware.blog/2025/09/19/return-of-the-nigerian-prince-redux-beware-book-club-and-book-review-scams/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 00:22:25 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -287,10 +478,94 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Senior SWE-Bench: open-source benchmark that assesses agents as senior engineers",
-    "link": "https://senior-swe-bench.snorkel.ai/",
+    "title": "EV Batteries Are Defying Expectations After Miles",
+    "link": "https://www.wsj.com/business/autos/ev-batteries-are-defying-expectations-after-hundreds-of-thousands-of-miles-8579de13",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 02:55:16 +0000",
+    "pubDate": "Sun, 05 Jul 2026 06:30:40 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Meta's Un-Stable Signature",
+    "link": "https://hackerfactor.com/blog/index.php?/archives/1098-Metas-Un-Stable-Signature.html",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 17:30:58 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "My ASN Journey series (2024)",
+    "link": "https://www.animmouse.com/p/my-asn-journey/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 04:29:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Potential session/cache leakage between workspace instances or consumer accounts",
+    "link": "https://github.com/anthropics/claude-code/issues/74066",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 14:03:40 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Zig: All Package Management Functionality Moved from Compiler to Build System",
+    "link": "https://ziglang.org/devlog/2026/#2026-06-30",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 16:30:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "\"Beyond the limit\": Satellites and mirrors in space pose threat to the night sky",
+    "link": "https://www.eso.org/public/news/eso2607/",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 17:17:28 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "A Summer of Solar Cooking (2023)",
+    "link": "https://100r.ca/site/solar_cooking_experiment.html",
+    "description": "Comments",
+    "pubDate": "Fri, 03 Jul 2026 18:26:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Record-breaking solo rower Kelsey Pfendler arrives in Hawaii",
+    "link": "https://www.hawaiinewsnow.com/2026/07/04/record-breaking-solo-rower-kelsey-pfendler-arrives-hawaii/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 01:23:11 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -299,154 +574,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "For first time, a cell built from scratch grows and divides",
-    "link": "https://www.quantamagazine.org/for-the-first-time-a-cell-built-from-scratch-grows-and-divides-20260701/",
+    "title": "What ORMs have taught me: just learn SQL (2014)",
+    "link": "https://wozniak.ca/blog/2014/08/03/1/index.html",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 14:20:52 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Bring back crappy forums",
-    "link": "https://tedium.co/2026/07/01/online-web-forums-retrospective/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 02:30:16 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "Mobile"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "What to learn to be a graphics programmer",
-    "link": "https://blog.demofox.org/2026/07/01/what-to-learn-to-be-a-graphics-programmer/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 17:53:44 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Opening up 'Zero-Knowledge Proof' technology to promote privacy in age assurance",
-    "link": "https://blog.google/innovation-and-ai/technology/safety-security/opening-up-zero-knowledge-proof-technology-to-promote-privacy-in-age-assurance/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 22:27:47 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "FFmpeg 9.1's new AAC encoder",
-    "link": "https://hydrogenaudio.org/index.php/topic,129691.0.html",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 14:10:28 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Ask HN: Who is hiring? (July 2026)",
-    "link": "https://news.ycombinator.com/item?id=48747976",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 15:01:21 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "How do wombats poop cubes?",
-    "link": "https://www.science.org/content/article/how-do-wombats-poop-cubes-scientists-get-bottom-mystery",
-    "description": "Comments",
-    "pubDate": "Tue, 30 Jun 2026 13:59:32 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The Underhanded C Contest",
-    "link": "https://underhanded-c.org/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 22:39:15 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "QA"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Qualcomm Linux 2.0",
-    "link": "https://www.qualcomm.com/developer/blog/2026/06/qualcomm-linux-2-now-available",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:01:42 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Show HN: Searchable directory of 22k+ products from worker-owned co-ops",
-    "link": "https://www.workerowned.info/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 20:47:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Learn Vim motions with an ice-cream van",
-    "link": "https://thisismodest.com/vimscoops/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 18:00:07 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Weave Robotics launches Isaac 1, a $7,999 home robot with Fall 2026 deliveries",
-    "link": "https://www.weaverobotics.com/isaac-1",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 18:12:18 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Database Traffic Control",
-    "link": "https://planetscale.com/blog/introducing-database-traffic-control",
-    "description": "Comments",
-    "pubDate": "Tue, 30 Jun 2026 08:58:41 +0000",
+    "pubDate": "Wed, 01 Jul 2026 04:14:01 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -455,10 +586,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Internal Combustion Engine (2021)",
-    "link": "https://ciechanow.ski/internal-combustion-engine/",
+    "title": "The Particle Box – Kinetic Molecular Theory Simulator",
+    "link": "https://prepok.com/chemistry/particle-box/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 13:04:16 +0000",
+    "pubDate": "Wed, 01 Jul 2026 13:16:53 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -467,22 +598,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Monetization Gateway: Charge for any resource behind Cloudflare via x402",
-    "link": "https://blog.cloudflare.com/monetization-gateway/",
+    "title": "Width vs. Depth: Speculating on the Margin",
+    "link": "https://blog.doubleword.ai/speculating-on-the-margin",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 13:59:13 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Chip Off The Old Block",
-    "link": "https://www.astralcodexten.com/p/chip-off-the-old-block",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:42:57 +0000",
+    "pubDate": "Thu, 02 Jul 2026 14:52:31 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -491,134 +610,14 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Ask HN: Who wants to be hired? (July 2026)",
-    "link": "https://news.ycombinator.com/item?id=48747975",
+    "title": "The Preemptive Draw and Preemptive Grip in the Cash-in-Transit Sector",
+    "link": "https://gutsgatesguards.wordpress.com/2026/06/23/the-preemptive-draw-and-preemptive-grip-in-the-cash-in-transit-sector-part-1/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 15:01:21 +0000",
+    "pubDate": "Sun, 05 Jul 2026 03:20:46 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The <Usermedia> HTML Element",
-    "link": "https://developer.chrome.com/blog/usermedia-html-element",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 23:56:15 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The vibration of the pager has a sound all its own",
-    "link": "https://www.notyouremergency.com/triage-intro",
-    "description": "Comments",
-    "pubDate": "Sun, 28 Jun 2026 15:06:43 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Avo 4 released – 15 months and 2000 commits later",
-    "link": "https://avohq.io/blog/avo-4",
-    "description": "Comments",
-    "pubDate": "Mon, 29 Jun 2026 18:04:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Proliferate (YC S25) Is Hiring",
-    "link": "https://www.ycombinator.com/companies/proliferate/jobs/mMHvKR9-founding-product-engineer",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 21:00:14 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Why jet engines aren't made in China",
-    "link": "https://aakash.substack.com/p/why-jet-engines-arent-made-in-china",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 00:22:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Global review confirms mRNA vaccines are safe, effective and full of promise ",
-    "link": "https://news.ubc.ca/2026/06/mrna-vaccines-are-safe-effective-and-full-of-promise/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 00:40:14 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The Apple Disk II Controller Card (2021)",
-    "link": "https://www.bigmessowires.com/2021/11/12/the-amazing-disk-ii-controller-card/",
-    "description": "Comments",
-    "pubDate": "Mon, 29 Jun 2026 18:23:02 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "Mobile"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Kimi K2.7 Code is generally available in GitHub Copilot",
-    "link": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 04:32:41 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Healthy but sedentary people show early decline in cellular energy production",
-    "link": "https://news.cuanschutz.edu/news-stories/healthy-but-sedentary-individuals-show-early-decline-in-cellular-energy-production",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 22:48:56 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Launch HN: Parsewise (YC P25) – Reason Across Documents with an API",
-    "link": "https://news.ycombinator.com/item?id=48746752",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 13:48:44 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE"
     ]
   },
   {
@@ -708,6 +707,44 @@ window.crawledNews = [
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Trump gets OpenAI to offer US 5% stake, far lower than Sanders’ target",
+    "link": "https://arstechnica.com/tech-policy/2026/07/openai-floats-giving-us-5-stake-to-win-over-ai-haters/",
+    "description": "Insiders say Sam Altman is in active talks with the Trump administration.",
+    "pubDate": "Thu, 02 Jul 2026 15:12:25 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Musk’s X poses “serious risk to Americans’ privacy,” advocates warn FTC",
+    "link": "https://arstechnica.com/tech-policy/2026/07/musks-x-poses-serious-risk-to-americans-privacy-advocates-warn-ftc/",
+    "description": "FTC urged to reject Elon Musk’s bid to end X monitoring amid AI concerns.",
+    "pubDate": "Thu, 02 Jul 2026 14:39:17 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Google’s AI buildout drove 37% increase in electricity use in 2025",
+    "link": "https://arstechnica.com/ai/2026/07/googles-ai-buildout-drove-37-increase-in-electricity-use-in-2025/",
+    "description": "Google tries balancing AI data center emissions with clean energy efforts.",
+    "pubDate": "Thu, 02 Jul 2026 11:15:49 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "BE",
       "AI"
     ]
   },
@@ -922,42 +959,6 @@ window.crawledNews = [
     "link": "https://arstechnica.com/ai/2026/06/how-anthropic-may-have-talked-itself-into-an-ai-export-ban/",
     "description": "The company warned about dangers of advanced AI far more than rival OpenAI.",
     "pubDate": "Mon, 22 Jun 2026 13:45:24 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "As China looms, Taiwan makes more drones for defense and the US military",
-    "link": "https://arstechnica.com/ai/2026/06/as-china-looms-taiwan-makes-more-drones-for-defense-and-the-us-military/",
-    "description": "Taiwan's drone spending plans for defense could also boost business overseas.",
-    "pubDate": "Thu, 18 Jun 2026 21:21:26 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Bernie Sanders unveils $7 trillion plan to give Americans control of AI industry",
-    "link": "https://arstechnica.com/tech-policy/2026/06/bernie-sanders-unveils-7-trillion-plan-to-give-americans-control-of-ai-industry/",
-    "description": "Biggest AI firms will likely recoil at Bernie Sanders' AI wealth fund.",
-    "pubDate": "Thu, 18 Jun 2026 17:02:49 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "AI coding agents taught robots how to install GPUs and cut zip ties",
-    "link": "https://arstechnica.com/ai/2026/06/ai-coding-agents-can-autonomously-direct-robot-training/",
-    "description": "Nvidia's self-improvement program for robots enlists teams of AI coding agents.",
-    "pubDate": "Wed, 17 Jun 2026 19:25:19 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -1483,6 +1484,32 @@ window.crawledNews = [
   },
   {
     "source": "AWS ML Blog",
+    "title": "How Amazon Bedrock catches AI-generated phishing",
+    "link": "https://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/",
+    "description": "Social engineering through phishing remains one of the most common tactics for launching cyberattacks. AI-generated phishing email messages now pose a...",
+    "pubDate": "Thu, 02 Jul 2026 17:55:41 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Best practices for multi-turn reinforcement learning in Amazon SageMaker AI",
+    "link": "https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/",
+    "description": "In this post, we share best practices for reliable multi-turn RL training. We cover how to build a training environment you can trust, set up an exter...",
+    "pubDate": "Thu, 02 Jul 2026 17:50:23 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
     "title": "Run NVIDIA Nemotron and OpenAI GPT OSS models on Amazon Bedrock in AWS GovCloud (US)",
     "link": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/",
     "description": "We're excited to introduce US-based frontier open-weight models in AWS GovCloud (US). With this release, Amazon Bedrock now supports OpenAI’s open-wei...",
@@ -1717,33 +1744,6 @@ window.crawledNews = [
       "DevOps",
       "AI",
       "Security"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Build an agentic AI healthcare claims pipeline with Amazon Bedrock and AWS HealthLake",
-    "link": "https://aws.amazon.com/blogs/machine-learning/build-an-agentic-ai-healthcare-claims-pipeline-with-amazon-bedrock-and-aws-healthlake/",
-    "description": "In this post, we show you how to build an automated claims processing pipeline using two key Amazon Bedrock capabilities: Amazon Bedrock Data Automati...",
-    "pubDate": "Mon, 29 Jun 2026 17:36:34 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Debugging production agents with Amazon Bedrock AgentCore Observability",
-    "link": "https://aws.amazon.com/blogs/machine-learning/debugging-production-agents-with-amazon-bedrock-agentcore-observability/",
-    "description": "In this post, you learn how to debug production agent failures using built-in observability capabilities. We walk through common failure patterns, sho...",
-    "pubDate": "Mon, 29 Jun 2026 17:25:21 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
     ]
   },
   {
@@ -2352,6 +2352,18 @@ window.crawledNews = [
   },
   {
     "source": "LINE Engineering",
+    "title": "AI로 웹 엔지니어 없이 LINE 앱 안에서 그룹 영상 통화 서비스 만들기",
+    "link": "https://techblog.lycorp.co.jp/ko/building-group-video-calls-inside-line-app-with-ai-and-line-planet",
+    "description": "들어가며LINE Developers를 통해 이용할 수 있는 LIFF(LINE Front-end Framework)를 활용하면, LINE 앱 사용자를 대상으로 나만의 서비스 공간을 ...",
+    "pubDate": "Thu, 02 Jul 2026 08:45:00 GMT",
+    "region": "domestic",
+    "regionLabel": "국내",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "LINE Engineering",
     "title": "프롬프팅에서 워크플로로, AI로 프런트엔드 개발 생산성 끌어올리기",
     "link": "https://techblog.lycorp.co.jp/ko/techverse2026-10",
     "description": "LY Corporation의 기술 컨퍼런스인 Tech-Verse 2026의 공식 기사입니다.AI 생성 이미지코딩 속도는 더 이상 가장 큰 병목이 아닙니다. 이제 병목은 입력이 여러...",
@@ -2949,18 +2961,6 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "LINE Engineering",
-    "title": "코드 품질 개선 기법 28편: 제약 조건에도 상속세가 발생한다",
-    "link": "https://techblog.lycorp.co.jp/ko/techniques-for-improving-code-quality-28",
-    "description": "이 글은 2024년 6월 6일에 일본어로 먼저 발행된 기사를 번역한 글입니다.LY Corporation은 높은 개발 생산성을 유지하기 위해 코드 품질 및 개발 문화 개선에 힘쓰고 ...",
-    "pubDate": "Wed, 07 Jan 2026 02:00:00 GMT",
-    "region": "domestic",
-    "regionLabel": "국내",
-    "categories": [
-      "General"
-    ]
-  },
-  {
     "source": "Daangn Tech",
     "title": "혼자 시작해 전국 오픈까지, 당근 레슨/과외 빌딩 로그",
     "link": "https://medium.com/daangn/%ED%98%BC%EC%9E%90-%EC%8B%9C%EC%9E%91%ED%95%B4-%EC%A0%84%EA%B5%AD-%EC%98%A4%ED%94%88%EA%B9%8C%EC%A7%80-%EB%8B%B9%EA%B7%BC-%EB%A0%88%EC%8A%A8-%EA%B3%BC%EC%99%B8-%EB%B9%8C%EB%94%A9-%EB%A1%9C%EA%B7%B8-d4e61f6ba32f?source=rss----4505f82a2dbd---4",
@@ -3084,7 +3084,7 @@ window.crawledNews = [
 
 window.crawledSummaries = {
   "overseas": {
-    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office**\n* **SpaceX has an AI device prototype, and it sure sounds phone-ish**\n* **Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller**\n* **Cloudflare’s new policy pushes AI companies to pay for publishers’ content**\n* **Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off**",
+    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **New Google commercial imagines a Declaration of Independence written with help from AI**\n* **Midjourney wants Hollywood studios to reveal the details of their AI usage**\n* **Alibaba reportedly bans employees from using Claude Code**\n* **What is Mistral AI? Everything to know about the OpenAI competitor**\n* **The only AI glossary you’ll need this year**",
     "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
     "monthly": "### 해외 월간 산업 방향성 전망\n\n* 해외에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
   },
