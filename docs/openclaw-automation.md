@@ -1,6 +1,6 @@
 # OpenClaw Daily RSS Automation
 
-이 프로젝트는 OpenClaw cron job으로 매일 오전 9시에 RSS 수집과 로컬 요약 생성을 실행할 수 있다.
+이 프로젝트는 Codex Automation을 주 실행 경로로 사용하고, 필요하면 OpenClaw cron 또는 macOS `launchd`를 보조 실행 경로로 사용할 수 있다.
 
 ## 설치
 
@@ -24,7 +24,28 @@ openclaw gateway start
 openclaw gateway status
 ```
 
-## 매일 오전 9시 작업 등록
+## Codex Automation
+
+현재 기본 방향은 Codex Automation이 매일 오전 9시에 `$ai-rss-analyst` 스킬을 실행하는 것이다. 이 방식은 RSS 수집뿐 아니라 `daily_trends.js`, `daily_survival_guides.js`, `reports/rss/YYYY-MM-DD-ai-rss-report.md`까지 Codex가 분석해 갱신할 수 있다.
+
+주의: 로컬 Codex Automation은 맥북이 잠자기 상태이면 실행되지 않을 수 있다. 화면 꺼짐은 괜찮을 수 있지만, 시스템 sleep 상태에서는 트리거를 놓칠 수 있다.
+
+## macOS launchd fallback
+
+Codex Automation이 09:00 트리거를 놓치는 경우를 줄이려면 launchd fallback을 설치한다.
+
+```bash
+bash scripts/install_launchd_daily_rss.sh
+```
+
+이 fallback은 `scripts/run_daily_rss_with_retry.sh`를 매일 09:00에 실행한다.
+
+- `caffeinate`로 실행 중 잠자기를 방지한다.
+- RSS 크롤러를 최대 3회 재시도한다.
+- `RUN_CODEX_ANALYSIS=1`이면 Codex CLI로 오늘자 분석 파일까지 갱신한다.
+- 로그는 `logs/` 아래에 남긴다.
+
+## OpenClaw cron 등록
 
 ```bash
 bash scripts/register_openclaw_cron.sh
@@ -56,9 +77,19 @@ openclaw cron runs --id <job-id>
 tail -80 crawler.log
 ```
 
+## OpenClaw Skills
+
+프로젝트 로컬 `skills/` 디렉터리에 다음 보조 스킬을 설치했다.
+
+- `agents-skill-security-audit`: 커뮤니티 skill 파일의 공급망 위험 점검
+- `clawgears-security-audit`: OpenClaw 환경 보안 점검
+- `freshrss-reader`: 향후 FreshRSS 기반 RSS 백엔드 전환 후보
+
+자세한 판단 기준은 [openclaw-skill-roadmap.md](openclaw-skill-roadmap.md)를 참고한다.
+
 ## 현재 로컬 설정
 
-현재 로컬에는 다음 OpenClaw cron job이 등록되어 있다.
+이전 로컬에는 다음 OpenClaw cron job이 등록되어 있었다. 현재는 Codex Automation 중심 운영으로 전환했으므로, 중복 실행을 피하기 위해 OpenClaw cron을 켜기 전 `openclaw cron list`로 상태를 먼저 확인한다.
 
 - job id: `68c1a4e2-6039-4205-8e02-97082672c3d4`
 - next run: 매일 오전 9시, `Asia/Seoul`

@@ -2,6 +2,81 @@
 window.crawledNews = [
   {
     "source": "TechCrunch AI",
+    "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
+    "link": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
+    "description": "Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Go...",
+    "pubDate": "Sat, 04 Jul 2026 20:55:25 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
+    "link": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
+    "description": "As part of an ongoing legal dispute with three Hollywood studios, Midjourney is seeking to compel those studios to reveal how they use AI themselves.",
+    "pubDate": "Sat, 04 Jul 2026 18:00:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Alibaba reportedly bans employees from using Claude Code",
+    "link": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+    "description": "Alibaba has reportedly classified Claude Code as high-risk software.",
+    "pubDate": "Sat, 04 Jul 2026 16:32:08 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
+    "link": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
+    "description": "Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to “put frontier AI ...",
+    "pubDate": "Sat, 04 Jul 2026 15:51:32 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The only AI glossary you’ll need this year",
+    "link": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
+    "description": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases yo...",
+    "pubDate": "Fri, 03 Jul 2026 21:20:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari",
+    "link": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/",
+    "description": "We’ve compiled an overview of some of the top alternative browsers available today aiming to challenge Chrome and Safari.",
+    "pubDate": "Fri, 03 Jul 2026 18:43:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
     "title": "Mark Zuckerberg tells staff that AI agents haven’t progressed as quickly as he’d hoped",
     "link": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
     "description": "At an internal meeting, the Meta CEO reportedly said that AI development efforts were not moving as quickly as anticipated.",
@@ -185,283 +260,36 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "Meta, like SpaceX, looks to turn excess AI compute into cash",
-    "link": "https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/",
-    "description": "Meta is developing plans for a cloud infrastructure business, selling access to AI compute power and models. The move would pit it against the big clo...",
-    "pubDate": "Wed, 01 Jul 2026 13:43:07 +0000",
+    "source": "Hacker News",
+    "title": "Shadcn/UI now defaults to Base UI instead of Radix",
+    "link": "https://ui.shadcn.com/docs/changelog",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 04:46:08 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "DevOps",
-      "AI"
+      "FE"
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "The ‘Father of the Internet’ is finally retiring",
-    "link": "https://techcrunch.com/2026/06/30/the-father-of-the-internet-is-finally-retiring/",
-    "description": "Vinton Cerf, one of the creators of the protocols underlying the internet, will step down as Google's chief internet evangelist next week.",
-    "pubDate": "Wed, 01 Jul 2026 03:15:37 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Trump drops restrictions on Anthropic’s Mythos and Fable models",
-    "link": "https://techcrunch.com/2026/06/30/trump-drops-restrictions-on-anthropics-mythos-and-fable-models/",
-    "description": "The Trump administration's erratic approach to AI policymaking has left companies across the industry with little clarity about what will govern futur...",
-    "pubDate": "Wed, 01 Jul 2026 02:16:06 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Wayve launches $85M employee tender offer at $8.5B valuation",
-    "link": "https://techcrunch.com/2026/06/30/wayve-launches-85m-employee-tender-offer-at-8-5b-valuation/",
-    "description": "Wayve’s offering is part of a growing trend of AI startups using employee tenders as a strategic tool to attract and retain talent.",
-    "pubDate": "Wed, 01 Jul 2026 02:04:40 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "OpenClaw is finally available on Android and iOS",
-    "link": "https://techcrunch.com/2026/06/30/openclaw-is-finally-available-on-android-and-ios/",
-    "description": "The free open source agentic program is finally invading your phone.",
-    "pubDate": "Tue, 30 Jun 2026 21:53:28 +0000",
+    "source": "Hacker News",
+    "title": "sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25)",
+    "link": "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 06:19:34 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The DeepMind trio who built a poker AI are now making money for quant hedge funds",
-    "link": "https://techcrunch.com/2026/06/30/the-deepmind-trio-who-built-a-poker-ai-are-now-making-money-for-quant-hedge-funds/",
-    "description": "EquiLibre Technologies, a Prague-based AI lab founded by three ex-DeepMind researchers, is now valued at more than $500 million.",
-    "pubDate": "Tue, 30 Jun 2026 20:33:48 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Virginia bans sale of geolocation data",
-    "link": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 21:03:45 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "An American Privacy Emergency",
-    "link": "https://scottaaronson.blog/?p=9902",
-    "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 00:01:06 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "crustc: entirety of `rustc`, translated to C",
-    "link": "https://github.com/FractalFir/crustc",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 22:57:35 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Mystery identity of 'Green Boots' climber is finally solved after DNA test",
-    "link": "https://www.dailymail.com/news/article-15943905/Mystery-identity-Green-Boots-climber-macabre-landmark-frozen-ice-dying-Everest-finally-solved-DNA-test.html",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 22:44:04 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "QA"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Reality has a surprising amount of detail (2017)",
-    "link": "https://johnsalvatier.org/blog/2017/reality-has-a-surprising-amount-of-detail",
-    "description": "Comments",
-    "pubDate": "Sat, 27 Jun 2026 23:36:25 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Exapunks (2018)",
-    "link": "https://www.zachtronics.com/exapunks/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 18:41:19 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory",
-    "link": "https://mathstodon.xyz/@iblech/116769502749142438",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 15:25:16 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "Security"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "\"An AI Job Apocalypse?\" – Goldman Sachs Report [pdf]",
-    "link": "https://www.goldmansachs.com/static-libs/pdf-redirect/prod/index.html?path=/pdfs/insights/goldman-sachs-research/an-ai-job-apocalypse/report.pdf&originalQuery=&referrer=",
-    "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 00:18:11 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Podman v6.0.0",
-    "link": "https://blog.podman.io/2026/07/introducing-podman-v6-0-0/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 14:23:09 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "GitHub is proud to announce that you can now obtain your public repo on CD-ROM",
-    "link": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR6G-c11n8yFDlQmk4B-QjDxUQkdTTjZLU0EyTFFRV1E3NVRTVTRTWjRHMy4u&route=shorturl",
-    "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 00:01:26 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "PeerTube is a free, decentralized and federated video platform",
-    "link": "https://github.com/Chocobozzz/PeerTube",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 11:17:45 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "EFF letter to FTC on X consent order (2 July 2026) [pdf]",
-    "link": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/EFF-letter-to-FTC-on-X-consent-order-7-2-26.pdf",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 19:27:38 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "How to ask for help from people who don't know you",
-    "link": "https://pradyuprasad.com/writings/how-to-ask-for-help/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 13:19:22 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "This is my attempt to get Vulkan going on NetBSD",
-    "link": "https://github.com/segaboy/vulkan-netbsd",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 18:36:09 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Show HN: Inkwell – An RSS reader for e-ink devices",
-    "link": "https://kendal.codeberg.page/inkwell/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 15:38:19 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Lightning Memory-Mapped Database Manager (LMDB) 1.0",
-    "link": "http://www.lmdb.tech/doc/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 20:01:20 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "Mobile",
       "DBA"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Postgres transactions are a distributed systems superpower",
-    "link": "https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data",
+    "title": "Command and Conquer Generals natively ported to macOS, iPhone, iPad using Fable",
+    "link": "https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 18:38:32 +0000",
+    "pubDate": "Sat, 04 Jul 2026 19:41:10 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -470,10 +298,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Superpowers 6",
-    "link": "https://blog.fsck.com/2026/06/15/Superpowers-6/",
+    "title": "If you're a button, you have one job",
+    "link": "https://unsung.aresluna.org/if-youre-a-button-you-have-one-job/",
     "description": "Comments",
-    "pubDate": "Tue, 30 Jun 2026 21:28:32 +0000",
+    "pubDate": "Sun, 05 Jul 2026 02:01:03 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -482,10 +310,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Show HN: Gitstock–Transform you GitHub commit history into K-line and animations",
-    "link": "https://gitstock.org/",
+    "title": "Pandoc Lua Filters",
+    "link": "https://pandoc.org/lua-filters.html",
     "description": "Comments",
-    "pubDate": "Tue, 30 Jun 2026 07:00:33 +0000",
+    "pubDate": "Fri, 03 Jul 2026 09:52:51 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -494,10 +322,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Show HN: Pieces – Social network for people",
-    "link": "https://try.piecesof.me/",
+    "title": "GPT-5.5 Codex reasoning-token clustering may be leading to degraded performance",
+    "link": "https://github.com/openai/codex/issues/30364",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 17:30:56 +0000",
+    "pubDate": "Sat, 04 Jul 2026 21:51:09 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -506,10 +334,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "FoundationDB's Flow – Bringing Actor-Based Concurrency to C++11",
-    "link": "https://apple.github.io/foundationdb/flow.html",
+    "title": "Apocketlypse",
+    "link": "https://0dd.company/galleries/triumph/1.html",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 14:41:56 +0000",
+    "pubDate": "Sun, 05 Jul 2026 08:32:09 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -518,10 +346,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Great Salt Lake Tracker – Grow the Flow",
-    "link": "https://growtheflowutah.org/laketracker/",
+    "title": "Megawatts by Microwave",
+    "link": "https://computer.rip/2026-07-04-microwave-and-power.html",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 19:33:55 +0000",
+    "pubDate": "Sun, 05 Jul 2026 05:56:03 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -530,22 +358,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Claude-real-video － any LLM can watch a video",
-    "link": "https://github.com/HUANGCHIHHUNGLeo/claude-real-video",
+    "title": "Is The Economist Always Wrong?",
+    "link": "https://economist.com/interactive/finance-and-economics/2026/07/02/is-the-economist-always-wrong",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 19:10:12 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Apricot Computers: An underrated British brand",
-    "link": "https://dfarq.homeip.net/apricot-computers-an-underrated-british-brand/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 07:26:05 +0000",
+    "pubDate": "Sun, 05 Jul 2026 06:40:05 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -554,10 +370,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Immich 3.0",
-    "link": "https://github.com/immich-app/immich/discussions/29439",
+    "title": "Jellyfish can heal wounds in minutes. Scientists want their secrets",
+    "link": "https://www.mbl.edu/news/jellyfish-can-heal-wounds-minutes-scientists-want-their-secrets",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 14:13:26 +0000",
+    "pubDate": "Sat, 04 Jul 2026 22:36:28 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -566,62 +382,242 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "The short leash AI coding method for beating Fable",
-    "link": "https://blog.okturtles.org/2026/07/short-leash-ai-method/",
+    "title": "Google Books (or similar) all book scans – $200k bounty (2025)",
+    "link": "https://software.annas-archive.gl/AnnaArchivist/annas-archive/-/work_items/234",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 19:11:57 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "A Special Wireless-Free Nikon Camera Is Publicly Available for the First Time",
-    "link": "https://petapixel.com/2026/06/24/a-special-wireless-free-nikon-camera-is-publicly-available-for-the-first-time/",
-    "description": "Comments",
-    "pubDate": "Thu, 25 Jun 2026 01:11:53 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Right to Local Intelligence",
-    "link": "https://righttointelligence.org/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 23:54:03 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "JEP 539: Strict Field Initialization in the JVM moved to preview",
-    "link": "https://openjdk.org/jeps/539",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 18:56:33 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Hazel (YC W24) Is Hiring for Our Largest Government Contract",
-    "link": "https://www.ycombinator.com/companies/hazel-2/jobs/3epPWgu-full-stack-engineer-ts-sci",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 13:14:57 +0000",
+    "pubDate": "Sat, 04 Jul 2026 16:51:26 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "BE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Leaking YouTube creators' private videos",
+    "link": "https://javoriuski.com/post/youtube",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 16:45:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Moby Dick Workout",
+    "link": "https://www.hogbaysoftware.com/posts/moby-dick-workout/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 04:30:33 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Artful Cats: Feline-Inspired Art and Artifacts",
+    "link": "https://www.si.edu/spotlight/art-cats",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 18:23:45 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Atomic Force Microscope high-speed video, stainless etching, bacteria, and more",
+    "link": "https://www.youtube.com/watch?v=DyIQkqBXhS0",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 19:03:54 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Better Models: Worse Tools",
+    "link": "https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 20:16:22 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Log Is the Agent",
+    "link": "https://arxiv.org/abs/2605.21997",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 02:57:38 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Return of the Nigerian Prince Redux: Beware Book Club and Book Review Scams (2025)",
+    "link": "https://writerbeware.blog/2025/09/19/return-of-the-nigerian-prince-redux-beware-book-club-and-book-review-scams/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 00:22:25 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "EV Batteries Are Defying Expectations After Miles",
+    "link": "https://www.wsj.com/business/autos/ev-batteries-are-defying-expectations-after-hundreds-of-thousands-of-miles-8579de13",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 06:30:40 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Meta's Un-Stable Signature",
+    "link": "https://hackerfactor.com/blog/index.php?/archives/1098-Metas-Un-Stable-Signature.html",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 17:30:58 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "My ASN Journey series (2024)",
+    "link": "https://www.animmouse.com/p/my-asn-journey/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 04:29:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Potential session/cache leakage between workspace instances or consumer accounts",
+    "link": "https://github.com/anthropics/claude-code/issues/74066",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 14:03:40 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Zig: All Package Management Functionality Moved from Compiler to Build System",
+    "link": "https://ziglang.org/devlog/2026/#2026-06-30",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 16:30:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "\"Beyond the limit\": Satellites and mirrors in space pose threat to the night sky",
+    "link": "https://www.eso.org/public/news/eso2607/",
+    "description": "Comments",
+    "pubDate": "Sat, 04 Jul 2026 17:17:28 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "A Summer of Solar Cooking (2023)",
+    "link": "https://100r.ca/site/solar_cooking_experiment.html",
+    "description": "Comments",
+    "pubDate": "Fri, 03 Jul 2026 18:26:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Record-breaking solo rower Kelsey Pfendler arrives in Hawaii",
+    "link": "https://www.hawaiinewsnow.com/2026/07/04/record-breaking-solo-rower-kelsey-pfendler-arrives-hawaii/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 01:23:11 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "What ORMs have taught me: just learn SQL (2014)",
+    "link": "https://wozniak.ca/blog/2014/08/03/1/index.html",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 04:14:01 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "DBA"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Particle Box – Kinetic Molecular Theory Simulator",
+    "link": "https://prepok.com/chemistry/particle-box/",
+    "description": "Comments",
+    "pubDate": "Wed, 01 Jul 2026 13:16:53 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Width vs. Depth: Speculating on the Margin",
+    "link": "https://blog.doubleword.ai/speculating-on-the-margin",
+    "description": "Comments",
+    "pubDate": "Thu, 02 Jul 2026 14:52:31 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Preemptive Draw and Preemptive Grip in the Cash-in-Transit Sector",
+    "link": "https://gutsgatesguards.wordpress.com/2026/06/23/the-preemptive-draw-and-preemptive-grip-in-the-cash-in-transit-sector-part-1/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 03:20:46 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
     ]
   },
   {
@@ -3088,7 +3084,7 @@ window.crawledNews = [
 
 window.crawledSummaries = {
   "overseas": {
-    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Mark Zuckerberg tells staff that AI agents haven’t progressed as quickly as he’d hoped**\n* **Jersey Mike’s IPO illustrates how bad the AI hype has become**\n* **Meta quietly launches vibe-coded gaming app Pocket**\n* **Anthropic is discussing a new custom chip with Samsung**\n* **OpenAI proposed donating 5% of its equity to a US sovereign wealth fund**",
+    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **New Google commercial imagines a Declaration of Independence written with help from AI**\n* **Midjourney wants Hollywood studios to reveal the details of their AI usage**\n* **Alibaba reportedly bans employees from using Claude Code**\n* **What is Mistral AI? Everything to know about the OpenAI competitor**\n* **The only AI glossary you’ll need this year**",
     "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
     "monthly": "### 해외 월간 산업 방향성 전망\n\n* 해외에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
   },
