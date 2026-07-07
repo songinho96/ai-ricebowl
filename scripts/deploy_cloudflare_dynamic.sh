@@ -17,9 +17,15 @@ if [ ! -d node_modules ]; then
   npm install
 fi
 
-if ! npx wrangler whoami >/dev/null 2>&1; then
+WHOAMI_OUTPUT="$(npx wrangler whoami 2>&1 || true)"
+if echo "$WHOAMI_OUTPUT" | grep -qi 'not authenticated'; then
   echo "Cloudflare Wrangler is not authenticated."
   echo "Run: npx wrangler login"
+  exit 1
+fi
+
+if echo "$WHOAMI_OUTPUT" | grep -qi 'error'; then
+  echo "$WHOAMI_OUTPUT"
   exit 1
 fi
 
