@@ -75,6 +75,12 @@ Create a Cloudflare Pages project:
    - D1 database: `ai-ricebowl`
 5. Redeploy the Pages project.
 
+After the one-time D1 setup, you can deploy from the repository root with:
+
+```bash
+bash scripts/deploy_cloudflare_dynamic.sh
+```
+
 ## Local Development
 
 For simple static fallback testing:
@@ -103,6 +109,12 @@ After the Codex RSS analyst automation updates local files:
 npm run db:seed
 npx wrangler d1 execute ai-ricebowl --remote --file=db/schema.sql
 npx wrangler d1 execute ai-ricebowl --remote --file=db/seed.sql
+```
+
+Or run the full deploy helper:
+
+```bash
+bash scripts/deploy_cloudflare_dynamic.sh
 ```
 
 This keeps D1 aligned with:
