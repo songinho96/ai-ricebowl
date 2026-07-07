@@ -23,9 +23,9 @@ function responseJson(payload, init = {}) {
 }
 
 export async function onRequestGet(context) {
-  const db = context.env.AI_RICEBOWL_DB;
+  const db = context.env.ai_ricebowl;
   if (!db) {
-    return responseJson({ error: 'AI_RICEBOWL_DB binding is not configured.' }, { status: 503 });
+    return responseJson({ error: 'ai_ricebowl binding is not configured.' }, { status: 503 });
   }
 
   const url = new URL(context.request.url);

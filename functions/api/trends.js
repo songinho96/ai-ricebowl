@@ -13,9 +13,9 @@ function parseJson(value, fallback) {
 }
 
 export async function onRequestGet(context) {
-  const db = context.env.AI_RICEBOWL_DB;
+  const db = context.env.ai_ricebowl;
   if (!db) {
-    return new Response(JSON.stringify({ error: 'AI_RICEBOWL_DB binding is not configured.' }), {
+    return new Response(JSON.stringify({ error: 'ai_ricebowl binding is not configured.' }), {
       status: 503,
       headers: JSON_HEADERS
     });

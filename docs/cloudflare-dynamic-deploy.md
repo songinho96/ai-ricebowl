@@ -48,7 +48,7 @@ Copy the returned `database_id` into `wrangler.toml`:
 
 ```toml
 [[d1_databases]]
-binding = "AI_RICEBOWL_DB"
+binding = "ai_ricebowl"
 database_name = "ai-ricebowl"
 database_id = "<returned-database-id>"
 ```
@@ -71,7 +71,7 @@ Create a Cloudflare Pages project:
    - Build output directory: `/`
 4. Add a D1 binding:
    - Settings > Bindings > Add > D1 database bindings
-   - Variable name: `AI_RICEBOWL_DB`
+   - Variable name: `ai_ricebowl`
    - D1 database: `ai-ricebowl`
 5. Redeploy the Pages project.
 
