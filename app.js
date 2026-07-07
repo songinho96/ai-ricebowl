@@ -167,6 +167,8 @@ createApp({
       selectedNewsKey: null,
       selectedTrendId: null,
       showBackToTop: false,
+      dataSource: 'static',
+      dataLoadedAt: null,
       trends: (window.dailyTrendCards || window.aiTrendsData || []).map(normalizeTrendCard),
       blogPosts: (window.dailySurvivalGuides || window.blogPostsData || []).map(normalizeSurvivalGuide),
       jobRoles: window.jobRolesData || {},
@@ -371,6 +373,10 @@ createApp({
 
     selectedTrend() {
       return this.trends.find((trend) => trend.id === this.selectedTrendId) || null;
+    },
+
+    dataSourceLabel() {
+      return this.dataSource === 'database' ? 'D1 DB 연결됨' : '정적 데이터 fallback';
     }
   },
 
@@ -391,6 +397,7 @@ createApp({
   mounted() {
     document.documentElement.setAttribute('data-theme', this.theme);
     window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.loadRemoteContent();
   },
 
   beforeUnmount() {
@@ -398,6 +405,44 @@ createApp({
   },
 
   methods: {
+    async loadRemoteContent() {
+      try {
+        const response = await fetch('/api/bootstrap', {
+          headers: { accept: 'application/json' },
+          cache: 'no-store'
+        });
+
+        if (!response.ok) {
+          throw new Error(`Remote content returned ${response.status}`);
+        }
+
+        const payload = await response.json();
+
+        if (Array.isArray(payload.trends) && payload.trends.length > 0) {
+          this.trends = payload.trends.map(normalizeTrendCard);
+        }
+
+        if (Array.isArray(payload.guides) && payload.guides.length > 0) {
+          this.blogPosts = payload.guides.map(normalizeSurvivalGuide);
+        }
+
+        if (Array.isArray(payload.news)) {
+          this.crawledNews = payload.news;
+        }
+
+        if (payload.summaries && typeof payload.summaries === 'object') {
+          this.crawledSummaries = payload.summaries;
+        }
+
+        this.dataSource = 'database';
+        this.dataLoadedAt = payload.updatedAt || new Date().toISOString();
+      } catch (error) {
+        this.dataSource = 'static';
+        this.dataLoadedAt = null;
+        console.info('Using static fallback data:', error.message);
+      }
+    },
+
     goHome() {
       this.selectedPostId = null;
       this.selectedNewsKey = null;

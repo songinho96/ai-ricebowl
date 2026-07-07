@@ -21,6 +21,7 @@ Thumbs.db
 *.xlsx
 *.json
 !manifest.json
+!package.json
 
 # Local env files
 .env

@@ -2,35 +2,94 @@
 // 파일이 없거나 로드에 실패하면 data.js의 기본 aiTrendsData가 사용됩니다.
 window.dailyTrendCards = [
   {
-    id: "daily-2026-07-05-agent-permission-layer",
-    title: "에이전트 시대의 병목은 모델이 아니라 권한 계층이다",
-    category: "Agent Infrastructure",
-    date: "2026-07-05",
+    id: "daily-2026-07-06-ai-workflow-economics",
+    title: "AI 자동화의 질문은 가능 여부에서 단위 경제성으로 이동한다",
+    category: "AI Economics",
+    date: "2026-07-06",
     readTime: "8 min read",
     views: "Codex Daily",
-    tags: ["Agent", "A2A", "MCP", "IAM", "Audit Log", "Context"],
-    summary: "AWS, Cloudflare, NAVER, LINE 피드는 모두 같은 방향을 가리킵니다. 에이전트가 실제 시스템을 만질수록 발견, 라우팅, 메모리, 권한, 감사 로그가 별도 플랫폼 계층이 됩니다.",
-    content: "오늘 가장 강한 개발자 신호는 에이전트 기능 자체보다 에이전트를 둘러싼 통제면입니다. AWS는 A2A gateway와 AgentCore Memory, row-level security 사례를 내고 있고 Cloudflare는 Temporary Accounts와 agent framework 런타임을 밀고 있습니다. 국내에서는 NAVER의 Context Provider와 LINE의 시멘틱 컨텍스트 OS, 보안 MCP 글이 같은 문제를 실무 언어로 다룹니다. 에이전트는 더 이상 'LLM 호출 한 번'이 아니라 사용자를 대신해 내부 지식, 외부 API, 배포 도구, 데이터베이스를 오가는 실행 주체입니다.",
+    tags: ["AI Cost", "Automation", "Developer Productivity", "MTurk", "ROI"],
+    summary: "Mechanical Turk 신규 고객 중단, AI 비용이 엔지니어보다 비쌀 수 있다는 논의, Claude Code와 Goose 비용 비교가 같은 방향을 가리킵니다. AI 도입 판단은 이제 데모 속도가 아니라 작업 단위 손익계산입니다.",
+    content: "오늘 해외 피드에서 가장 실무적인 신호는 AI가 노동을 대체한다는 큰 서사가 아니라 대체 비용을 다시 계산해야 한다는 점입니다. Amazon Mechanical Turk 신규 고객 중단 보도는 저가 인간 라벨링과 평가 운영의 전환을 의미하고, Hacker News의 AI 비용 논의는 AI 도구비가 엔지니어 시간보다 비싸지는 구간을 문제 삼습니다. VentureBeat의 Claude Code/Goose 비교, Railway의 AI-native cloud 투자, TechCrunch의 기업형 AI 코딩 제한 보도까지 합치면 개발팀은 'AI를 쓸 수 있는가'보다 '어떤 작업 단위에서 품질과 비용이 맞는가'를 관리해야 합니다.",
     trends: [
-      "에이전트 discovery, routing, memory filtering, access control이 애플리케이션 코드 밖의 공통 계층으로 분리되고 있습니다.",
-      "MCP와 A2A는 도구 연결 표준을 넓히지만, 실제 운영 리스크는 인증, 권한 범위, 로그 보존에서 발생합니다.",
-      "Context Provider는 문서 검색 기능을 넘어 팀 지식과 데이터 권한을 함께 공급하는 내부 플랫폼이 되고 있습니다."
+      "AI 도구 구독료, 토큰 비용, 리뷰 시간, 테스트 실행 시간, 실패 복구 비용을 합친 workflow 단위 ROI가 중요해지고 있습니다.",
+      "사람 라벨링과 AI 평가 업무는 사라지는 것이 아니라 더 높은 품질 기준과 감사 가능한 데이터셋 운영으로 재편될 가능성이 큽니다.",
+      "오픈소스 coding agent와 상용 coding agent의 비교는 기능 목록보다 보안, 로그, 정책 통제, 총소유비용으로 갈립니다."
     ],
     whyMatters: [
-      "권한 설계 없는 에이전트는 편리한 자동화가 아니라 내부 시스템을 조작하는 불투명한 봇이 됩니다.",
-      "에이전트 장애는 한 번의 API 실패가 아니라 여러 도구 호출이 얽힌 분산 변경으로 나타납니다.",
-      "개발자는 프롬프트보다 먼저 tool contract, tenant boundary, audit schema를 설계해야 합니다."
+      "AI 도구가 비싸도 병목을 줄이면 이득일 수 있고, 저렴해도 검증 비용이 크면 손해일 수 있습니다.",
+      "팀이 비용 기준을 만들지 않으면 개인별 구독과 shadow workflow가 늘어나 예산과 보안 통제가 동시에 흐려집니다.",
+      "제품 빌더는 AI 기능 자체보다 고객의 반복 업무에서 비용을 얼마나 줄이는지 증명해야 합니다."
     ],
     developerActions: [
-      "에이전트가 호출할 수 있는 도구를 read, write, deploy, billing, admin으로 분류하고 기본값을 deny로 두세요.",
-      "모든 tool invocation에 user id, delegated actor, reason, input hash, output summary, request id, changed resource를 남기세요.",
-      "Context Provider에는 문서 본문뿐 아니라 freshness, owner, permission scope, source URL을 함께 넣으세요.",
-      "MCP 서버를 붙일 때 토큰 권한, 네트워크 접근, 파일 시스템 접근, 외부 전송 가능 여부를 체크리스트로 검토하세요."
+      "반복 업무 3개를 골라 현재 사람 시간, AI 실행 비용, 리뷰 시간, 오류 복구 시간을 같은 단위로 기록하세요.",
+      "AI coding tool에는 월 예산, repo 허용 범위, 외부 전송 금지 파일, 새 dependency 승인 조건을 붙이세요.",
+      "AI가 만든 산출물마다 '검증 증거가 없으면 완료가 아니다'라는 기준을 PR 템플릿과 작업 정의에 넣으세요.",
+      "상용 도구와 오픈소스 도구를 비교할 때 기능보다 audit log, sandbox, admin policy, self-host 가능성을 먼저 평가하세요."
     ],
     risks: [
-      "벤더별 에이전트 런타임에 권한과 로그가 흩어지면 사고 후 재구성이 어려워집니다.",
-      "컨텍스트 공급 계층이 오래된 문서나 권한 없는 데이터를 섞으면 에이전트 답변이 운영 사고로 이어질 수 있습니다.",
-      "MCP 서버 하나가 내부 API 전체로 이어지는 과권한 통로가 될 수 있습니다."
+      "토큰 단가만 보고 판단하면 사람 리뷰와 실패 복구 비용을 놓칩니다.",
+      "무료 또는 저가 도구가 내부 코드와 비밀값을 외부로 보내는 비용을 만들 수 있습니다.",
+      "AI로 줄어든 시간이 더 많은 미검증 변경량으로 전환되면 실제 생산성은 떨어질 수 있습니다."
+    ],
+    sourceLinks: [
+      {
+        title: "Amazon will stop accepting new customers for Mechanical Turk",
+        source: "TechCrunch AI",
+        url: "https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/"
+      },
+      {
+        title: "When AI Costs More Than the Engineer",
+        source: "Hacker News",
+        url: "https://tomtunguz.com/ai-spend-breakeven-2029/"
+      },
+      {
+        title: "Claude Code costs up to $200 a month. Goose does the same thing for free.",
+        source: "VentureBeat AI",
+        url: "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free"
+      },
+      {
+        title: "Railway secures $100 million to challenge AWS with AI-native cloud infrastructure",
+        source: "VentureBeat AI",
+        url: "https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud"
+      },
+      {
+        title: "Alibaba reportedly bans employees from using Claude Code",
+        source: "TechCrunch AI",
+        url: "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/"
+      }
+    ]
+  },
+  {
+    id: "daily-2026-07-06-agent-governance-context",
+    title: "에이전트 플랫폼의 승부처는 컨텍스트와 권한의 결합이다",
+    category: "Agent Infrastructure",
+    date: "2026-07-06",
+    readTime: "8 min read",
+    views: "Codex Daily",
+    tags: ["Agent", "A2A", "MCP", "Context", "AuthZ", "Audit"],
+    summary: "AWS A2A gateway, AgentCore Memory, Cloudflare Temporary Accounts, NAVER Context Provider, LINE ID-JAG/MCP 글은 에이전트가 실제 일을 하려면 지식 공급과 권한 위임이 한 계층에서 관리되어야 한다는 신호입니다.",
+    content: "에이전트 도입이 늘수록 단순한 프롬프트 품질보다 '무엇을 알고, 무엇을 할 수 있으며, 누구 책임으로 실행했는가'가 중요해집니다. AWS는 에이전트 발견, 라우팅, 접근 제어를 A2A gateway로 묶고, metadata 기반 AgentCore Memory 필터링과 multi-tenant row-level security 사례를 냈습니다. Cloudflare는 AI agent용 temporary account와 OAuth 생태계를 밀고 있고, 국내에서는 NAVER의 Context Provider, LINE의 ID-JAG와 MCP 보안 글이 같은 문제를 실무 언어로 다룹니다.",
+    trends: [
+      "컨텍스트 공급 계층은 문서 검색기가 아니라 권한, freshness, owner, source를 함께 전달하는 내부 플랫폼이 되고 있습니다.",
+      "A2A와 MCP는 연결성을 높이지만, 사고는 대부분 tool permission, delegated identity, logging 부재에서 발생합니다.",
+      "에이전트 계정은 사람 계정도 서비스 계정도 아니므로 임시 권한, 승인 상태, 만료 시간을 별도로 모델링해야 합니다."
+    ],
+    whyMatters: [
+      "컨텍스트가 오래되었거나 권한 없는 데이터를 포함하면 좋은 모델도 위험한 결정을 내립니다.",
+      "에이전트가 여러 도구를 순차 호출하면 단일 API 로그만으로는 원인 분석과 책임 추적이 어렵습니다.",
+      "개발자는 tool contract와 audit schema를 애플리케이션 기능만큼 먼저 설계해야 합니다."
+    ],
+    developerActions: [
+      "에이전트별 permission matrix를 만들고 read, suggest, write, deploy, admin 권한을 분리하세요.",
+      "컨텍스트 조각마다 owner, source_url, updated_at, permission_scope, confidence, expiry를 저장하세요.",
+      "모든 tool invocation에 delegated_user_id, reason, approval_state, input_hash, changed_resource, request_id를 남기세요.",
+      "MCP 서버를 붙일 때 파일 시스템, 네트워크, 토큰, 외부 전송 범위를 보안 리뷰 항목으로 넣으세요."
+    ],
+    risks: [
+      "에이전트에게 사람 계정을 그대로 위임하면 로그와 권한 회수가 불투명해집니다.",
+      "컨텍스트 플랫폼이 출처 없는 요약을 섞으면 조직 지식의 신뢰도가 빠르게 떨어집니다.",
+      "벤더별 에이전트 런타임에 권한과 로그가 흩어지면 사고 후 재구성이 어렵습니다."
     ],
     sourceLinks: [
       {
@@ -54,53 +113,53 @@ window.dailyTrendCards = [
         url: "https://d2.naver.com/helloworld/7056385"
       },
       {
-        title: "ODW #3: MCP 서버를 안전하게 활용해 개발 효율 높이기",
+        title: "AI 시대에 인증 과제를 해결할 차세대 표준 후보, ID-JAG",
         source: "LINE Engineering",
-        url: "https://techblog.lycorp.co.jp/ko/improving-development-efficiency-with-secure-mcp-servers"
+        url: "https://techblog.lycorp.co.jp/ko/id-jag-next-generation-authentication-ai-era"
       }
     ]
   },
   {
-    id: "daily-2026-07-05-ai-coding-verification",
-    title: "AI 코딩의 생산성은 검증 루프가 결정한다",
+    id: "daily-2026-07-06-ai-coding-verification",
+    title: "AI 코딩의 차별점은 더 많은 코드가 아니라 더 빠른 판정이다",
     category: "Engineering Practice",
-    date: "2026-07-05",
-    readTime: "7 min read",
+    date: "2026-07-06",
+    readTime: "8 min read",
     views: "Codex Daily",
-    tags: ["AI Coding", "Testing", "Code Review", "Playwright", "Governance"],
-    summary: "Claude Code 금지 보도, GitHub의 agent-driven 개발 회고, LINE/NAVER/Toss의 검증 사례는 같은 결론으로 모입니다. AI가 코드를 빨리 쓰는 만큼 팀은 더 빠르게 실패를 재현해야 합니다.",
-    content: "AI 코딩 도구가 성숙할수록 조직의 관심은 '얼마나 빨리 구현되는가'에서 '어디까지 믿고 병합할 수 있는가'로 이동합니다. TechCrunch의 Alibaba Claude Code 금지 보도는 기업 보안 정책의 현실을 보여주고, GitHub의 agent-driven development 회고는 에이전트와 함께 일할 때의 실무 감각을 제공합니다. 국내에서는 LINE이 검증력과 로컬 환경 전략을 강조하고, NAVER는 Playwright 기반 E2E 하네스를, Toss는 테스트하는 법 자체를 제품화하는 방향을 보여줍니다.",
+    tags: ["AI Coding", "Testing", "Code Quality", "Review", "E2E"],
+    summary: "GitHub의 agent-driven development, HN의 코드 청결도 연구, LINE/NAVER/Toss의 검증 사례는 AI 코딩 시대의 개발자 역량이 구현 속도보다 실패 재현과 품질 판정으로 이동한다고 말합니다.",
+    content: "AI 코딩 도구는 이미 충분히 많은 코드를 만듭니다. 오늘 더 중요한 질문은 그 코드를 얼마나 빨리 판정하고 되돌릴 수 있느냐입니다. GitHub는 agent-driven development 경험을 공유했고, Hacker News에는 코드 청결도가 coding agent 성능에 영향을 주는지 다룬 연구가 올라왔습니다. 국내에서는 LINE이 '검증력'을 개발 능력으로 재정의하고, NAVER가 Playwright E2E 하네스를, Toss가 테스트하는 법 자체를 플랫폼화하는 사례를 냈습니다.",
     trends: [
-      "AI 생성 코드는 변경량과 속도를 늘리지만 리뷰, 테스트, 롤백의 병목도 함께 키웁니다.",
-      "기업은 AI 코딩 도구를 무조건 허용하기보다 코드 유출, 라이선스, 비밀정보, 외부 전송 정책을 따지기 시작했습니다.",
-      "E2E 테스트와 로컬 재현 환경이 AI 생성 코드의 최소 신뢰 계층으로 부상하고 있습니다."
+      "AI 생성 코드는 변경량을 늘리므로 리뷰어가 볼 기준, 테스트 증거, 롤백 계획이 더 중요해집니다.",
+      "코드와 문서의 구조화 품질은 사람의 가독성뿐 아니라 에이전트의 탐색과 수정 성능에도 영향을 줍니다.",
+      "E2E 테스트, 로컬 재현 환경, visual evidence가 AI-generated PR의 최소 신뢰 계층으로 자리 잡고 있습니다."
     ],
     whyMatters: [
-      "검증 루프 없이 AI 코딩을 확대하면 생산성이 아니라 미검증 변경량만 늘어납니다.",
-      "개발자의 차별점은 프롬프트 문장보다 실패 조건, 테스트 데이터, 리뷰 기준을 설계하는 능력으로 이동합니다.",
-      "AI 리뷰 도구도 운영 리스크 기준이 없으면 스타일 코멘트 이상의 가치를 내기 어렵습니다."
+      "검증 루프가 없는 팀은 AI로 생산성을 얻는 것이 아니라 미검증 변경량을 늘립니다.",
+      "AI가 만든 설명은 증거가 아니므로 실행 로그, 테스트 결과, 스크린샷, diff 근거가 필요합니다.",
+      "개발자의 실력은 프롬프트 문장보다 실패 조건을 정의하고 품질 기준을 자동화하는 능력으로 이동합니다."
     ],
     developerActions: [
-      "AI에게 구현을 맡기기 전 실패 조건 5개, 금지 변경 3개, 테스트해야 할 사용자 흐름 3개를 먼저 쓰세요.",
-      "AI 생성 PR 템플릿에 실행한 테스트, 변경된 API 계약, 롤백 계획, 새 의존성 검토 결과를 필수로 넣으세요.",
-      "핵심 경로는 Playwright 같은 E2E 하네스로 고정하고, AI가 만든 변경마다 스크린샷/로그 증거를 남기세요.",
-      "외부 AI 코딩 도구 사용 정책에는 금지 파일, 비밀값 처리, 사내 코드 업로드 범위, 승인 절차를 명시하세요."
+      "AI에게 구현을 맡기기 전 실패 조건 5개, 금지 변경 3개, 필수 테스트 흐름 3개를 먼저 작성하세요.",
+      "AI 생성 PR에는 실행한 테스트, 변경된 계약, 새 의존성, 보안 영향, 롤백 계획을 필수 항목으로 넣으세요.",
+      "핵심 흐름은 Playwright나 동등한 E2E 하네스로 고정하고, AI가 만든 UI 변경에는 스크린샷 증거를 요구하세요.",
+      "코드베이스 청결도를 AI 사용성 요구사항으로 보고 naming, module boundary, docs, examples를 정비하세요."
     ],
     risks: [
-      "AI가 만든 테스트가 구현 세부사항만 따라가면 실제 사용자 실패를 막지 못합니다.",
-      "보안 정책 없이 터미널형 코딩 에이전트를 쓰면 로컬 파일, 환경 변수, 내부 레포 노출 위험이 커집니다.",
-      "리뷰어가 코드 전체를 이해하지 못한 채 AI 설명만 믿으면 회귀 버그가 숨어 들어갑니다."
+      "AI가 만든 테스트가 구현 세부사항만 확인하면 실제 사용자 실패를 막지 못합니다.",
+      "코드베이스가 어수선하면 에이전트가 잘못된 패턴을 더 빠르게 복제합니다.",
+      "기업 정책 없이 터미널형 coding agent를 쓰면 로컬 파일, 비밀값, 내부 코드 노출 위험이 커집니다."
     ],
     sourceLinks: [
-      {
-        title: "Alibaba reportedly bans employees from using Claude Code",
-        source: "TechCrunch AI",
-        url: "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/"
-      },
       {
         title: "Agent-driven development in Copilot Applied Science",
         source: "GitHub Engineering",
         url: "https://github.blog/ai-and-ml/github-copilot/agent-driven-development-in-copilot-applied-science/"
+      },
+      {
+        title: "Does code cleanliness affect coding agents? A controlled minimal-pair study",
+        source: "Hacker News",
+        url: "https://arxiv.org/abs/2605.20049"
       },
       {
         title: "AI 시대의 개발 능력은 검증력으로 결정된다, Flava API Gateway 개발 중 배운 빠른 검증과 로컬 환경 구성 전략",
@@ -120,35 +179,35 @@ window.dailyTrendCards = [
     ]
   },
   {
-    id: "daily-2026-07-05-ai-traffic-economy",
-    title: "AI 트래픽은 차단 목록에서 계약 가능한 자원으로 바뀐다",
-    category: "Web Platform",
-    date: "2026-07-05",
-    readTime: "7 min read",
+    id: "daily-2026-07-06-agentic-web-security",
+    title: "AI 웹은 크롤러 정책과 실행 보안을 같은 문제로 만든다",
+    category: "Web Security",
+    date: "2026-07-06",
+    readTime: "8 min read",
     views: "Codex Daily",
-    tags: ["AI Crawlers", "x402", "Content", "MCP", "Search", "Monetization"],
-    summary: "Cloudflare의 AI traffic options, attribution, monetization gateway는 웹 콘텐츠 접근 정책이 검색, 학습, 에이전트 실행, 유료 API 호출로 쪼개지고 있음을 보여줍니다.",
-    content: "웹 운영자가 고민해야 할 질문이 robots.txt 허용/차단에서 더 복잡해졌습니다. Cloudflare는 AI traffic 목적 분리, Attribution Business Insights, x402 기반 Monetization Gateway를 내놓았고 TechCrunch도 AI 회사가 퍼블리셔 콘텐츠 비용을 지불하도록 압박하는 정책 변화를 다뤘습니다. 이 흐름은 웹페이지뿐 아니라 데이터셋, API, MCP tool까지 '에이전트가 접근하는 자원'으로 묶어 정책과 가격을 붙이는 방향입니다.",
+    tags: ["AI Traffic", "Security", "Browser", "Supply Chain", "x402"],
+    summary: "Cloudflare의 AI traffic/monetization 흐름, Ars의 AI browser 공격, AWS phishing 탐지, Daangn PyPI proxy 방어는 AI가 읽는 웹과 실행하는 도구를 하나의 보안 경계로 봐야 함을 보여줍니다.",
+    content: "웹 운영자는 더 이상 bot을 허용하거나 차단하는 정도로 충분하지 않습니다. Cloudflare는 AI traffic 목적 분리, attribution, x402 기반 과금 게이트웨이를 내놓고 있고, Ars는 AI browser가 hostile page에 속을 수 있음을 보여줍니다. AWS는 AI-generated phishing 탐지를, Daangn은 내부 PyPI proxy 공급망 방어를 다룹니다. 공통점은 외부 입력이 AI를 거쳐 내부 행동으로 바뀌는 경계가 많아졌다는 것입니다.",
     trends: [
-      "AI crawler는 검색 인덱싱, 모델 학습, 에이전트 작업 수행 목적별로 분리 관리되는 방향입니다.",
-      "콘텐츠와 API는 사람이 읽는 페이지와 에이전트가 소비하는 기계 자원으로 동시에 설계되어야 합니다.",
-      "x402 같은 결제/권한 프로토콜은 MCP tool과 데이터 API의 사용량 기반 과금 실험으로 이어질 수 있습니다."
+      "검색, 학습, 요약, agent action, paid access를 분리하는 AI traffic policy가 웹 제품의 기본 요구사항이 되고 있습니다.",
+      "AI browser와 coding agent는 페이지 내용, 로컬 파일, 세션, 패키지 저장소 사이의 기존 신뢰 경계를 흐립니다.",
+      "공급망 방어와 AI 보안은 별도 주제가 아니라 AI가 새 dependency와 도구 호출을 제안하는 순간 연결됩니다."
     ],
     whyMatters: [
-      "개발자가 운영하는 문서, API, 데이터셋도 AI 에이전트의 소비 대상이 되면서 접근 정책이 제품 기능이 됩니다.",
-      "무조건 차단하면 검색과 발견성을 잃고, 무조건 허용하면 비용과 IP 리스크가 커집니다.",
-      "AI 트래픽 로그를 구분하지 못하면 어떤 봇이 어떤 목적으로 어떤 자원을 쓰는지 판단할 수 없습니다."
+      "AI agent가 웹을 읽고 내부 도구를 실행하면 prompt injection이 실제 데이터 변경이나 외부 전송으로 이어질 수 있습니다.",
+      "무조건 차단하면 발견성과 파트너 통합을 잃고, 무조건 허용하면 비용과 IP 리스크가 커집니다.",
+      "개발팀은 robots.txt, API auth, package proxy, WAF, sandbox 로그를 함께 봐야 합니다."
     ],
     developerActions: [
-      "웹 로그에서 user agent만 보지 말고 목적, 경로, 응답 크기, 인증 여부, rate limit 결과를 함께 집계하세요.",
-      "문서, API, 데이터셋, MCP tool별로 search, train, agent-action, paid-access 정책을 나누세요.",
-      "에이전트용 엔드포인트에는 사람이 보는 HTML과 다른 요약, 스키마, 라이선스, freshness 정보를 명시하세요.",
-      "비용이 큰 API는 무료 크롤링 경로와 인증된 유료 경로를 분리하고 사용량 지표를 대시보드화하세요."
+      "웹/API 로그에 actor_type, purpose_guess, auth_state, resource_type, policy_result, compute_cost를 추가하세요.",
+      "AI browser 테스트에는 hidden instruction, 악성 링크, 파일 읽기 유도, 세션 외부 전송 시나리오를 넣으세요.",
+      "새 dependency 추가 PR에는 AI 추천 여부와 상관없이 license, maintainer, provenance, typosquat 검사를 요구하세요.",
+      "공개 문서와 API에는 AI 사용 목적, freshness, license, rate limit, 유료 접근 경로를 명시하세요."
     ],
     risks: [
-      "AI bot 식별은 아직 불완전하므로 정책을 과신하면 정상 검색 유입이나 파트너 통합이 깨질 수 있습니다.",
-      "콘텐츠 과금이 표준화되기 전까지는 벤더별 구현에 묶일 가능성이 큽니다.",
-      "에이전트에게 제공한 API가 곧 재판매 가능한 데이터 상품이 될 수 있으므로 약관과 로그 보존이 필요합니다."
+      "AI bot 식별은 아직 불완전하므로 자동 정책을 과신하면 정상 검색 유입이 깨질 수 있습니다.",
+      "AI 브라우저를 일반 브라우저처럼 취급하면 사용자가 의도하지 않은 행동을 페이지가 유도할 수 있습니다.",
+      "패키지 proxy 예외가 늘어나면 공급망 통제는 문서상 정책으로만 남습니다."
     ],
     sourceLinks: [
       {
@@ -157,177 +216,10 @@ window.dailyTrendCards = [
         url: "https://blog.cloudflare.com/monetization-gateway/"
       },
       {
-        title: "Content Independence Day, one year on: building the business model for the agentic Internet",
-        source: "Cloudflare Blog",
-        url: "https://blog.cloudflare.com/agentic-internet-bot-report/"
-      },
-      {
         title: "Your site, your rules: new AI traffic options for all customers",
         source: "Cloudflare Blog",
         url: "https://blog.cloudflare.com/content-independence-day-ai-options/"
       },
-      {
-        title: "Unmasking the crawls with Attribution Business Insights",
-        source: "Cloudflare Blog",
-        url: "https://blog.cloudflare.com/attribution-business-insights/"
-      },
-      {
-        title: "Cloudflare’s new policy pushes AI companies to pay for publishers’ content",
-        source: "TechCrunch AI",
-        url: "https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/"
-      }
-    ]
-  },
-  {
-    id: "daily-2026-07-05-model-operations",
-    title: "모델 운영은 성능 경쟁보다 배포 경계 설계로 간다",
-    category: "ModelOps",
-    date: "2026-07-05",
-    readTime: "8 min read",
-    views: "Codex Daily",
-    tags: ["ModelOps", "Bedrock", "Open Models", "GovCloud", "Evaluation", "Cost"],
-    summary: "AWS와 Anthropic, OpenAI 관련 피드는 모델 선택이 단일 리더보드 문제가 아니라 규제, 비용, 데이터 민감도, 평가 하네스를 묶은 운영 문제로 바뀌고 있음을 보여줍니다.",
-    content: "오늘 해외 AI 인프라 피드는 모델의 이름보다 모델을 어디에, 어떤 데이터로, 얼마의 비용으로, 어떤 평가 기준 아래 배포할지가 더 중요하다는 신호를 냅니다. AWS는 GovCloud에서 open-weight 모델을 제공하고, Bedrock Model Profiler와 multi-turn RL 모범 사례, resilient LLM gateway 패턴을 소개합니다. Anthropic 모델 글로벌 릴리스와 안전 테스트 보도, custom chip 논의도 모델 공급망이 규제와 하드웨어, 클라우드 배포 경계에 묶여 움직인다는 점을 보여줍니다.",
-    trends: [
-      "오픈 모델과 관리형 frontier 모델을 같은 플랫폼에서 목적별로 라우팅하려는 수요가 커지고 있습니다.",
-      "정부/규제 환경에서는 모델 성능보다 데이터 위치, 접근 통제, 안전 테스트, 감사 가능성이 우선됩니다.",
-      "모델 선택 도구, eval harness, gateway resilience가 애플리케이션 품질의 핵심 운영 부품이 됩니다."
-    ],
-    whyMatters: [
-      "제품팀은 모델 벤치마크만 보고 선택하면 비용 폭증, 규제 부적합, 장애 전파를 놓칠 수 있습니다.",
-      "open-weight 모델 도입은 자유도가 높지만 패치, 평가, 배포, 보안 책임도 팀 쪽으로 이동합니다.",
-      "LLM gateway는 단순 프록시가 아니라 라우팅, fallback, rate limit, prompt/version audit을 담당해야 합니다."
-    ],
-    developerActions: [
-      "모델 선택 기준을 quality, latency, cost, data sensitivity, residency, tool support, fallback 가능성으로 나눠 기록하세요.",
-      "프로덕션 프롬프트와 모델 버전, 평가 데이터셋, 실패 사례를 함께 버전 관리하세요.",
-      "LLM gateway에 timeout, retry budget, fallback model, circuit breaker, redaction log를 넣으세요.",
-      "오픈 모델은 배포 전 사내 데이터와 실제 실패 케이스로 최소 eval suite를 통과시키세요."
-    ],
-    risks: [
-      "모델 profiler나 managed platform이 제공하는 메타데이터만 믿으면 실제 업무 데이터에서의 실패를 놓칩니다.",
-      "fallback 모델이 기능적으로 다르면 장애 상황에서 사용자가 다른 답변 정책을 경험할 수 있습니다.",
-      "규제 환경에 맞춘 모델을 일반 제품에 그대로 쓰면 비용과 개발 속도 면에서 과한 선택이 될 수 있습니다."
-    ],
-    sourceLinks: [
-      {
-        title: "Run NVIDIA Nemotron and OpenAI GPT OSS models on Amazon Bedrock in AWS GovCloud (US)",
-        source: "AWS ML Blog",
-        url: "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/"
-      },
-      {
-        title: "Simplify model selection in Amazon Bedrock with the open source Model Profiler",
-        source: "AWS ML Blog",
-        url: "https://aws.amazon.com/blogs/machine-learning/simplify-model-selection-in-amazon-bedrock-with-the-open-source-model-profiler/"
-      },
-      {
-        title: "Best practices for multi-turn reinforcement learning in Amazon SageMaker AI",
-        source: "AWS ML Blog",
-        url: "https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/"
-      },
-      {
-        title: "Implementing resilience patterns with Amazon Bedrock and LLM gateway",
-        source: "AWS ML Blog",
-        url: "https://aws.amazon.com/blogs/machine-learning/implementing-resilience-patterns-with-amazon-bedrock-and-llm-gateway/"
-      },
-      {
-        title: "After spooking Trump into safety testing, Anthropic AI models get global release",
-        source: "Ars Technica AI",
-        url: "https://arstechnica.com/tech-policy/2026/07/after-spooking-trump-into-safety-testing-anthropic-ai-models-get-global-release/"
-      }
-    ]
-  },
-  {
-    id: "daily-2026-07-05-product-workflow-ai",
-    title: "AI 도입은 챗봇 기능보다 팀 워크플로 재설계에 가깝다",
-    category: "Product Engineering",
-    date: "2026-07-05",
-    readTime: "7 min read",
-    views: "Codex Daily",
-    tags: ["Workflow", "Product", "Metrics", "Frontend", "Design", "Automation"],
-    summary: "LINE, Kakao, Toss, Netflix 사례는 AI가 별도 기능으로 붙는 단계를 넘어 프런트엔드 제작, 지표 분석, 디자인 실험, 홈페이지 생성 같은 팀 운영 흐름으로 들어오고 있음을 보여줍니다.",
-    content: "국내 피드는 AI를 제품팀의 실제 작업 흐름에 넣는 사례가 많았습니다. LINE은 AI로 LINE 앱 안의 그룹 영상 통화 서비스를 만들고 프런트엔드 생산성을 워크플로로 끌어올리는 사례를 냈고, Kakao는 카카오톡 추천 지표 분석을 에이전트로 자동화했습니다. Toss는 디자이너 AI Contest와 기술 문서 책임을 다루며 역할 경계 변화를 보여줍니다. Netflix의 GenPage는 개인화된 홈페이지 구성 자체가 생성형 시스템으로 이동하는 신호입니다.",
-    trends: [
-      "AI 기능은 검색창 옆 버튼이 아니라 기획, 디자인, 프런트엔드, 지표 분석의 연결 방식에 들어오고 있습니다.",
-      "비개발자도 프로토타입을 만들 수 있지만, 운영 가능한 제품으로 바꾸는 책임은 여전히 엔지니어링 시스템에 남습니다.",
-      "추천, 홈페이지, 지표 분석처럼 데이터와 사용자 경험이 맞물린 영역에서 생성형 AI 실험이 늘고 있습니다."
-    ],
-    whyMatters: [
-      "AI 워크플로는 역할 간 handoff를 줄이지만, 품질 기준이 없으면 검증되지 않은 산출물이 더 빨리 쌓입니다.",
-      "제품 개발자는 AI가 만든 화면이나 분석 결과를 사용자 계약, 데이터 정의, 접근성, 성능 기준으로 재검토해야 합니다.",
-      "팀의 경쟁력은 AI 도구 목록보다 어떤 반복 업무를 표준 워크플로로 흡수했는지에서 드러납니다."
-    ],
-    developerActions: [
-      "AI로 만든 프로토타입은 디자인, 데이터 계약, 접근성, 성능, 보안 체크리스트를 통과해야 개발 backlog로 올리세요.",
-      "지표 분석 에이전트에는 metric definition, source table, aggregation rule, confidence note를 답변에 포함시키세요.",
-      "프런트엔드 AI 워크플로에는 component inventory, design token, visual regression, browser support 기준을 연결하세요.",
-      "AI 실험 결과를 일회성 데모로 두지 말고 재사용 가능한 prompt, script, template, eval checklist로 남기세요."
-    ],
-    risks: [
-      "비개발자가 만든 AI 프로토타입이 운영 데이터, 권한, 성능 비용을 고려하지 못한 채 제품 기대치를 만들 수 있습니다.",
-      "지표 분석 에이전트가 데이터 정의를 잘못 이해하면 의사결정 오류가 빠르게 확산됩니다.",
-      "AI 워크플로가 개인별 노하우로만 남으면 팀 표준이 아니라 자동화된 그림자 프로세스가 됩니다."
-    ],
-    sourceLinks: [
-      {
-        title: "AI로 웹 엔지니어 없이 LINE 앱 안에서 그룹 영상 통화 서비스 만들기",
-        source: "LINE Engineering",
-        url: "https://techblog.lycorp.co.jp/ko/building-group-video-calls-inside-line-app-with-ai-and-line-planet"
-      },
-      {
-        title: "프롬프팅에서 워크플로로, AI로 프런트엔드 개발 생산성 끌어올리기",
-        source: "LINE Engineering",
-        url: "https://techblog.lycorp.co.jp/ko/techverse2026-10"
-      },
-      {
-        title: "AI 에이전트로 카카오톡 추천 지표 분석 자동화하기",
-        source: "Kakao Tech",
-        url: "https://tech.kakao.com/posts/824"
-      },
-      {
-        title: "디자이너에게 AI로 뭐든 만들어보라고 한다면",
-        source: "Toss Tech",
-        url: "https://toss.tech/article/ai_contest"
-      },
-      {
-        title: "GenPage: Towards End-to-End Generative Homepage Construction at Netflix",
-        source: "Netflix TechBlog",
-        url: "https://netflixtechblog.com/genpage-towards-end-to-end-generative-homepage-construction-at-netflix-77146fba8a08?source=rss----2615bd06b42e---4"
-      }
-    ]
-  },
-  {
-    id: "daily-2026-07-05-ai-security-supply-chain",
-    title: "AI 시대 보안은 프롬프트보다 공급망과 실행 경계를 본다",
-    category: "Security",
-    date: "2026-07-05",
-    readTime: "8 min read",
-    views: "Codex Daily",
-    tags: ["Security", "Supply Chain", "AI Browser", "Phishing", "PyPI", "WAF"],
-    summary: "AI browser 공격, AI-generated phishing, 내부 PyPI 방어, vulnerability harness 사례가 동시에 잡혔습니다. AI 보안은 모델 필터링만으로는 부족하고 실행 환경과 공급망 통제가 핵심입니다.",
-    content: "오늘 보안 신호는 AI 자체보다 AI가 접속하는 브라우저, 패키지 저장소, 이메일, WAF, 배포 도구의 경계에서 나왔습니다. Ars는 AI 브라우저가 guardrail을 우회하는 공격을 다뤘고 AWS는 AI-generated phishing 탐지를, Cloudflare는 vulnerability harness와 threat intel WAF rule을 소개했습니다. 국내에서는 당근의 내부 PyPI proxy 공급망 방어 글이 개발팀이 바로 적용할 수 있는 현실적인 보안 신호입니다.",
-    trends: [
-      "AI 에이전트와 브라우저는 웹 페이지, 로컬 파일, 세션, 내부 도구 사이의 기존 신뢰 경계를 흐립니다.",
-      "AI로 생성된 피싱과 취약점 탐지는 방어 측에도 자동화와 triage loop를 요구합니다.",
-      "패키지 저장소, 내부 proxy, dependency policy 같은 기본 공급망 통제가 AI 개발 속도 증가와 함께 더 중요해집니다."
-    ],
-    whyMatters: [
-      "AI 에이전트가 코드를 쓰고 명령을 실행하면 dependency confusion, secret leakage, malicious prompt가 실제 변경으로 이어질 수 있습니다.",
-      "보안팀만의 문제가 아니라 개발자가 사용하는 도구 체인 전체가 공격면이 됩니다.",
-      "모델 안전장치보다 sandbox, permission, provenance, logging이 더 직접적인 방어선일 때가 많습니다."
-    ],
-    developerActions: [
-      "AI 코딩 도구가 접근 가능한 디렉터리, 명령어, 네트워크 대상, 환경 변수를 제한하세요.",
-      "내부 패키지 proxy에는 allowlist, hash pinning, quarantine, typosquat 탐지를 적용하세요.",
-      "AI 브라우저/에이전트 테스트에는 prompt injection 페이지, malicious link, hidden instruction, file exfiltration 시나리오를 넣으세요.",
-      "보안 자동화는 탐지 결과만 만들지 말고 triage owner, severity rule, rollback playbook까지 연결하세요."
-    ],
-    risks: [
-      "AI 보안 논의를 모델 alignment로만 좁히면 실제 침투 경로인 패키지, 세션, 권한, 로그를 놓칩니다.",
-      "자동 triage가 잘못된 우선순위를 만들면 중요한 취약점이 노이즈에 묻힐 수 있습니다.",
-      "에이전트 sandbox가 개발 편의 때문에 예외를 많이 허용하면 사실상 통제가 사라집니다."
-    ],
-    sourceLinks: [
       {
         title: "New attack provides one more reason why AI browsers are a bad idea",
         source: "Ars Technica AI",
@@ -339,19 +231,127 @@ window.dailyTrendCards = [
         url: "https://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/"
       },
       {
-        title: "Build your own vulnerability harness",
-        source: "Cloudflare Blog",
-        url: "https://blog.cloudflare.com/build-your-own-vulnerability-harness/"
-      },
-      {
-        title: "Turning Cloudflare’s threat indicators into real-time WAF rules",
-        source: "Cloudflare Blog",
-        url: "https://blog.cloudflare.com/realtime-threat-intel-waf-rules/"
-      },
-      {
-        title: "How We Protect Karrot’s Internal PyPI Proxy from Supply Chain Attacks",
+        title: "How We Protect Karrot's Internal PyPI Proxy from Supply Chain Attacks",
         source: "Daangn Tech",
         url: "https://medium.com/daangn/how-we-protect-karrots-internal-pypi-proxy-from-supply-chain-attacks-0cf197205915?source=rss----4505f82a2dbd---4"
+      }
+    ]
+  },
+  {
+    id: "daily-2026-07-06-product-data-workflows",
+    title: "AI 제품화는 기능 추가보다 데이터 워크플로 재설계에 가깝다",
+    category: "Product Engineering",
+    date: "2026-07-06",
+    readTime: "8 min read",
+    views: "Codex Daily",
+    tags: ["Product", "Data", "Workflow", "Metrics", "Frontend"],
+    summary: "Kakao의 추천 지표 분석 에이전트, Netflix GenPage/Data Canary, LINE 프런트엔드 워크플로, NAVER 해커톤 후기, Daangn 릴리즈 노트는 AI가 제품팀의 데이터·문서·검증 흐름 안으로 들어오고 있음을 보여줍니다.",
+    content: "국내 피드에서 AI는 별도 챗봇 기능보다 팀이 일하는 방식에 더 깊이 들어가고 있습니다. Kakao는 추천 지표 분석을 에이전트로 자동화했고, LINE은 프롬프팅에서 워크플로로 프런트엔드 생산성을 끌어올리는 사례를 냈습니다. NAVER 해커톤 후기는 코드와 문서가 LLM의 팀 이해 자산이 될 수 있음을 보여줍니다. Netflix의 GenPage, Data Canary, causal inference workflow까지 합치면 AI 제품화의 핵심은 모델 호출보다 데이터 정의, 검증, ownership, feedback loop입니다.",
+    trends: [
+      "지표 분석, 홈페이지 구성, 프런트엔드 프로토타이핑, 릴리즈 노트처럼 반복 지식 업무가 agent workflow로 바뀌고 있습니다.",
+      "문서와 코드가 잘 정리된 팀일수록 AI가 팀 맥락을 더 빠르게 이해하고 유용한 산출물을 만듭니다.",
+      "생성형 UI와 데이터 기반 개인화는 실험 단계에서 관측 가능성, 데이터 품질, 회귀 테스트를 요구합니다."
+    ],
+    whyMatters: [
+      "AI가 만든 분석 결과가 의사결정에 쓰이려면 metric definition과 source lineage가 답변에 포함되어야 합니다.",
+      "비개발자 프로토타입은 속도를 높이지만 운영 가능한 제품으로 바꾸는 엔지니어링 기준이 필요합니다.",
+      "팀의 경쟁력은 도구 사용량이 아니라 반복 workflow를 얼마나 재현 가능한 시스템으로 만들었는지에서 드러납니다."
+    ],
+    developerActions: [
+      "지표 분석 에이전트의 답변 포맷에 metric definition, source table, aggregation rule, confidence, owner를 강제하세요.",
+      "AI 프런트엔드 workflow에는 component inventory, design token, accessibility check, visual regression을 연결하세요.",
+      "문서와 코드에는 LLM이 읽기 쉬운 entry point, architecture map, runbook, example task를 정리하세요.",
+      "AI 실험은 prompt만 저장하지 말고 입력 데이터, 평가 기준, 실패 사례, 사람이 수정한 내역까지 남기세요."
+    ],
+    risks: [
+      "데이터 정의가 틀린 에이전트는 빠르게 그럴듯한 오답을 반복합니다.",
+      "AI가 만든 UI가 디자인 시스템과 접근성 기준을 우회하면 유지보수 비용이 커집니다.",
+      "개인별 자동화가 팀 표준으로 흡수되지 않으면 shadow process가 늘어납니다."
+    ],
+    sourceLinks: [
+      {
+        title: "AI 에이전트로 카카오톡 추천 지표 분석 자동화하기",
+        source: "Kakao Tech",
+        url: "https://tech.kakao.com/posts/824"
+      },
+      {
+        title: "GenPage: Towards End-to-End Generative Homepage Construction at Netflix",
+        source: "Netflix TechBlog",
+        url: "https://netflixtechblog.com/genpage-towards-end-to-end-generative-homepage-construction-at-netflix-77146fba8a08?source=rss----2615bd06b42e---4"
+      },
+      {
+        title: "The Data Canary: How Netflix Validates Catalog Metadata",
+        source: "Netflix TechBlog",
+        url: "https://netflixtechblog.com/the-data-canary-how-netflix-validates-catalog-metadata-18b699d58e36?source=rss----2615bd06b42e---4"
+      },
+      {
+        title: "프롬프팅에서 워크플로로, AI로 프런트엔드 개발 생산성 끌어올리기",
+        source: "LINE Engineering",
+        url: "https://techblog.lycorp.co.jp/ko/techverse2026-10"
+      },
+      {
+        title: "[AI 해커톤 후기] 코드와 문서만 읽은 LLM은 어떻게 사람과 같은 팀을 1위로 골랐을까",
+        source: "NAVER D2",
+        url: "https://d2.naver.com/helloworld/2541696"
+      }
+    ]
+  },
+  {
+    id: "daily-2026-07-06-modelops-resource-boundary",
+    title: "ModelOps는 리더보드보다 비용·규제·복구 경계를 설계한다",
+    category: "ModelOps",
+    date: "2026-07-06",
+    readTime: "8 min read",
+    views: "Codex Daily",
+    tags: ["ModelOps", "LLM Gateway", "Evaluation", "Cost", "Infrastructure"],
+    summary: "AWS Bedrock Model Profiler와 LLM gateway, Anthropic 글로벌 릴리스, Google AI 전력 증가, OpenAI/Broadcom·Anthropic/Samsung 칩 흐름은 모델 선택이 운영 경계 설계 문제로 바뀌었음을 보여줍니다.",
+    content: "모델 선택은 더 이상 가장 높은 벤치마크 모델을 고르는 일이 아닙니다. AWS는 Bedrock Model Profiler, GovCloud open-weight 모델, LLM gateway resilience, multi-turn RL 모범 사례를 내고 있고, Ars와 TechCrunch는 Anthropic 릴리스/칩, Google AI 전력 사용, OpenAI/Broadcom 칩 흐름을 다룹니다. 개발팀 입장에서는 모델 품질, 비용, latency, 데이터 민감도, residency, fallback, gateway 장애 복구를 같은 설계 문서에 넣어야 합니다.",
+    trends: [
+      "오픈 모델과 관리형 frontier 모델을 목적별로 라우팅하는 multi-model 운영이 현실적 선택지가 되고 있습니다.",
+      "AI 인프라 비용은 GPU/칩/전력/클라우드 계약까지 연결되며 애플리케이션 설계의 제약이 됩니다.",
+      "LLM gateway는 단순 프록시가 아니라 rate limit, fallback, prompt/version audit, redaction, circuit breaker를 담당합니다."
+    ],
+    whyMatters: [
+      "모델 성능만 보고 선택하면 비용 폭증, 규제 부적합, 장애 전파를 놓칩니다.",
+      "open-weight 모델 도입은 자유도를 주지만 patch, eval, hosting, abuse monitoring 책임도 팀으로 이동시킵니다.",
+      "fallback 모델이 답변 정책이나 tool support가 다르면 장애 상황에서 제품 계약이 깨질 수 있습니다."
+    ],
+    developerActions: [
+      "모델 선택 기준표를 quality, latency, cost, data sensitivity, residency, tool support, fallback compatibility로 나누세요.",
+      "프로덕션 prompt, model version, eval dataset, known failure, rollback condition을 함께 버전 관리하세요.",
+      "LLM gateway에 timeout, retry budget, fallback policy, redaction log, usage budget, circuit breaker를 구현하세요.",
+      "고비용 작업은 batch/offline, cheap model prefilter, human approval, caching 전략을 함께 검토하세요."
+    ],
+    risks: [
+      "Profiler와 benchmark 결과만 믿으면 실제 업무 데이터의 실패를 놓칠 수 있습니다.",
+      "fallback 정책이 없으면 모델 장애가 곧 제품 장애가 됩니다.",
+      "인프라 비용을 제품 가격에 반영하지 못하면 성장할수록 손실이 커질 수 있습니다."
+    ],
+    sourceLinks: [
+      {
+        title: "Simplify model selection in Amazon Bedrock with the open source Model Profiler",
+        source: "AWS ML Blog",
+        url: "https://aws.amazon.com/blogs/machine-learning/simplify-model-selection-in-amazon-bedrock-with-the-open-source-model-profiler/"
+      },
+      {
+        title: "Implementing resilience patterns with Amazon Bedrock and LLM gateway",
+        source: "AWS ML Blog",
+        url: "https://aws.amazon.com/blogs/machine-learning/implementing-resilience-patterns-with-amazon-bedrock-and-llm-gateway/"
+      },
+      {
+        title: "Run NVIDIA Nemotron and OpenAI GPT OSS models on Amazon Bedrock in AWS GovCloud (US)",
+        source: "AWS ML Blog",
+        url: "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/"
+      },
+      {
+        title: "Google's AI buildout drove 37% increase in electricity use in 2025",
+        source: "Ars Technica AI",
+        url: "https://arstechnica.com/ai/2026/07/googles-ai-buildout-drove-37-increase-in-electricity-use-in-2025/"
+      },
+      {
+        title: "Anthropic is discussing a new custom chip with Samsung",
+        source: "TechCrunch AI",
+        url: "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/"
       }
     ]
   }

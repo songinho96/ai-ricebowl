@@ -2,6 +2,18 @@
 window.crawledNews = [
   {
     "source": "TechCrunch AI",
+    "title": "Amazon will stop accepting new customers for Mechanical Turk",
+    "link": "https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/",
+    "description": "These may be the last days of Amazon’s Mechanical Turk.",
+    "pubDate": "Sun, 05 Jul 2026 17:43:36 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
     "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
     "link": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
     "description": "Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Go...",
@@ -248,11 +260,95 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "TechCrunch AI",
-    "title": "Builders Stage agenda revealed: Practical strategies for scaling startups at TechCrunch Disrupt 2026",
-    "link": "https://techcrunch.com/2026/07/01/builders-stage-agenda-revealed-practical-strategies-for-scaling-startups-at-techcrunch-disrupt-2026/",
-    "description": "The Builders Stage is returning to TechCrunch Disrupt 2026, bringing together 10,000+ founders, startup operators, and investors for practical convers...",
-    "pubDate": "Wed, 01 Jul 2026 14:00:00 +0000",
+    "source": "Hacker News",
+    "title": "GPT-5.6 Sol Ultra will be in Codex",
+    "link": "https://twitter.com/thsottiaux/status/2073933490513752151",
+    "description": "Comments",
+    "pubDate": "Mon, 06 Jul 2026 01:04:03 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Has_not_been_viewed_much",
+    "link": "https://iamwillwang.com/notes/has-not-been-viewed-much/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 23:49:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Organic Maps",
+    "link": "https://organicmaps.app/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 14:14:30 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Generate parametric, manufacturable 3D models in seconds",
+    "link": "https://kyrall.com/",
+    "description": "Comments",
+    "pubDate": "Mon, 06 Jul 2026 07:04:33 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "When AI Costs More Than the Engineer",
+    "link": "https://tomtunguz.com/ai-spend-breakeven-2029/",
+    "description": "Comments",
+    "pubDate": "Mon, 06 Jul 2026 07:05:25 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "It's not about physical vs. digital games, it's about ownership",
+    "link": "https://popcar.bearblog.dev/its-about-ownership/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 14:56:15 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "OpenPrinter",
+    "link": "https://www.opentools.studio/",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 21:03:06 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Building relationships with customers through support didn't turn out as hoped",
+    "link": "https://www.uncommonapps.nyc/p/castro-podcasts-things-i-got-wrong-support",
+    "description": "Comments",
+    "pubDate": "Mon, 06 Jul 2026 02:06:49 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -261,35 +357,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Shadcn/UI now defaults to Base UI instead of Radix",
-    "link": "https://ui.shadcn.com/docs/changelog",
+    "title": "Show HN: Homegames. An open-source game platform I've been making for 8 years",
+    "link": "https://homegames.io",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 04:46:08 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25)",
-    "link": "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 06:19:34 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI",
-      "DBA"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Command and Conquer Generals natively ported to macOS, iPhone, iPad using Fable",
-    "link": "https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main",
-    "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 19:41:10 +0000",
+    "pubDate": "Sun, 05 Jul 2026 21:32:44 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -298,10 +369,22 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "If you're a button, you have one job",
-    "link": "https://unsung.aresluna.org/if-youre-a-button-you-have-one-job/",
+    "title": "Does code cleanliness affect coding agents? A controlled minimal-pair study",
+    "link": "https://arxiv.org/abs/2605.20049",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 02:01:03 +0000",
+    "pubDate": "Sun, 05 Jul 2026 23:03:55 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Behind the scenes with the Midjourney scanner [video]",
+    "link": "https://www.youtube.com/watch?v=4nzzpUKhj1M",
+    "description": "Comments",
+    "pubDate": "Fri, 03 Jul 2026 13:21:33 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -310,10 +393,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Pandoc Lua Filters",
-    "link": "https://pandoc.org/lua-filters.html",
+    "title": "The Age of Personalized Hardware Is Coming",
+    "link": "https://geastack.com/blog-the-age-of-personalized-hardware-is-coming",
     "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 09:52:51 +0000",
+    "pubDate": "Thu, 02 Jul 2026 07:42:33 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -322,10 +405,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "GPT-5.5 Codex reasoning-token clustering may be leading to degraded performance",
-    "link": "https://github.com/openai/codex/issues/30364",
+    "title": "The Private Capture of Public Genius",
+    "link": "https://www.wysr.xyz/p/the-private-capture-of-public-genius",
     "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 21:51:09 +0000",
+    "pubDate": "Sun, 05 Jul 2026 23:52:20 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -334,10 +417,23 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Apocketlypse",
-    "link": "https://0dd.company/galleries/triumph/1.html",
+    "title": "Zuckerberg says AI agent development going slower than expected",
+    "link": "https://www.reuters.com/business/zuckerberg-says-ai-agent-development-going-slower-than-expected-2026-07-02/",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 08:32:09 +0000",
+    "pubDate": "Thu, 02 Jul 2026 20:38:06 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Starring the Computer",
+    "link": "https://www.starringthecomputer.com/computers.html",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 17:33:04 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -346,10 +442,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Megawatts by Microwave",
-    "link": "https://computer.rip/2026-07-04-microwave-and-power.html",
+    "title": "Completing a computer science degree on Coursera",
+    "link": "https://notesbylex.com/completing-a-computer-science-degree-on-coursera",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 05:56:03 +0000",
+    "pubDate": "Sun, 05 Jul 2026 21:20:49 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -358,10 +454,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Is The Economist Always Wrong?",
-    "link": "https://economist.com/interactive/finance-and-economics/2026/07/02/is-the-economist-always-wrong",
+    "title": "The future of Flipper Zero development",
+    "link": "https://blog.flipper.net/future-of-flipper-zero-development/",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 06:40:05 +0000",
+    "pubDate": "Sun, 05 Jul 2026 18:22:00 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -370,10 +466,34 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Jellyfish can heal wounds in minutes. Scientists want their secrets",
-    "link": "https://www.mbl.edu/news/jellyfish-can-heal-wounds-minutes-scientists-want-their-secrets",
+    "title": "New AI tutor achieves 0.71-1.30 SD effect size in Dartmouth course [pdf]",
+    "link": "https://intextbooks.science.uu.nl/workshop2026/files/itb26_s1s2.pdf",
     "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 22:36:28 +0000",
+    "pubDate": "Sun, 05 Jul 2026 18:47:43 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Mr. Baby Paint and accidentally discovering a new cellular automata",
+    "link": "https://tekstien-marginaalien-keskus.aalto.fi/residenssi/heikki/blog/004-december-2/",
+    "description": "Comments",
+    "pubDate": "Fri, 03 Jul 2026 03:13:53 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Composite Video on the NES: Why's it so wobbly?",
+    "link": "https://nicole.express/2026/phase-altering-by-line.html",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 21:45:17 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -382,58 +502,59 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Google Books (or similar) all book scans – $200k bounty (2025)",
-    "link": "https://software.annas-archive.gl/AnnaArchivist/annas-archive/-/work_items/234",
+    "title": "Delta flight hit by firework while landing at Midway Airport on Fourth of July",
+    "link": "https://www.nbcchicago.com/news/local/delta-flight-hit-by-firework-while-landing-at-midway-airport-on-fourth-of-july/3957451/",
     "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 16:51:26 +0000",
+    "pubDate": "Sun, 05 Jul 2026 19:22:51 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "DNSGlobe – Rust TUI to watch DNS propagate around the world",
+    "link": "https://github.com/514-labs/dnsglobe",
+    "description": "Comments",
+    "pubDate": "Sun, 05 Jul 2026 21:55:53 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
       "BE"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Leaking YouTube creators' private videos",
-    "link": "https://javoriuski.com/post/youtube",
+    "title": "Modernizing a 25-year-old minimal C++ unit testing framework (Part 2)",
+    "link": "https://freshsources.com/code-capsules/test-part2/",
     "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 16:45:10 +0000",
+    "pubDate": "Thu, 02 Jul 2026 18:45:17 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "QA"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Moby Dick Workout",
-    "link": "https://www.hogbaysoftware.com/posts/moby-dick-workout/",
+    "title": "The great blogging collapse: What happened to 100 successful blogs?",
+    "link": "https://danielstanica.com/posts/Great-Blogging-Collapse",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 04:30:33 +0000",
+    "pubDate": "Thu, 02 Jul 2026 09:36:04 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "Mobile"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Artful Cats: Feline-Inspired Art and Artifacts",
-    "link": "https://www.si.edu/spotlight/art-cats",
+    "title": "Show HN: Visualize Model Spikiness in 3D",
+    "link": "https://www.modelmap.tech/",
     "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 18:23:45 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Atomic Force Microscope high-speed video, stainless etching, bacteria, and more",
-    "link": "https://www.youtube.com/watch?v=DyIQkqBXhS0",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 19:03:54 +0000",
+    "pubDate": "Thu, 02 Jul 2026 19:57:43 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -442,34 +563,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Better Models: Worse Tools",
-    "link": "https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/",
+    "title": "Cursed circuits #5: capacitance multiplier",
+    "link": "https://lcamtuf.substack.com/p/cursed-circuits-capacitance-multiplier",
     "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 20:16:22 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The Log Is the Agent",
-    "link": "https://arxiv.org/abs/2605.21997",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 02:57:38 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Return of the Nigerian Prince Redux: Beware Book Club and Book Review Scams (2025)",
-    "link": "https://writerbeware.blog/2025/09/19/return-of-the-nigerian-prince-redux-beware-book-club-and-book-review-scams/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 00:22:25 +0000",
+    "pubDate": "Sun, 05 Jul 2026 20:00:30 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -478,58 +575,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "EV Batteries Are Defying Expectations After Miles",
-    "link": "https://www.wsj.com/business/autos/ev-batteries-are-defying-expectations-after-hundreds-of-thousands-of-miles-8579de13",
+    "title": "The Sneakerweb",
+    "link": "https://sneakerweb.org/",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 06:30:40 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Meta's Un-Stable Signature",
-    "link": "https://hackerfactor.com/blog/index.php?/archives/1098-Metas-Un-Stable-Signature.html",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 17:30:58 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "My ASN Journey series (2024)",
-    "link": "https://www.animmouse.com/p/my-asn-journey/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 04:29:05 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Potential session/cache leakage between workspace instances or consumer accounts",
-    "link": "https://github.com/anthropics/claude-code/issues/74066",
-    "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 14:03:40 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Zig: All Package Management Functionality Moved from Compiler to Build System",
-    "link": "https://ziglang.org/devlog/2026/#2026-06-30",
-    "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 16:30:10 +0000",
+    "pubDate": "Mon, 06 Jul 2026 01:35:09 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -538,10 +587,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "\"Beyond the limit\": Satellites and mirrors in space pose threat to the night sky",
-    "link": "https://www.eso.org/public/news/eso2607/",
+    "title": "Dungeon Proof Crawler: learn how to write proofs with RPG",
+    "link": "https://dhilst.github.io/algae/game/index.html",
     "description": "Comments",
-    "pubDate": "Sat, 04 Jul 2026 17:17:28 +0000",
+    "pubDate": "Sun, 05 Jul 2026 21:00:27 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -550,70 +599,22 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "A Summer of Solar Cooking (2023)",
-    "link": "https://100r.ca/site/solar_cooking_experiment.html",
+    "title": "You need a webring",
+    "link": "https://shub.club/writings/2026/july/you-need-a-webring/",
     "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 18:26:05 +0000",
+    "pubDate": "Sun, 05 Jul 2026 18:46:07 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "FE"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Record-breaking solo rower Kelsey Pfendler arrives in Hawaii",
-    "link": "https://www.hawaiinewsnow.com/2026/07/04/record-breaking-solo-rower-kelsey-pfendler-arrives-hawaii/",
+    "title": "Run Windows 2000 on a DEC Alpha with a new es40 fork",
+    "link": "https://raymii.org/s/blog/Run_Windows_2000_for_Dec_Alpha_on_a_new_es40_fork.html",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 01:23:11 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "What ORMs have taught me: just learn SQL (2014)",
-    "link": "https://wozniak.ca/blog/2014/08/03/1/index.html",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 04:14:01 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DBA"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The Particle Box – Kinetic Molecular Theory Simulator",
-    "link": "https://prepok.com/chemistry/particle-box/",
-    "description": "Comments",
-    "pubDate": "Wed, 01 Jul 2026 13:16:53 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Width vs. Depth: Speculating on the Margin",
-    "link": "https://blog.doubleword.ai/speculating-on-the-margin",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 14:52:31 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The Preemptive Draw and Preemptive Grip in the Cash-in-Transit Sector",
-    "link": "https://gutsgatesguards.wordpress.com/2026/06/23/the-preemptive-draw-and-preemptive-grip-in-the-cash-in-transit-sector-part-1/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 03:20:46 +0000",
+    "pubDate": "Sun, 05 Jul 2026 13:47:44 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -2109,6 +2110,18 @@ window.crawledNews = [
   },
   {
     "source": "NAVER D2",
+    "title": "[AI 해커톤 후기] 코드와 문서만 읽은 LLM은 어떻게 사람과 같은 팀을 1위로 골랐을까",
+    "link": "https://d2.naver.com/helloworld/2541696",
+    "description": "2026년 봄, 네이버는 개발 직군 중심으로 열리던 Engineering Day를 모든 직군이 함께하는 '모두의 Engineering Day'로 넓혔습니다. 행사의 마지막 순서는 AI 해커톤이었습니다. 목표는 단순히 AI를 써보는 것이 아니라, 사람이 하던 반복 업무를...",
+    "pubDate": "2026-07-06T14:44:16Z",
+    "region": "domestic",
+    "regionLabel": "국내",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "NAVER D2",
     "title": "AI 에이전트 회사 차리기: 설립부터 어디서든 동기화까지",
     "link": "https://d2.naver.com/helloworld/3897377",
     "description": "네이버 사내 기술 교류 행사인 NAVER ENGINEERING DAY 2026(5월)에서 발표되었던 세션을 공개합니다. \n\n\n\n  \n  \n\n\n\n발표 내용\n\nAI 에이전트로 나만의 회사를 차리고, 어디서 접속하든 같은 구성원이 같은 목표로 일하게 만든 이야기입니다.\n\n발...",
@@ -2336,18 +2349,6 @@ window.crawledNews = [
     "categories": [
       "FE",
       "BE"
-    ]
-  },
-  {
-    "source": "NAVER D2",
-    "title": "비개발자의 AI 협업 도전기 — 생산성 측정하려다 서버까지 띄운 9일",
-    "link": "https://d2.naver.com/helloworld/2017402",
-    "description": "\"조직이 잘하고 있는지 어떻게 알 수 있을까?\" 이 질문에서 출발해 사내 가이드 문서와 AI를 붙들고 직접 측정 도구를 완성하기까지 9일이 걸렸습니다. 그 과정을 기록으로 남깁니다.\n\n사내 생산성 측정에 관한 고민\n\n기술 PM으로 일하면서 조직과 프로젝트의 생산성을 어...",
-    "pubDate": "2026-06-12T16:08:37Z",
-    "region": "domestic",
-    "regionLabel": "국내",
-    "categories": [
-      "AI"
     ]
   },
   {
@@ -3084,7 +3085,7 @@ window.crawledNews = [
 
 window.crawledSummaries = {
   "overseas": {
-    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **New Google commercial imagines a Declaration of Independence written with help from AI**\n* **Midjourney wants Hollywood studios to reveal the details of their AI usage**\n* **Alibaba reportedly bans employees from using Claude Code**\n* **What is Mistral AI? Everything to know about the OpenAI competitor**\n* **The only AI glossary you’ll need this year**",
+    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Amazon will stop accepting new customers for Mechanical Turk**\n* **New Google commercial imagines a Declaration of Independence written with help from AI**\n* **Midjourney wants Hollywood studios to reveal the details of their AI usage**\n* **Alibaba reportedly bans employees from using Claude Code**\n* **What is Mistral AI? Everything to know about the OpenAI competitor**",
     "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
     "monthly": "### 해외 월간 산업 방향성 전망\n\n* 해외에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
   },

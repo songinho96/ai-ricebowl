@@ -189,6 +189,9 @@
           <div class="summary-header">
             <h2><i class="fa-solid fa-brain"></i> 로컬 AI/IT 트렌드 리포트</h2>
             <div class="summary-controls">
+              <span class="data-source-pill" :class="{ live: dataSource === 'database' }">
+                <i class="fa-solid fa-database"></i> {{ dataSourceLabel }}
+              </span>
               <div class="summary-tabs">
                 <button
                   v-for="region in newsRegions"
