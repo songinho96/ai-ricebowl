@@ -1424,6 +1424,7 @@ footer {
   padding: 1.5rem;
 }
 
+.summary-panel-wide,
 .full-feed-panel {
   grid-column: 1 / -1;
 }
