@@ -121,6 +121,47 @@ CREATE TABLE IF NOT EXISTS user_survival_guides (
 CREATE INDEX IF NOT EXISTS idx_user_survival_guides_status_date
   ON user_survival_guides(status, date DESC);
 
+CREATE TABLE IF NOT EXISTS admin_users (
+  id TEXT PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  password_hash TEXT NOT NULL,
+  password_salt TEXT NOT NULL,
+  role TEXT NOT NULL DEFAULT 'admin' CHECK (role IN ('admin')),
+  email_verified INTEGER NOT NULL DEFAULT 0,
+  active INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS admin_email_verifications (
+  id TEXT PRIMARY KEY,
+  email TEXT NOT NULL,
+  code_hash TEXT NOT NULL,
+  code_salt TEXT NOT NULL,
+  purpose TEXT NOT NULL DEFAULT 'signup' CHECK (purpose IN ('signup')),
+  expires_at TEXT NOT NULL,
+  consumed_at TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_admin_email_verifications_email
+  ON admin_email_verifications(email, purpose, consumed_at);
+
+CREATE TABLE IF NOT EXISTS admin_sessions (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  token_hash TEXT NOT NULL UNIQUE,
+  expires_at TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  user_agent TEXT,
+  FOREIGN KEY (user_id) REFERENCES admin_users(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_admin_sessions_user
+  ON admin_sessions(user_id, expires_at);
+
 CREATE TABLE IF NOT EXISTS daily_reports (
   date TEXT PRIMARY KEY,
   title TEXT NOT NULL,

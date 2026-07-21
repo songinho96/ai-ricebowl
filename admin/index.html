@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 밥그릇 관리자</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div id="admin-app" v-cloak>
+    <header class="admin-header">
+      <button class="brand-button" type="button" @click="goSite">
+        <span>🍚</span> AI 밥그릇 Admin
+      </button>
+      <nav>
+        <a href="/">사이트</a>
+        <a href="/guides/new">가이드 작성</a>
+        <button v-if="user" type="button" @click="logout">로그아웃</button>
+      </nav>
+    </header>
+
+    <main>
+      <section v-if="loading" class="panel loading-panel">
+        <i class="fa-solid fa-circle-notch fa-spin"></i>
+        <p>관리자 상태를 확인하고 있습니다.</p>
+      </section>
+
+      <section v-else-if="!user" class="auth-layout">
+        <article class="panel auth-panel">
+          <span class="eyebrow">ADMIN LOGIN</span>
+          <h1>관리자 로그인</h1>
+          <p class="panel-copy">okestro.com 이메일로 인증된 관리자만 사용자 생존가이드를 승인할 수 있습니다.</p>
+
+          <form @submit.prevent="login">
+            <label>
+              <span>이메일</span>
+              <input v-model.trim="loginForm.email" type="email" autocomplete="email" required placeholder="name@okestro.com">
+            </label>
+            <label>
+              <span>비밀번호</span>
+              <input v-model="loginForm.password" type="password" autocomplete="current-password" required>
+            </label>
+            <button class="primary-btn" type="submit" :disabled="authBusy">
+              <i :class="authBusy ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-right-to-bracket'"></i>
+              로그인
+            </button>
+          </form>
+        </article>
+
+        <article class="panel auth-panel">
+          <span class="eyebrow">OKESTRO ONLY</span>
+          <h2>관리자 가입</h2>
+          <p class="panel-copy">회사 이메일만 가입할 수 있고, 인증코드를 입력해야 로그인이 활성화됩니다.</p>
+
+          <form @submit.prevent="signup">
+            <label>
+              <span>이름</span>
+              <input v-model.trim="signupForm.name" type="text" autocomplete="name" required>
+            </label>
+            <label>
+              <span>okestro.com 이메일</span>
+              <input v-model.trim="signupForm.email" type="email" autocomplete="email" required placeholder="name@okestro.com">
+            </label>
+            <label>
+              <span>비밀번호</span>
+              <input v-model="signupForm.password" type="password" autocomplete="new-password" minlength="10" required>
+            </label>
+            <button class="secondary-btn" type="submit" :disabled="authBusy">
+              <i class="fa-solid fa-user-plus"></i> 가입 요청
+            </button>
+          </form>
+
+          <form class="verify-form" @submit.prevent="verify">
+            <label>
+              <span>인증코드</span>
+              <input v-model.trim="verifyForm.code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="6자리 코드">
+            </label>
+            <button class="secondary-btn" type="submit" :disabled="authBusy">
+              <i class="fa-solid fa-shield-check"></i> 인증 완료
+            </button>
+          </form>
+        </article>
+      </section>
+
+      <section v-else class="dashboard">
+        <div class="dashboard-title">
+          <div>
+            <span class="eyebrow">SURVIVAL GUIDE REVIEW</span>
+            <h1>사용자 생존가이드 관리</h1>
+            <p>{{ user.name }}님, 제출된 가이드를 검토하고 공개 여부를 결정하세요.</p>
+          </div>
+          <button class="secondary-btn" type="button" @click="loadGuides">
+            <i class="fa-solid fa-rotate"></i> 새로고침
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <button
+            v-for="item in statusFilters"
+            :key="item.id"
+            class="stat-card"
+            :class="{ active: activeStatus === item.id }"
+            type="button"
+            @click="setStatusFilter(item.id)"
+          >
+            <span>{{ item.label }}</span>
+            <strong>{{ statusCount(item.id) }}</strong>
+          </button>
+        </div>
+
+        <div v-if="guidesLoading" class="panel loading-panel">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <p>제출 목록을 불러오는 중입니다.</p>
+        </div>
+
+        <div v-else-if="filteredGuides.length === 0" class="panel empty-panel">
+          <i class="fa-solid fa-folder-open"></i>
+          <h2>검토할 가이드가 없습니다</h2>
+          <p>현재 필터에 해당하는 사용자 제출 가이드가 없습니다.</p>
+        </div>
+
+        <section v-else class="review-grid">
+          <article v-for="guide in filteredGuides" :key="guide.id" class="guide-review-card">
+            <div class="review-card-header">
+              <span class="status-badge" :class="`status-${guide.status}`">{{ statusLabel(guide.status) }}</span>
+              <span>{{ guide.category }}</span>
+              <span>{{ guide.createdAt }}</span>
+            </div>
+            <h2>{{ guide.title }}</h2>
+            <p class="subtitle">{{ guide.subtitle }}</p>
+            <dl>
+              <div>
+                <dt>작성자</dt>
+                <dd>{{ guide.author }}</dd>
+              </div>
+              <div v-if="guide.submitterContact">
+                <dt>연락/메모</dt>
+                <dd>{{ guide.submitterContact }}</dd>
+              </div>
+            </dl>
+            <div class="preview-block">
+              <h3>상황/문제</h3>
+              <p>{{ guide.introduction }}</p>
+              <template v-for="section in guide.sections" :key="section.title">
+                <h3>{{ section.title }}</h3>
+                <p>{{ section.content }}</p>
+              </template>
+            </div>
+            <label class="review-note">
+              <span>검토 메모</span>
+              <textarea v-model.trim="guide.reviewDraft" rows="3" placeholder="반려 사유나 내부 메모"></textarea>
+            </label>
+            <div class="review-actions">
+              <button class="publish-btn" type="button" @click="updateGuideStatus(guide, 'published')">
+                <i class="fa-solid fa-check"></i> 공개
+              </button>
+              <button class="hold-btn" type="button" @click="updateGuideStatus(guide, 'pending')">
+                <i class="fa-solid fa-clock"></i> 보류
+              </button>
+              <button class="reject-btn" type="button" @click="updateGuideStatus(guide, 'rejected')">
+                <i class="fa-solid fa-xmark"></i> 반려
+              </button>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <p v-if="message" class="toast" :class="{ error: messageType === 'error', success: messageType === 'success' }">
+        {{ message }}
+      </p>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

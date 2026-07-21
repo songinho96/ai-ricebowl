@@ -1,2 +1,4 @@
+/admin /admin/ 301
+/admin/* /admin/:splat 200
 /api/* /api/:splat 200
 /* /index.html 200
