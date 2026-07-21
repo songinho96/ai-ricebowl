@@ -228,6 +228,10 @@ def build_korean_title(title, source, region_label, categories):
     if agent_title:
         return agent_title
 
+    general_title = translate_general_headline(title)
+    if general_title:
+        return general_title
+
     topic = korean_topic_label(title, categories)
     return f"{topic}: {title}"
 
@@ -358,16 +362,18 @@ def summarize_special_cases(title, text):
     return []
 
 def summarize_title_to_korean(title, text, categories):
-    translated = translate_legal_ai_title(title) or translate_agent_report_title(title)
+    translated = (
+        translate_legal_ai_title(title)
+        or translate_agent_report_title(title)
+        or translate_general_headline(title, text)
+    )
     if translated:
         return translated
 
     if re.search(r'[가-힣]', title):
         return title
 
-    topic = korean_topic_label(f"{title} {text}", categories)
-    subject = extract_subject(title)
-    return f"{subject or '이 소식'}은 {topic} 흐름에서 확인해야 할 변화로, 원문은 제품·정책·운영 조건의 변화를 다룹니다."
+    return summarize_sentence_to_korean(title, categories)
 
 def summarize_sentence_to_korean(sentence, categories):
     if re.search(r'[가-힣]', sentence):
@@ -388,17 +394,44 @@ def summarize_sentence_to_korean(sentence, categories):
         return "재판부는 합의 규모나 보상 범위에 대한 일부 이의를 받아들이지 않았습니다."
     if "separate lawsuits" in lowered or "still ongoing" in lowered:
         return "일부 권리자나 출판사의 별도 소송은 아직 계속되고 있습니다."
+    if "director role" in lowered and ("resigned" in lowered or "revolving door" in lowered):
+        return "미국 AI 표준·혁신센터(CAISI) 국장직이 잦은 교체를 겪고 있으며, 최근 AI 책임자도 사임했다는 내용입니다."
+    if "working on a new chip" in lowered and "gemini" in lowered:
+        return "Google 모회사 Alphabet이 Gemini 모델을 더 효율적으로 구동하기 위한 새 AI 칩을 개발 중이라는 보도입니다."
+    if "stateless" in lowered and ("session id" in lowered or "session ids" in lowered):
+        return "AI 프로토콜이 서버 세션 ID를 더 느슨한 stateless 방식으로 다루도록 바뀌며, 일반 웹 서비스와 비슷한 운영 모델에 가까워집니다."
+    if "rebuilt version" in lowered and "android" in lowered and "available globally" in lowered:
+        return "X가 1년가량 재구축한 Android 앱을 전 세계에 배포하기 시작했다는 내용입니다."
+    if "banning chinese-made open-weight" in lowered or ("open-weight" in lowered and "banning" in lowered):
+        return "중국산 오픈웨이트 LLM 금지 논의가 AI를 국가 안보와 비즈니스 전략으로 동시에 다루는 쟁점으로 떠올랐다는 내용입니다."
+    if "project indigo" in lowered and "background" in lowered:
+        return "Adobe Project Indigo가 촬영한 사진의 배경 제거와 AI 기반 사진 평가 기능을 추가했다는 내용입니다."
+    if "monetization policies" in lowered and ("ai-generated" in lowered or "low-quality" in lowered):
+        return "YouTube가 AI 생성 저품질 영상과 불쾌감을 주는 영상의 수익화 기준을 더 명확히 정리했습니다."
+    if "reportedly working" in lowered:
+        return f"{extract_subject(sentence) or '해당 기업'} 관련 보도로, 아직 공식 출시보다 개발·검토 단계의 변화에 가깝습니다."
+    if "updated" in lowered and "policy" in lowered:
+        return f"{extract_subject(sentence) or '해당 서비스'}가 정책을 갱신했으며, 제품 운영이나 수익화 조건에 영향을 줄 수 있습니다."
+    if "resigned" in lowered:
+        return f"{extract_subject(sentence) or '주요 책임자'}가 사임했다는 내용으로, 조직 운영이나 정책 추진의 불확실성을 보여줍니다."
     if "announced" in lowered or "released" in lowered or "launched" in lowered:
-        return f"{extract_subject(sentence) or '해당 회사'}가 새 기능이나 제품 업데이트를 공개했다는 내용입니다."
+        return f"{extract_subject(sentence) or '해당 회사'}가 새 기능이나 제품 업데이트를 공개했습니다."
+    if "available" in lowered and ("globally" in lowered or "now" in lowered):
+        return f"{extract_subject(sentence) or '해당 제품'}이 이제 사용 가능해졌다는 출시·배포 소식입니다."
     if "security" in lowered and ("incident" in lowered or "vulnerability" in lowered):
         return "보안 사고나 취약점이 실제 운영 리스크로 제기되며, 권한·로그·격리 체계 점검이 필요합니다."
     if "production" in lowered and ("failed" in lowered or "customers" in lowered):
         return "내부 테스트를 통과한 기능이 실제 고객 환경이나 production에서 실패할 수 있다는 점을 지적합니다."
     if "cost" in lowered or "billion" in lowered or "million" in lowered:
         return f"비용·투자·시장 규모 같은 수치가 핵심 근거로 제시됩니다: {extract_numbers(sentence)}"
+    if "designed to make" in lowered or "more efficiently" in lowered:
+        return "새 기술이나 제품 변경의 초점은 성능·효율 개선에 있습니다."
+    if "clarifies" in lowered or "clearly define" in lowered:
+        return "플랫폼이 모호했던 정책이나 기준을 더 명확히 정리했다는 내용입니다."
 
     topic = korean_topic_label(sentence, categories)
-    return f"{topic} 관련 핵심 문장입니다: {shorten_sentence(sentence, 180)}"
+    subject = extract_subject(sentence)
+    return f"{subject or '이 기사'}는 {topic} 관련 변화이며, 핵심은 다음 원문 내용입니다: {shorten_sentence(sentence, 170)}"
 
 def translate_legal_ai_title(title):
     lowered = title.lower()
@@ -418,6 +451,34 @@ def translate_agent_report_title(title):
         return "AI 에이전트 평가 격차: 내부 평가와 실제 운영 결과가 어긋나는 문제"
     if "ai context gap" in lowered or "context gap" in lowered:
         return "AI 컨텍스트 격차: 기업 AI의 문제는 검색보다 신뢰 가능한 컨텍스트 부족"
+    return ""
+
+def translate_general_headline(title, text=""):
+    lowered = title.lower()
+    context = f"{title} {text}".lower()
+
+    if "trump" in lowered and "ai czar" in lowered and "resigned" in lowered:
+        return "트럼프 행정부의 최신 AI 책임자도 사임"
+    if "google" in lowered and "new ai chip" in lowered and "gemini" in lowered:
+        return "Google, Gemini 효율화를 위한 새 AI 칩 개발 중"
+    if "most important protocol" in lowered and "easier to use" in lowered:
+        return "AI 핵심 프로토콜 MCP, 세션 처리 방식 완화로 사용성 개선"
+    if lowered.startswith("x relaunches") and "android" in lowered:
+        return "X, 1년간 재구축한 Android 앱을 전 세계 재출시"
+    if "openai" in lowered and "open-weight" in lowered:
+        return "OpenAI와 미국이 오픈웨이트 모델을 경계하는 이유"
+    if "adobe" in lowered and "critique your photos" in lowered:
+        return "Adobe 카메라 앱, AI 사진 평가 기능 추가"
+    if "youtube" in lowered and ("ai slop" in lowered or "upsetting videos" in lowered):
+        return "YouTube, AI 저품질 영상과 불쾌한 영상 수익화 정책 명확화"
+    if "launches" in lowered or "relaunches" in lowered:
+        return f"{extract_subject(title)} 출시·재출시 소식"
+    if "announces" in lowered or "introduces" in lowered:
+        return f"{extract_subject(title)} 발표"
+    if "working on" in lowered or "reportedly" in context:
+        return f"{extract_subject(title)} 관련 개발·검토 보도"
+    if "clarifies" in lowered or "policy" in lowered:
+        return f"{extract_subject(title)} 정책 정리"
     return ""
 
 def extract_money(text):
@@ -443,7 +504,8 @@ def extract_numbers(text):
     return ", ".join(numbers[:4]) if numbers else "원문 수치 확인 필요"
 
 def extract_subject(text):
-    cleaned = re.sub(r'[:—–-].*$', '', text).strip()
+    cleaned = re.sub(r'\s+[-—–]\s+.*$', '', text).strip()
+    cleaned = re.sub(r':.*$', '', cleaned).strip()
     return shorten_sentence(cleaned, 80)
 
 def shorten_sentence(text, max_length):
