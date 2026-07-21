@@ -25,7 +25,7 @@ export async function onRequestGet(context) {
     `SELECT id, title, subtitle, date, read_time, category, author, image, introduction, sections_json
      FROM survival_guides
      WHERE active = 1
-     ORDER BY sort_order ASC`
+     ORDER BY date DESC, sort_order ASC`
   ).all();
 
   return new Response(JSON.stringify({

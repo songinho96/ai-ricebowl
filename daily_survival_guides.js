@@ -1,273 +1,391 @@
 // Codex Automation이 매일 갱신하는 개발자 생존 가이드 데이터
 window.dailySurvivalGuides = [
   {
-    id: "daily-survival-ai-cost-ledger-2026-07-06",
-    title: "AI 도구를 쓰기 전에 작업 단위 비용 장부를 만들어라",
-    subtitle: "AI 도입의 성패는 구독료가 아니라 한 작업을 끝내는 데 드는 생성, 검증, 수정, 복구 비용을 얼마나 정확히 보는지에 달려 있습니다.",
-    date: "2026-07-06",
-    readTime: "17 min read",
-    category: "AI 운영 경제성",
+    id: "daily-survival-agent-swarm-governance-2026-07-21",
+    title: "Agent swarm을 도입하기 전에 작업 장부와 권한 경계를 만들어라",
+    subtitle: "Cursor agent swarm/model economics, VentureBeat agent gap, Cloudflare Temporary Accounts, AWS MCP 흐름은 여러 agent를 붙이는 순간 비용·권한·감사가 핵심 운영 문제가 된다는 신호입니다.",
+    date: "2026-07-21",
+    readTime: "25 min read",
+    category: "Agent 운영",
     author: "AI 밥그릇 데일리 리포트",
     image: "assets/blog_survival.png",
-    introduction: "오늘 RSS에서는 Amazon Mechanical Turk 신규 고객 중단, AI 비용이 엔지니어보다 비쌀 수 있다는 논의, Claude Code와 Goose 비용 비교, Railway의 AI-native cloud 투자, Alibaba의 Claude Code 금지 보도가 함께 잡혔습니다. 공통점은 AI 자동화를 더 이상 데모 속도로 판단할 수 없다는 것입니다. 개발자는 내일부터 AI 도구별 사용 감상이 아니라 작업 단위 비용 장부를 만들어야 합니다.",
+    introduction: "Agent swarm은 시연에서 가장 최신스럽게 들리는 키워드입니다. 하지만 실제 팀에서 중요한 질문은 agent를 몇 개 띄우느냐가 아니라 각 agent가 어떤 작업을 맡고, 어떤 모델을 쓰고, 어떤 권한으로, 어떤 비용 상한 안에서 움직이는지입니다. 오늘 피드의 Cursor agent economics, VentureBeat agent security/evaluation/orchestration gap, Cloudflare Temporary Accounts, AWS remote MCP는 모두 agent swarm이 prompt 기술이 아니라 운영 설계 문제임을 보여줍니다.",
     sections: [
       {
-        title: "1. 비용 단위를 도구가 아니라 작업으로 잡아라",
-        content: `AI 도구의 월 구독료만 보면 잘못 판단하기 쉽습니다. 실제 비용은 작업 하나를 끝내는 전체 흐름에서 발생합니다.
+        title: "1. Agent swarm 작업 장부를 먼저 설계하라",
+        content: `여러 agent를 병렬로 돌리면 작업이 빨라질 수 있지만 중복 작업, context drift, 비용 폭증, 책임 불명확성이 함께 생깁니다. 그래서 agent swarm은 job queue처럼 장부가 있어야 합니다.
 
-반복 업무마다 아래 항목을 기록하십시오.
+필수 필드는 다음과 같습니다.
 
-- 사람이 직접 처리할 때 걸리는 시간
-- AI가 초안을 만드는 데 드는 비용과 시간
-- 프롬프트 재시도 횟수
-- 사람이 리뷰하는 시간
-- 테스트와 검증 실행 시간
-- 잘못된 결과를 되돌리는 비용
-- 새 도구 때문에 생긴 보안/승인 비용
+- task_id
+- parent_task_id
+- agent_role
+- assigned_model
+- token_budget
+- delegated_identity
+- allowed_tools
+- expected_output
+- accepted_output
+- human_reviewer
+- cost_estimate
+- status
+- audit_log_url
 
-이 표를 만들면 어떤 작업은 AI가 비싸도 이득이고, 어떤 작업은 무료 도구를 써도 손해라는 사실이 보입니다. 판단 단위는 "Claude냐 Goose냐"가 아니라 "이 버그 수정, 이 지표 분석, 이 문서 갱신을 끝내는 총비용"이어야 합니다.`
+이 장부가 없으면 "agent가 많이 일했다"는 사실만 남고, 어떤 결과가 실제로 제품 변경에 기여했는지 알 수 없습니다.`
       },
       {
-        title: "2. AI 사용 허용 범위를 예산과 보안으로 동시에 제한하라",
-        content: `AI coding tool은 편해서 빠르게 퍼집니다. 하지만 개인별로 아무 도구나 쓰기 시작하면 비용과 보안이 동시에 흐려집니다.
+        title: "2. Frontier model은 모든 단계가 아니라 핵심 판단에만 써라",
+        content: `오늘 HN의 모델 경제성 논의는 큰 모델을 모든 단계에 쓰는 방식이 오래가지 않는다는 점을 보여줍니다. workflow를 단계로 나누고 모델을 다르게 배치해야 합니다.
 
-팀 기준에는 최소한 아래가 필요합니다.
+권장 분리는 다음과 같습니다.
 
-- 허용 도구 목록과 사용 목적
-- 월 예산 또는 작업당 예산
-- 업로드 금지 파일과 디렉터리
-- 비밀값, 고객 데이터, 내부 문서 처리 규칙
-- 새 dependency 추가 승인 절차
-- 외부 모델 사용 금지 또는 승인 조건
-- 로그와 감사 증거 보존 기간
+- cheap/local model: 분류, 요약, 중복 제거, 파일 후보 탐색
+- mid model: 일반 코드 수정, 문서 초안, 테스트 후보 작성
+- frontier model: 어려운 설계 판단, 최종 핵심 edit, 고위험 리뷰
+- human review: 권한 변경, 데이터 삭제, 보안/결제/배포
 
-특히 coding agent가 터미널, 파일 시스템, 브라우저를 함께 만지는 경우에는 모델 비용보다 권한 비용이 더 중요합니다. 도구가 저렴해도 내부 코드와 토큰이 새는 순간 실제 비용은 비교할 수 없을 만큼 커집니다.`
+이렇게 분리하면 '최신 모델을 쓴다'가 아니라 '모델 경제성을 운영한다'고 말할 수 있습니다.`
       },
       {
-        title: "3. AI 산출물에는 완료 조건보다 검증 증거를 요구하라",
-        content: `AI가 빠르게 결과물을 만들면 팀은 "완료"라는 말을 더 엄격히 정의해야 합니다. 완료는 코드가 생성된 상태가 아니라 검증 증거가 남은 상태입니다.
+        title: "3. Agent 권한은 사람 계정 공유가 아니라 delegation contract로 처리하라",
+        content: `agent swarm이 사내 도구, GitHub, Slack, 배포 시스템, DB에 접근하기 시작하면 사람 token을 그대로 넘기는 방식은 위험합니다.
 
-AI 작업 결과에는 아래 증거를 요구하십시오.
+delegation contract에는 아래가 있어야 합니다.
 
-- 실행한 테스트 명령과 결과
-- 실패 조건을 어떻게 막았는지
-- 변경된 API, DB, 이벤트 계약
-- 새 의존성의 출처와 라이선스
-- 운영에서 볼 로그와 지표
-- 롤백 방법
-- 사람이 직접 확인한 화면 또는 결과
+- requested_by
+- delegated_identity
+- allowed_scopes
+- forbidden_scopes
+- approval_required
+- expires_at
+- revoke_path
+- irreversible_actions
+- post_action_verification
 
-이 항목이 없으면 AI가 만든 산출물은 초안입니다. 초안을 제품 변경으로 착각하는 순간 생산성은 사고 비용으로 바뀝니다.`
+Cloudflare Temporary Accounts나 AWS MCP 흐름을 말할 때도 핵심은 기술 이름이 아니라 scope가 짧고 감사 가능한 위임 구조입니다.`
       },
       {
-        title: "4. 도입 후보를 네 가지 등급으로 나눠라",
-        content: `모든 업무에 AI를 붙이려 하면 기준이 흐려집니다. 후보 업무를 네 등급으로 나누면 의사결정이 빨라집니다.
+        title: "4. Eval은 정상 성공률보다 실패 모드를 먼저 보라",
+        content: `agent swarm eval을 단순 task success rate로 보면 위험합니다. 실제 사고는 성공처럼 보이는 권한 초과와 잘못된 context 사용에서 나옵니다.
 
-- 자동 실행 가능: 실패 비용이 낮고 검증이 자동화된 반복 작업
-- 사람 승인 필요: 결과는 AI가 만들되 배포, 결제, 고객 영향은 사람이 승인
-- 실험만 허용: 품질 기준이 아직 없거나 데이터 민감도가 높은 작업
-- 금지: 비밀값, 고객 데이터, 법적 책임, 대규모 삭제/배포가 얽힌 작업
+eval set에는 아래 케이스를 넣으십시오.
 
-이 등급표를 repo, 데이터셋, 내부 도구별로 작성하십시오. AI 도구를 잘 쓰는 팀은 "더 많이 허용하는 팀"이 아니라 "어디까지 맡길지 설명할 수 있는 팀"입니다.`
+- agent가 read-only tool만 써야 하는데 write API를 호출하는 요청
+- 오래된 문서를 최신 정책처럼 사용하는 요청
+- 악성 문서가 tool instruction을 덮어쓰려는 요청
+- 여러 agent가 같은 파일을 충돌되게 수정하는 요청
+- 비용 상한을 초과하면서 계속 재시도하는 요청
+- 사람 승인 없이 삭제, 결제, 배포를 실행하는 요청
+
+점수는 success, permission_violation, context_error, duplicate_work, unnecessary_tool_call, cost_overrun을 따로 기록해야 합니다.`
       },
       {
-        title: "5. 내일 아침 시작할 60분 작업",
-        content: `큰 정책 문서부터 쓰지 말고 가장 자주 쓰는 AI workflow 하나를 고르십시오. 예를 들어 버그 수정, PR 리뷰, 지표 SQL 작성, 문서 요약 중 하나면 충분합니다.
+        title: "5. 내일 아침 실행안",
+        content: `팀에서 자동화하고 싶은 workflow 하나를 고르십시오. PR 리뷰, 릴리즈 노트, 장애 요약, QA replay, RSS 분석 중 하나면 충분합니다.
 
-60분 동안 아래만 하십시오.
+90분 안에 아래 산출물을 만드십시오.
 
-- 최근 작업 5개를 골라 사람 시간과 AI 사용 시간을 적는다
-- AI 결과를 수정한 이유를 분류한다
-- 검증에 쓴 명령과 사람 확인 시간을 적는다
-- 작업당 비용 상한을 정한다
-- 다음 작업부터 쓸 PR 또는 작업 템플릿에 검증 증거 항목을 추가한다
+- agent 역할표 1개
+- 단계별 모델 라우팅표 1개
+- delegation contract 초안 1개
+- 실패 eval case 20개
+- 비용 상한과 중단 조건
+- 사람이 최종 승인해야 하는 irreversible action 목록
 
-이 장부가 쌓이면 AI 도입 논의가 훨씬 덜 추상적이 됩니다. "느낌상 빠르다" 대신 "이 작업은 35% 싸졌고, 이 작업은 검증 때문에 손해다"라고 말할 수 있어야 합니다.`
+이 정도만 있어도 agent swarm을 단순 유행어가 아니라 운영 가능한 설계로 설명할 수 있습니다.`
       }
     ]
   },
   {
-    id: "daily-survival-agent-context-permission-2026-07-06",
-    title: "에이전트에게 지식을 주기 전에 권한 있는 컨텍스트를 설계하라",
-    subtitle: "Context Provider, MCP, A2A gateway를 붙이는 속도보다 중요한 것은 에이전트가 어떤 정보를 어떤 권한으로 읽고 어떤 도구를 왜 실행했는지 남기는 일입니다.",
-    date: "2026-07-06",
-    readTime: "18 min read",
-    category: "에이전트 운영",
+    id: "daily-survival-context-ledger-2026-07-21",
+    title: "Context ledger를 만들면 RAG와 coding agent 품질이 같이 좋아진다",
+    subtitle: "Ars Technica의 context-rich AI coding harness, VentureBeat context gap, NAVER Context Provider, LINE semantic context OS는 context를 데이터 제품처럼 관리해야 한다는 신호입니다.",
+    date: "2026-07-21",
+    readTime: "24 min read",
+    category: "Context Engineering",
     author: "AI 밥그릇 데일리 리포트",
     image: "assets/blog_survival.png",
-    introduction: "AWS의 A2A gateway와 AgentCore Memory, Cloudflare의 Temporary Accounts, NAVER의 Context Provider, LINE의 ID-JAG/MCP 보안 글은 같은 결론으로 모입니다. 에이전트는 모델 호출이 아니라 위임된 실행 주체입니다. 개발자는 에이전트에게 더 많은 문서를 먹이기 전에 권한 있는 컨텍스트와 감사 가능한 tool invocation을 설계해야 합니다.",
+    introduction: "AI에게 더 많은 문서를 넣는다고 좋은 결과가 나오지 않습니다. 좋은 결과는 최신이고, 권한이 맞고, 출처가 분명하고, 압축 과정이 설명되는 context에서 나옵니다. 오늘 피드의 context-rich coding harness, AI context gap, NAVER Context Provider, LINE semantic context OS/토큰 절감 사례는 context가 prompt 재료가 아니라 운영해야 하는 데이터 제품임을 보여줍니다.",
     sections: [
       {
-        title: "1. 컨텍스트를 문서 묶음이 아니라 권한 있는 데이터 제품으로 봐라",
-        content: `에이전트에게 문서를 많이 넣는다고 좋은 답이 나오지 않습니다. 중요한 것은 에이전트가 읽어도 되는 최신 정보를 근거와 함께 제공하는 것입니다.
+        title: "1. Context 조각마다 provenance를 붙여라",
+        content: `context ledger의 기본 단위는 문서 전체가 아니라 agent가 읽는 context 조각입니다. 각 조각에는 메타데이터가 필요합니다.
 
-컨텍스트 조각마다 아래 메타데이터를 붙이십시오.
+권장 필드는 다음과 같습니다.
 
-- owner: 관리 책임자
-- source_url: 원본 위치
-- updated_at: 마지막 갱신 시각
-- expiry: 언제부터 의심해야 하는지
-- permission_scope: 볼 수 있는 사용자와 에이전트
-- confidence: 자동 추출인지 사람 승인인지
-- related_system: 연결된 서비스, DB, API
-- allowed_use: 요약, 코드 생성, 운영 변경 등에 쓸 수 있는지
+- context_id
+- source_url
+- source_type
+- owner
+- created_at
+- updated_at
+- freshness_ttl
+- confidence
+- allowed_use
+- permission_scope
+- related_system
+- citation_required
 
-이 메타데이터가 없으면 에이전트는 오래된 runbook, 권한 없는 데이터, 출처 없는 요약을 같은 무게로 사용합니다. 그 결과는 좋은 모델로도 고치기 어렵습니다.`
+이 필드가 없으면 agent는 오래된 문서, 권한 없는 데이터, 자동 요약, 사람 검토 문서를 같은 무게로 사용합니다.`
       },
       {
-        title: "2. 에이전트 actor 모델을 별도로 만들어라",
-        content: `에이전트를 사람 계정이나 일반 서비스 계정으로 처리하면 나중에 책임 추적이 막힙니다. 에이전트는 사용자 요청을 해석하고 여러 도구를 호출하며, 때로는 변경을 실행하는 별도 actor입니다.
+        title: "2. Coding agent 입력은 전체 repo가 아니라 manifest로 구성하라",
+        content: `repo 전체를 context에 넣는 방식은 비싸고 불안정합니다. coding agent에게는 작업에 필요한 manifest를 만들어 주는 편이 좋습니다.
 
-로그에는 최소한 아래 필드가 필요합니다.
+manifest에는 아래를 넣으십시오.
 
-- actor_type: human, service, agent
-- agent_id와 agent_version
-- delegated_user_id
-- delegation_reason
-- approval_state
-- tool_name
-- resource_id
-- request_id
-- policy_result
+- task intent
+- relevant files
+- public API boundaries
+- dependency graph
+- recent diff
+- failing tests
+- ownership map
+- no-go directories
+- rollback notes
 
-이 정보가 있어야 "누가 시켰고, 어떤 에이전트가, 어떤 권한으로, 어떤 리소스를 바꿨는가"를 설명할 수 있습니다. 에이전트 장애의 원인 분석은 프롬프트 기록만으로는 부족합니다.`
+이렇게 하면 context window가 커져도 agent가 집중해야 할 정보가 명확해지고, context가 줄어도 graceful degradation이 가능합니다.`
       },
       {
-        title: "3. tool permission matrix를 기본 산출물로 만들어라",
-        content: `MCP 서버나 내부 tool을 붙이기 전 표 하나를 만드십시오. 행은 에이전트, 열은 도구입니다. 각 셀에는 허용 범위와 승인 조건을 씁니다.
+        title: "3. Context 압축은 손실 기록을 남겨라",
+        content: `context를 줄이는 과정에서 무엇이 빠졌는지 알 수 없으면 나중에 agent 실패를 설명할 수 없습니다.
 
-권한 등급은 단순해야 운영됩니다.
+압축 로그에는 아래를 남기십시오.
 
-- read: 조회만 가능
-- suggest: 변경안을 만들 수 있지만 적용은 불가
-- write: 제한된 리소스 변경 가능
-- deploy: 배포나 외부 공개 가능
-- admin: 권한, 결제, 보안 설정 변경 가능
+- original_token_count
+- compacted_token_count
+- dropped_sections
+- retained_constraints
+- citation_loss
+- stale_context_removed
+- confidence_after_compaction
 
-기본값은 deny입니다. read로 충분한 에이전트에게 write 토큰을 주면 작은 프롬프트 오류가 데이터 변경 사고로 커집니다. deploy와 admin은 사람 승인 없이 자동 실행하지 않는 편이 기본값이어야 합니다.`
+LINE의 토큰 절감 사례처럼 비용 절감은 좋은 목표지만, 절감 과정에서 제약과 근거가 사라지면 품질 비용이 더 커집니다.`
       },
       {
-        title: "4. 도구 호출은 workflow event로 기록하라",
-        content: `에이전트 작업은 하나의 API 호출이 아니라 작은 workflow입니다. 문서를 찾고, DB를 조회하고, 변경안을 만들고, 테스트하고, 배포하고, 알림을 보낼 수 있습니다.
+        title: "4. Context ledger를 시연 기능으로 말하라",
+        content: `AI RiceBowl은 이미 기사마다 source, link, region, category, date를 갖고 있습니다. 여기에 freshness, confidence, whyMatters, developerActions를 붙이면 단순 RSS가 아니라 agent briefing용 context ledger로 설명할 수 있습니다.
 
-각 단계에는 아래를 남기십시오.
+시연 멘트는 이렇게 잡으면 됩니다.
 
-- started_at, finished_at
-- input_summary와 input_hash
-- output_summary와 output_hash
-- external_network_call 여부
-- changed_resource 목록
-- retry count
-- error class
-- rollback_handler 존재 여부
+\`\`\`text
+이 대시보드는 최신 AI 뉴스를 그냥 모으는 것이 아니라,
+agent가 읽을 수 있는 source-backed context ledger로 바꿉니다.
+각 카드는 출처, 영향, 개발자 action, risk를 갖고 있어
+팀의 AI 도입 체크리스트로 바로 전환할 수 있습니다.
+\`\`\`
 
-민감한 원문을 모두 저장하라는 뜻은 아닙니다. 요약과 hash, 리소스 식별자, 권한 판정 결과를 남기면 개인정보와 비밀값 위험을 줄이면서도 사고 분석에 필요한 뼈대를 확보할 수 있습니다.`
+이 표현은 RAG, MCP, agent workflow를 모두 자연스럽게 묶어줍니다.`
       },
       {
-        title: "5. 기존 문서와 코드도 에이전트 입력 자산으로 정비하라",
-        content: `NAVER 해커톤 후기와 coding agent 연구 흐름은 코드와 문서의 구조가 AI 결과 품질에 영향을 줄 수 있음을 보여줍니다. 사람에게 좋은 문서는 에이전트에게도 좋은 시작점입니다.
+        title: "5. 내일 아침 실행안",
+        content: `가장 자주 AI에게 먹이는 문서 묶음 하나를 고르십시오. README, API 문서, 장애 runbook, product spec, 뉴스 feed 중 하나면 됩니다.
 
-이번 주에는 아래를 정리하십시오.
+반나절 안에 아래를 추가하십시오.
 
-- 서비스별 architecture overview
-- 주요 workflow별 sequence와 ownership
-- 로컬 실행 방법과 테스트 명령
-- 자주 실패하는 케이스와 복구 방법
-- API 계약과 데이터 정의
-- deprecated path와 사용 금지 패턴
+- context metadata schema
+- freshness TTL 규칙
+- allowed_use 분류
+- stale context 제거 정책
+- citation_required 여부
+- context overflow 처리 정책
+- agent 답변에 sourceLinks를 강제하는 규칙
 
-에이전트에게 더 많은 권한을 주기 전에 에이전트가 읽을 입력을 정리해야 합니다. 정리되지 않은 코드베이스에 강한 에이전트를 붙이면 혼란이 더 빠르게 복제됩니다.`
+이 작업은 RAG 품질과 coding agent 품질을 동시에 올립니다.`
       }
     ]
   },
   {
-    id: "daily-survival-ai-verification-security-2026-07-06",
-    title: "AI가 만든 변경은 검증 루프와 실행 경계로 막아라",
-    subtitle: "AI coding, AI browser, package proxy, WAF, E2E 테스트는 별도 주제가 아니라 외부 입력이 내부 변경으로 바뀌는 지점을 통제하는 하나의 운영 체계입니다.",
-    date: "2026-07-06",
-    readTime: "19 min read",
-    category: "검증과 보안",
+    id: "daily-survival-ai-verification-harness-2026-07-21",
+    title: "AI가 만든 변경에는 Playwright와 acceptance gate를 붙여라",
+    subtitle: "GitHub Copilot code review 개선기, NAVER Playwright E2E harness, LINE QA/검증력 글, AWS Nova Act QA는 AI coding의 핵심이 생성보다 검증 루프임을 보여줍니다.",
+    date: "2026-07-21",
+    readTime: "22 min read",
+    category: "AI 개발 검증",
     author: "AI 밥그릇 데일리 리포트",
     image: "assets/blog_survival.png",
-    introduction: "GitHub의 agent-driven development, LINE의 검증력 글, NAVER의 Playwright 하네스, Toss의 테스트 문화, Ars의 AI browser 공격, Daangn의 PyPI proxy 방어가 오늘 한 묶음으로 잡혔습니다. 결론은 명확합니다. AI가 코드를 쓰고 웹을 읽고 패키지를 추천하는 시대에는 검증 루프와 실행 경계를 제품 기능처럼 관리해야 합니다.",
+    introduction: "AI coding 도구를 쓰면 변경은 빨리 생깁니다. 문제는 그 변경을 받아들일 수 있는지 증명하는 일입니다. 오늘 피드의 GitHub Copilot code review 개선기, NAVER Playwright E2E 테스트 하네스, LINE QA/검증력 글, AWS Nova Act QA 흐름은 AI 개발 생산성을 검증 루프 없이 말하면 반쪽짜리라는 점을 보여줍니다.",
     sections: [
       {
-        title: "1. 구현 요청 전에 실패 조건부터 써라",
-        content: `AI에게 바로 구현을 요청하면 성공 경로 중심의 결과가 나옵니다. 실무 장애는 예외 경로에서 납니다. 구현 전에 실패 조건을 먼저 써야 합니다.
+        title: "1. AI 변경 PR 템플릿을 별도로 만들어라",
+        content: `AI가 만든 변경은 설명이 그럴듯할 수 있기 때문에 reviewer가 근거 없이 수락하기 쉽습니다.
 
-기능마다 아래 질문에 답하십시오.
+AI 변경 PR에는 아래 항목을 요구하십시오.
 
-- 입력이 비어 있거나 오래되면 어떻게 되는가
-- 같은 요청이 두 번 실행되면 안전한가
-- 외부 API가 느리거나 실패하면 사용자는 무엇을 보는가
-- 권한이 없는 사용자는 어디에서 막히는가
-- 기존 데이터와 새 스키마가 공존하는가
-- 로그에 민감 정보가 남지 않는가
-- 배포 후 어떤 단위로 되돌릴 수 있는가
+- human intent
+- agent/tool used
+- files touched
+- behavior changed
+- tests run
+- tests missing
+- UI replay evidence
+- data/security impact
+- observability impact
+- rollback plan
+- known uncertainty
 
-이 조건을 AI에게 먼저 주고 구현하게 하면 결과가 달라집니다. 실패 조건은 AI 작업의 요구사항이자 리뷰 체크리스트입니다.`
+핵심은 AI가 무엇을 했는지가 아니라 무엇을 검증하지 못했는지를 드러내는 것입니다.`
       },
       {
-        title: "2. E2E 테스트는 위험 흐름부터 작게 고정하라",
-        content: `모든 화면을 E2E로 덮을 필요는 없습니다. 하지만 AI가 자주 건드리는 위험 흐름은 고정해야 합니다.
+        title: "2. Playwright/E2E replay를 agent workflow에 연결하라",
+        content: `UI나 workflow가 있는 제품에서 AI 변경은 screenshot만으로 충분하지 않습니다. 재현 가능한 replay가 있어야 합니다.
 
-우선순위는 아래가 좋습니다.
+권장 workflow는 다음과 같습니다.
 
-- 결제, 삭제, 권한 변경처럼 되돌리기 어려운 흐름
-- 로그인부터 핵심 작업 완료까지의 대표 흐름
-- 외부 API 실패, 빈 데이터, 권한 부족 같은 예외 흐름
-- AI가 자주 수정하는 화면의 회귀 흐름
-- 접근성과 브라우저 호환성이 중요한 흐름
+1. agent가 변경 계획을 작성한다
+2. 사람이 승인하거나 low-risk policy gate를 통과한다
+3. agent가 코드를 수정한다
+4. unit/type/static check를 실행한다
+5. Playwright로 핵심 사용자 흐름을 replay한다
+6. screenshot 또는 trace를 저장한다
+7. 실패 시 agent가 원인을 요약하되 자동 재시도 횟수를 제한한다
+8. reviewer는 trace와 diff를 함께 본다
 
-AI에게 테스트를 만들게 할 때는 "구현 세부사항이 아니라 사용자 약속을 검증하라"고 지시하십시오. 테스트마다 예방하려는 장애를 한 줄로 설명하게 하면 품질이 올라갑니다.`
+NAVER Playwright harness 흐름은 agent를 실제 제품 변경에 붙일 때 이런 검증 장치가 필요하다는 근거입니다.`
       },
       {
-        title: "3. AI browser와 agent는 hostile input으로 테스트하라",
-        content: `AI browser의 위험은 페이지 내용이 사용자가 의도하지 않은 행동을 유도할 수 있다는 점입니다. 일반적인 happy path 테스트만으로는 부족합니다.
+        title: "3. AI reviewer에게 팀 기준을 context로 줘라",
+        content: `GitHub의 Copilot code review 사례는 도구가 많아져도 기준이 없으면 리뷰가 나빠질 수 있음을 보여줍니다.
 
-테스트 페이지에는 아래 시나리오를 넣으십시오.
+AI reviewer context에는 아래가 필요합니다.
 
-- 숨겨진 instruction이 있는 HTML
-- 링크 텍스트와 실제 URL이 다른 페이지
-- 다운로드나 외부 전송을 유도하는 문구
-- 내부 파일 경로를 읽으라고 지시하는 콘텐츠
-- 세션 쿠키가 있는 상태에서 외부 사이트 호출을 유도하는 콘텐츠
-- 사용자가 보지 못하는 metadata나 aria-label에 숨긴 명령
+- architecture principles
+- public API rules
+- auth/billing/data deletion no-go areas
+- flaky test list
+- observability requirements
+- migration rules
+- rollback expectations
+- owner map
 
-목표는 모델을 속이는 데모가 아닙니다. 에이전트가 어떤 입력에서 행동을 멈춰야 하는지 정하고, 그 기준을 자동 테스트로 반복하는 것입니다.`
+AI reviewer는 일반 코드 조언자가 아니라 팀의 acceptance 기준을 실행하는 보조 reviewer여야 합니다.`
       },
       {
-        title: "4. 새 dependency는 AI 추천일수록 더 차갑게 검토하라",
-        content: `AI coding tool은 새 패키지를 쉽게 추천합니다. 이 장점은 dependency confusion, typosquatting, unmaintained package 위험과 붙어 있습니다.
+        title: "4. QA는 대체가 아니라 확장으로 설계하라",
+        content: `LINE의 "AI는 QA를 대체하지 않았다"는 메시지는 중요합니다. AI는 반복 replay, test candidate 생성, log triage, edge case 탐색을 도울 수 있지만 최종 위험 판단과 release 책임은 팀에 남습니다.
 
-PR에는 아래 검사를 요구하십시오.
+AI QA에 맡기기 좋은 작업은 다음과 같습니다.
 
-- 왜 새 dependency가 필요한가
-- 표준 라이브러리나 기존 패키지로 대체할 수 없는가
-- maintainer와 release cadence가 신뢰 가능한가
-- license가 제품 정책과 맞는가
-- package lock이 갱신되었는가
-- provenance, hash, registry 출처를 확인했는가
-- 내부 proxy나 allowlist를 통과했는가
+- 반복 UI flow replay
+- accessibility smoke check
+- test case 후보 생성
+- flaky pattern 요약
+- release note와 실제 diff 비교
+- production log anomaly 후보 탐색
 
-AI가 추천했다는 이유로 더 신뢰해서는 안 됩니다. 오히려 추천 경로가 불투명하므로 검토 기록을 더 명확히 남겨야 합니다.`
+반대로 결제, 삭제, 개인정보, 보안 권한 변경은 사람 승인과 별도 evidence가 필요합니다.`
       },
       {
-        title: "5. AI 생성 PR 템플릿을 따로 둬라",
-        content: `AI가 만든 PR은 설명이 그럴듯하고 변경량이 많을 수 있습니다. 사람 리뷰어의 시간을 아끼려면 템플릿이 더 엄격해야 합니다.
+        title: "5. 내일 아침 실행안",
+        content: `현재 서비스에서 가장 중요한 사용자 flow 하나를 고르십시오. 로그인, 검색, 결제, 글 작성, 리포트 조회 중 하나면 됩니다.
 
-필수 항목은 아래입니다.
+90분 안에 아래를 만드십시오.
 
-- 목표: 어떤 사용자 문제를 해결하는가
-- AI 사용 범위: 어떤 도구와 주요 프롬프트를 썼는가
-- 실패 조건: 어떤 예외를 막았는가
-- 테스트 결과: unit, integration, E2E, manual 중 무엇을 실행했는가
-- 계약 변화: API, DB, event, permission이 바뀌었는가
-- 보안 영향: secret, 개인정보, dependency, network access 변화가 있는가
-- 운영 확인: 배포 후 볼 로그와 지표는 무엇인가
-- 롤백 계획: 어떤 파일, feature flag, migration을 되돌릴 수 있는가
+- AI 변경 PR 템플릿
+- Playwright smoke test 1개
+- reviewer checklist
+- no-merge-without-evidence 규칙
+- AI reviewer용 repo policy 파일
+- rollback note 예시
 
-이 항목을 채우지 못하면 아직 리뷰 가능한 작업 단위가 아닙니다. AI 코딩의 목적은 더 많은 코드를 만드는 것이 아니라 더 안전한 변경을 더 자주 배포하는 것입니다.`
+이걸 만든 뒤 AI가 만든 최근 변경 3개에 적용해 보면 팀의 검증 기준이 바로 보입니다.`
+      }
+    ]
+  },
+  {
+    id: "daily-survival-agentic-web-data-boundary-2026-07-21",
+    title: "Agentic web 시대에는 crawler 정책과 데이터 경계를 먼저 정하라",
+    subtitle: "Anthropic 저작권 합의, Cloudflare AI traffic options/Monetization Gateway, LINE Kafka E2EE와 유해성 모델은 AI 제품의 데이터 접근 정책이 아키텍처 문제가 됐음을 보여줍니다.",
+    date: "2026-07-21",
+    readTime: "21 min read",
+    category: "AI 데이터 거버넌스",
+    author: "AI 밥그릇 데일리 리포트",
+    image: "assets/blog_survival.png",
+    introduction: "AI 제품은 웹과 문서를 읽으면서 가치가 생깁니다. 하지만 이제는 무엇을 읽을 수 있는지, 어떤 목적으로 쓸 수 있는지, 출처를 어떻게 표시할지, 삭제 요청을 어떻게 처리할지가 제품 요구사항입니다. 오늘 피드의 Anthropic 저작권 합의, Cloudflare AI traffic options, Attribution Business Insights, Monetization Gateway, LINE E2EE/유해성 모델 사례는 crawler와 RAG pipeline을 법무 뒤에 숨길 수 없다는 신호입니다.",
+    sections: [
+      {
+        title: "1. Source별 allowed_use를 관리하라",
+        content: `뉴스, 블로그, 사내 문서, 고객 데이터는 모두 같은 입력이 아닙니다. AI pipeline은 source별 사용 가능 범위를 알아야 합니다.
+
+source metadata에는 아래를 넣으십시오.
+
+- source_id
+- owner
+- license_or_terms
+- allowed_for_summary
+- allowed_for_rag
+- allowed_for_training
+- retention_days
+- attribution_required
+- opt_out_path
+- deletion_request_path
+
+AI RiceBowl처럼 외부 RSS를 쓰는 서비스는 특히 source attribution과 원문 링크를 일관되게 유지해야 합니다.`
+      },
+      {
+        title: "2. Agentic traffic을 일반 bot traffic처럼 보지 마라",
+        content: `Cloudflare의 AI traffic 옵션과 Precursor 흐름은 agentic behavior가 웹 보안과 분석의 새 대상이 됐음을 보여줍니다.
+
+운영자가 봐야 할 질문은 다음과 같습니다.
+
+- 이 요청은 사람 브라우저인가 agent인가
+- 어떤 리소스를 반복적으로 읽는가
+- 출처 표시나 과금 정책을 따라야 하는가
+- rate limit과 cache 정책이 적절한가
+- agent가 form submit이나 write action을 시도하는가
+- user consent가 필요한 행동인가
+
+Agentic web에서는 traffic classification이 제품 정책과 직접 연결됩니다.`
+      },
+      {
+        title: "3. 민감 데이터는 agent가 읽기 전에 경계를 나눠라",
+        content: `LINE Kafka E2EE 사례처럼 데이터가 이동하는 구간의 암호화와 접근 제어는 AI pipeline에도 중요합니다. agent가 읽고 나서 masking하는 방식은 늦습니다.
+
+먼저 정의해야 할 경계는 다음과 같습니다.
+
+- PII masking boundary
+- tenant isolation
+- purpose-based access
+- audit log
+- encryption in transit
+- encryption at rest
+- data minimization
+- retention and deletion
+
+이 경계가 없으면 RAG나 agent 기능이 커질수록 보안 검토가 병목이 됩니다.`
+      },
+      {
+        title: "4. Moderation은 모델 하나가 아니라 운영 루프다",
+        content: `LINE 오픈챗 유해성 모델은 AI safety 기능이 분류 모델 하나로 끝나지 않는다는 점을 보여줍니다.
+
+moderation 운영에는 아래가 필요합니다.
+
+- policy taxonomy
+- training/eval dataset version
+- false positive review
+- false negative review
+- appeal path
+- drift monitoring
+- adversarial examples
+- human escalation
+
+AI 제품의 안전 기능은 모델 성능표보다 정책과 피드백 루프가 더 중요합니다.`
+      },
+      {
+        title: "5. 내일 아침 실행안",
+        content: `현재 서비스의 crawler, RAG, analytics pipeline 중 하나를 고릅니다.
+
+반나절 안에 아래를 작성하십시오.
+
+- source registry
+- allowed_use matrix
+- opt-out/removal request flow
+- attribution UI rule
+- agentic traffic rate limit
+- sensitive data masking boundary
+- moderation feedback loop
+
+이 문서가 있으면 AI 제품을 최신스럽게 말하는 데서 그치지 않고, 실제 운영 가능한 데이터 경계를 보여줄 수 있습니다.`
       }
     ]
   }

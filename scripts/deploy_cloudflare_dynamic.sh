@@ -5,8 +5,18 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 PROJECT_NAME="${PROJECT_NAME:-ai-ricebowl}"
 DB_NAME="${DB_NAME:-ai-ricebowl}"
+WRANGLER_HOME_DIR="${WRANGLER_HOME_DIR:-$REPO_ROOT/.wrangler-home}"
+CLOUDFLARE_ENV_FILE="${CLOUDFLARE_ENV_FILE:-$REPO_ROOT/.env.cloudflare}"
 
 cd "$REPO_ROOT"
+mkdir -p "$WRANGLER_HOME_DIR"
+
+if [[ -f "$CLOUDFLARE_ENV_FILE" ]]; then
+  set -a
+  # shellcheck disable=SC1090
+  source "$CLOUDFLARE_ENV_FILE"
+  set +a
+fi
 
 if ! command -v npm >/dev/null 2>&1; then
   echo "npm is required." >&2
@@ -17,10 +27,15 @@ if [ ! -d node_modules ]; then
   npm install
 fi
 
-WHOAMI_OUTPUT="$(npx wrangler whoami 2>&1 || true)"
+wrangler() {
+  HOME="$WRANGLER_HOME_DIR" npx wrangler "$@"
+}
+
+WHOAMI_OUTPUT="$(wrangler whoami 2>&1 || true)"
 if echo "$WHOAMI_OUTPUT" | grep -qi 'not authenticated'; then
   echo "Cloudflare Wrangler is not authenticated."
-  echo "Run: npx wrangler login"
+  echo "Either run: HOME=\"$WRANGLER_HOME_DIR\" npx wrangler login"
+  echo "Or create $CLOUDFLARE_ENV_FILE with CLOUDFLARE_API_TOKEN."
   exit 1
 fi
 
@@ -37,10 +52,10 @@ if grep -q 'REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID' wrangler.toml; then
 fi
 
 npm run db:seed
-npx wrangler d1 execute "$DB_NAME" --remote --file=db/schema.sql
-npx wrangler d1 execute "$DB_NAME" --remote --file=db/seed.sql
+wrangler d1 execute "$DB_NAME" --remote --file=db/schema.sql
+wrangler d1 execute "$DB_NAME" --remote --file=db/seed.sql
 
-npx wrangler pages deploy . \
+wrangler pages deploy . \
   --project-name "$PROJECT_NAME" \
   --branch "$(git branch --show-current 2>/dev/null || echo main)" \
   --commit-hash "$(git rev-parse HEAD 2>/dev/null || echo manual)" \

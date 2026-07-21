@@ -51,6 +51,9 @@ CREATE TABLE IF NOT EXISTS trend_cards (
 CREATE INDEX IF NOT EXISTS idx_trend_cards_active_sort
   ON trend_cards(active, sort_order);
 
+CREATE INDEX IF NOT EXISTS idx_trend_cards_date_sort
+  ON trend_cards(date DESC, sort_order);
+
 CREATE TABLE IF NOT EXISTS survival_guides (
   id TEXT PRIMARY KEY,
   title TEXT NOT NULL,
@@ -69,6 +72,9 @@ CREATE TABLE IF NOT EXISTS survival_guides (
 
 CREATE INDEX IF NOT EXISTS idx_survival_guides_active_sort
   ON survival_guides(active, sort_order);
+
+CREATE INDEX IF NOT EXISTS idx_survival_guides_date_sort
+  ON survival_guides(date DESC, sort_order);
 
 CREATE TABLE IF NOT EXISTS daily_reports (
   date TEXT PRIMARY KEY,

@@ -151,6 +151,18 @@ function readJsonStorage(key, fallback) {
   }
 }
 
+function encodeRoutePart(value) {
+  return encodeURIComponent(String(value || ''));
+}
+
+function decodeRoutePart(value) {
+  try {
+    return decodeURIComponent(String(value || ''));
+  } catch (error) {
+    return String(value || '');
+  }
+}
+
 createApp({
   data() {
     return {
@@ -160,12 +172,15 @@ createApp({
       activeNewsRegion: 'overseas',
       activeSummaryPeriod: 'daily',
       activeJobGuide: 'FE',
+      activeTrendDate: 'latest',
+      activeGuideDate: 'latest',
       searchQuery: '',
       theme: localStorage.getItem(STORAGE_KEYS.theme) || 'dark',
       bookmarkedIds: readJsonStorage(STORAGE_KEYS.bookmarks, []),
       selectedPostId: null,
       selectedNewsKey: null,
       selectedTrendId: null,
+      routeInitialized: false,
       showBackToTop: false,
       dataSource: 'static',
       dataLoadedAt: null,
@@ -313,6 +328,10 @@ createApp({
 
       return this.trends
         .filter((item) => {
+          const latest = this.latestDate(this.trends);
+          if (this.activeTrendDate === 'latest' && item.date !== latest) return false;
+          if (this.activeTrendDate !== 'latest' && item.date !== this.activeTrendDate) return false;
+
           if (this.activeCategoryFilter === 'bookmarks') {
             if (!this.isBookmarked(item.id)) return false;
           } else if (this.activeCategoryFilter !== 'all' && item.category !== this.activeCategoryFilter) {
@@ -367,12 +386,31 @@ createApp({
       return this.blogPosts.find((post) => post.id === this.selectedPostId) || null;
     },
 
+    displayedBlogPosts() {
+      const latest = this.latestDate(this.blogPosts);
+
+      return this.blogPosts.filter((post) => {
+        if (this.activeGuideDate === 'latest') {
+          return post.date === latest;
+        }
+        return post.date === this.activeGuideDate;
+      });
+    },
+
     selectedPostHtml() {
       return renderBlogSectionHtml(this.selectedPost);
     },
 
     selectedTrend() {
       return this.trends.find((trend) => trend.id === this.selectedTrendId) || null;
+    },
+
+    trendDateOptions() {
+      return this.buildDateOptions(this.trends);
+    },
+
+    guideDateOptions() {
+      return this.buildDateOptions(this.blogPosts);
     },
 
     dataSourceLabel() {
@@ -397,11 +435,16 @@ createApp({
   mounted() {
     document.documentElement.setAttribute('data-theme', this.theme);
     window.addEventListener('scroll', this.onScroll, { passive: true });
-    this.loadRemoteContent();
+    window.addEventListener('popstate', this.applyCurrentRoute);
+    this.applyCurrentRoute({ scroll: false, replaceMissing: false });
+    this.loadRemoteContent().then(() => {
+      this.applyCurrentRoute({ scroll: false, replaceMissing: true });
+    });
   },
 
   beforeUnmount() {
     window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('popstate', this.applyCurrentRoute);
   },
 
   methods: {
@@ -420,10 +463,12 @@ createApp({
 
         if (Array.isArray(payload.trends) && payload.trends.length > 0) {
           this.trends = payload.trends.map(normalizeTrendCard);
+          this.activeTrendDate = this.resolveDateParam(this.trends, this.activeTrendDate);
         }
 
         if (Array.isArray(payload.guides) && payload.guides.length > 0) {
           this.blogPosts = payload.guides.map(normalizeSurvivalGuide);
+          this.activeGuideDate = this.resolveDateParam(this.blogPosts, this.activeGuideDate);
         }
 
         if (Array.isArray(payload.news)) {
@@ -444,19 +489,11 @@ createApp({
     },
 
     goHome() {
-      this.selectedPostId = null;
-      this.selectedNewsKey = null;
-      this.selectedTrendId = null;
-      this.activeTab = 'trends';
-      this.scrollTop();
+      this.navigateTo('/');
     },
 
     switchTab(tabId) {
-      this.selectedPostId = null;
-      this.selectedNewsKey = null;
-      this.selectedTrendId = null;
-      this.activeTab = tabId;
-      this.scrollTop();
+      this.navigateTo(tabId === 'blog' ? this.blogListRoute() : this.trendListRoute());
     },
 
     toggleTheme() {
@@ -468,6 +505,37 @@ createApp({
       if (filterId !== 'realtime') {
         this.activeJobFilter = 'all';
       }
+      this.replaceWithCurrentListRoute();
+    },
+
+    setNewsRegion(regionId) {
+      this.activeNewsRegion = regionId;
+      this.replaceWithCurrentListRoute();
+    },
+
+    setSummaryPeriod(periodId) {
+      this.activeSummaryPeriod = periodId;
+      this.replaceWithCurrentListRoute();
+    },
+
+    setJobFilter(jobId) {
+      this.activeJobFilter = jobId;
+      this.replaceWithCurrentListRoute();
+    },
+
+    setJobGuide(jobId) {
+      this.activeJobGuide = jobId;
+      this.replaceWithCurrentListRoute();
+    },
+
+    setTrendDate(date) {
+      this.activeTrendDate = date;
+      this.replaceWithCurrentListRoute();
+    },
+
+    setGuideDate(date) {
+      this.activeGuideDate = date;
+      this.replaceWithCurrentListRoute();
     },
 
     isBookmarked(id) {
@@ -483,42 +551,212 @@ createApp({
     },
 
     openPost(postId) {
-      this.selectedPostId = postId;
-      this.selectedNewsKey = null;
-      this.selectedTrendId = null;
-      this.scrollTop();
+      this.navigateTo(`/guides/${encodeRoutePart(postId)}`);
     },
 
     closePost() {
-      this.selectedPostId = null;
-      this.activeTab = 'blog';
-      this.scrollTop();
+      this.navigateTo(this.blogListRoute());
     },
 
     openTrendDetail(trendId) {
-      this.selectedTrendId = trendId;
-      this.selectedPostId = null;
-      this.selectedNewsKey = null;
-      this.activeTab = 'trends';
-      this.scrollTop();
+      this.navigateTo(`/trends/${encodeRoutePart(trendId)}`);
     },
 
     closeTrendDetail() {
-      this.selectedTrendId = null;
-      this.scrollTop();
+      this.navigateTo(this.trendListRoute());
     },
 
     openNewsDetail(item) {
-      this.selectedNewsKey = item.key;
-      this.selectedPostId = null;
-      this.selectedTrendId = null;
-      this.activeTab = 'trends';
-      this.scrollTop();
+      this.navigateTo(`/news/${encodeRoutePart(item.key)}`);
     },
 
     closeNewsDetail() {
+      this.navigateTo(this.trendListRoute());
+    },
+
+    parseCurrentRoute() {
+      const hashRoute = window.location.hash.startsWith('#/')
+        ? window.location.hash.slice(1)
+        : null;
+      const rawPath = hashRoute || window.location.pathname || '/';
+      const [pathOnly, hashQuery = ''] = rawPath.split('?');
+      const normalizedPath = `/${pathOnly.split('/').filter(Boolean).join('/')}`;
+      const path = normalizedPath === '/' ? '/' : normalizedPath.replace(/\/$/, '');
+      const queryString = hashRoute ? hashQuery : window.location.search.slice(1);
+      const params = new URLSearchParams(queryString);
+      const parts = path.split('/').filter(Boolean);
+
+      return { path, parts, params };
+    },
+
+    applyCurrentRoute(options = {}) {
+      const { scroll = true, replaceMissing = true } = options;
+      const route = this.parseCurrentRoute();
+      const [section, rawId] = route.parts;
+
+      this.routeInitialized = true;
+      this.selectedPostId = null;
       this.selectedNewsKey = null;
-      this.scrollTop();
+      this.selectedTrendId = null;
+
+      if (!section || section === 'trends') {
+        this.activeTab = 'trends';
+        this.applyTrendRouteParams(route.params);
+        if (rawId) {
+          const trendId = decodeRoutePart(rawId);
+          if (!replaceMissing || this.trends.some((trend) => trend.id === trendId)) {
+            this.selectedTrendId = trendId;
+          } else {
+            this.navigateTo(this.trendListRoute(), { replace: true, scroll: false });
+            return;
+          }
+        }
+      } else if (section === 'news') {
+        this.activeTab = 'trends';
+        this.applyTrendRouteParams(route.params);
+        if (rawId) {
+          const newsKey = decodeRoutePart(rawId);
+          if (!replaceMissing || this.crawledNews.some((item, index) => this.decorateNewsItem(item, index).key === newsKey)) {
+            this.selectedNewsKey = newsKey;
+          } else {
+            this.navigateTo(this.trendListRoute(), { replace: true, scroll: false });
+            return;
+          }
+        }
+      } else if (section === 'guides' || section === 'blog') {
+        this.activeTab = 'blog';
+        this.applyBlogRouteParams(route.params);
+        if (rawId) {
+          const postId = decodeRoutePart(rawId);
+          if (!replaceMissing || this.blogPosts.some((post) => post.id === postId)) {
+            this.selectedPostId = postId;
+          } else {
+            this.navigateTo(this.blogListRoute(), { replace: true, scroll: false });
+            return;
+          }
+        }
+      } else {
+        this.navigateTo('/', { replace: true, scroll: false });
+        return;
+      }
+
+      this.updateDocumentTitle();
+      if (scroll) this.scrollTop();
+    },
+
+    applyTrendRouteParams(params) {
+      const filter = params.get('filter');
+      const region = params.get('region');
+      const period = params.get('period');
+      const job = params.get('job');
+      const date = params.get('date');
+      const query = params.get('q');
+
+      this.activeCategoryFilter = this.categoryFilters.some((item) => item.id === filter) ? filter : 'all';
+      this.activeNewsRegion = this.newsRegions.some((item) => item.id === region) ? region : 'overseas';
+      this.activeSummaryPeriod = this.summaryPeriods.some((item) => item.id === period) ? period : 'daily';
+      this.activeJobFilter = this.realtimeJobFilters.some((item) => item.id === job) ? job : 'all';
+      this.activeTrendDate = this.resolveDateParam(this.trends, date);
+      this.searchQuery = query || '';
+
+      if (this.activeCategoryFilter !== 'realtime') {
+        this.activeJobFilter = 'all';
+      }
+    },
+
+    applyBlogRouteParams(params) {
+      const job = params.get('job');
+      const date = params.get('date');
+      this.activeJobGuide = this.jobTabs.some((item) => item.id === job) ? job : 'FE';
+      this.activeGuideDate = this.resolveDateParam(this.blogPosts, date);
+    },
+
+    navigateTo(path, options = {}) {
+      const { replace = false, scroll = true } = options;
+      const nextPath = path || '/';
+      const current = `${window.location.pathname}${window.location.search}`;
+
+      if (current !== nextPath) {
+        window.history[replace ? 'replaceState' : 'pushState']({}, '', nextPath);
+      }
+
+      this.applyCurrentRoute({ scroll, replaceMissing: true });
+    },
+
+    replaceWithCurrentListRoute() {
+      if (!this.routeInitialized || this.selectedPost || this.selectedNews || this.selectedTrend) {
+        return;
+      }
+
+      this.navigateTo(this.activeTab === 'blog' ? this.blogListRoute() : this.trendListRoute(), {
+        replace: true,
+        scroll: false
+      });
+    },
+
+    trendListRoute() {
+      const params = new URLSearchParams();
+
+      if (this.activeCategoryFilter !== 'all') params.set('filter', this.activeCategoryFilter);
+      if (this.activeNewsRegion !== 'overseas') params.set('region', this.activeNewsRegion);
+      if (this.activeSummaryPeriod !== 'daily') params.set('period', this.activeSummaryPeriod);
+      if (this.activeCategoryFilter === 'realtime' && this.activeJobFilter !== 'all') params.set('job', this.activeJobFilter);
+      if (this.activeCategoryFilter !== 'realtime' && this.activeTrendDate !== 'latest') params.set('date', this.activeTrendDate);
+      if (this.searchQuery) params.set('q', this.searchQuery);
+
+      const query = params.toString();
+      return `/trends${query ? `?${query}` : ''}`;
+    },
+
+    blogListRoute() {
+      const params = new URLSearchParams();
+      if (this.activeJobGuide !== 'FE') params.set('job', this.activeJobGuide);
+      if (this.activeGuideDate !== 'latest') params.set('date', this.activeGuideDate);
+      const query = params.toString();
+      return `/guides${query ? `?${query}` : ''}`;
+    },
+
+    buildDateOptions(items) {
+      const dates = [...new Set(items.map((item) => item.date).filter(Boolean))]
+        .sort((a, b) => b.localeCompare(a));
+
+      return [
+        { id: 'latest', label: '최신' },
+        ...dates.map((date) => ({ id: date, label: date }))
+      ];
+    },
+
+    latestDate(items) {
+      return [...new Set(items.map((item) => item.date).filter(Boolean))]
+        .sort((a, b) => b.localeCompare(a))[0] || '';
+    },
+
+    resolveDateParam(items, date) {
+      if (!date || date === 'latest') return 'latest';
+      return items.some((item) => item.date === date) ? date : 'latest';
+    },
+
+    updateDocumentTitle() {
+      const suffix = 'AI 밥그릇';
+
+      if (this.selectedTrend) {
+        document.title = `${this.selectedTrend.title} | ${suffix}`;
+        return;
+      }
+
+      if (this.selectedNews) {
+        document.title = `${this.selectedNews.title} | ${suffix}`;
+        return;
+      }
+
+      if (this.selectedPost) {
+        document.title = `${this.selectedPost.title} | ${suffix}`;
+        return;
+      }
+
+      document.title = this.activeTab === 'blog'
+        ? `개발자 생존 가이드 | ${suffix}`
+        : `최신 AI 트렌드 | ${suffix}`;
     },
 
     normalizedRegion(item) {
@@ -574,6 +812,78 @@ createApp({
     shortDate(pubDate) {
       if (!pubDate) return '최신';
       return pubDate.split(' ').slice(0, 4).join(' ');
+    },
+
+    newsKoreanBrief(item) {
+      const text = `${item.title || ''} ${item.description || ''}`.toLowerCase();
+      const categories = item.categories || [];
+      const topic = this.newsTopicLabel(text, categories);
+      const action = this.newsActionLabel(text, categories);
+
+      return `${this.regionLabel(item)} ${item.source || 'RSS'}에서 수집한 ${topic} 관련 소식입니다. ${action}`;
+    },
+
+    newsDeveloperPoints(item) {
+      const text = `${item.title || ''} ${item.description || ''}`.toLowerCase();
+      const points = [];
+
+      if (/agent|mcp|orchestration|workflow|tool/.test(text)) {
+        points.push('Agent나 MCP 도입 후보라면 권한 범위, tool 실행 로그, 승인 단계를 먼저 확인하세요.');
+      }
+      if (/context|rag|retrieval|prompt/.test(text)) {
+        points.push('RAG/컨텍스트 품질 신호입니다. 출처, 최신성, 압축 과정이 관리되는지 보세요.');
+      }
+      if (/llm|model|open-weight|kimi|qwen|gpt|gemini|grok|bedrock/.test(text)) {
+        points.push('모델 선택 신호입니다. 성능표보다 비용, region, fallback, eval 통과 여부가 중요합니다.');
+      }
+      if (/gpu|chip|compute|serving|kubernetes|data center|inference/.test(text)) {
+        points.push('AI 인프라 신호입니다. p95 latency, cache, queue, serving 비용으로 연결해 보세요.');
+      }
+      if (/security|vulnerability|waf|e2ee|privacy|copyright|lawsuit|scrap|bot/.test(text)) {
+        points.push('보안/데이터 경계 신호입니다. 권리, 암호화, 차단 정책, 감사 로그를 확인하세요.');
+      }
+      if (/review|test|qa|playwright|verification|coding|copilot/.test(text) || (item.categories || []).includes('QA')) {
+        points.push('AI 개발 검증 신호입니다. 테스트 하네스와 리뷰 acceptance 기준으로 바꿔볼 수 있습니다.');
+      }
+
+      if (!points.length) {
+        points.push('단일 기사로 단정하지 말고 같은 출처/카테고리의 반복 신호와 함께 보세요.');
+        points.push('원문에서 실제 제품 변화, API 변경, 가격·정책 조건이 있는지 확인하세요.');
+      }
+
+      return points.slice(0, 3);
+    },
+
+    newsTopicLabel(text, categories) {
+      if (/agent|mcp|orchestration|workflow|tool/.test(text)) return 'AI 에이전트와 도구 연동';
+      if (/context|rag|retrieval|prompt/.test(text)) return '컨텍스트 엔지니어링과 RAG';
+      if (/llm|model|open-weight|kimi|qwen|gpt|gemini|grok|bedrock/.test(text)) return '모델 선택과 LLM 운영';
+      if (/gpu|chip|compute|serving|kubernetes|data center|inference/.test(text)) return 'AI 인프라와 서빙 비용';
+      if (/security|vulnerability|waf|e2ee|privacy|copyright|lawsuit|scrap|bot/.test(text)) return '보안, 데이터 경계, 콘텐츠 권리';
+      if (/review|test|qa|playwright|verification|coding|copilot/.test(text)) return 'AI 개발 검증과 코드 리뷰';
+      if (categories.includes('FE')) return '프론트엔드와 사용자 경험';
+      if (categories.includes('DevOps')) return '플랫폼 운영과 DevOps';
+      if (categories.includes('Security')) return '보안 운영';
+      return 'AI/IT 산업 변화';
+    },
+
+    newsActionLabel(text, categories) {
+      if (/launch|introduc|release|available|announc/.test(text)) {
+        return '새 기능/제품 발표 성격이 강하므로 실제 API, 가격, 적용 범위를 확인하세요.';
+      }
+      if (/lawsuit|settlement|ban|policy|copyright|regulat/.test(text)) {
+        return '법적·정책적 리스크 신호이므로 데이터 사용 조건과 제품 노출 범위를 점검하세요.';
+      }
+      if (/security|vulnerability|attack|breach|waf|e2ee/.test(text)) {
+        return '보안 운영 신호이므로 권한, 로그, 패치, 암호화 경계를 우선 확인하세요.';
+      }
+      if (/cost|compute|serving|gpu|chip|inference/.test(text)) {
+        return '비용과 성능 신호이므로 latency, cache, fallback, 사용량 지표로 연결해 보세요.';
+      }
+      if (/test|qa|review|verification|playwright/.test(text) || categories.includes('QA')) {
+        return '검증 체계 신호이므로 테스트 하네스와 리뷰 기준으로 바꿔볼 수 있습니다.';
+      }
+      return '개발팀에는 도입 여부보다 권한, 비용, 검증, 운영 부담을 함께 보는 관점이 중요합니다.';
     },
 
     safeUrl(url) {

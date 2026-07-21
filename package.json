@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev:cloudflare": "wrangler pages dev . --compatibility-date=2026-07-07",
-    "db:seed": "node scripts/export_cloudflare_d1_seed.js",
+    "archive:daily": "node scripts/archive_daily_site_data.js",
+    "db:seed": "node scripts/archive_daily_site_data.js && node scripts/export_cloudflare_d1_seed.js",
     "db:schema:local": "wrangler d1 execute ai-ricebowl --local --file=db/schema.sql",
     "db:seed:local": "wrangler d1 execute ai-ricebowl --local --file=db/seed.sql",
     "db:schema:remote": "wrangler d1 execute ai-ricebowl --remote --file=db/schema.sql",

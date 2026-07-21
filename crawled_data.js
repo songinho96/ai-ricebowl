@@ -2,10 +2,116 @@
 window.crawledNews = [
   {
     "source": "TechCrunch AI",
-    "title": "Amazon will stop accepting new customers for Mechanical Turk",
-    "link": "https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/",
-    "description": "These may be the last days of Amazon’s Mechanical Turk.",
-    "pubDate": "Sun, 05 Jul 2026 17:43:36 +0000",
+    "title": "Anthropic’s landmark $1.5B copyright settlement is approved",
+    "link": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+    "description": "The final approval settles one case, but it doesn't resolve the broader issue of using copyrighted works to train AI models.",
+    "pubDate": "Tue, 21 Jul 2026 00:12:24 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Trump’s latest AI czar has already resigned",
+    "link": "https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/",
+    "description": "The director role for the Center for AI Standards and Innovation (CAISI) has become a revolving door since David Sacks left his position as czar.",
+    "pubDate": "Mon, 20 Jul 2026 22:21:04 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "QA"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Google is working on a new AI chip designed to make Gemini more efficient",
+    "link": "https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/",
+    "description": "Alphabet, Google's parent company, is reportedly working on a new chip designed to make its Gemini models run much more efficiently.",
+    "pubDate": "Mon, 20 Jul 2026 21:21:15 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "AI’s most important protocol is getting a little bit easier to use",
+    "link": "https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/",
+    "description": "Under the new system, the protocol will take a looser, \"stateless\" approach to session IDs on the server side, similar to how most ordinary websites a...",
+    "pubDate": "Mon, 20 Jul 2026 20:50:40 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "BE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "X relaunches a rebuilt Android app after year-long effort",
+    "link": "https://techcrunch.com/2026/07/20/x-relaunches-a-rebuilt-android-app-after-year-long-effort/",
+    "description": "X says the rebuilt version of its Android app is now available globally.",
+    "pubDate": "Mon, 20 Jul 2026 19:37:39 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "OpenAI is scared of open-weight models. Should the US be?",
+    "link": "https://techcrunch.com/2026/07/20/openai-is-scared-of-open-weight-models-should-the-us-be/",
+    "description": "Talk of banning Chinese-made open-weight LLMs reveals the challenge of  turning AI into a business.",
+    "pubDate": "Mon, 20 Jul 2026 19:33:25 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Adobe camera app’s new feature will critique your photos using AI",
+    "link": "https://techcrunch.com/2026/07/20/adobe-camera-apps-new-feature-will-critique-your-photos-using-ai/",
+    "description": "Adobe's Project Indigo can now remove all kinds of backgrounds from photos you snap using the app.",
+    "pubDate": "Mon, 20 Jul 2026 15:45:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "YouTube clarifies policies around AI slop and upsetting videos",
+    "link": "https://techcrunch.com/2026/07/20/youtube-clarifies-policies-around-ai-slop-and-upsetting-videos/",
+    "description": "YouTube has updated its monetization policies to more clearly define the kinds of AI-generated and low-quality videos that can’t earn ad revenue.",
+    "pubDate": "Mon, 20 Jul 2026 15:23:06 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "What to watch for after Jensen Huang’s Japan visit",
+    "link": "https://techcrunch.com/2026/07/19/what-to-watch-for-after-jensen-huangs-japan-visit/",
+    "description": "Jensen Huang left Tokyo with deals spanning Japan's entire tech ecosystem.",
+    "pubDate": "Sun, 19 Jul 2026 21:16:07 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -14,178 +120,16 @@ window.crawledNews = [
   },
   {
     "source": "TechCrunch AI",
-    "title": "New Google commercial imagines a Declaration of Independence written with help from AI",
-    "link": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
-    "description": "Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Go...",
-    "pubDate": "Sat, 04 Jul 2026 20:55:25 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Midjourney wants Hollywood studios to reveal the details of their AI usage",
-    "link": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
-    "description": "As part of an ongoing legal dispute with three Hollywood studios, Midjourney is seeking to compel those studios to reveal how they use AI themselves.",
-    "pubDate": "Sat, 04 Jul 2026 18:00:05 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Alibaba reportedly bans employees from using Claude Code",
-    "link": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
-    "description": "Alibaba has reportedly classified Claude Code as high-risk software.",
-    "pubDate": "Sat, 04 Jul 2026 16:32:08 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "What is Mistral AI? Everything to know about the OpenAI competitor",
-    "link": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
-    "description": "Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to “put frontier AI ...",
-    "pubDate": "Sat, 04 Jul 2026 15:51:32 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The only AI glossary you’ll need this year",
-    "link": "https://techcrunch.com/2026/07/03/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/",
-    "description": "The rise of AI has brought an avalanche of new terms and slang. Here is a glossary with definitions of some of the most important words and phrases yo...",
-    "pubDate": "Fri, 03 Jul 2026 21:20:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari",
-    "link": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/",
-    "description": "We’ve compiled an overview of some of the top alternative browsers available today aiming to challenge Chrome and Safari.",
-    "pubDate": "Fri, 03 Jul 2026 18:43:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Mark Zuckerberg tells staff that AI agents haven’t progressed as quickly as he’d hoped",
-    "link": "https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/",
-    "description": "At an internal meeting, the Meta CEO reportedly said that AI development efforts were not moving as quickly as anticipated.",
-    "pubDate": "Thu, 02 Jul 2026 23:38:10 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Jersey Mike’s IPO illustrates how bad the AI hype has become",
-    "link": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/",
-    "description": "Just for kicks, I took a look at Jersey Mike's IPO documents. Surely a sandwich shop would have no need to mention AI. But lo and behold.",
-    "pubDate": "Thu, 02 Jul 2026 20:11:59 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Meta quietly launches vibe-coded gaming app Pocket",
-    "link": "https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/",
-    "description": "Meta has quietly launched Pocket, an experimental AI app that lets users generate and share interactive mini games using text prompts.",
-    "pubDate": "Thu, 02 Jul 2026 18:44:02 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Anthropic is discussing a new custom chip with Samsung",
-    "link": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
-    "description": "The news comes about a week after OpenAI announced its own custom AI chip in a partnership with Broadcom.",
-    "pubDate": "Thu, 02 Jul 2026 18:31:09 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "OpenAI proposed donating 5% of its equity to a US sovereign wealth fund",
-    "link": "https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/",
-    "description": "OpenAI CEO Sam Altman has reportedly proposed giving 5% of the company’s equity to a U.S. sovereign wealth fund, reviving discussions about letting th...",
-    "pubDate": "Thu, 02 Jul 2026 15:20:51 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Microsoft launches its own AI deployment company with $2.5 billion commitment",
-    "link": "https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/",
-    "description": "Microsoft follows Amazon, OpenAI, and Anthropic with its new AI deployment group.",
-    "pubDate": "Thu, 02 Jul 2026 13:53:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Yep, we’re using OpenClaw to date now",
-    "link": "https://techcrunch.com/2026/07/02/yep-were-using-openclaw-to-date-now/",
-    "description": "Ben Guez has \"a bunch of potential international wives in [his] DMs,\" thanks to an automated script he set up using OpenClaw, Claude code, and Instagr...",
-    "pubDate": "Thu, 02 Jul 2026 12:00:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office",
-    "link": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
-    "description": "Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office and Google Apps with AI...",
-    "pubDate": "Thu, 02 Jul 2026 05:30:00 +0000",
+    "title": "Can an Apple lawsuit derail OpenAI’s hardware plans?",
+    "link": "https://techcrunch.com/2026/07/19/can-an-apple-lawsuit-derail-openais-hardware-plans/",
+    "description": "On the latest episode of Equity, we debate whether Apple's lawsuit will cast a shadow over OpenAi's much-discussed plans to get into hardware and go p...",
+    "pubDate": "Sun, 19 Jul 2026 19:24:45 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
       "BE",
+      "DevOps",
       "AI",
       "Mobile",
       "QA"
@@ -193,10 +137,47 @@ window.crawledNews = [
   },
   {
     "source": "TechCrunch AI",
-    "title": "SpaceX has an AI device prototype, and it sure sounds phone-ish",
-    "link": "https://techcrunch.com/2026/07/01/spacex-has-an-ai-device-prototype-and-it-sure-sounds-phone-ish/",
-    "description": "SpaceX reportedly showed investors a \"handset-like\" AI device before going public. It could be another signal SpaceX wants to expand into wireless.",
-    "pubDate": "Wed, 01 Jul 2026 18:54:18 +0000",
+    "title": "‘Odyssey’ director Christopher Nolan calls AI an obvious ‘Trojan horse’",
+    "link": "https://techcrunch.com/2026/07/19/odyssey-director-christopher-nolan-calls-ai-an-obvious-trojan-horse/",
+    "description": "\"Everybody knows the Greeks are inside.\"",
+    "pubDate": "Sun, 19 Jul 2026 14:52:08 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Nonprofit Current AI is racing to build the World Wide Web of AI, free for all",
+    "link": "https://techcrunch.com/2026/07/19/nonprofit-current-ai-is-racing-to-build-the-world-wide-web-of-ai-free-for-all/",
+    "description": "Current AI, a nonprofit building AI that leaves no one culture behind, has made remarkable progress across devices, AI chat, and more.",
+    "pubDate": "Sun, 19 Jul 2026 14:00:00 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Kimi: Threat or menace?",
+    "link": "https://techcrunch.com/2026/07/18/kimi-threat-or-menace/",
+    "description": "Chinese company Moonshot AI released a new version of its Kimi model this week, prompting concern about \"full AI communism.\"",
+    "pubDate": "Sat, 18 Jul 2026 18:51:07 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Neil Rimer thinks the AI money is coming back out",
+    "link": "https://techcrunch.com/2026/07/17/neil-rimer-thinks-the-ai-money-is-coming-back-out/",
+    "description": "Neil Rimer, the venture capitalist who co-founded Index Ventures, predicts the historic wealth AI is generating in Silicon Valley will have to be redi...",
+    "pubDate": "Sat, 18 Jul 2026 04:47:25 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -206,101 +187,88 @@ window.crawledNews = [
   },
   {
     "source": "TechCrunch AI",
-    "title": "Ashton Kutcher leaving Sound Ventures to launch new VC firm with Morgan Beller",
-    "link": "https://techcrunch.com/2026/07/01/ashton-kutcher-leaving-sound-ventures-to-launch-new-vc-firm-with-morgan-beller/",
-    "description": "Sound built its reputation on concentrated, high-conviction bets in category-leading AI labs, while Kutcher's new fund appears to be chasing the layer...",
-    "pubDate": "Wed, 01 Jul 2026 18:47:22 +0000",
+    "title": "Vertu wants executives to pay $6,880 for an AI agent — here’s how it actually performs",
+    "link": "https://techcrunch.com/2026/07/17/vertu-wants-executives-to-pay-6880-for-an-ai-agent-heres-how-it-actually-performs/",
+    "description": "From AI workflows to battery life and security, here's what it's really like to live with Vertu's luxury foldable every day.",
+    "pubDate": "Fri, 17 Jul 2026 22:55:09 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
-      "BE",
       "AI",
-      "Mobile"
+      "Security"
     ]
   },
   {
     "source": "TechCrunch AI",
-    "title": "Cloudflare’s new policy pushes AI companies to pay for publishers’ content",
-    "link": "https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/",
-    "description": "Cloudflare is giving AI companies until September 15 to separate web crawlers used for search from those used for AI training and agents, or risk bein...",
-    "pubDate": "Wed, 01 Jul 2026 17:48:37 +0000",
+    "title": "Databricks hits $188B valuation, extending its run as AI’s favorite second act",
+    "link": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
+    "description": "Databricks has remade its image into an AI company and has published research on the cost savings of open-weight AI models for coding.",
+    "pubDate": "Fri, 17 Jul 2026 22:12:56 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "The Zoom hack that says, ‘Don’t record me’",
+    "link": "https://techcrunch.com/2026/07/17/the-zoom-hack-that-says-dont-record-me/",
+    "description": "If every meeting, watercooler conversation, and date gets transcribed and summarized, who's actually reading any of it?",
+    "pubDate": "Fri, 17 Jul 2026 21:20:47 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "Security"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "Agility Robotics plants its flag in Tesla’s backyard",
+    "link": "https://techcrunch.com/2026/07/17/agility-robotics-plants-its-flag-in-teslas-backyard/",
+    "description": "Agility is opening a new training center for its Digit robots in Fremont, California.",
+    "pubDate": "Fri, 17 Jul 2026 20:19:49 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "AI-driven memory crunch jolts India’s smartphone market",
+    "link": "https://techcrunch.com/2026/07/17/ai-driven-memory-crunch-jolts-indias-smartphone-market/",
+    "description": "India's smartphone slowdown highlights how the AI boom is reshaping consumer electronics, from pricing and demand to corporate strategy.",
+    "pubDate": "Fri, 17 Jul 2026 20:09:27 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "TechCrunch AI",
+    "title": "How Apple’s big lawsuit could disrupt OpenAI’s IPO plans",
+    "link": "https://techcrunch.com/video/how-apples-big-lawsuit-could-disrupt-openais-ipo-plans/",
+    "description": "Apple&#160;filed a trade secrets&#160;lawsuit against OpenAI&#160;last Friday, and&#160;it&#8217;s&#160;not messing around. The complaint alleges a pa...",
+    "pubDate": "Fri, 17 Jul 2026 17:45:46 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
       "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Venice AI becomes a unicorn with $65M Series A as its privacy-first AI platform takes off",
-    "link": "https://techcrunch.com/2026/07/01/venice-ai-becomes-a-unicorn-with-65m-series-a-as-its-privacy-first-ai-platform-takes-off/",
-    "description": "Venice AI is already profitable, with annualized run-rate revenues of over $70 million, CEO Erik Voorhees said.",
-    "pubDate": "Wed, 01 Jul 2026 14:25:23 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "TechCrunch AI",
-    "title": "Gemini Spark, Google’s agentic assistant, is now available on Mac",
-    "link": "https://techcrunch.com/2026/07/01/gemini-spark-googles-agentic-assistant-is-now-available-on-mac/",
-    "description": "Google's 24/7 agentic assistant, Gemini Spark, comes to Mac alongside other improvements, like real-time tracking and support for more apps.",
-    "pubDate": "Wed, 01 Jul 2026 14:20:19 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
       "AI",
       "Mobile"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "GPT-5.6 Sol Ultra will be in Codex",
-    "link": "https://twitter.com/thsottiaux/status/2073933490513752151",
+    "title": "Who's afraid of Chinese models?",
+    "link": "https://stratechery.com/2026/whos-afraid-of-chinese-models/",
     "description": "Comments",
-    "pubDate": "Mon, 06 Jul 2026 01:04:03 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Has_not_been_viewed_much",
-    "link": "https://iamwillwang.com/notes/has-not-been-viewed-much/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 23:49:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Organic Maps",
-    "link": "https://organicmaps.app/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 14:14:30 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Generate parametric, manufacturable 3D models in seconds",
-    "link": "https://kyrall.com/",
-    "description": "Comments",
-    "pubDate": "Mon, 06 Jul 2026 07:04:33 +0000",
+    "pubDate": "Mon, 20 Jul 2026 11:05:58 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -309,22 +277,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "When AI Costs More Than the Engineer",
-    "link": "https://tomtunguz.com/ai-spend-breakeven-2029/",
+    "title": "Kimi Work",
+    "link": "https://www.kimi.com/products/kimi-work",
     "description": "Comments",
-    "pubDate": "Mon, 06 Jul 2026 07:05:25 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "It's not about physical vs. digital games, it's about ownership",
-    "link": "https://popcar.bearblog.dev/its-about-ownership/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 14:56:15 +0000",
+    "pubDate": "Mon, 20 Jul 2026 17:13:23 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -333,10 +289,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "OpenPrinter",
-    "link": "https://www.opentools.studio/",
+    "title": "Human mathematicians are being outcounterexampled",
+    "link": "https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 21:03:06 +0000",
+    "pubDate": "Mon, 20 Jul 2026 19:03:37 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -345,10 +301,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Building relationships with customers through support didn't turn out as hoped",
-    "link": "https://www.uncommonapps.nyc/p/castro-podcasts-things-i-got-wrong-support",
+    "title": "Jelly UI: Soft-body physics for native HTML form controls",
+    "link": "https://jelly-ui.com/",
     "description": "Comments",
-    "pubDate": "Mon, 06 Jul 2026 02:06:49 +0000",
+    "pubDate": "Mon, 20 Jul 2026 17:07:39 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -357,22 +313,23 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Show HN: Homegames. An open-source game platform I've been making for 8 years",
-    "link": "https://homegames.io",
+    "title": "Hacker wipes Romania's land registry database",
+    "link": "https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 21:32:44 +0000",
+    "pubDate": "Mon, 20 Jul 2026 13:28:33 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "General"
+      "DBA",
+      "Security"
     ]
   },
   {
     "source": "Hacker News",
-    "title": "Does code cleanliness affect coding agents? A controlled minimal-pair study",
-    "link": "https://arxiv.org/abs/2605.20049",
+    "title": "Nativ: Run frontier open models locally on your Mac",
+    "link": "https://blaizzy.github.io/nativ/",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 23:03:55 +0000",
+    "pubDate": "Mon, 20 Jul 2026 18:16:08 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -381,10 +338,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Behind the scenes with the Midjourney scanner [video]",
-    "link": "https://www.youtube.com/watch?v=4nzzpUKhj1M",
+    "title": "Show HN: Immersive Gaussian Splat tour of grace cathedral, San Francisco",
+    "link": "https://vincentwoo.com/3d/grace_cathedral/",
     "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 13:21:33 +0000",
+    "pubDate": "Mon, 20 Jul 2026 20:10:44 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -393,10 +350,22 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "The Age of Personalized Hardware Is Coming",
-    "link": "https://geastack.com/blog-the-age-of-personalized-hardware-is-coming",
+    "title": "Airport Simulator",
+    "link": "https://airport.apunen.com/",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 07:42:33 +0000",
+    "pubDate": "Mon, 20 Jul 2026 10:30:40 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Psychology of Software Teams",
+    "link": "https://www.routledge.com/The-Psychology-of-Software-Teams/Hicks/p/book/9781032963389",
+    "description": "Comments",
+    "pubDate": "Wed, 15 Jul 2026 16:16:21 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -405,10 +374,10 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "The Private Capture of Public Genius",
-    "link": "https://www.wysr.xyz/p/the-private-capture-of-public-genius",
+    "title": "Jellyfin founder Andrew leaves team",
+    "link": "https://forum.jellyfin.org/t-project-leadership-changes",
     "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 23:52:20 +0000",
+    "pubDate": "Mon, 20 Jul 2026 23:15:41 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -417,10 +386,291 @@ window.crawledNews = [
   },
   {
     "source": "Hacker News",
-    "title": "Zuckerberg says AI agent development going slower than expected",
-    "link": "https://www.reuters.com/business/zuckerberg-says-ai-agent-development-going-slower-than-expected-2026-07-02/",
+    "title": "Agent swarms and the new model economics",
+    "link": "https://cursor.com/blog/agent-swarm-model-economics",
     "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 20:38:06 +0000",
+    "pubDate": "Mon, 20 Jul 2026 18:06:13 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Show HN: I made email signatures less boring",
+    "link": "https://esigna.app",
+    "description": "Comments",
+    "pubDate": "Tue, 21 Jul 2026 01:06:20 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "China’s open-weights AI strategy is winning",
+    "link": "https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 14:21:47 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "LEDs’ potential to save our night skies",
+    "link": "https://spectrum.ieee.org/led-light-pollution",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 13:07:11 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Launch HN: Bloomy (YC S26) – AI-powered mastery learning for K-12",
+    "link": "https://news.ycombinator.com/item?id=48981136",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 16:32:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Corners Don't Look Like That: Regarding Screenspace Ambient Occlusion (2012)",
+    "link": "https://nothings.org/gamedev/ssao/",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 15:07:31 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "My two year old taught me constraint solving",
+    "link": "https://thecomputersciencebook.com/posts/how-my-2yo-taught-me-constraint-solving/",
+    "description": "Comments",
+    "pubDate": "Fri, 10 Jul 2026 19:32:07 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "How we measured AI writing across arXiv, and where the measurement breaks",
+    "link": "https://unslop.run/blog/measuring-ai-writing-on-arxiv",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 16:36:36 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "I wrote an bash enumerator because I was sick of xargs",
+    "link": "https://numerlab.org/2025/07/20/bashumerate-enumerator/",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 20:12:19 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Perfection is not over-engineering",
+    "link": "https://var0.xyz/posts/perfection-is-not-over-engineering.html",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 14:10:30 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Power of Awareness: Overcoming Surveillance Capitalism",
+    "link": "https://www.scottrlarson.com/presentations/overcoming-surveillance-capitalism-with-awareness/",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 20:08:45 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Shinjuku Station in 3D",
+    "link": "https://satoshi7190.github.io/Shinjuku-indoor-threejs-demo/",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 13:43:10 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "You only need the frontier model for one single edit",
+    "link": "https://stencil.so/blog/prewalk",
+    "description": "Comments",
+    "pubDate": "Wed, 15 Jul 2026 05:08:26 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The drivers behind software delivery inefficiency",
+    "link": "https://dl.acm.org/doi/10.1145/3800646.3800650",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 18:10:17 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "85.3 GFlops: Optimizing FP32 Matrix Multiplication on a Single AMD Zen 3 Core",
+    "link": "https://github.com/houslast3/85.30-GFLOPS-Single-Core-FP32-Matrix-Multiplication-on-AMD-Zen-3",
+    "description": "Comments",
+    "pubDate": "Fri, 17 Jul 2026 14:24:21 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Kimi K3, Qwen 3.8, and Anthropic's (Potential) Unravelling",
+    "link": "https://www.emergingtrajectories.com/lh/frontier-lab-economics/",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 15:13:42 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "The Voice of Google",
+    "link": "https://www.newyorker.com/culture/the-weekend-essay/the-voice-of-google",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 15:15:36 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Claude Fable produced a counterexample to the Jacobian Conjecture",
+    "link": "https://xcancel.com/__alpoge__/status/2079028340955197566",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 02:51:16 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "Cross sectioning insects in an electron microscope with a femtosecond laser [video]",
+    "link": "https://www.youtube.com/watch?v=NwhVJ7cv9B4",
+    "description": "Comments",
+    "pubDate": "Mon, 20 Jul 2026 15:40:03 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Hacker News",
+    "title": "ECC and DDR5",
+    "link": "https://etbe.coker.com.au/2026/07/19/ecc-ddr5/",
+    "description": "Comments",
+    "pubDate": "Sun, 19 Jul 2026 16:31:44 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "VentureBeat AI",
+    "title": "The AI compute gap: Enterprises are buying infrastructure faster than they can measure what it costs",
+    "link": "https://venturebeat.com/ai/the-ai-compute-gap-enterprises-are-buying-infrastructure-faster-than-they-can-measure-what-it-costs",
+    "description": "Across 107 enterprises, AI infrastructure spending is accelerating well ahead of the ability to see or steer its economics. Most organizations run the...",
+    "pubDate": "Thu, 16 Jul 2026 19:16:48 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "DevOps",
+      "AI"
+    ]
+  },
+  {
+    "source": "VentureBeat AI",
+    "title": "The agent security gap: 54% of enterprises have already had an AI agent incident, and most still let agents share credentials",
+    "link": "https://venturebeat.com/ai/the-agent-security-gap-54-of-enterprises-have-already-had-an-ai-agent-incident-and-most-still-let-agents-share-credentials",
+    "description": "Across 107 enterprises, AI agents are being given real access to systems and data while the controls meant to contain them lag behind. More than half ...",
+    "pubDate": "Thu, 16 Jul 2026 19:02:38 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "Security"
+    ]
+  },
+  {
+    "source": "VentureBeat AI",
+    "title": "The AI context gap: Enterprise AI organizations have a trust problem, not a retrieval problem — and most are still building the fix",
+    "link": "https://venturebeat.com/ai/the-ai-context-gap-enterprise-ai-organizations-have-a-trust-problem-not-a-retrieval-problem-and-most-are-still-building-the-fix",
+    "description": "Across 101 enterprises, the infrastructure that feeds AI agents their business context is being built faster than it can be trusted. Retrieval-augment...",
+    "pubDate": "Thu, 16 Jul 2026 17:06:08 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "BE",
+      "DevOps",
+      "AI"
+    ]
+  },
+  {
+    "source": "VentureBeat AI",
+    "title": "The agent evaluation gap: Enterprise AI organizations have a reality-alignment problem, not a coverage problem — and most are shipping to production anyway",
+    "link": "https://venturebeat.com/ai/the-agent-evaluation-gap-enterprise-ai-organizations-have-a-reality-alignment-problem-not-a-coverage-problem-and-most-are-shipping-to-production-anyway",
+    "description": "Across 157 enterprises, organizations are granting AI agents more autonomy while trusting the evaluations meant to gate that autonomy less. Half have ...",
+    "pubDate": "Thu, 16 Jul 2026 16:40:48 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -429,196 +679,15 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "Hacker News",
-    "title": "Starring the Computer",
-    "link": "https://www.starringthecomputer.com/computers.html",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 17:33:04 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Completing a computer science degree on Coursera",
-    "link": "https://notesbylex.com/completing-a-computer-science-degree-on-coursera",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 21:20:49 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The future of Flipper Zero development",
-    "link": "https://blog.flipper.net/future-of-flipper-zero-development/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 18:22:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "New AI tutor achieves 0.71-1.30 SD effect size in Dartmouth course [pdf]",
-    "link": "https://intextbooks.science.uu.nl/workshop2026/files/itb26_s1s2.pdf",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 18:47:43 +0000",
+    "source": "VentureBeat AI",
+    "title": "Agentic orchestration: Enterprise AI organizations have a deployment problem, not a platform problem — and most are calling chatbots agents",
+    "link": "https://venturebeat.com/ai/agentic-orchestration-enterprise-ai-organizations-have-a-deployment-problem-not-a-platform-problem-and-most-are-calling-chatbots-agents",
+    "description": "Across 101 enterprises, agent orchestration is consolidating onto model-provider platforms — Anthropic’s Claude leads by a wide margin — chosen for th...",
+    "pubDate": "Wed, 15 Jul 2026 22:24:17 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Mr. Baby Paint and accidentally discovering a new cellular automata",
-    "link": "https://tekstien-marginaalien-keskus.aalto.fi/residenssi/heikki/blog/004-december-2/",
-    "description": "Comments",
-    "pubDate": "Fri, 03 Jul 2026 03:13:53 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Composite Video on the NES: Why's it so wobbly?",
-    "link": "https://nicole.express/2026/phase-altering-by-line.html",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 21:45:17 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Delta flight hit by firework while landing at Midway Airport on Fourth of July",
-    "link": "https://www.nbcchicago.com/news/local/delta-flight-hit-by-firework-while-landing-at-midway-airport-on-fourth-of-july/3957451/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 19:22:51 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "DNSGlobe – Rust TUI to watch DNS propagate around the world",
-    "link": "https://github.com/514-labs/dnsglobe",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 21:55:53 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "BE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Modernizing a 25-year-old minimal C++ unit testing framework (Part 2)",
-    "link": "https://freshsources.com/code-capsules/test-part2/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 18:45:17 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "QA"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The great blogging collapse: What happened to 100 successful blogs?",
-    "link": "https://danielstanica.com/posts/Great-Blogging-Collapse",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 09:36:04 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "Mobile"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Show HN: Visualize Model Spikiness in 3D",
-    "link": "https://www.modelmap.tech/",
-    "description": "Comments",
-    "pubDate": "Thu, 02 Jul 2026 19:57:43 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Cursed circuits #5: capacitance multiplier",
-    "link": "https://lcamtuf.substack.com/p/cursed-circuits-capacitance-multiplier",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 20:00:30 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "The Sneakerweb",
-    "link": "https://sneakerweb.org/",
-    "description": "Comments",
-    "pubDate": "Mon, 06 Jul 2026 01:35:09 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Dungeon Proof Crawler: learn how to write proofs with RPG",
-    "link": "https://dhilst.github.io/algae/game/index.html",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 21:00:27 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "You need a webring",
-    "link": "https://shub.club/writings/2026/july/you-need-a-webring/",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 18:46:07 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "Hacker News",
-    "title": "Run Windows 2000 on a DEC Alpha with a new es40 fork",
-    "link": "https://raymii.org/s/blog/Run_Windows_2000_for_Dec_Alpha_on_a_new_es40_fork.html",
-    "description": "Comments",
-    "pubDate": "Sun, 05 Jul 2026 13:47:44 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
     ]
   },
   {
@@ -648,126 +717,23 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "VentureBeat AI",
-    "title": "Claude Code costs up to $200 a month. Goose does the same thing for free.",
-    "link": "https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free",
-    "description": "The artificial intelligence coding revolution comes with a catch: it&#x27;s expensive.Claude Code, Anthropic&#x27;s terminal-based AI agent that can w...",
-    "pubDate": "Mon, 19 Jan 2026 14:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "VentureBeat AI",
-    "title": "Listen Labs raises $69M after viral billboard hiring stunt to scale AI customer interviews",
-    "link": "https://venturebeat.com/technology/listen-labs-raises-usd69m-after-viral-billboard-hiring-stunt-to-scale-ai",
-    "description": "Alfred Wahlforss was running out of options. His startup, Listen Labs, needed to hire over 100 engineers, but competing against Mark Zuckerberg&#x27;s...",
-    "pubDate": "Fri, 16 Jan 2026 14:01:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "VentureBeat AI",
-    "title": "Salesforce rolls out new Slackbot AI agent as it battles Microsoft and Google in workplace AI",
-    "link": "https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and",
-    "description": "Salesforce on Tuesday launched an entirely rebuilt version of Slackbot, the company&#x27;s workplace assistant, transforming it from a simple notifica...",
-    "pubDate": "Tue, 13 Jan 2026 13:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "VentureBeat AI",
-    "title": "Anthropic launches Cowork, a Claude Desktop agent that works in your files — no coding required",
-    "link": "https://venturebeat.com/technology/anthropic-launches-cowork-a-claude-desktop-agent-that-works-in-your-files-no",
-    "description": "Anthropic released Cowork on Monday, a new AI agent capability that extends the power of its wildly successful Claude Code tool to non-technical users...",
-    "pubDate": "Mon, 12 Jan 2026 11:30:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "VentureBeat AI",
-    "title": "Nous Research's NousCoder-14B is an open-source coding model landing right in the Claude Code moment",
-    "link": "https://venturebeat.com/technology/nous-researchs-nouscoder-14b-is-an-open-source-coding-model-landing-right-in",
-    "description": "Nous Research, the open-source artificial intelligence startup backed by crypto venture firm Paradigm, released a new competitive programming model on...",
-    "pubDate": "Wed, 07 Jan 2026 20:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
     "source": "Ars Technica AI",
-    "title": "Trump gets OpenAI to offer US 5% stake, far lower than Sanders’ target",
-    "link": "https://arstechnica.com/tech-policy/2026/07/openai-floats-giving-us-5-stake-to-win-over-ai-haters/",
-    "description": "Insiders say Sam Altman is in active talks with the Trump administration.",
-    "pubDate": "Thu, 02 Jul 2026 15:12:25 +0000",
+    "title": "Firefighting drones in the works as wildfires plague US nearly year-round",
+    "link": "https://arstechnica.com/ai/2026/07/firefighting-drones-in-the-works-as-wildfires-plague-us-nearly-year-round/",
+    "description": "California and XPRIZE competition tests whether drones can stop wildfires early.",
+    "pubDate": "Mon, 20 Jul 2026 21:55:52 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Musk’s X poses “serious risk to Americans’ privacy,” advocates warn FTC",
-    "link": "https://arstechnica.com/tech-policy/2026/07/musks-x-poses-serious-risk-to-americans-privacy-advocates-warn-ftc/",
-    "description": "FTC urged to reject Elon Musk’s bid to end X monitoring amid AI concerns.",
-    "pubDate": "Thu, 02 Jul 2026 14:39:17 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Google’s AI buildout drove 37% increase in electricity use in 2025",
-    "link": "https://arstechnica.com/ai/2026/07/googles-ai-buildout-drove-37-increase-in-electricity-use-in-2025/",
-    "description": "Google tries balancing AI data center emissions with clean energy efforts.",
-    "pubDate": "Thu, 02 Jul 2026 11:15:49 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "After spooking Trump into safety testing, Anthropic AI models get global release",
-    "link": "https://arstechnica.com/tech-policy/2026/07/after-spooking-trump-into-safety-testing-anthropic-ai-models-get-global-release/",
-    "description": "US lifts curbs on Anthropic’s advanced Fable and Mythos models.",
-    "pubDate": "Wed, 01 Jul 2026 16:44:18 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI",
       "QA"
     ]
   },
   {
     "source": "Ars Technica AI",
-    "title": "New attack provides one more reason why AI browsers are a bad idea",
-    "link": "https://arstechnica.com/security/2026/06/ai-browsers-can-be-lulled-into-a-dream-world-where-guardrails-no-longer-apply/",
-    "description": "Telling an LLM that 2 + 2 = 5 is enough to make it follow forbidden instructions.",
-    "pubDate": "Tue, 30 Jun 2026 20:03:14 +0000",
+    "title": "Beyond grep: The case for a context-rich AI coding harness",
+    "link": "https://arstechnica.com/ai/2026/07/beyond-grep-the-case-for-a-context-rich-ai-coding-harness/",
+    "description": "Augment Code's Vinay Perneti talks models, harnesses, and context.",
+    "pubDate": "Mon, 20 Jul 2026 11:20:10 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -776,178 +742,217 @@ window.crawledNews = [
   },
   {
     "source": "Ars Technica AI",
-    "title": "Google's new Nano Banana 2 Lite image model is its fastest and cheapest yet",
-    "link": "https://arstechnica.com/ai/2026/06/googles-new-nano-banana-2-lite-image-model-is-its-fastest-and-cheapest-yet/",
-    "description": "They may not look as good, but Nano Banana 2 Lite images only take a few seconds to create.",
-    "pubDate": "Tue, 30 Jun 2026 18:36:10 +0000",
+    "title": "Will AI fix prior authorization—or make it worse?",
+    "link": "https://arstechnica.com/ai/2026/07/will-ai-fix-prior-authorization-or-make-it-worse/",
+    "description": "The government is piloting a program that uses AI for insurance-coverage decisions.",
+    "pubDate": "Sat, 18 Jul 2026 11:18:25 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "BE",
-      "AI",
-      "QA"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Trump's plan to redesign every .gov website leads to AI-designed horrors",
-    "link": "https://arstechnica.com/tech-policy/2026/06/trumps-plan-to-redesign-every-gov-website-leads-to-ai-designed-horrors/",
-    "description": "A year in, National Design Studio delays plan to update government web standards.",
-    "pubDate": "Tue, 30 Jun 2026 16:59:02 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Trump asked Musk for SpaceX stock to seed US kids’ savings accounts, report says",
-    "link": "https://arstechnica.com/tech-policy/2026/06/spacex-may-donate-stock-to-trumps-savings-accounts-for-kids-report-says/",
-    "description": "Sources suggest Musk may be mulling big donation to Trump Accounts.",
-    "pubDate": "Tue, 30 Jun 2026 15:38:08 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "General"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "South Korea to spend $1T on more memory chip production and humanoid robots",
-    "link": "https://arstechnica.com/ai/2026/06/south-korea-to-spend-1t-on-more-memory-chip-production-and-humanoid-robots/",
-    "description": "South Korea targets physical AI lead and commercial humanoid robots by 2028.",
-    "pubDate": "Mon, 29 Jun 2026 21:09:43 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "South Korea plans to train entire military as \"drone warriors\"",
-    "link": "https://arstechnica.com/ai/2026/06/south-korea-plans-to-train-entire-military-as-drone-warriors/",
-    "description": "Half-million-strong military will train on drones as “universal combat tool.”",
-    "pubDate": "Fri, 26 Jun 2026 22:19:05 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "NYT slams Microsoft for building copyright-infringing supercomputer for OpenAI",
-    "link": "https://arstechnica.com/tech-policy/2026/06/microsoft-built-supercomputer-to-help-openai-infringe-copyrights-nyt-alleged/",
-    "description": "NYT shifts OpenAI/Microsoft copyright claims after SCOTUS ruling against Sony.",
-    "pubDate": "Fri, 26 Jun 2026 20:04:55 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Notion killing Skiff-influenced email app since most users use AI agents instead",
-    "link": "https://arstechnica.com/gadgets/2026/06/notion-killing-skiff-influenced-email-app-since-most-users-use-ai-agents-instead/",
-    "description": "Notion is \"going all in on using agents to run your inbox.\"",
-    "pubDate": "Thu, 25 Jun 2026 19:04:57 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Google finally releases a Finance Android app, promises iOS version later in 2026",
-    "link": "https://arstechnica.com/google/2026/06/google-finance-finally-gets-a-mobile-app-as-ai-powered-overhaul-leaves-beta/",
-    "description": "It took 20 years, but the Finance app arrives just in time to be packed full of AI.",
-    "pubDate": "Thu, 25 Jun 2026 18:38:51 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "AI",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Anthropic says Alibaba must be punished for largest Claude cloning attack",
-    "link": "https://arstechnica.com/tech-policy/2026/06/anthropic-claims-alibaba-defied-trump-to-attack-claude-and-steal-capabilities/",
-    "description": "Alibaba allegedly used 25,000 accounts to mine Claude over 28.8 million exchanges.",
-    "pubDate": "Thu, 25 Jun 2026 18:01:48 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "IBM claims world’s first sub-1 nanometer chip technology",
-    "link": "https://arstechnica.com/gadgets/2026/06/ibm-claims-worlds-first-sub-1-nanometer-chip-technology/",
-    "description": "IBM’s nanostack transistors could boost chip performance or energy efficiency.",
-    "pubDate": "Thu, 25 Jun 2026 10:00:55 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "OpenAI and Broadcom announce chip designed for LLM inference at scale",
-    "link": "https://arstechnica.com/gadgets/2026/06/openai-and-broadcom-announce-chip-designed-for-llm-inference-at-scale/",
-    "description": "The silicon race is heating up amid the struggle to keep up with demand.",
-    "pubDate": "Wed, 24 Jun 2026 22:28:18 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "Oracle’s 21,000 layoffs help drive its debt-fueled AI investments",
-    "link": "https://arstechnica.com/ai/2026/06/oracles-21000-layoffs-help-drive-its-debt-fueled-ai-investments/",
-    "description": "Oracle is spending billions on data center infrastructure to support AI.",
-    "pubDate": "Tue, 23 Jun 2026 20:17:38 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "Ars Technica AI",
-    "title": "How to burst the AI bubble: Strike at its roots",
-    "link": "https://arstechnica.com/gadgets/2026/06/how-to-burst-the-ai-bubble-strike-at-its-roots/",
-    "description": "Sci-fi author/tech journalist Cory Doctorow on his new book, The Reverse Centaur's Guide to Life After AI.",
-    "pubDate": "Tue, 23 Jun 2026 12:00:34 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
       "AI",
       "Security"
     ]
   },
   {
     "source": "Ars Technica AI",
-    "title": "GM installs robots at flagship EV factory after laying off 1,300 workers",
-    "link": "https://arstechnica.com/ai/2026/06/gm-installs-robots-at-flagship-ev-factory-after-laying-off-1300-workers/",
-    "description": "US autoworkers union warns of robot automation as dark factory future looms.",
-    "pubDate": "Mon, 22 Jun 2026 21:52:39 +0000",
+    "title": "Google-backed satellites for wildfire detection launch as smoke chokes US, Canada",
+    "link": "https://arstechnica.com/space/2026/07/google-backed-satellites-for-wildfire-detection-launch-as-smoke-chokes-us-canada/",
+    "description": "The FireSat program can spot wildfires that other satellites miss.",
+    "pubDate": "Fri, 17 Jul 2026 19:50:18 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "San Francisco orders Apple, Google to remove nudify apps from app stores",
+    "link": "https://arstechnica.com/tech-policy/2026/07/apple-google-must-stop-profiting-off-ai-nudify-apps-san-francisco-ag-says/",
+    "description": "Official estimates Google and Apple likely made millions in nudify app fees.",
+    "pubDate": "Fri, 17 Jul 2026 16:10:05 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "It's official: EU will force Google to share search data and open up AI on Android",
+    "link": "https://arstechnica.com/gadgets/2026/07/its-official-eu-will-force-google-to-share-search-data-and-open-up-ai-on-android/",
+    "description": "Google says these changes could endanger user privacy and security.",
+    "pubDate": "Thu, 16 Jul 2026 20:41:45 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI",
+      "Mobile",
+      "Security"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "xAI can’t deny Grok makes CSAM anymore. So it’s suing users.",
+    "link": "https://arstechnica.com/tech-policy/2026/07/xai-cant-deny-grok-makes-csam-anymore-so-its-suing-users/",
+    "description": "Elon Musk's xAI files first lawsuit against Grok user accused of making child sex images.",
+    "pubDate": "Thu, 16 Jul 2026 20:26:23 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "DevOps",
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Fear of humanoid robots spurs human workers to strike at Hyundai auto factory",
+    "link": "https://arstechnica.com/ai/2026/07/fear-of-humanoid-robots-spurs-human-workers-to-strike-at-hyundai-auto-factory/",
+    "description": "Hyundai aims to deploy 25,000 Atlas robots starting with US factories in 2028.",
+    "pubDate": "Thu, 16 Jul 2026 20:09:48 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Linus Torvalds to critics of AI coding in Linux: \"Fork it. Or just walk away.\"",
+    "link": "https://arstechnica.com/ai/2026/07/linus-torvalds-to-critics-of-ai-coding-in-linux-fork-it-or-just-walk-away/",
+    "description": "Creator says he will \"very loudly ignore\" those arguing for a ban on AI tools.",
+    "pubDate": "Thu, 16 Jul 2026 19:18:23 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Energy IPOs surge as investors hunt for ways to play AI boom",
+    "link": "https://arstechnica.com/information-technology/2026/07/energy-ipos-surge-as-investors-hunt-for-ways-to-play-ai-boom/",
+    "description": "Companies coming to market are raising money at fastest pace this century.",
+    "pubDate": "Thu, 16 Jul 2026 15:48:21 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "QA"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "OpenAI's first branded hardware is... a light-up keyboard?",
+    "link": "https://arstechnica.com/ai/2026/07/openais-first-branded-hardware-is-a-light-up-keyboard/",
+    "description": "The Codex Micro is designed to monitor multiple agentic threads at a glance.",
+    "pubDate": "Wed, 15 Jul 2026 16:00:33 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Lawsuit claims Meta's layoff decisions were made by AI, not humans",
+    "link": "https://arstechnica.com/tech-policy/2026/07/lawsuit-claims-metas-layoff-decisions-were-made-by-ai-not-humans/",
+    "description": "Meta denies using AI to terminate workers with disabilities and medical problems.",
+    "pubDate": "Tue, 14 Jul 2026 20:05:53 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "DevOps",
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "US military sent explosive drone boats into combat for the first time",
+    "link": "https://arstechnica.com/ai/2026/07/us-military-sent-explosive-drone-boats-into-combat-for-the-first-time/",
+    "description": "US military’s drone boats struck an Iranian naval port as war heats up again.",
+    "pubDate": "Tue, 14 Jul 2026 18:00:01 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Google revamps image search for its 25th anniversary with more images and more AI",
+    "link": "https://arstechnica.com/google/2026/07/google-revamps-image-search-for-its-25th-anniversary-with-more-images-and-more-ai/",
+    "description": "The new Google image search will use your \"unique interests\" to create an always-updated gallery.",
+    "pubDate": "Tue, 14 Jul 2026 16:28:14 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "New York bans data center construction for a year, rattling AI industry",
+    "link": "https://arstechnica.com/tech-policy/2026/07/new-york-is-the-first-state-to-impose-a-data-center-moratorium/",
+    "description": "New York’s data center moratorium may become the blueprint for anti-AI movement.",
+    "pubDate": "Tue, 14 Jul 2026 15:06:28 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Apple sues OpenAI after ex-engineer allegedly used bug to steal trade secrets",
+    "link": "https://arstechnica.com/tech-policy/2026/07/apple-sues-openai-after-ex-engineer-allegedly-used-bug-to-steal-trade-secrets/",
+    "description": "OpenAI accused of conspiring with former Apple employees to steal trade secrets.",
+    "pubDate": "Mon, 13 Jul 2026 19:17:51 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Now, defenders are embracing the prompt injection, too",
+    "link": "https://arstechnica.com/security/2026/07/now-defenders-are-embracing-the-prompt-injection-too/",
+    "description": "\"Context bombing\" tricks hacking agents into shutting down before they can do harm.",
+    "pubDate": "Mon, 13 Jul 2026 15:06:34 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "Security"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Simulating everything, sort of: The promise and limits of world models",
+    "link": "https://arstechnica.com/ai/2026/07/simulating-everything-sort-of-the-promise-and-limits-of-world-models/",
+    "description": "Experts explain how they work, what they can do, and what's still unsettled.",
+    "pubDate": "Mon, 13 Jul 2026 11:00:51 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "Ars Technica AI",
+    "title": "Disable autoplay and infinite scroll or risk massive fines, EU tells Meta",
+    "link": "https://arstechnica.com/tech-policy/2026/07/disable-auto-play-and-infinite-scroll-or-risk-massive-fines-eu-tells-meta/",
+    "description": "Digital Services Act may force Meta to make big changes on its platforms.",
+    "pubDate": "Fri, 10 Jul 2026 15:46:18 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -956,10 +961,47 @@ window.crawledNews = [
   },
   {
     "source": "Ars Technica AI",
-    "title": "How Anthropic may have talked itself into an AI export ban",
-    "link": "https://arstechnica.com/ai/2026/06/how-anthropic-may-have-talked-itself-into-an-ai-export-ban/",
-    "description": "The company warned about dangers of advanced AI far more than rival OpenAI.",
-    "pubDate": "Mon, 22 Jun 2026 13:45:24 +0000",
+    "title": "OpenAI wants its new tool to do your work for you and with you",
+    "link": "https://arstechnica.com/ai/2026/07/openai-wants-its-new-tool-to-do-your-work-for-you-and-with-you/",
+    "description": "Rebranded Codex promises independent workflows that can run \"for hours if needed.\"",
+    "pubDate": "Thu, 09 Jul 2026 21:25:55 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "GitHub Engineering",
+    "title": "The cost of saying yes has changed",
+    "link": "https://github.blog/engineering/the-cost-of-saying-yes-has-changed/",
+    "description": "The cost of writing code dropped; the cost of owning it didn't. A framework for deciding which changes are actually cheap in the AI era.\nThe post The ...",
+    "pubDate": "Fri, 17 Jul 2026 16:46:47 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "GitHub Engineering",
+    "title": "Better tools made Copilot code review worse. Here’s how we actually improved it.",
+    "link": "https://github.blog/ai-and-ml/github-copilot/better-tools-made-copilot-code-review-worse-heres-how-we-actually-improved-it/",
+    "description": "How migrating Copilot code review to shared Unix-style code exploration tools reduced review cost by reshaping agent workflows around pull request evi...",
+    "pubDate": "Fri, 10 Jul 2026 15:57:47 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "GitHub Engineering",
+    "title": "Automating cross-repo documentation with GitHub Agentic Workflows",
+    "link": "https://github.blog/ai-and-ml/github-copilot/automating-cross-repo-documentation-with-github-agentic-workflows/",
+    "description": "Explore how the Aspire team turns merged product changes into SME-reviewed docs pull requests, closing the gap between release and documentation.\nThe ...",
+    "pubDate": "Wed, 08 Jul 2026 21:11:56 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -1057,40 +1099,27 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "GitHub Engineering",
-    "title": "When protections outlive their purpose: A lesson on managing defense systems at scale",
-    "link": "https://github.blog/engineering/infrastructure/when-protections-outlive-their-purpose-a-lesson-on-managing-defense-systems-at-scale/",
-    "description": "User feedback led us to clean up outdated mitigations. See why observability and lifecycle management are critical for defense systems.\nThe post When ...",
-    "pubDate": "Thu, 15 Jan 2026 20:54:32 +0000",
+    "source": "Netflix TechBlog",
+    "title": "In-House LLM Serving at Netflix",
+    "link": "https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c?source=rss----2615bd06b42e---4",
+    "description": "",
+    "pubDate": "Fri, 17 Jul 2026 21:32:39 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "DBA"
+      "AI"
     ]
   },
   {
-    "source": "GitHub Engineering",
-    "title": "Post-quantum security for SSH access on GitHub",
-    "link": "https://github.blog/engineering/platform-security/post-quantum-security-for-ssh-access-on-github/",
-    "description": "GitHub is introducing post-quantum secure key exchange methods for SSH access to better protect Git data in transit.\nThe post Post-quantum security fo...",
-    "pubDate": "Mon, 15 Sep 2025 16:00:00 +0000",
+    "source": "Netflix TechBlog",
+    "title": "Building Service Topology at Scale: Architecture, Challenges, and Lessons Learned",
+    "link": "https://netflixtechblog.com/building-service-topology-at-scale-architecture-challenges-and-lessons-learned-f4b792f3f0d8?source=rss----2615bd06b42e---4",
+    "description": "",
+    "pubDate": "Mon, 13 Jul 2026 22:44:11 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "Security"
-    ]
-  },
-  {
-    "source": "GitHub Engineering",
-    "title": "How GitHub engineers tackle platform problems",
-    "link": "https://github.blog/engineering/infrastructure/how-github-engineers-tackle-platform-problems/",
-    "description": "Our best practices for quickly identifying, resolving, and preventing issues at scale.\nThe post How GitHub engineers tackle platform problems appeared...",
-    "pubDate": "Tue, 10 Jun 2025 16:00:00 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "Mobile"
+      "FE"
     ]
   },
   {
@@ -1190,55 +1219,137 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "Netflix TechBlog",
-    "title": "A Human-Augmenting Agentic Workflow for Causal Inference",
-    "link": "https://netflixtechblog.com/a-human-augmenting-agentic-workflow-for-causal-inference-4623f0a9c5af?source=rss----2615bd06b42e---4",
-    "description": "",
-    "pubDate": "Fri, 19 Jun 2026 23:53:06 GMT",
+    "source": "Cloudflare Blog",
+    "title": "Cloudflare Internal DNS is now generally available",
+    "link": "https://blog.cloudflare.com/internal-dns/",
+    "description": "Cloudflare Internal DNS brings authoritative and recursive DNS for private networks to the same global network and control plane that runs Cloudflare'...",
+    "pubDate": "Mon, 20 Jul 2026 20:59:31 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "Netflix TechBlog",
-    "title": "From Silos to Service Topology: Why Netflix Built a Real-Time Service Map",
-    "link": "https://netflixtechblog.com/from-silos-to-service-topology-why-netflix-built-a-real-time-service-map-0165ba13a7bc?source=rss----2615bd06b42e---4",
-    "description": "",
-    "pubDate": "Fri, 19 Jun 2026 23:52:02 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
+      "DevOps",
+      "AI",
+      "Security"
     ]
   },
   {
     "source": "Cloudflare Blog",
-    "title": "Announcing the Monetization Gateway: charge for any resource behind Cloudflare via x402",
-    "link": "https://blog.cloudflare.com/monetization-gateway/",
-    "description": "We're opening the waitlist for our Monetization Gateway, which will allow you to charge for any web page, dataset, API, or MCP tool behind Cloudflare....",
-    "pubDate": "Wed, 01 Jul 2026 13:00:00 GMT",
+    "title": "Cloudflare WAF protects WordPress applications from two high-severity vulnerabilities ",
+    "link": "https://blog.cloudflare.com/wordpress-vulnerabilities/",
+    "description": "Cloudflare has deployed two WAF rules in response to high-severity vulnerabilities disclosed to us by the WordPress security team. The new rules prote...",
+    "pubDate": "Fri, 17 Jul 2026 21:30:43 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "DevOps",
+      "Mobile",
+      "Security"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "A broken DNSSEC rollover took down .al. Now 1.1.1.1 tells you when validation is bypassed",
+    "link": "https://blog.cloudflare.com/dnssec-nta-ede-33/",
+    "description": "When a failed DNSSEC key rollover took down the .al TLD, we deployed a Negative Trust Anchor to restore resolution. This time, though, clients didn't ...",
+    "pubDate": "Tue, 14 Jul 2026 13:00:00 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI",
+      "QA"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Introducing Precursor: detecting agentic behavior with continuous client-side signals",
+    "link": "https://blog.cloudflare.com/introducing-precursor/",
+    "description": "Precursor, our new continuous behavioral validation engine for bot management, offers visibility into how humans and bots actually interact across the...",
+    "pubDate": "Mon, 13 Jul 2026 13:00:00 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI",
+      "QA"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Improving Smart Tiered Cache for Public Cloud Regions",
+    "link": "https://blog.cloudflare.com/smart-tiered-cache-for-public-clouds/",
+    "description": "Smart Tiered Cache allows for precise upper tier selection for origins hosted on AWS, GCP, Azure, and Oracle Cloud with customer-provided cloud region...",
+    "pubDate": "Fri, 10 Jul 2026 12:00:00 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "DevOps"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Why we cannot wait for better post-quantum signature algorithms",
+    "link": "https://blog.cloudflare.com/ml-dsa-will-have-to-do/",
+    "description": "NIST is advancing nine new post-quantum signature algorithms as potential candidates for future standardization. We look at all of them, and argue tha...",
+    "pubDate": "Thu, 09 Jul 2026 13:40:47 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "AI"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Introducing Meerkat: an experiment in global consensus",
+    "link": "https://blog.cloudflare.com/meerkat-introduction/",
+    "description": "Cloudflare Research is building a global consensus service called Meerkat that uses a new consensus algorithm called QuePaxa. We plan to use Meerkat t...",
+    "pubDate": "Wed, 08 Jul 2026 12:00:00 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
       "BE",
-      "DevOps",
-      "AI"
+      "DevOps"
     ]
   },
   {
     "source": "Cloudflare Blog",
-    "title": "Content Independence Day, one year on: building the business model for the agentic Internet",
-    "link": "https://blog.cloudflare.com/agentic-internet-bot-report/",
-    "description": "One year after declaring Content Independence Day, a dynamic market for monetized content has officially emerged. In this report, we examine how the r...",
-    "pubDate": "Wed, 01 Jul 2026 13:00:00 GMT",
+    "title": "Cloudflare proudly joins the UK government's Cyber Resilience Pledge",
+    "link": "https://blog.cloudflare.com/cloudflare-joins-uk-cyber-resilience-pledge/",
+    "description": "The pledge is a voluntary framework inviting organizations to commit to foundational cyber security governance, board-level accountability, and supply...",
+    "pubDate": "Tue, 07 Jul 2026 12:00:00 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "BE",
+      "DevOps",
+      "Security"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Your Worker can now have its own cache in front of it",
+    "link": "https://blog.cloudflare.com/workers-cache/",
+    "description": "We are launching Workers Cache, a regionally tiered cache that sits directly in front of your Worker entrypoints. Infinitely composable, configured vi...",
+    "pubDate": "Mon, 06 Jul 2026 13:00:00 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "General"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Unmasking the crawls with Attribution Business Insights",
+    "link": "https://blog.cloudflare.com/attribution-business-insights/",
+    "description": "Cloudflare’s new Attribution Business Insights dashboard helps website owners understand crawler behavior, appetite, and potential value, fueling busi...",
+    "pubDate": "Wed, 01 Jul 2026 06:00:00 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
-      "AI"
+      "DevOps",
+      "Mobile"
     ]
   },
   {
@@ -1269,16 +1380,30 @@ window.crawledNews = [
   },
   {
     "source": "Cloudflare Blog",
-    "title": "Unmasking the crawls with Attribution Business Insights",
-    "link": "https://blog.cloudflare.com/attribution-business-insights/",
-    "description": "Cloudflare’s new Attribution Business Insights dashboard helps website owners understand crawler behavior, appetite, and potential value, fueling busi...",
-    "pubDate": "Wed, 01 Jul 2026 06:00:00 GMT",
+    "title": "Announcing the Monetization Gateway: charge for any resource behind Cloudflare via x402",
+    "link": "https://blog.cloudflare.com/monetization-gateway/",
+    "description": "We're opening the waitlist for our Monetization Gateway, which will allow you to charge for any web page, dataset, API, or MCP tool behind Cloudflare....",
+    "pubDate": "Wed, 01 Jul 2026 13:00:00 GMT",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
+      "BE",
       "DevOps",
-      "Mobile"
+      "AI"
+    ]
+  },
+  {
+    "source": "Cloudflare Blog",
+    "title": "Content Independence Day, one year on: building the business model for the agentic Internet",
+    "link": "https://blog.cloudflare.com/agentic-internet-bot-report/",
+    "description": "One year after declaring Content Independence Day, a dynamic market for monetized content has officially emerged. In this report, we examine how the r...",
+    "pubDate": "Wed, 01 Jul 2026 13:00:00 GMT",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
     ]
   },
   {
@@ -1363,24 +1488,131 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "Cloudflare Blog",
-    "title": "Celebrating 12 years of Project Galileo",
-    "link": "https://blog.cloudflare.com/celebrating-12-years-of-project-galileo/",
-    "description": "To mark the 12th anniversary of Project Galileo, Cloudflare has released its first comprehensive report analyzing cyberattacks against civil society.",
-    "pubDate": "Thu, 18 Jun 2026 13:00:00 GMT",
+    "source": "AWS ML Blog",
+    "title": "Custom OS installation now available on AWS DeepRacer devices",
+    "link": "https://aws.amazon.com/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/",
+    "description": "With the stock firmware and software, developers couldn't modify their AWS DeepRacer devices to use the latest operating systems. Now, developers can ...",
+    "pubDate": "Mon, 20 Jul 2026 17:25:24 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "DevOps",
+      "AI",
+      "QA"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Build specialized agent workflows for your business with Amazon Quick and NVIDIA NeMo Agent Toolkit",
+    "link": "https://aws.amazon.com/blogs/machine-learning/build-specialized-agent-workflows-for-your-business-with-amazon-quick-and-nvidia-nemo-agent-toolkit/",
+    "description": "In this post, we show how Amazon Quick can serve as the business-user front door for specialized agent workflows. We use the NVIDIA NeMo Agent Toolkit...",
+    "pubDate": "Mon, 20 Jul 2026 17:01:32 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
       "AI"
     ]
   },
   {
-    "source": "Cloudflare Blog",
-    "title": "Bringing more agent harnesses and frameworks to Cloudflare, starting with Flue",
-    "link": "https://blog.cloudflare.com/agents-platform-flue-sdk/",
-    "description": "The Agents SDK is now a runtime any agent framework can build on. Today we're opening up the Agents SDK primitives, with Flue as a first framework tar...",
-    "pubDate": "Wed, 17 Jun 2026 19:35:00 GMT",
+    "source": "AWS ML Blog",
+    "title": "How Couchbase built a multi-model AI architecture for Capella iQ with Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/how-couchbase-built-a-multi-model-ai-architecture-for-capella-iq-with-amazon-bedrock/",
+    "description": "This post describes how Couchbase adopted Amazon Bedrock to power Capella iQ with Anthropic’s Claude family of models, the architectural decisions beh...",
+    "pubDate": "Mon, 20 Jul 2026 16:58:52 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Evolving from legacy BI to agentic AI at Tradeshift with Amazon Quick",
+    "link": "https://aws.amazon.com/blogs/machine-learning/evolving-from-legacy-bi-to-agentic-ai-at-tradeshift-with-amazon-quick/",
+    "description": "In this post, we describe how Tradeshift deployed Amazon Quick with agentic AI capabilities to replace our legacy BI tool, resulting in query response...",
+    "pubDate": "Mon, 20 Jul 2026 16:56:48 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI",
+      "DBA"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Transform your sales organization with Amazon Quick: your new agentic AI teammate",
+    "link": "https://aws.amazon.com/blogs/machine-learning/transform-your-sales-organization-with-amazon-quick-your-new-agentic-ai-teammate/",
+    "description": "In this post, we walk through a few ways that Quick delivers on this promise. We cover the entire sales cycle, from identifying your highest-priority ...",
+    "pubDate": "Fri, 17 Jul 2026 18:42:36 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Introducing Mobile Layout for Amazon Quick dashboards",
+    "link": "https://aws.amazon.com/blogs/machine-learning/introducing-mobile-layout-for-amazon-quick-dashboards/",
+    "description": "Teams that rely on dashboards for daily decisions often must pinch and zoom to interact with controls originally designed for larger displays. Checkin...",
+    "pubDate": "Fri, 17 Jul 2026 17:13:15 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI",
+      "Mobile"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "How Smartsheet built a remote MCP server on AWS",
+    "link": "https://aws.amazon.com/blogs/machine-learning/how-smartsheet-built-a-remote-mcp-server-on-aws/",
+    "description": "In this post, we cover a high-level view of the Smartsheet remote MCP architecture, with a focus on the AWS infrastructure behind it. This includes se...",
+    "pubDate": "Fri, 17 Jul 2026 16:32:06 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "BE",
+      "DevOps"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Build enterprise search for agents with Amazon Bedrock Managed Knowledge Base",
+    "link": "https://aws.amazon.com/blogs/machine-learning/build-enterprise-search-for-agents-with-amazon-bedrock-managed-knowledge-base/",
+    "description": "In this post, we walk through the three pillars that make this possible: simplified setup, smarter retrieval, and production readiness. We also show y...",
+    "pubDate": "Thu, 16 Jul 2026 21:29:14 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Introducing Grok on Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/introducing-grok-on-amazon-bedrock/",
+    "description": "This post covers what makes Grok 4.3 a great fit for agentic and enterprise workloads, how you access it through Amazon Bedrock, and how to use the ca...",
+    "pubDate": "Thu, 16 Jul 2026 19:29:26 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Built Technologies builds an AI-powered document intelligence solution on AWS to power agents across real estate finance",
+    "link": "https://aws.amazon.com/blogs/machine-learning/built-technologies-builds-an-ai-powered-document-intelligence-solution-on-aws-to-power-agents-across-real-estate-finance/",
+    "description": "Built partnered with the AWS Generative AI Innovation Center (GenAIIC), AWS Partner AND Digital, and AWS account teams to create a scalable, AI-powere...",
+    "pubDate": "Wed, 15 Jul 2026 18:14:31 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -1390,93 +1622,26 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "Cloudflare Blog",
-    "title": "Introducing the Cloudflare One stack: agent-powered deployment",
-    "link": "https://blog.cloudflare.com/cloudflare-one-stack/",
-    "description": "The Cloudflare One stack is a library of agent skills that gives any AI agent the knowledge it needs to plan, deploy, and manage a Zero Trust environm...",
-    "pubDate": "Wed, 17 Jun 2026 13:00:00 GMT",
+    "source": "AWS ML Blog",
+    "title": "Agentic vision: Building visual intelligence with Amazon Bedrock and MCP servers",
+    "link": "https://aws.amazon.com/blogs/machine-learning/agentic-vision-building-visual-intelligence-with-amazon-bedrock-and-mcp-servers/",
+    "description": "In this post, we walk you through the Computer Vision MCP Server, which illustrates this approach, representing how AI systems can process visual info...",
+    "pubDate": "Wed, 15 Jul 2026 18:11:57 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
+      "FE",
       "BE",
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "Cloudflare Blog",
-    "title": "Cloudflare DMARC Management is now generally available",
-    "link": "https://blog.cloudflare.com/dmarc-management-ga/",
-    "description": "Get unified visibility into your email authentication posture and reach full DMARC enforcement with deeper reporting, record analysis, and SPF audits ...",
-    "pubDate": "Tue, 16 Jun 2026 13:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "AI",
-      "Security"
-    ]
-  },
-  {
-    "source": "Cloudflare Blog",
-    "title": "Growing the Cloudflare AI team with talent from Ensemble AI",
-    "link": "https://blog.cloudflare.com/ensemble-ai-talent-joins-cloudflare/",
-    "description": "Cloudflare is deepening our investment in AI with the addition of team members from Ensemble AI, focusing on machine learning infrastructure and effic...",
-    "pubDate": "Mon, 15 Jun 2026 13:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "Cloudflare Blog",
-    "title": "Scaling Security Insights: how we achieved a 10x increase in global scanning capacity",
-    "link": "https://blog.cloudflare.com/scaling-security-scans/",
-    "description": "Cloudflare Security Insights system now processes over 120 scans per second, providing frequent insights for all customers. By optimizing Kafka consum...",
-    "pubDate": "Fri, 12 Jun 2026 13:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "Security"
-    ]
-  },
-  {
-    "source": "Cloudflare Blog",
-    "title": "Route public traffic to private applications with Cloudflare",
-    "link": "https://blog.cloudflare.com/private-origins-dns-routing/",
-    "description": "Application Services for Private Origins is available now in closed beta. Route public hostnames to private IP origins over your existing IPsec, GRE, ...",
-    "pubDate": "Wed, 10 Jun 2026 13:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
       "AI",
       "Mobile"
     ]
   },
   {
-    "source": "Cloudflare Blog",
-    "title": "Defend against frontier cyber models: Cloudflare's architecture as customer zero",
-    "link": "https://blog.cloudflare.com/frontier-model-defense/",
-    "description": "In our post about Project Glasswing, we made the argument that the architecture around a vulnerability matters more than the speed of the patch. Here ...",
-    "pubDate": "Tue, 09 Jun 2026 06:00:00 GMT",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "AI",
-      "Security"
-    ]
-  },
-  {
-    "source": "Cloudflare Blog",
-    "title": "Turning Cloudflare’s threat indicators into real-time WAF rules",
-    "link": "https://blog.cloudflare.com/realtime-threat-intel-waf-rules/",
-    "description": "Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-risk traffic. By using new cf.intel fields, ...",
-    "pubDate": "Mon, 08 Jun 2026 13:00:00 GMT",
+    "source": "AWS ML Blog",
+    "title": "Monitor Amazon SageMaker Pipelines cross-account with custom Amazon CloudWatch dashboards",
+    "link": "https://aws.amazon.com/blogs/machine-learning/monitor-amazon-sagemaker-pipelines-cross-account-with-custom-amazon-cloudwatch-dashboards/",
+    "description": "In this post, we present a solution designed to centralize the monitoring of SageMaker Pipelines across AWS accounts and Regions using Amazon CloudWat...",
+    "pubDate": "Wed, 15 Jul 2026 18:08:50 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -1485,10 +1650,10 @@ window.crawledNews = [
   },
   {
     "source": "AWS ML Blog",
-    "title": "How Amazon Bedrock catches AI-generated phishing",
-    "link": "https://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/",
-    "description": "Social engineering through phishing remains one of the most common tactics for launching cyberattacks. AI-generated phishing email messages now pose a...",
-    "pubDate": "Thu, 02 Jul 2026 17:55:41 +0000",
+    "title": "Multi-agent social intelligence with Strands Agents and Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/multi-agent-social-intelligence-with-strands-agents-and-amazon-bedrock/",
+    "description": "This post shows how Thrad.ai deployed a multi-agent system with Strands Agents and Amazon Bedrock AgentCore that automates the pipeline from prospect ...",
+    "pubDate": "Tue, 14 Jul 2026 18:44:26 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -1497,184 +1662,40 @@ window.crawledNews = [
   },
   {
     "source": "AWS ML Blog",
-    "title": "Best practices for multi-turn reinforcement learning in Amazon SageMaker AI",
-    "link": "https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/",
-    "description": "In this post, we share best practices for reliable multi-turn RL training. We cover how to build a training environment you can trust, set up an exter...",
-    "pubDate": "Thu, 02 Jul 2026 17:50:23 +0000",
+    "title": "Accelerating software delivery with agentic QA automation using Amazon Nova Act – Part 2",
+    "link": "https://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-2/",
+    "description": "In this post, we extend that foundation to demonstrate how QA Studio addresses batch regression testing and pipeline integration through test suites t...",
+    "pubDate": "Tue, 14 Jul 2026 16:47:32 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
-      "BE",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Run NVIDIA Nemotron and OpenAI GPT OSS models on Amazon Bedrock in AWS GovCloud (US)",
-    "link": "https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/",
-    "description": "We're excited to introduce US-based frontier open-weight models in AWS GovCloud (US). With this release, Amazon Bedrock now supports OpenAI’s open-wei...",
-    "pubDate": "Wed, 01 Jul 2026 18:14:34 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Building a serverless A2A gateway for agent discovery, routing, and access control",
-    "link": "https://aws.amazon.com/blogs/machine-learning/building-a-serverless-a2a-gateway-for-agent-discovery-routing-and-access-control/",
-    "description": "In this post, you will learn how to build a serverless A2A gateway on AWS that hosts multiple agents behind a single domain using path-based routing (...",
-    "pubDate": "Wed, 01 Jul 2026 18:07:06 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "BE",
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Structured memory filtering with metadata in AgentCore Memory",
-    "link": "https://aws.amazon.com/blogs/machine-learning/structured-memory-filtering-with-metadata-in-agentcore-memory/",
-    "description": "In this post, you will learn how metadata works across configuration, ingestion, and retrieval, explore enterprise use cases including multi-agent and...",
-    "pubDate": "Wed, 01 Jul 2026 18:03:10 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "HippoRAG: Neurobiologically inspired RAG using Amazon Bedrock, Amazon Neptune, and personalized PageRank",
-    "link": "https://aws.amazon.com/blogs/machine-learning/hipporag-neurobiologically-inspired-rag-using-amazon-bedrock-amazon-neptune-and-personalized-pagerank/",
-    "description": "In this post, we demonstrate how to implement HippoRAG using a comprehensive AWS stack. We use Amazon Bedrock for LLM capabilities, Amazon Neptune for...",
-    "pubDate": "Wed, 01 Jul 2026 18:01:32 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "How Inscribe uses Amazon Bedrock to stop document fraud in seconds",
-    "link": "https://aws.amazon.com/blogs/machine-learning/how-inscribe-uses-amazon-bedrock-to-stop-document-fraud-in-seconds/",
-    "description": "In this post, you will learn how Inscribe developed an agentic AI system using Amazon Bedrock that reasons across documents the way an expert fraud an...",
-    "pubDate": "Wed, 01 Jul 2026 17:53:16 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Simplify model selection in Amazon Bedrock with the open source Model Profiler",
-    "link": "https://aws.amazon.com/blogs/machine-learning/simplify-model-selection-in-amazon-bedrock-with-the-open-source-model-profiler/",
-    "description": "The Amazon Bedrock Model Profiler is an open source tool that aggregates model metadata from multiple AWS APIs and external sources into a single, sea...",
-    "pubDate": "Wed, 01 Jul 2026 17:46:54 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Accelerate protein design with BoltzGen on Amazon SageMaker AI",
-    "link": "https://aws.amazon.com/blogs/machine-learning/accelerate-protein-design-with-boltzgen-on-amazon-sagemaker-ai/",
-    "description": "In this post, we demonstrate how to deploy BoltzGen on SageMaker AI and run an end-to-end protein design experiment. By the end of the walkthrough, yo...",
-    "pubDate": "Wed, 01 Jul 2026 17:44:08 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Safely Releasing Frontier Models to Customers",
-    "link": "https://aws.amazon.com/blogs/machine-learning/safely-releasing-frontier-models-to-customers/",
-    "description": "It’s our goal for AWS to be the most secure place to run any workload, and in support of that we’ve been deeply investing in security across our servi...",
-    "pubDate": "Wed, 01 Jul 2026 03:13:19 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "BE",
-      "DevOps",
       "AI",
-      "Security"
+      "QA"
     ]
   },
   {
     "source": "AWS ML Blog",
-    "title": "Introducing Claude Sonnet 5 on AWS: Anthropic’s most capable Sonnet model",
-    "link": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-on-aws-anthropics-most-capable-sonnet-model/",
-    "description": "Today, we’re excited to announce the availability of Anthropic’s most advanced Sonnet model, Claude Sonnet 5, on Amazon Bedrock and Claude Platform on...",
-    "pubDate": "Tue, 30 Jun 2026 18:40:09 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "DevOps",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Build generative UI for AI agents on Amazon Bedrock AgentCore with the AG-UI protocol",
-    "link": "https://aws.amazon.com/blogs/machine-learning/build-generative-ui-for-ai-agents-on-amazon-bedrock-agentcore-with-the-ag-ui-protocol/",
-    "description": "This post walks through how AG-UI integrates into the Fullstack AgentCore Solution Template (FAST) to build interactive agent frontends on Amazon Bedr...",
-    "pubDate": "Tue, 30 Jun 2026 16:46:17 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Simplify multi-account access to Amazon Bedrock models with managed entitlements",
-    "link": "https://aws.amazon.com/blogs/machine-learning/simplify-multi-account-access-to-amazon-bedrock-models-with-managed-entitlements/",
-    "description": "In this post, we show you how to use managed entitlements for Amazon Bedrock to subscribe once from a central account and distribute model access acro...",
-    "pubDate": "Tue, 30 Jun 2026 16:42:49 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Implementing resilience patterns with Amazon Bedrock and LLM gateway",
-    "link": "https://aws.amazon.com/blogs/machine-learning/implementing-resilience-patterns-with-amazon-bedrock-and-llm-gateway/",
-    "description": "In this post, you will learn five practical patterns for building resilient generative AI applications on AWS, progressing from native Amazon Bedrock ...",
-    "pubDate": "Tue, 30 Jun 2026 16:40:47 +0000",
+    "title": "Scaling UX testing with Amazon Nova Act: A new approach to user flow analysis",
+    "link": "https://aws.amazon.com/blogs/machine-learning/scaling-ux-testing-with-amazon-nova-act-a-new-approach-to-user-flow-analysis/",
+    "description": "Using generative AI enables parallel execution of comprehensive user flow testing at scale. This solution demonstrates how to build a cloud-deployed U...",
+    "pubDate": "Tue, 14 Jul 2026 16:43:41 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
       "DevOps",
       "AI",
-      "Mobile"
+      "Mobile",
+      "QA"
     ]
   },
   {
     "source": "AWS ML Blog",
-    "title": "How Outpost VFX Uses AWS to Accelerate AI Model Training for Visual Effects",
-    "link": "https://aws.amazon.com/blogs/machine-learning/how-outpost-vfx-uses-aws-to-accelerate-ai-model-training-for-visual-effects/",
-    "description": "In this post, we explore how Outpost VFX achieved 8x faster training speeds using AWS infrastructure to transform their face replacement workflow, the...",
-    "pubDate": "Tue, 30 Jun 2026 16:37:09 +0000",
+    "title": "Scaling medical content review at Flo Health with Amazon Bedrock – Part 2",
+    "link": "https://aws.amazon.com/blogs/machine-learning/scaling-medical-content-review-at-flo-health-with-amazon-bedrock-part-2/",
+    "description": "In this post, we share how Flo Health’s engineering team turned a proof of concept (PoC) from the AWS Generative AI Innovation Center into a productio...",
+    "pubDate": "Tue, 14 Jul 2026 16:33:08 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
@@ -1684,67 +1705,56 @@ window.crawledNews = [
   },
   {
     "source": "AWS ML Blog",
-    "title": "Building bilingual NER for cargo logistics with Amazon Bedrock",
-    "link": "https://aws.amazon.com/blogs/machine-learning/building-bilingual-ner-for-cargo-logistics-with-amazon-bedrock/",
-    "description": "In this post, we share the technical approach using token-based distillation, lessons learned, and deployment architecture. If you face similar biling...",
-    "pubDate": "Tue, 30 Jun 2026 16:33:46 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE",
-      "BE",
-      "Mobile"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Fine-tune Amazon Nova models for accurate email data extraction",
-    "link": "https://aws.amazon.com/blogs/machine-learning/fine-tune-amazon-nova-models-for-accurate-email-data-extraction/",
-    "description": "In this post, you'll learn how fine-tuning Amazon Nova models using Amazon SageMaker AI addresses these specific issues by teaching the models to reco...",
-    "pubDate": "Tue, 30 Jun 2026 16:26:48 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Implement a backup strategy for Amazon Quick Sight BI assets",
-    "link": "https://aws.amazon.com/blogs/machine-learning/implement-a-backup-strategy-for-amazon-quick-sight-bi-assets/",
-    "description": "In this post, we cover best practices for implementing an effective backup strategy for BI assets in Quick Sight. We start by covering the options for...",
-    "pubDate": "Mon, 29 Jun 2026 18:15:14 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "FE"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Pair Nova 2 Lite with Claude for cost-optimized document processing",
-    "link": "https://aws.amazon.com/blogs/machine-learning/pair-nova-2-lite-with-claude-for-cost-optimized-document-processing/",
-    "description": "In this post, we show how pairing Amazon Nova 2 Lite with Anthropic’s Claude Sonnet 4.6 delivers an efficient solution for digitizing scanned document...",
-    "pubDate": "Mon, 29 Jun 2026 17:52:33 +0000",
-    "region": "overseas",
-    "regionLabel": "해외",
-    "categories": [
-      "AI"
-    ]
-  },
-  {
-    "source": "AWS ML Blog",
-    "title": "Multi-tenant LLM analytics with row-level security: How we built a secure agent on AWS",
-    "link": "https://aws.amazon.com/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/",
-    "description": "In this post, we show you how PAR built a production-ready multi-tenant LLM analytics system that enforces row-level security through a three-layer ar...",
-    "pubDate": "Mon, 29 Jun 2026 17:39:29 +0000",
+    "title": "ScienceSoft’s HIPAA-compliant AI voice scheduler built on AWS",
+    "link": "https://aws.amazon.com/blogs/machine-learning/sciencesofts-hipaa-compliant-ai-voice-scheduler-built-on-aws/",
+    "description": "In this post, you will learn how ScienceSoft, an Amazon Web Services (AWS) Services Partner, integrated Amazon Nova 2 Sonic with Amazon Bedrock Guardr...",
+    "pubDate": "Tue, 14 Jul 2026 16:25:03 +0000",
     "region": "overseas",
     "regionLabel": "해외",
     "categories": [
       "FE",
       "DevOps",
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "OpenAI GPT-5.6 Sol, Terra, and Luna are now generally available on Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/",
+    "description": "Today, GPT-5.6 Sol, Terra, and Luna from OpenAI are generally available on Amazon Bedrock, bringing the smartest family of models from OpenAI yet to A...",
+    "pubDate": "Mon, 13 Jul 2026 21:01:20 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
       "AI",
-      "Security"
+      "QA"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "When your brain works differently, AI isn’t a luxury—it’s accessibility",
+    "link": "https://aws.amazon.com/blogs/machine-learning/when-your-brain-works-differently-ai-isnt-a-luxury-its-accessibility/",
+    "description": "In this post, I share how AI serves as an accessibility tool for neurodivergent professionals. The system is built on Amazon Quick on your desktop, an...",
+    "pubDate": "Mon, 13 Jul 2026 17:50:16 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "AI"
+    ]
+  },
+  {
+    "source": "AWS ML Blog",
+    "title": "Building an agentic AI solution at Bluesight with Amazon Bedrock",
+    "link": "https://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-solution-at-bluesight-with-amazon-bedrock/",
+    "description": "In this post, we describe how Bluesight used two AWS engagements and Amazon Bedrock AgentCore to evolve from a single-product AI prototype to Prism, a...",
+    "pubDate": "Mon, 13 Jul 2026 17:34:38 +0000",
+    "region": "overseas",
+    "regionLabel": "해외",
+    "categories": [
+      "FE",
+      "DevOps",
+      "AI"
     ]
   },
   {
@@ -2110,6 +2120,31 @@ window.crawledNews = [
   },
   {
     "source": "NAVER D2",
+    "title": "[AI 해커톤 후기] AI 시대의 해커톤과 인간의 역할: AI의 계획과 사람의 전략",
+    "link": "https://d2.naver.com/helloworld/1883072",
+    "description": "모두가 같은 주제로, 같은 수준의 AI 도구를 들고 시작한 해커톤. 그런데 결과물은 팀마다 전혀 달랐습니다. 같은 도구를 썼는데 왜 결과는 달라졌을까요?\n\n\n네이버가 전사 차원에서 처음으로 개발자와 비개발자의 구분 없이 연 모두의 Engineering Day AI 해커...",
+    "pubDate": "2026-07-13T12:43:28Z",
+    "region": "domestic",
+    "regionLabel": "국내",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "NAVER D2",
+    "title": "FE News 26년 7월 소식을 전해드립니다.",
+    "link": "https://d2.naver.com/news/7560502",
+    "description": "주요소식\n\n\n\n26년 6월 소식에서는 다음과 같은 유용한 정보들을 만나보실 수 있습니다.\n\nTypeScript 7.0 RC\n\nGo로 재작성된 네이티브 컴파일러를 탑재한 TypeScript 7.0의 릴리스 후보(RC)가 공개되었다. 기존 타입 체크 로직과 구조를 그대로 ...",
+    "pubDate": "2026-07-08T17:52:20Z",
+    "region": "domestic",
+    "regionLabel": "국내",
+    "categories": [
+      "FE",
+      "BE"
+    ]
+  },
+  {
+    "source": "NAVER D2",
     "title": "[AI 해커톤 후기] 코드와 문서만 읽은 LLM은 어떻게 사람과 같은 팀을 1위로 골랐을까",
     "link": "https://d2.naver.com/helloworld/2541696",
     "description": "2026년 봄, 네이버는 개발 직군 중심으로 열리던 Engineering Day를 모든 직군이 함께하는 '모두의 Engineering Day'로 넓혔습니다. 행사의 마지막 순서는 AI 해커톤이었습니다. 목표는 단순히 AI를 써보는 것이 아니라, 사람이 하던 반복 업무를...",
@@ -2327,28 +2362,27 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "NAVER D2",
-    "title": "모두의 NAVER Engineering Day! D2에서 이어집니다.",
-    "link": "https://d2.naver.com/news/0766161",
-    "description": "매년 봄과 가을, 네이버 엔지니어들은 Engineering Day를 통해 서로의 기술과 경험을 나눕니다. 한해동안 200개가 넘는 기술 세션이 공유되며, 실무 개발 경험과 신기술 도입시 유용하게 활용될 수 있는 팁을 교환하고 함께 성장하는 자리로 이어져 왔습니다.\n\n\n...",
-    "pubDate": "2026-05-28T17:12:36Z",
+    "source": "LINE Engineering",
+    "title": "오픈챗 이름 및 설명 글로 유해성 판단하는 모델 개발하기",
+    "link": "https://techblog.lycorp.co.jp/ko/developing-harmfulness-detection-model-for-open-chat-metadata",
+    "description": "들어가며안녕하세요. AI Services Lab 팀의 ML 엔지니어 이여운입니다. 저희 팀에서는 사용자에게 유해한 오픈챗이 노출되지 않도록 다양한 모델을 개발하고 있습니다. 이번 ...",
+    "pubDate": "Thu, 16 Jul 2026 08:50:00 GMT",
+    "region": "domestic",
+    "regionLabel": "국내",
+    "categories": [
+      "AI"
+    ]
+  },
+  {
+    "source": "LINE Engineering",
+    "title": "초당 100만 건, LINE 앱에 Apache Kafka 종단 간 암호화 적용기",
+    "link": "https://techblog.lycorp.co.jp/ko/applying-e2ee-to-apache-kafka-in-line-app",
+    "description": "들어가며: 왜 Kafka 종단 간 암호화인가?LINE 메신저에서는 매일 수십억 건의 메시지가 오갑니다. 이 방대한 데이터는 다양한 시스템으로 전달되며, 그중에는 개인 정보와 같이 ...",
+    "pubDate": "Fri, 10 Jul 2026 02:00:00 GMT",
     "region": "domestic",
     "regionLabel": "국내",
     "categories": [
       "General"
-    ]
-  },
-  {
-    "source": "NAVER D2",
-    "title": "FE News 26년 5월 소식을 전해드립니다.",
-    "link": "https://d2.naver.com/news/4911787",
-    "description": "주요소식\n\n\n\nGoing under the hood of MDN's new front-end\n\nMDN이 React 기반 Yari 아키텍처를 Web Components와 Lit 기반의 새 아키텍처(fred)로 전면 교체한 과정을 기술적으로 풀어낸 글이다. 페이지에 등장하...",
-    "pubDate": "2026-05-07T10:46:39Z",
-    "region": "domestic",
-    "regionLabel": "국내",
-    "categories": [
-      "FE",
-      "BE"
     ]
   },
   {
@@ -2937,28 +2971,15 @@ window.crawledNews = [
     ]
   },
   {
-    "source": "LINE Engineering",
-    "title": "코드 품질 개선 기법 29편: 고르디우스 변수",
-    "link": "https://techblog.lycorp.co.jp/ko/techniques-for-improving-code-quality-29",
-    "description": "이 글은 2024년 6월 13일에 일본어로 먼저 발행된 기사를 번역한 글입니다.LY Corporation은 높은 개발 생산성을 유지하기 위해 코드 품질 및 개발 문화 개선에 힘쓰고...",
-    "pubDate": "Thu, 15 Jan 2026 17:30:00 GMT",
+    "source": "Daangn Tech",
+    "title": "천만 MAU를 지탱하는 커뮤니티 시스템을 소개해요",
+    "link": "https://medium.com/daangn/%EC%B2%9C%EB%A7%8C-mau%EB%A5%BC-%EC%A7%80%ED%83%B1%ED%95%98%EB%8A%94-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%84-%EC%86%8C%EA%B0%9C%ED%95%B4%EC%9A%94-090fb4021e20?source=rss----4505f82a2dbd---4",
+    "description": "",
+    "pubDate": "Tue, 14 Jul 2026 01:34:14 GMT",
     "region": "domestic",
     "regionLabel": "국내",
     "categories": [
       "General"
-    ]
-  },
-  {
-    "source": "LINE Engineering",
-    "title": "엔터프라이즈 LLM 서비스 구축기 1: 컨텍스트 엔지니어링",
-    "link": "https://techblog.lycorp.co.jp/ko/building-an-llm-service-for-enterprise-1-context-engineering",
-    "description": "들어가며안녕하세요. Cloud AI Platform 팀에서 AI 어시스턴트의 PM 및 기술 리딩을 맡고 있는 한우형입니다. 클라우드 환경에 AI를 도입해 운영 생산성을 높이는 일을...",
-    "pubDate": "Wed, 14 Jan 2026 02:00:00 GMT",
-    "region": "domestic",
-    "regionLabel": "국내",
-    "categories": [
-      "DevOps",
-      "AI"
     ]
   },
   {
@@ -2975,7 +2996,7 @@ window.crawledNews = [
   },
   {
     "source": "Daangn Tech",
-    "title": "디자인시스템 팀은 디자인시스템만 잘 만들면 될까",
+    "title": "디자인 시스템 팀은 디자인 시스템만 잘 만들면 될까",
     "link": "https://medium.com/daangn/%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%8C%80%EC%9D%80-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%A7%8C-%EC%9E%98-%EB%A7%8C%EB%93%A4%EB%A9%B4-%EB%90%A0%EA%B9%8C-4f6f2478a8db?source=rss----4505f82a2dbd---4",
     "description": "",
     "pubDate": "Thu, 11 Jun 2026 09:32:10 GMT",
@@ -3068,24 +3089,12 @@ window.crawledNews = [
     "categories": [
       "General"
     ]
-  },
-  {
-    "source": "Daangn Tech",
-    "title": "Job 워크로드를 위한 EKS Node Group 오토스케일링 도입기",
-    "link": "https://medium.com/daangn/job-%EC%9B%8C%ED%81%AC%EB%A1%9C%EB%93%9C%EB%A5%BC-%EC%9C%84%ED%95%9C-eks-node-group-%EC%98%A4%ED%86%A0%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%A7%81-%EB%8F%84%EC%9E%85%EA%B8%B0-a6a28376d153?source=rss----4505f82a2dbd---4",
-    "description": "",
-    "pubDate": "Thu, 16 Apr 2026 06:01:47 GMT",
-    "region": "domestic",
-    "regionLabel": "국내",
-    "categories": [
-      "General"
-    ]
   }
 ];
 
 window.crawledSummaries = {
   "overseas": {
-    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Amazon will stop accepting new customers for Mechanical Turk**\n* **New Google commercial imagines a Declaration of Independence written with help from AI**\n* **Midjourney wants Hollywood studios to reveal the details of their AI usage**\n* **Alibaba reportedly bans employees from using Claude Code**\n* **What is Mistral AI? Everything to know about the OpenAI competitor**",
+    "daily": "### 해외 핵심 트렌드 요약\n\n* 총 **137개**의 해외 RSS 항목을 수집했습니다.\n* 현재 가장 자주 감지된 직무/기술 축은 **AI, FE** 입니다.\n* 주요 수집 출처는 **Hacker News, TechCrunch AI, Ars Technica AI** 입니다.\n\n* **Anthropic’s landmark $1.5B copyright settlement is approved**\n* **Trump’s latest AI czar has already resigned**\n* **Google is working on a new AI chip designed to make Gemini more efficient**\n* **AI’s most important protocol is getting a little bit easier to use**\n* **X relaunches a rebuilt Android app after year-long effort**",
     "weekly": "### 해외 주간 기술 흐름 분석\n\n* 최근 해외 피드에서는 **AI, FE** 관련 항목의 비중이 높습니다.\n* 개발자는 단일 도구 소식보다 실제 업무 흐름에 들어오는 자동화, 에이전트, 인프라 변화에 주목해야 합니다.\n* RSS 원문을 함께 확인하며 조직의 기술 스택과 직접 맞닿은 항목을 우선 검토하는 방식이 좋습니다.",
     "monthly": "### 해외 월간 산업 방향성 전망\n\n* 해외에서 수집된 흐름은 AI 도구가 개발 보조를 넘어 제품, 인프라, 보안, 운영 전반으로 확장되고 있음을 보여줍니다.\n* 각 직무는 코드 작성 속도보다 요구사항 해석, 시스템 설계, 검증 자동화, 데이터 거버넌스 역량을 더 강하게 요구받게 됩니다.\n* 이 대시보드는 외부 생성형 API 없이 RSS 기반 신호를 정리하는 가벼운 트렌드 관측 도구로 동작합니다."
   },

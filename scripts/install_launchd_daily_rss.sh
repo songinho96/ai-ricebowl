@@ -44,6 +44,8 @@ cat >"$PLIST_PATH" <<PLIST
     <string>1</string>
     <key>CODEX_MODEL</key>
     <string>gpt-5.5</string>
+    <key>SYNC_CLOUDFLARE</key>
+    <string>1</string>
   </dict>
 
   <key>StandardOutPath</key>

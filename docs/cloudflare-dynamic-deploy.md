@@ -35,8 +35,36 @@ npm install
 Log in to Cloudflare:
 
 ```bash
-npx wrangler login
+bash scripts/login_cloudflare_wrangler.sh
 ```
+
+The deploy helper uses `WRANGLER_HOME_DIR="$PWD/.wrangler-home"` by default so Codex/local automation can write Wrangler logs and auth state inside the project instead of macOS user preference directories. Override `WRANGLER_HOME_DIR` only if the scheduled runner has access to another authenticated Wrangler home.
+
+If the Cloudflare OAuth page shows "Application authorization failed", retry with a manual browser URL and minimal scopes:
+
+```bash
+BROWSER=0 bash scripts/login_cloudflare_wrangler.sh
+```
+
+Copy the printed URL into the browser where you are logged into the correct Cloudflare account.
+
+If OAuth still fails, use a Cloudflare API Token instead. Create a local, ignored file:
+
+```bash
+cat > .env.cloudflare <<'EOF'
+CLOUDFLARE_API_TOKEN=replace_with_token
+# Optional if Wrangler cannot infer the account:
+# CLOUDFLARE_ACCOUNT_ID=replace_with_account_id
+EOF
+```
+
+Create the token in Cloudflare Dashboard with only the project deployment permissions needed for this repo:
+
+- Account > Cloudflare Pages > Edit
+- Account > D1 > Edit
+- Account > Account Settings > Read
+
+Scope the token to the account that owns `ai-ricebowl.pages.dev`.
 
 Create the D1 database:
 
@@ -123,6 +151,14 @@ This keeps D1 aligned with:
 - `daily_trends.js`
 - `daily_survival_guides.js`
 - `reports/rss/*.md`
+
+The local fallback runner publishes automatically after the crawler and Codex analysis complete:
+
+```bash
+RUN_CODEX_ANALYSIS=1 SYNC_CLOUDFLARE=1 bash scripts/run_daily_rss_with_retry.sh
+```
+
+`SYNC_CLOUDFLARE` defaults to `1` in the runner and in the launchd fallback installed by `scripts/install_launchd_daily_rss.sh`. If Wrangler is not authenticated, the publish step fails loudly in `logs/daily-rss-runner.log`; run `bash scripts/login_cloudflare_wrangler.sh` once on the machine that performs the scheduled run.
 
 ## API Endpoints
 

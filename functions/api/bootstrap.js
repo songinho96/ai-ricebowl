@@ -70,7 +70,7 @@ async function loadTrends(db) {
             trends_json, why_matters_json, developer_actions_json, risks_json, source_links_json
      FROM trend_cards
      WHERE active = 1
-     ORDER BY sort_order ASC`
+     ORDER BY date DESC, sort_order ASC`
   );
 
   return results.map((row) => ({
@@ -97,7 +97,7 @@ async function loadGuides(db) {
     `SELECT id, title, subtitle, date, read_time, category, author, image, introduction, sections_json
      FROM survival_guides
      WHERE active = 1
-     ORDER BY sort_order ASC`
+     ORDER BY date DESC, sort_order ASC`
   );
 
   return results.map((row) => ({

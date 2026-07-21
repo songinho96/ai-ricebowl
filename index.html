@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
 
   <title>AI 밥그릇 | 최신 AI 기술 트렌드 & 개발자 생존 전략</title>
   <meta name="description" content="AI 시대에 개발자가 살아남기 위해 필요한 핵심 지식과 실무 활용 방안, 최신 인공지능 트렌드를 종합 정리하는 개발자용 허브 웹사이트입니다.">
@@ -72,11 +73,14 @@
 
           <div class="news-detail-grid">
             <section class="insight-panel">
+              <h2><i class="fa-solid fa-language"></i> 한글 브리핑</h2>
+              <p>{{ newsKoreanBrief(selectedNews) }}</p>
+            </section>
+
+            <section class="insight-panel">
               <h2><i class="fa-solid fa-lightbulb"></i> 개발자 관점에서 볼 점</h2>
               <ul>
-                <li>이 기사는 <strong>{{ (selectedNews.categories || []).join(', ') || 'General' }}</strong> 영역과 연결된 신호로 분류됩니다.</li>
-                <li>같은 권역에서 반복되는 카테고리와 함께 보면 단일 뉴스보다 기술 흐름을 더 안정적으로 판단할 수 있습니다.</li>
-                <li>원문 링크를 확인해 실제 제품 변화, API/도구 업데이트, 채용/조직 변화 중 무엇에 가까운지 검증하는 것이 좋습니다.</li>
+                <li v-for="point in newsDeveloperPoints(selectedNews)" :key="point">{{ point }}</li>
               </ul>
             </section>
 
@@ -199,7 +203,7 @@
                   class="summary-tab-btn"
                   :class="{ active: activeNewsRegion === region.id }"
                   type="button"
-                  @click="activeNewsRegion = region.id"
+                  @click="setNewsRegion(region.id)"
                 >
                   <i :class="region.icon"></i> {{ region.label }}
                 </button>
@@ -211,7 +215,7 @@
                   class="summary-tab-btn"
                   :class="{ active: activeSummaryPeriod === period.id }"
                   type="button"
-                  @click="activeSummaryPeriod = period.id"
+                  @click="setSummaryPeriod(period.id)"
                 >
                   {{ period.label }}
                 </button>
@@ -250,6 +254,17 @@
           </div>
           <div class="filter-tags">
             <button
+              v-if="activeCategoryFilter !== 'realtime'"
+              v-for="date in trendDateOptions"
+              :key="`trend-date-${date.id}`"
+              class="tag-filter-btn date-filter-btn"
+              :class="{ active: activeTrendDate === date.id }"
+              type="button"
+              @click="setTrendDate(date.id)"
+            >
+              {{ date.label }}
+            </button>
+            <button
               v-for="filter in categoryFilters"
               :key="filter.id"
               class="tag-filter-btn"
@@ -270,7 +285,7 @@
               class="job-sub-btn"
               :class="{ active: activeNewsRegion === region.id }"
               type="button"
-              @click="activeNewsRegion = region.id"
+              @click="setNewsRegion(region.id)"
             >
               {{ region.label }}
             </button>
@@ -284,7 +299,7 @@
               class="job-sub-btn"
               :class="{ active: activeJobFilter === job.id }"
               type="button"
-              @click="activeJobFilter = job.id"
+              @click="setJobFilter(job.id)"
             >
               {{ job.label }}
             </button>
@@ -306,7 +321,8 @@
                   <span class="card-region">{{ regionLabel(item) }}</span>
                 </div>
                 <h3>{{ item.title }}</h3>
-                <p class="summary">{{ item.description || '상세 내용 요약이 없습니다. 원문 보기 링크를 통해 전체 기사를 확인하세요.' }}</p>
+                <p class="summary">{{ newsKoreanBrief(item) }}</p>
+                <p class="original-summary">{{ item.description || 'RSS 피드에서 제공된 원문 요약이 없습니다.' }}</p>
               </div>
               <div class="card-footer">
                 <span><i class="fa-regular fa-clock"></i> {{ shortDate(item.pubDate) }}</span>
@@ -325,7 +341,7 @@
                     :class="{ active: isBookmarked(item.id) }"
                     type="button"
                     aria-label="북마크 토글"
-                    @click="toggleBookmark(item.id)"
+                    @click.stop="toggleBookmark(item.id)"
                   >
                     <i :class="isBookmarked(item.id) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark'"></i>
                   </button>
@@ -369,7 +385,7 @@
               class="job-tab-btn"
               :class="{ active: activeJobGuide === job.id }"
               type="button"
-              @click="activeJobGuide = job.id"
+              @click="setJobGuide(job.id)"
             >
               <i :class="job.icon"></i> {{ job.label }}
             </button>
@@ -411,10 +427,22 @@
 
         <div class="section-title-wrapper section-divider">
           <h2><i class="fa-solid fa-book-open"></i> 심층 분석 컬럼</h2>
+          <div class="date-filter-row" aria-label="생존 가이드 날짜 선택">
+            <button
+              v-for="date in guideDateOptions"
+              :key="`guide-date-${date.id}`"
+              class="tag-filter-btn date-filter-btn"
+              :class="{ active: activeGuideDate === date.id }"
+              type="button"
+              @click="setGuideDate(date.id)"
+            >
+              {{ date.label }}
+            </button>
+          </div>
         </div>
 
         <div class="blog-grid">
-          <article v-for="post in blogPosts" :key="post.id" class="blog-card">
+          <article v-for="post in displayedBlogPosts" :key="post.id" class="blog-card">
             <div class="blog-card-img-wrapper">
               <img :src="post.image" :alt="post.title" class="blog-card-img">
             </div>
