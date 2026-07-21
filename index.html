@@ -27,7 +27,7 @@
             v-for="tab in tabs"
             :key="tab.id"
             class="nav-btn"
-            :class="{ active: activeTab === tab.id && !selectedPost && !selectedNews && !selectedTrend }"
+            :class="{ active: activeTab === tab.id && !selectedPost && !selectedNews && !selectedTrend && !showGuideComposer }"
             type="button"
             @click="switchTab(tab.id)"
           >
@@ -41,7 +41,7 @@
     </header>
 
     <main>
-      <section v-if="!selectedPost && !selectedNews && !selectedTrend" class="hero">
+      <section v-if="!selectedPost && !selectedNews && !selectedTrend && !showGuideComposer" class="hero">
         <img :src="hero.image" :alt="hero.alt" class="hero-img">
         <div class="hero-content">
           <span class="hero-tag">{{ hero.tag }}</span>
@@ -397,7 +397,106 @@
         </div>
       </section>
 
-      <section v-if="activeTab === 'blog' && !selectedPost && !selectedNews && !selectedTrend" class="tab-content active">
+      <section v-if="showGuideComposer" class="guide-composer-view active-reader">
+        <button class="back-btn" type="button" @click="closeGuideComposer">
+          <i class="fa-solid fa-arrow-left"></i> 생존 가이드로 돌아가기
+        </button>
+
+        <form class="guide-composer-form" @submit.prevent="submitUserGuide">
+          <div class="composer-header">
+            <span class="reader-category">USER SURVIVAL GUIDE</span>
+            <h1>생존 가이드 작성</h1>
+            <p>직접 겪은 문제, 살아남은 방식, 바로 실행할 액션을 정리해 제출하세요. 제출된 글은 검토 후 사용자 작성 가이드로 공개됩니다.</p>
+          </div>
+
+          <div class="form-grid">
+            <label class="form-field wide-field">
+              <span>제목</span>
+              <input v-model.trim="guideForm.title" type="text" maxlength="120" required placeholder="예: 레거시 코드에 AI 리뷰를 붙일 때 먼저 해야 할 일">
+            </label>
+
+            <label class="form-field">
+              <span>직무/분야</span>
+              <select v-model="guideForm.category" required>
+                <option value="FE">FE</option>
+                <option value="BE">BE</option>
+                <option value="AI/Data">AI/Data</option>
+                <option value="DevOps">DevOps</option>
+                <option value="Mobile">Mobile</option>
+                <option value="DBA">DBA</option>
+                <option value="QA">QA</option>
+                <option value="Security">Security</option>
+                <option value="기타">기타</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>작성자</span>
+              <input v-model.trim="guideForm.author" type="text" maxlength="60" placeholder="닉네임 또는 이름">
+            </label>
+
+            <label class="form-field wide-field">
+              <span>한 줄 요약</span>
+              <input v-model.trim="guideForm.subtitle" type="text" maxlength="240" required placeholder="어떤 상황에서 어떤 방식으로 살아남는 가이드인지 적어주세요">
+            </label>
+
+            <label class="form-field wide-field">
+              <span>상황/문제</span>
+              <textarea v-model.trim="guideForm.introduction" rows="5" maxlength="900" required placeholder="겪은 문제, 팀 상황, 위험했던 지점, 왜 중요한지 적어주세요"></textarea>
+            </label>
+
+            <label class="form-field wide-field">
+              <span>생존 전략</span>
+              <textarea v-model.trim="guideForm.strategy" rows="7" maxlength="1600" required placeholder="어떤 기준, 프로세스, 도구 조합으로 해결했는지 구체적으로 적어주세요"></textarea>
+            </label>
+
+            <label class="form-field">
+              <span>바로 할 액션</span>
+              <textarea v-model.trim="guideForm.actions" rows="7" maxlength="1600" required placeholder="- 오늘 만들 체크리스트&#10;- 첫 번째 자동화&#10;- 리뷰 기준"></textarea>
+            </label>
+
+            <label class="form-field">
+              <span>추천 도구</span>
+              <textarea v-model.trim="guideForm.tools" rows="7" maxlength="900" placeholder="Cursor, Codex, Playwright, LangSmith 처럼 줄바꿈이나 쉼표로 입력"></textarea>
+            </label>
+
+            <label class="form-field wide-field">
+              <span>참고 링크</span>
+              <textarea v-model.trim="guideForm.links" rows="3" maxlength="900" placeholder="https:// 로 시작하는 링크를 한 줄에 하나씩, 최대 5개"></textarea>
+            </label>
+
+            <label class="form-field wide-field">
+              <span>연락처 또는 확인 메모</span>
+              <input v-model.trim="guideForm.contact" type="text" maxlength="160" placeholder="선택 입력. 공개되지 않습니다.">
+            </label>
+
+            <label class="form-field hidden-field" aria-hidden="true">
+              <span>Website</span>
+              <input v-model.trim="guideForm.website" type="text" tabindex="-1" autocomplete="off">
+            </label>
+          </div>
+
+          <div class="composer-actions">
+            <button class="secondary-action-btn" type="button" @click="resetGuideForm">
+              <i class="fa-solid fa-rotate-left"></i> 초기화
+            </button>
+            <button class="primary-link-btn" type="submit" :disabled="guideSubmitStatus === 'submitting'">
+              <i :class="guideSubmitStatus === 'submitting' ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-paper-plane'"></i>
+              {{ guideSubmitStatus === 'submitting' ? '제출 중' : '검토 요청하기' }}
+            </button>
+          </div>
+
+          <p
+            v-if="guideSubmitMessage"
+            class="form-status"
+            :class="{ success: guideSubmitStatus === 'success', error: guideSubmitStatus === 'error' }"
+          >
+            {{ guideSubmitMessage }}
+          </p>
+        </form>
+      </section>
+
+      <section v-if="activeTab === 'blog' && !selectedPost && !selectedNews && !selectedTrend && !showGuideComposer" class="tab-content active">
         <div class="job-guide-section">
           <div class="section-title-wrapper">
             <h2><i class="fa-solid fa-user-shield"></i> 직무별 AI 활용 가이드북</h2>
@@ -452,7 +551,28 @@
         </div>
 
         <div class="section-title-wrapper section-divider">
-          <h2><i class="fa-solid fa-book-open"></i> 심층 분석 컬럼</h2>
+          <div>
+            <h2><i class="fa-solid fa-book-open"></i> 심층 분석 컬럼</h2>
+            <p>자동 분석 가이드와 검토된 사용자 작성 가이드를 함께 모아 봅니다.</p>
+          </div>
+          <button class="primary-link-btn compact-action-btn" type="button" @click="openGuideComposer">
+            <i class="fa-solid fa-pen-to-square"></i> 가이드 작성
+          </button>
+        </div>
+
+        <div class="guide-filter-panel">
+          <div class="date-filter-row" aria-label="생존 가이드 출처 선택">
+            <button
+              v-for="source in guideSourceFilters"
+              :key="`guide-source-${source.id}`"
+              class="tag-filter-btn date-filter-btn"
+              :class="{ active: guideSourceFilter === source.id }"
+              type="button"
+              @click="setGuideSourceFilter(source.id)"
+            >
+              {{ source.label }}
+            </button>
+          </div>
           <div class="date-filter-row" aria-label="생존 가이드 날짜 선택">
             <button
               v-for="date in guideDateOptions"
@@ -476,6 +596,10 @@
               <div class="blog-meta">
                 <span>{{ post.category }}</span>
                 <span>&bull;</span>
+                <span class="guide-source-badge" :class="`guide-source-${post.sourceType}`">
+                  {{ post.sourceType === 'user' ? '사용자 작성' : 'AI 자동 분석' }}
+                </span>
+                <span>&bull;</span>
                 <span>{{ post.readTime }}</span>
               </div>
               <h2>{{ post.title }}</h2>
@@ -485,6 +609,12 @@
               </button>
             </div>
           </article>
+        </div>
+
+        <div v-if="displayedBlogPosts.length === 0" class="empty-state">
+          <i class="fa-solid fa-folder-open"></i>
+          <h4>표시할 생존 가이드가 없습니다</h4>
+          <p>다른 날짜나 출처 필터를 선택하거나 새 가이드를 작성해 검토 요청을 보내세요.</p>
         </div>
       </section>
 
@@ -500,6 +630,10 @@
             <div class="reader-meta-item"><i class="fa-regular fa-user"></i> <span>{{ selectedPost.author }}</span></div>
             <div class="reader-meta-item"><i class="fa-regular fa-calendar"></i> <span>{{ selectedPost.date }}</span></div>
             <div class="reader-meta-item"><i class="fa-regular fa-clock"></i> <span>{{ selectedPost.readTime }}</span></div>
+            <div class="reader-meta-item">
+              <i :class="selectedPost.sourceType === 'user' ? 'fa-solid fa-user-pen' : 'fa-solid fa-robot'"></i>
+              <span>{{ selectedPost.sourceType === 'user' ? '사용자 작성' : 'AI 자동 분석' }}</span>
+            </div>
           </div>
         </div>
         <div class="reader-hero-img-wrapper">

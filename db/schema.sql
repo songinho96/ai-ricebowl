@@ -99,6 +99,28 @@ CREATE INDEX IF NOT EXISTS idx_survival_guides_active_sort
 CREATE INDEX IF NOT EXISTS idx_survival_guides_date_sort
   ON survival_guides(date DESC, sort_order);
 
+CREATE TABLE IF NOT EXISTS user_survival_guides (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  subtitle TEXT NOT NULL,
+  date TEXT NOT NULL,
+  read_time TEXT NOT NULL,
+  category TEXT NOT NULL,
+  author TEXT NOT NULL,
+  image TEXT NOT NULL DEFAULT 'assets/blog_survival.png',
+  introduction TEXT NOT NULL,
+  sections_json TEXT NOT NULL DEFAULT '[]',
+  tags_json TEXT NOT NULL DEFAULT '[]',
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'published', 'rejected')),
+  submitter_contact TEXT,
+  review_note TEXT,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_survival_guides_status_date
+  ON user_survival_guides(status, date DESC);
+
 CREATE TABLE IF NOT EXISTS daily_reports (
   date TEXT PRIMARY KEY,
   title TEXT NOT NULL,

@@ -138,7 +138,24 @@ function normalizeSurvivalGuide(post) {
     image: 'assets/blog_survival.png',
     introduction: '',
     sections: [],
+    sourceType: 'auto',
     ...post
+  };
+}
+
+function createGuideFormDefaults() {
+  return {
+    title: '',
+    subtitle: '',
+    category: 'FE',
+    author: '',
+    contact: '',
+    introduction: '',
+    strategy: '',
+    actions: '',
+    tools: '',
+    links: '',
+    website: ''
   };
 }
 
@@ -192,10 +209,15 @@ createApp({
       selectedPostId: null,
       selectedNewsKey: null,
       selectedTrendId: null,
+      showGuideComposer: false,
       routeInitialized: false,
       showBackToTop: false,
       dataSource: 'static',
       dataLoadedAt: null,
+      guideSourceFilter: 'all',
+      guideSubmitStatus: 'idle',
+      guideSubmitMessage: '',
+      guideForm: createGuideFormDefaults(),
       trends: (window.dailyTrendCards || window.aiTrendsData || []).map(normalizeTrendCard),
       blogPosts: (window.dailySurvivalGuides || window.blogPostsData || []).map(normalizeSurvivalGuide),
       jobRoles: window.jobRolesData || {},
@@ -243,6 +265,11 @@ createApp({
         { id: 'DBA', label: 'DBA', icon: 'fa-solid fa-database' },
         { id: 'QA', label: 'QA', icon: 'fa-solid fa-vial' },
         { id: 'Security', label: 'Security', icon: 'fa-solid fa-shield-halved' }
+      ],
+      guideSourceFilters: [
+        { id: 'all', label: '전체' },
+        { id: 'auto', label: 'AI 자동 분석' },
+        { id: 'user', label: '사용자 작성' }
       ]
     };
   },
@@ -402,6 +429,9 @@ createApp({
       const latest = this.latestDate(this.blogPosts);
 
       return this.blogPosts.filter((post) => {
+        if (this.guideSourceFilter !== 'all' && post.sourceType !== this.guideSourceFilter) {
+          return false;
+        }
         if (this.activeGuideDate === 'all') {
           return true;
         }
@@ -613,6 +643,7 @@ createApp({
       this.selectedPostId = null;
       this.selectedNewsKey = null;
       this.selectedTrendId = null;
+      this.showGuideComposer = false;
 
       if (!section || section === 'trends') {
         this.activeTab = 'trends';
@@ -642,6 +673,12 @@ createApp({
         this.activeTab = 'blog';
         this.applyBlogRouteParams(route.params);
         if (rawId) {
+          if (rawId === 'new') {
+            this.showGuideComposer = true;
+            this.updateDocumentTitle();
+            if (scroll) this.scrollTop();
+            return;
+          }
           const postId = decodeRoutePart(rawId);
           if (!replaceMissing || this.blogPosts.some((post) => post.id === postId)) {
             this.selectedPostId = postId;
@@ -682,8 +719,10 @@ createApp({
     applyBlogRouteParams(params) {
       const job = params.get('job');
       const date = params.get('date');
+      const source = params.get('source');
       this.activeJobGuide = this.jobTabs.some((item) => item.id === job) ? job : 'FE';
       this.activeGuideDate = this.resolveDateParam(this.blogPosts, date);
+      this.guideSourceFilter = this.guideSourceFilters.some((item) => item.id === source) ? source : 'all';
     },
 
     navigateTo(path, options = {}) {
@@ -699,7 +738,7 @@ createApp({
     },
 
     replaceWithCurrentListRoute() {
-      if (!this.routeInitialized || this.selectedPost || this.selectedNews || this.selectedTrend) {
+      if (!this.routeInitialized || this.selectedPost || this.selectedNews || this.selectedTrend || this.showGuideComposer) {
         return;
       }
 
@@ -739,8 +778,60 @@ createApp({
       const params = new URLSearchParams();
       if (this.activeJobGuide !== 'FE') params.set('job', this.activeJobGuide);
       if (this.activeGuideDate !== 'all') params.set('date', this.activeGuideDate);
+      if (this.guideSourceFilter !== 'all') params.set('source', this.guideSourceFilter);
       const query = params.toString();
       return `/guides${query ? `?${query}` : ''}`;
+    },
+
+    openGuideComposer() {
+      this.guideSubmitStatus = 'idle';
+      this.guideSubmitMessage = '';
+      this.navigateTo('/guides/new');
+    },
+
+    closeGuideComposer() {
+      this.navigateTo(this.blogListRoute());
+    },
+
+    resetGuideForm() {
+      this.guideForm = createGuideFormDefaults();
+      this.guideSubmitStatus = 'idle';
+      this.guideSubmitMessage = '';
+    },
+
+    setGuideSourceFilter(source) {
+      this.guideSourceFilter = source;
+      this.replaceWithCurrentListRoute();
+    },
+
+    async submitUserGuide() {
+      if (this.guideSubmitStatus === 'submitting') return;
+
+      this.guideSubmitStatus = 'submitting';
+      this.guideSubmitMessage = '';
+
+      try {
+        const response = await fetch('/api/user-guides', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify(this.guideForm)
+        });
+        const payload = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(payload.error || `제출 실패 (${response.status})`);
+        }
+
+        this.guideSubmitStatus = 'success';
+        this.guideSubmitMessage = payload.message || '생존 가이드 초안이 접수되었습니다.';
+        this.guideForm = createGuideFormDefaults();
+      } catch (error) {
+        this.guideSubmitStatus = 'error';
+        this.guideSubmitMessage = error.message || '제출 중 오류가 발생했습니다.';
+      }
     },
 
     buildDateOptions(items) {
@@ -780,6 +871,11 @@ createApp({
 
       if (this.selectedPost) {
         document.title = `${this.selectedPost.title} | ${suffix}`;
+        return;
+      }
+
+      if (this.showGuideComposer) {
+        document.title = `생존 가이드 작성 | ${suffix}`;
         return;
       }
 
