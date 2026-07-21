@@ -254,6 +254,33 @@ def build_korean_summary(title, source, region_label, full_summary, categories, 
     meta_line = f"\n\n메타: {' · '.join(metadata)}" if metadata else ""
     return "핵심 요약\n" + "\n".join(f"- {bullet}" for bullet in bullets[:5]) + meta_line
 
+def build_display_summary(title, full_summary, categories, max_sentences=3, max_chars=540):
+    specialized = summarize_special_cases(title, full_summary)
+    if specialized:
+        text = "\n".join(f"- {item}" for item in specialized[:max_sentences])
+        return shorten_multiline(text, max_chars)
+
+    sentences = split_sentences(full_summary)
+    selected = select_important_sentences(sentences)
+
+    if not selected and full_summary:
+        selected = [shorten_sentence(full_summary, max_chars)]
+
+    output = []
+    if title and not re.search(r'[가-힣]', title):
+        title_summary = summarize_title_to_korean(title, full_summary, categories)
+        if title_summary:
+            output.append(title_summary)
+
+    for sentence in selected[:max_sentences]:
+        summary = sentence if re.search(r'[가-힣]', sentence) else summarize_sentence_to_korean(sentence, categories)
+        summary = shorten_sentence(summary, 165)
+        if summary and summary not in output:
+            output.append(summary)
+
+    text = "\n".join(f"- {item}" for item in output if item)
+    return shorten_multiline(text, max_chars)
+
 def split_sentences(text):
     if not text:
         return []
@@ -325,6 +352,7 @@ def select_important_sentences(sentences):
 
 def summarize_special_cases(title, text):
     lowered = f"{title} {text}".lower()
+    combined_text = f"{title} {text}"
     bullets = []
 
     if "anthropic" in lowered and "settlement" in lowered and "copyright" in lowered:
@@ -357,6 +385,54 @@ def summarize_special_cases(title, text):
         bullets.append(f"{enterprise_count or '여러'} 기업 조사에서 AI 에이전트의 문제는 검색 기능 부족보다 신뢰 가능한 비즈니스 컨텍스트 부족에 가깝다고 지적합니다.")
         bullets.append("RAG와 provider-native retrieval이 널리 쓰이고 있지만, 컨텍스트 출처·정합성·최신성 관리가 부족해 에이전트가 확신 있게 틀린 답을 내는 사례가 반복됩니다.")
         bullets.append("해결 방향은 벡터 DB 추가가 아니라 governed semantic layer, 출처 추적, 컨텍스트 품질 평가 체계를 먼저 만드는 쪽으로 제시됩니다.")
+        return bullets
+
+    if "es-toolkit" in lowered:
+        bullets.append("Toss의 사내 유틸리티 라이브러리로 시작한 es-toolkit이 주간 2천만 회 이상 다운로드되는 글로벌 프로젝트로 성장한 과정을 다룹니다.")
+        bullets.append("lodash의 오래된 구조와 레거시 브라우저 대응 비용을 줄이고, 최신 JavaScript 환경에 맞춘 가벼운 함수 단위 사용성과 tree-shaking을 강점으로 내세웁니다.")
+        bullets.append("개발자 관점에서는 작은 내부 도구도 성능·타입 안정성·문서화·마이그레이션 경험을 꾸준히 개선하면 생태계 표준 후보가 될 수 있다는 사례입니다.")
+        return bullets
+
+    if "spark connect" in lowered and "kubernetes" in lowered:
+        bullets.append("Toss Securities가 분석가와 엔지니어가 복잡한 설정 없이 Spark를 사용할 수 있도록 Spark Connect를 Kubernetes 기반 서비스로 운영한 과정을 설명합니다.")
+        bullets.append("세션 쏠림, 무거운 작업으로 인한 성능 저하, 서버 장애 시 전체 사용자가 실패하는 문제를 production 수준 운영 과제로 다룹니다.")
+        bullets.append("데이터 플랫폼 팀에는 Spark 접속 경험을 표준화하면서도 격리·확장·장애 대응을 함께 설계해야 한다는 신호입니다.")
+        return bullets
+
+    if "사라질 결심" in combined_text:
+        bullets.append("Technical Writer가 직접 문서를 쓰는 역할에서 벗어나, AI가 글쓰기와 리뷰를 수행할 수 있도록 암묵지와 판단 기준을 구조화한 과정을 다룹니다.")
+        bullets.append("핵심은 사람의 전문성을 없애는 것이 아니라, 반복적인 작성·검토 업무를 자동화 가능한 기준과 피드백 체계로 바꾸는 데 있습니다.")
+        bullets.append("개발 조직에는 문서 담당자의 경험을 프롬프트, 체크리스트, 리뷰 규칙, 지식 흐름으로 제품화할 수 있다는 신호입니다.")
+        return bullets
+
+    if "전문성 밖으로" in combined_text:
+        bullets.append("Technical Writer가 문서 작성 전문성에 머무르지 않고, 조직의 지식 문제를 해결하는 제품과 운영 구조를 만드는 역할로 확장한 이야기입니다.")
+        bullets.append("문서를 잘 쓰는 능력보다 어떤 지식이 어디에 쌓이고 누가 쓰게 만들지 설계하는 능력이 더 중요해졌다는 메시지입니다.")
+        bullets.append("AI 도구 도입기에는 개별 산출물보다 지식 흐름, 책임자, 사용 맥락을 제품처럼 관리하는 접근이 필요하다는 사례입니다.")
+        return bullets
+
+    if "우리 팀의 문서화는 왜 실패할까" in combined_text:
+        bullets.append("문서화가 실패하는 이유를 개인 의지 부족이 아니라 기준, 책임, 신뢰할 문서 위치가 없는 조직 구조 문제로 설명합니다.")
+        bullets.append("도메인과 챕터가 겪은 시행착오를 바탕으로 용어 정리, 소유권, 온보딩, 정책 문서 같은 기본 체계를 먼저 세워야 한다고 말합니다.")
+        bullets.append("AI 문서화 도구를 쓰기 전에 무엇을 남기고 어떤 문서를 기준으로 삼을지 합의하는 운영 규칙이 필요하다는 신호입니다.")
+        return bullets
+
+    if "도구를 넘어" in combined_text and "기준과 책임" in combined_text:
+        bullets.append("도구와 자동화만으로는 문서화가 굴러가지 않으며, 무엇을 남기고 누가 책임지고 어떤 문서를 믿을지 정하는 기준이 필요하다는 내용입니다.")
+        bullets.append("AI가 문서를 대신 쓰는 단계에서 더 나아가, 지식이 생기고 순환하고 정리되는 구조를 설계하는 역할이 중요해졌다고 설명합니다.")
+        bullets.append("개발팀에는 자동화 도입보다 문서의 소유권, 검증 기준, 유지보수 책임을 먼저 정해야 한다는 운영 신호입니다.")
+        return bullets
+
+    if "technical writing" in lowered or "technical writer" in lowered or "문서화" in combined_text:
+        bullets.append("개발 조직의 문서화가 개인 의지에만 기대면 지속되지 않으며, 기준·책임·신뢰할 문서의 위치를 정하는 운영 구조가 필요하다는 내용입니다.")
+        bullets.append("AI는 문서를 대신 쓰는 도구를 넘어 지식이 쌓이고 순환되는 구조를 설계하게 만드는 계기로 제시됩니다.")
+        bullets.append("팀 관점에서는 용어, 소유권, 온보딩 문서, 정책 문서의 기준을 명확히 두는 것이 자동화보다 먼저 필요한 기반으로 다뤄집니다.")
+        return bullets
+
+    if "테스트하는 법" in text or "smoke test" in lowered or "regression test" in lowered:
+        bullets.append("Toss가 잦은 릴리스 속에서도 품질을 유지하기 위해 smoke test, regression test, PR 분석을 결합해 테스트 흐름을 운영한 사례입니다.")
+        bullets.append("핵심은 많은 코드 변경을 빠르게 내보내는 환경에서 사용자가 체감하는 핵심 기능이 안전하게 동작하는지 우선 확인하는 체계입니다.")
+        bullets.append("QA와 플랫폼 팀에는 테스트 자동화 자체보다 릴리스 위험을 빠르게 분류하고 책임 구간을 좁히는 운영 설계가 중요하다는 신호입니다.")
         return bullets
 
     return []
@@ -512,6 +588,24 @@ def shorten_sentence(text, max_length):
     text = re.sub(r'\s+', ' ', text).strip()
     return text if len(text) <= max_length else text[:max_length].rstrip() + "..."
 
+def shorten_multiline(text, max_length):
+    text = "\n".join(re.sub(r'[ \t]+', ' ', line).strip() for line in text.splitlines() if line.strip())
+    if len(text) <= max_length:
+        return text
+    lines = []
+    total = 0
+    for line in text.splitlines():
+        remaining = max_length - total - (1 if lines else 0)
+        if remaining <= 12:
+            break
+        if len(line) > remaining:
+            line = line[:remaining].rstrip() + "..."
+        lines.append(line)
+        total += len(line) + (1 if len(lines) > 1 else 0)
+        if total >= max_length:
+            break
+    return "\n".join(lines)
+
 def add_parsed_item(items, feed, title, link, description, pub_date, content="", author="", guid="", feed_categories=None, comments="", enclosure=None):
     feed_categories = feed_categories or []
     enclosure = enclosure or {}
@@ -534,6 +628,7 @@ def add_parsed_item(items, feed, title, link, description, pub_date, content="",
         "description": full_summary,
         "summary": full_summary,
         "fullSummary": full_summary,
+        "displaySummary": build_display_summary(title, full_summary, categories),
         "koreanSummary": build_korean_summary(title, feed["name"], region_label, full_summary, categories, feed_categories, author),
         "pubDate": pub_date,
         "region": feed["region"],

@@ -137,13 +137,14 @@ news.forEach((item, index) => {
   const region = item.region === 'domestic' ? 'domestic' : 'overseas';
   const regionLabel = item.regionLabel || (region === 'domestic' ? '국내' : '해외');
   const fullSummary = item.fullSummary || item.summary || item.description || '';
+  const displaySummary = item.displaySummary || limitText(fullSummary, 1400);
   const rowSummary = limitText(fullSummary, 1800);
   lines.push(
     `INSERT OR REPLACE INTO crawled_news ` +
-    `(id, source, title, korean_title, link, description, summary, full_summary, korean_summary, pub_date, ` +
+    `(id, source, title, korean_title, link, description, summary, display_summary, full_summary, korean_summary, pub_date, ` +
     `region, region_label, categories_json, feed_categories_json, author, guid, comments, enclosure_json, feed_meta_json, sort_order) VALUES ` +
     `(${sql(id)}, ${sql(item.source)}, ${sql(item.title)}, ${sql(item.koreanTitle)}, ${sql(item.link)}, ${sql(rowSummary)}, ` +
-    `${sql(rowSummary)}, ${sql(rowSummary)}, ${sql(limitText(item.koreanSummary, 1800))}, ${sql(item.pubDate)}, ` +
+    `${sql(rowSummary)}, ${sql(displaySummary)}, ${sql(rowSummary)}, ${sql(limitText(item.koreanSummary, 1800))}, ${sql(item.pubDate)}, ` +
     `${sql(region)}, ${sql(regionLabel)}, ${json(item.categories)}, ${json(item.feedCategories)}, ${sql(item.author)}, ` +
     `${sql(item.guid)}, ${sql(item.comments)}, ${json(item.enclosure || {})}, ${json(item.feedMeta || {})}, ${index});`
   );

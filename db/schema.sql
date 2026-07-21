@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS crawled_news (
   link TEXT NOT NULL UNIQUE,
   description TEXT,
   summary TEXT,
+  display_summary TEXT,
   full_summary TEXT,
   korean_summary TEXT,
   pub_date TEXT,

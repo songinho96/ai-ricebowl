@@ -858,6 +858,10 @@ createApp({
       return item?.fullSummary || item?.summary || item?.description || 'RSS 피드에서 제공된 요약 정보가 없습니다. 원문 링크에서 전체 내용을 확인하세요.';
     },
 
+    newsDisplaySummary(item) {
+      return item?.displaySummary || this.newsFullSummary(item);
+    },
+
     newsSummaryLines(item) {
       return String(item?.koreanSummary || '')
         .split(/\r?\n/)
@@ -885,7 +889,7 @@ createApp({
         return this.newsSummaryBullets(item).join(' ') || this.newsSummaryLines(item).join(' ');
       }
 
-      const text = `${item.title || ''} ${this.newsFullSummary(item)}`.toLowerCase();
+      const text = `${item.title || ''} ${this.newsDisplaySummary(item)}`.toLowerCase();
       const categories = item.categories || [];
       const topic = this.newsTopicLabel(text, categories);
       const action = this.newsActionLabel(text, categories);
@@ -894,7 +898,7 @@ createApp({
     },
 
     newsDeveloperPoints(item) {
-      const text = `${item.title || ''} ${this.newsFullSummary(item)}`.toLowerCase();
+      const text = `${item.title || ''} ${this.newsDisplaySummary(item)}`.toLowerCase();
       const points = [];
 
       if (/agent|mcp|orchestration|workflow|tool/.test(text)) {

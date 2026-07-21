@@ -42,7 +42,7 @@ export async function onRequestGet(context) {
   params.push(limit);
 
   const { results } = await db.prepare(
-    `SELECT id, source, title, korean_title, link, description, summary, full_summary, korean_summary,
+    `SELECT id, source, title, korean_title, link, description, summary, display_summary, full_summary, korean_summary,
             pub_date, region, region_label, categories_json, feed_categories_json,
             author, guid, comments, enclosure_json, feed_meta_json
      FROM crawled_news
@@ -77,6 +77,7 @@ export async function onRequestGet(context) {
       link: row.link,
       description: row.description,
       summary: row.summary,
+      displaySummary: row.display_summary,
       fullSummary: chunksByNewsId[row.id]?.join('') || row.full_summary,
       koreanSummary: row.korean_summary,
       pubDate: row.pub_date,
