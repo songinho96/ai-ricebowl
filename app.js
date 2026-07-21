@@ -163,6 +163,18 @@ function decodeRoutePart(value) {
   }
 }
 
+function stableHash(value) {
+  const input = String(value || '');
+  let hash = 0;
+
+  for (let index = 0; index < input.length; index += 1) {
+    hash = Math.imul(31, hash) + input.charCodeAt(index);
+    hash |= 0;
+  }
+
+  return (hash >>> 0).toString(36);
+}
+
 createApp({
   data() {
     return {
@@ -570,7 +582,7 @@ createApp({
     },
 
     openNewsDetail(item) {
-      this.navigateTo(`/news/${encodeRoutePart(item.key)}`);
+      this.navigateTo(this.newsDetailRoute(item.key));
     },
 
     closeNewsDetail() {
@@ -711,6 +723,18 @@ createApp({
       return `/trends${query ? `?${query}` : ''}`;
     },
 
+    newsDetailRoute(newsKey) {
+      const params = new URLSearchParams();
+
+      params.set('filter', 'realtime');
+      if (this.activeNewsRegion !== 'overseas') params.set('region', this.activeNewsRegion);
+      if (this.activeSummaryPeriod !== 'daily') params.set('period', this.activeSummaryPeriod);
+      if (this.activeJobFilter !== 'all') params.set('job', this.activeJobFilter);
+      if (this.searchQuery) params.set('q', this.searchQuery);
+
+      return `/news/${encodeRoutePart(newsKey)}?${params.toString()}`;
+    },
+
     blogListRoute() {
       const params = new URLSearchParams();
       if (this.activeJobGuide !== 'FE') params.set('job', this.activeJobGuide);
@@ -779,9 +803,16 @@ createApp({
     },
 
     decorateNewsItem(item, index) {
+      const identity = [
+        item.link,
+        item.title,
+        item.source,
+        item.pubDate
+      ].filter(Boolean).join('|') || `item-${index}`;
+
       return {
         ...item,
-        key: `realtime-${index}-${item.link}`,
+        key: `realtime-${stableHash(identity)}`,
         kind: 'realtime'
       };
     },
