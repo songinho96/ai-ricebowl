@@ -64,7 +64,7 @@
             </div>
             <h1>{{ newsDisplayTitle(selectedNews) }}</h1>
             <p class="news-original-title">원문 제목: {{ selectedNews.title }}</p>
-            <p>{{ newsKoreanBrief(selectedNews) }}</p>
+            <p class="news-lead">{{ newsLead(selectedNews) }}</p>
             <div class="news-detail-actions">
               <a :href="safeUrl(selectedNews.link)" target="_blank" rel="noopener noreferrer" class="primary-link-btn">
                 원문에서 전체 내용 확인 <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -74,8 +74,12 @@
 
           <div class="news-detail-grid">
             <section class="insight-panel">
-              <h2><i class="fa-solid fa-language"></i> 한글 브리핑</h2>
-              <p>{{ selectedNews.koreanSummary || newsKoreanBrief(selectedNews) }}</p>
+              <h2><i class="fa-solid fa-list-check"></i> 핵심 요약</h2>
+              <ul v-if="newsSummaryBullets(selectedNews).length" class="summary-bullet-list">
+                <li v-for="bullet in newsSummaryBullets(selectedNews)" :key="bullet">{{ bullet }}</li>
+              </ul>
+              <p v-else>{{ newsLead(selectedNews) }}</p>
+              <p v-if="newsSummaryMeta(selectedNews)" class="summary-meta">{{ newsSummaryMeta(selectedNews) }}</p>
             </section>
 
             <section class="insight-panel full-feed-panel">
@@ -348,7 +352,7 @@
                 </div>
                 <h3>{{ newsDisplayTitle(item) }}</h3>
                 <p class="original-title">원문: {{ item.title }}</p>
-                <p class="summary">{{ newsKoreanBrief(item) }}</p>
+                <p class="summary">{{ newsLead(item) }}</p>
                 <p class="original-summary realtime-full-summary">{{ newsFullSummary(item) }}</p>
               </div>
               <div class="card-footer">

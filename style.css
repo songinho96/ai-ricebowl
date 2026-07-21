@@ -1456,6 +1456,24 @@ footer {
   list-style: none;
 }
 
+.summary-bullet-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.summary-bullet-list li {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.summary-meta {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
 .insight-panel p {
   color: var(--text-secondary);
   line-height: 1.75;

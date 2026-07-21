@@ -858,9 +858,31 @@ createApp({
       return item?.fullSummary || item?.summary || item?.description || 'RSS 피드에서 제공된 요약 정보가 없습니다. 원문 링크에서 전체 내용을 확인하세요.';
     },
 
+    newsSummaryLines(item) {
+      return String(item?.koreanSummary || '')
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter(Boolean);
+    },
+
+    newsSummaryBullets(item) {
+      return this.newsSummaryLines(item)
+        .filter((line) => line.startsWith('- '))
+        .map((line) => line.replace(/^-\s+/, ''));
+    },
+
+    newsSummaryMeta(item) {
+      return this.newsSummaryLines(item)
+        .find((line) => line.startsWith('메타:')) || '';
+    },
+
+    newsLead(item) {
+      return this.newsSummaryBullets(item)[0] || this.newsKoreanBrief(item);
+    },
+
     newsKoreanBrief(item) {
       if (item.koreanSummary) {
-        return item.koreanSummary.split('\n\n')[0];
+        return this.newsSummaryBullets(item).join(' ') || this.newsSummaryLines(item).join(' ');
       }
 
       const text = `${item.title || ''} ${this.newsFullSummary(item)}`.toLowerCase();
