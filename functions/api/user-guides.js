@@ -1,3 +1,5 @@
+import { requireUser } from '../_lib/user-auth.js';
+
 const JSON_HEADERS = {
   'content-type': 'application/json; charset=utf-8',
   'cache-control': 'no-store'
@@ -187,6 +189,9 @@ export async function onRequestPost(context) {
     return responseJson({ error: 'ai_ricebowl binding is not configured.' }, { status: 503 });
   }
 
+  const auth = await requireUser(context);
+  if (auth.response) return auth.response;
+
   let payload;
   try {
     payload = await context.request.json();
@@ -195,6 +200,11 @@ export async function onRequestPost(context) {
   }
 
   const input = normalizePayload(payload || {});
+  input.author = input.author || auth.user.name || '익명 개발자';
+  input.contact = input.contact
+    ? `${auth.user.email} · ${input.contact}`
+    : auth.user.email;
+
   const errors = validate(input);
 
   if (errors.length) {

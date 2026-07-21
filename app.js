@@ -159,6 +159,20 @@ function createGuideFormDefaults() {
   };
 }
 
+function createUserAuthDefaults() {
+  return {
+    login: {
+      email: '',
+      password: ''
+    },
+    signup: {
+      name: '',
+      email: '',
+      password: ''
+    }
+  };
+}
+
 function readJsonStorage(key, fallback) {
   try {
     const stored = localStorage.getItem(key);
@@ -194,6 +208,8 @@ function stableHash(value) {
 
 createApp({
   data() {
+    const userAuthDefaults = createUserAuthDefaults();
+
     return {
       activeTab: 'trends',
       activeCategoryFilter: 'all',
@@ -218,6 +234,13 @@ createApp({
       guideSubmitStatus: 'idle',
       guideSubmitMessage: '',
       guideForm: createGuideFormDefaults(),
+      currentUser: null,
+      userAuthMode: 'login',
+      userAuthBusy: false,
+      userAuthMessage: '',
+      userAuthStatus: 'idle',
+      userLoginForm: userAuthDefaults.login,
+      userSignupForm: userAuthDefaults.signup,
       trends: (window.dailyTrendCards || window.aiTrendsData || []).map(normalizeTrendCard),
       blogPosts: (window.dailySurvivalGuides || window.blogPostsData || []).map(normalizeSurvivalGuide),
       jobRoles: window.jobRolesData || {},
@@ -481,6 +504,7 @@ createApp({
     document.documentElement.setAttribute('data-theme', this.theme);
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('popstate', this.applyCurrentRoute);
+    this.loadUserSession();
     this.applyCurrentRoute({ scroll: false, replaceMissing: false });
     this.loadRemoteContent().then(() => {
       this.applyCurrentRoute({ scroll: false, replaceMissing: true });
@@ -493,6 +517,110 @@ createApp({
   },
 
   methods: {
+    async userAuthApi(options = {}) {
+      const response = await fetch('/api/auth', {
+        credentials: 'include',
+        headers: {
+          accept: 'application/json',
+          ...(options.body ? { 'content-type': 'application/json' } : {}),
+          ...(options.headers || {})
+        },
+        ...options,
+        body: options.body ? JSON.stringify(options.body) : undefined
+      });
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(payload.error || `요청 실패 (${response.status})`);
+      }
+
+      return payload;
+    },
+
+    applyCurrentUser(user) {
+      this.currentUser = user || null;
+      if (this.currentUser && !this.guideForm.author) {
+        this.guideForm.author = this.currentUser.name;
+      }
+    },
+
+    async loadUserSession() {
+      try {
+        const payload = await this.userAuthApi();
+        this.applyCurrentUser(payload.user || null);
+      } catch (error) {
+        this.currentUser = null;
+      }
+    },
+
+    setUserAuthMode(mode) {
+      this.userAuthMode = mode;
+      this.userAuthMessage = '';
+      this.userAuthStatus = 'idle';
+    },
+
+    async loginUser() {
+      if (this.userAuthBusy) return;
+      this.userAuthBusy = true;
+      this.userAuthMessage = '';
+
+      try {
+        const payload = await this.userAuthApi({
+          method: 'POST',
+          body: {
+            action: 'login',
+            ...this.userLoginForm
+          }
+        });
+        this.applyCurrentUser(payload.user);
+        this.userAuthStatus = 'success';
+        this.userAuthMessage = payload.message || '로그인했습니다.';
+      } catch (error) {
+        this.userAuthStatus = 'error';
+        this.userAuthMessage = error.message;
+      } finally {
+        this.userAuthBusy = false;
+      }
+    },
+
+    async signupUser() {
+      if (this.userAuthBusy) return;
+      this.userAuthBusy = true;
+      this.userAuthMessage = '';
+
+      try {
+        const payload = await this.userAuthApi({
+          method: 'POST',
+          body: {
+            action: 'signup',
+            ...this.userSignupForm
+          }
+        });
+        this.applyCurrentUser(payload.user);
+        this.userAuthStatus = 'success';
+        this.userAuthMessage = payload.message || '회원가입이 완료됐습니다.';
+      } catch (error) {
+        this.userAuthStatus = 'error';
+        this.userAuthMessage = error.message;
+      } finally {
+        this.userAuthBusy = false;
+      }
+    },
+
+    async logoutUser() {
+      try {
+        await this.userAuthApi({
+          method: 'POST',
+          body: { action: 'logout' }
+        });
+      } catch (error) {
+        this.userAuthStatus = 'error';
+        this.userAuthMessage = error.message;
+      } finally {
+        this.currentUser = null;
+      }
+    },
+
     async loadRemoteContent() {
       try {
         const response = await fetch('/api/bootstrap', {
@@ -786,6 +914,9 @@ createApp({
     openGuideComposer() {
       this.guideSubmitStatus = 'idle';
       this.guideSubmitMessage = '';
+      if (this.currentUser && !this.guideForm.author) {
+        this.guideForm.author = this.currentUser.name;
+      }
       this.navigateTo('/guides/new');
     },
 
@@ -795,6 +926,9 @@ createApp({
 
     resetGuideForm() {
       this.guideForm = createGuideFormDefaults();
+      if (this.currentUser) {
+        this.guideForm.author = this.currentUser.name;
+      }
       this.guideSubmitStatus = 'idle';
       this.guideSubmitMessage = '';
     },
@@ -813,6 +947,7 @@ createApp({
       try {
         const response = await fetch('/api/user-guides', {
           method: 'POST',
+          credentials: 'include',
           headers: {
             'content-type': 'application/json',
             accept: 'application/json'
@@ -822,6 +957,7 @@ createApp({
         const payload = await response.json().catch(() => ({}));
 
         if (!response.ok) {
+          if (response.status === 401) this.currentUser = null;
           throw new Error(payload.error || `제출 실패 (${response.status})`);
         }
 

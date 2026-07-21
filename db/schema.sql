@@ -121,6 +121,31 @@ CREATE TABLE IF NOT EXISTS user_survival_guides (
 CREATE INDEX IF NOT EXISTS idx_user_survival_guides_status_date
   ON user_survival_guides(status, date DESC);
 
+CREATE TABLE IF NOT EXISTS user_accounts (
+  id TEXT PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  password_hash TEXT NOT NULL,
+  password_salt TEXT NOT NULL,
+  active INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS user_sessions (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  token_hash TEXT NOT NULL UNIQUE,
+  expires_at TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  user_agent TEXT,
+  FOREIGN KEY (user_id) REFERENCES user_accounts(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_sessions_user
+  ON user_sessions(user_id, expires_at);
+
 CREATE TABLE IF NOT EXISTS admin_users (
   id TEXT PRIMARY KEY,
   email TEXT NOT NULL UNIQUE,
