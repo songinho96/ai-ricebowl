@@ -119,8 +119,7 @@ async function loadReports(db) {
     db,
     `SELECT date, title, path, created_at
      FROM daily_reports
-     ORDER BY date DESC
-     LIMIT 14`
+     ORDER BY date DESC`
   );
 
   return results.map((row) => ({

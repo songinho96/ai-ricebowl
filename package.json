@@ -5,6 +5,7 @@
   "scripts": {
     "dev:cloudflare": "wrangler pages dev . --compatibility-date=2026-07-07",
     "archive:daily": "node scripts/archive_daily_site_data.js",
+    "archive:backfill": "node scripts/backfill_daily_archives_from_git.js",
     "db:seed": "node scripts/archive_daily_site_data.js && node scripts/export_cloudflare_d1_seed.js",
     "db:schema:local": "wrangler d1 execute ai-ricebowl --local --file=db/schema.sql",
     "db:seed:local": "wrangler d1 execute ai-ricebowl --local --file=db/seed.sql",

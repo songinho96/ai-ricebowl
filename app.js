@@ -172,8 +172,8 @@ createApp({
       activeNewsRegion: 'overseas',
       activeSummaryPeriod: 'daily',
       activeJobGuide: 'FE',
-      activeTrendDate: 'latest',
-      activeGuideDate: 'latest',
+      activeTrendDate: 'all',
+      activeGuideDate: 'all',
       searchQuery: '',
       theme: localStorage.getItem(STORAGE_KEYS.theme) || 'dark',
       bookmarkedIds: readJsonStorage(STORAGE_KEYS.bookmarks, []),
@@ -330,7 +330,7 @@ createApp({
         .filter((item) => {
           const latest = this.latestDate(this.trends);
           if (this.activeTrendDate === 'latest' && item.date !== latest) return false;
-          if (this.activeTrendDate !== 'latest' && item.date !== this.activeTrendDate) return false;
+          if (this.activeTrendDate !== 'all' && this.activeTrendDate !== 'latest' && item.date !== this.activeTrendDate) return false;
 
           if (this.activeCategoryFilter === 'bookmarks') {
             if (!this.isBookmarked(item.id)) return false;
@@ -390,6 +390,9 @@ createApp({
       const latest = this.latestDate(this.blogPosts);
 
       return this.blogPosts.filter((post) => {
+        if (this.activeGuideDate === 'all') {
+          return true;
+        }
         if (this.activeGuideDate === 'latest') {
           return post.date === latest;
         }
@@ -701,7 +704,7 @@ createApp({
       if (this.activeNewsRegion !== 'overseas') params.set('region', this.activeNewsRegion);
       if (this.activeSummaryPeriod !== 'daily') params.set('period', this.activeSummaryPeriod);
       if (this.activeCategoryFilter === 'realtime' && this.activeJobFilter !== 'all') params.set('job', this.activeJobFilter);
-      if (this.activeCategoryFilter !== 'realtime' && this.activeTrendDate !== 'latest') params.set('date', this.activeTrendDate);
+      if (this.activeCategoryFilter !== 'realtime' && this.activeTrendDate !== 'all') params.set('date', this.activeTrendDate);
       if (this.searchQuery) params.set('q', this.searchQuery);
 
       const query = params.toString();
@@ -711,7 +714,7 @@ createApp({
     blogListRoute() {
       const params = new URLSearchParams();
       if (this.activeJobGuide !== 'FE') params.set('job', this.activeJobGuide);
-      if (this.activeGuideDate !== 'latest') params.set('date', this.activeGuideDate);
+      if (this.activeGuideDate !== 'all') params.set('date', this.activeGuideDate);
       const query = params.toString();
       return `/guides${query ? `?${query}` : ''}`;
     },
@@ -721,6 +724,7 @@ createApp({
         .sort((a, b) => b.localeCompare(a));
 
       return [
+        { id: 'all', label: '전체' },
         { id: 'latest', label: '최신' },
         ...dates.map((date) => ({ id: date, label: date }))
       ];
@@ -732,8 +736,9 @@ createApp({
     },
 
     resolveDateParam(items, date) {
-      if (!date || date === 'latest') return 'latest';
-      return items.some((item) => item.date === date) ? date : 'latest';
+      if (!date || date === 'all') return 'all';
+      if (date === 'latest') return 'latest';
+      return items.some((item) => item.date === date) ? date : 'all';
     },
 
     updateDocumentTitle() {
