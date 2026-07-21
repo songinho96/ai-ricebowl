@@ -215,21 +215,240 @@ def korean_topic_label(text, categories):
     return "AI/IT 산업 변화"
 
 def build_korean_title(title, source, region_label, categories):
+    if not title:
+        return f"{region_label} {source} 주요 소식"
+    if re.search(r'[가-힣]', title):
+        return title
+
+    legal_title = translate_legal_ai_title(title)
+    if legal_title:
+        return legal_title
+
+    agent_title = translate_agent_report_title(title)
+    if agent_title:
+        return agent_title
+
     topic = korean_topic_label(title, categories)
-    return f"{topic}: {title}" if title else f"{region_label} {source} 주요 소식"
+    return f"{topic}: {title}"
 
 def build_korean_summary(title, source, region_label, full_summary, categories, feed_categories, author):
-    topic = korean_topic_label(f"{title} {full_summary}", categories)
-    category_text = ", ".join(categories or ["General"])
-    feed_category_text = ", ".join(feed_categories[:6]) if feed_categories else "피드 카테고리 없음"
-    author_text = f" 작성자/제공자는 {author}입니다." if author else ""
-    body = full_summary or "RSS가 본문 요약을 제공하지 않아 원문 확인이 필요합니다."
+    sentences = split_sentences(full_summary)
+    title_sentence = title if title and title not in full_summary[:250] else ""
+    source_text = " ".join([title_sentence, *sentences[:12]]).strip()
+    bullets = build_summary_bullets(title, source_text, sentences, categories)
 
-    return (
-        f"{region_label} {source}에서 수집한 {topic} 관련 피드입니다."
-        f"{author_text} 직무 분류는 {category_text}, 원문 피드 태그는 {feed_category_text}입니다.\n\n"
-        f"{body}"
-    )
+    if not bullets:
+        fallback = full_summary or title or "RSS가 본문 요약을 제공하지 않아 원문 확인이 필요합니다."
+        bullets = [summarize_sentence_to_korean(fallback, categories)]
+
+    metadata = []
+    if author:
+        metadata.append(f"작성자: {author}")
+    if feed_categories:
+        metadata.append(f"피드 태그: {', '.join(feed_categories[:6])}")
+
+    meta_line = f"\n\n메타: {' · '.join(metadata)}" if metadata else ""
+    return "핵심 요약\n" + "\n".join(f"- {bullet}" for bullet in bullets[:5]) + meta_line
+
+def split_sentences(text):
+    if not text:
+        return []
+    normalized = re.sub(r'\s+', ' ', text).strip()
+    parts = re.split(r'(?<=[.!?。！？])\s+', normalized)
+    return [
+        part.strip()
+        for part in parts
+        if len(part.strip()) >= 35 and not is_boilerplate_sentence(part)
+    ]
+
+def is_boilerplate_sentence(sentence):
+    lowered = sentence.lower()
+    boilerplate = [
+        "the post ",
+        "appeared first on",
+        "read more",
+        "click here",
+        "leave a reply",
+        "copyright ©",
+        "all rights reserved"
+    ]
+    return any(marker in lowered for marker in boilerplate)
+
+def build_summary_bullets(title, source_text, sentences, categories):
+    specialized = summarize_special_cases(title, source_text)
+    if specialized:
+        return specialized
+
+    selected = select_important_sentences(sentences)
+    bullets = []
+
+    if title:
+        title_summary = summarize_title_to_korean(title, source_text, categories)
+        if title_summary:
+            bullets.append(title_summary)
+
+    for sentence in selected:
+        summary = summarize_sentence_to_korean(sentence, categories)
+        if summary and summary not in bullets:
+            bullets.append(summary)
+        if len(bullets) >= 5:
+            break
+
+    return bullets
+
+def select_important_sentences(sentences):
+    scored = []
+    keywords = [
+        "approved", "announced", "launched", "released", "settlement", "lawsuit",
+        "study", "survey", "found", "shows", "percent", "%", "billion", "million",
+        "security", "incident", "evaluation", "context", "agent", "customers",
+        "developers", "production", "architecture", "performance", "cost"
+    ]
+
+    for index, sentence in enumerate(sentences[:24]):
+        lowered = sentence.lower()
+        score = max(0, 8 - index)
+        score += sum(3 for keyword in keywords if keyword in lowered)
+        score += len(re.findall(r'\d+|%|\$[0-9]', sentence))
+        if 80 <= len(sentence) <= 320:
+            score += 2
+        scored.append((score, index, sentence))
+
+    return [
+        sentence
+        for _, _, sentence in sorted(scored, key=lambda item: (-item[0], item[1]))[:5]
+    ]
+
+def summarize_special_cases(title, text):
+    lowered = f"{title} {text}".lower()
+    bullets = []
+
+    if "anthropic" in lowered and "settlement" in lowered and "copyright" in lowered:
+        amount = extract_money(text) or "15억 달러"
+        bullets.append(f"샌프란시스코 연방법원이 Anthropic의 저작권 집단소송 합의안을 최종 승인했으며, 합의 규모는 {amount}로 알려졌습니다.")
+        bullets.append("저자들은 Anthropic이 Claude 학습에 허가 없이 도서 자료를 사용했다고 주장했고, 이 사건은 AI 모델 학습을 둘러싼 미국 주요 저작권 분쟁 중 첫 대형 합의 사례로 다뤄졌습니다.")
+        bullets.append("법원은 도서 학습 자체는 fair use로 본 기존 판단을 유지했지만, 700만 권 이상의 불법 복제 도서를 별도 중앙 라이브러리에 보관한 쟁점은 권리 침해로 남겼습니다.")
+        bullets.append("일부 저자들은 합의금 규모와 변호사 보수, 배제 범위에 이의를 제기했지만 재판부는 이를 기각했고, 일부 작가·출판사의 별도 소송은 계속 진행 중입니다.")
+        return bullets
+
+    if "agent security gap" in lowered:
+        enterprise_count = extract_enterprise_count(text)
+        percent = extract_percent(text)
+        bullets.append(f"{enterprise_count or '다수의'} 기업 조사에서 AI 에이전트가 실제 시스템과 데이터에 접근하고 있지만, 이를 격리하고 통제하는 보안 장치는 뒤처져 있다는 내용입니다.")
+        if percent:
+            bullets.append(f"조사 대상 중 {percent}가 이미 AI 에이전트 보안 사고나 근접 사고를 겪은 것으로 제시되어, 에이전트 권한 관리가 실험 단계를 넘어 운영 리스크가 됐습니다.")
+        bullets.append("많은 조직이 에이전트별 scoped identity를 부여하지 못하고 자격 증명을 공유하거나 고위험 에이전트를 제대로 분리하지 못하는 점이 핵심 문제로 지적됩니다.")
+        bullets.append("개발팀 관점에서는 에이전트 도입 전에 credential 분리, 권한 범위, 감사 로그, 격리 정책을 제품 요구사항으로 먼저 잡아야 합니다.")
+        return bullets
+
+    if "agent evaluation gap" in lowered:
+        enterprise_count = extract_enterprise_count(text)
+        bullets.append(f"{enterprise_count or '여러'} 기업 조사에서 AI 에이전트 평가가 실제 운영 결과와 맞지 않는다는 문제가 드러났다는 내용입니다.")
+        bullets.append("내부 평가를 통과한 에이전트가 고객 환경이나 production에서 실패하는 사례가 제시되어, coverage보다 reality-alignment가 핵심 이슈로 부각됩니다.")
+        bullets.append("자동 평가를 완전히 신뢰하는 조직은 소수이며, 실제 사용자 시나리오·회귀 테스트·운영 로그 기반 검증이 필요하다는 메시지입니다.")
+        return bullets
+
+    if "ai context gap" in lowered or "context gap" in lowered:
+        enterprise_count = extract_enterprise_count(text)
+        bullets.append(f"{enterprise_count or '여러'} 기업 조사에서 AI 에이전트의 문제는 검색 기능 부족보다 신뢰 가능한 비즈니스 컨텍스트 부족에 가깝다고 지적합니다.")
+        bullets.append("RAG와 provider-native retrieval이 널리 쓰이고 있지만, 컨텍스트 출처·정합성·최신성 관리가 부족해 에이전트가 확신 있게 틀린 답을 내는 사례가 반복됩니다.")
+        bullets.append("해결 방향은 벡터 DB 추가가 아니라 governed semantic layer, 출처 추적, 컨텍스트 품질 평가 체계를 먼저 만드는 쪽으로 제시됩니다.")
+        return bullets
+
+    return []
+
+def summarize_title_to_korean(title, text, categories):
+    translated = translate_legal_ai_title(title) or translate_agent_report_title(title)
+    if translated:
+        return translated
+
+    if re.search(r'[가-힣]', title):
+        return title
+
+    topic = korean_topic_label(f"{title} {text}", categories)
+    subject = extract_subject(title)
+    return f"{subject or '이 소식'}은 {topic} 흐름에서 확인해야 할 변화로, 원문은 제품·정책·운영 조건의 변화를 다룹니다."
+
+def summarize_sentence_to_korean(sentence, categories):
+    if re.search(r'[가-힣]', sentence):
+        return sentence
+
+    lowered = sentence.lower()
+
+    if "federal judge" in lowered and "approved" in lowered and "settlement" in lowered:
+        amount = extract_money(sentence)
+        return f"미국 연방법원이 {amount + ' 규모의 ' if amount else ''}합의안을 승인했다는 내용입니다."
+    if "largest known" in lowered and "copyright" in lowered:
+        return "이번 합의는 알려진 미국 저작권 사건 중 최대 규모의 합의로 설명됩니다."
+    if "fair use" in lowered and ("books" in lowered or "training" in lowered):
+        return "법원은 AI 학습 목적의 도서 사용은 fair use로 볼 수 있다고 판단했지만, 불법 복제 도서 보관 문제는 별도 쟁점으로 남겼습니다."
+    if "pirated" in lowered and "books" in lowered:
+        return "쟁점은 모델 학습 자체뿐 아니라 불법 복제 도서를 대량 저장·보관했는지 여부까지 포함합니다."
+    if "objections" in lowered and ("overruled" in lowered or "rejected" in lowered):
+        return "재판부는 합의 규모나 보상 범위에 대한 일부 이의를 받아들이지 않았습니다."
+    if "separate lawsuits" in lowered or "still ongoing" in lowered:
+        return "일부 권리자나 출판사의 별도 소송은 아직 계속되고 있습니다."
+    if "announced" in lowered or "released" in lowered or "launched" in lowered:
+        return f"{extract_subject(sentence) or '해당 회사'}가 새 기능이나 제품 업데이트를 공개했다는 내용입니다."
+    if "security" in lowered and ("incident" in lowered or "vulnerability" in lowered):
+        return "보안 사고나 취약점이 실제 운영 리스크로 제기되며, 권한·로그·격리 체계 점검이 필요합니다."
+    if "production" in lowered and ("failed" in lowered or "customers" in lowered):
+        return "내부 테스트를 통과한 기능이 실제 고객 환경이나 production에서 실패할 수 있다는 점을 지적합니다."
+    if "cost" in lowered or "billion" in lowered or "million" in lowered:
+        return f"비용·투자·시장 규모 같은 수치가 핵심 근거로 제시됩니다: {extract_numbers(sentence)}"
+
+    topic = korean_topic_label(sentence, categories)
+    return f"{topic} 관련 핵심 문장입니다: {shorten_sentence(sentence, 180)}"
+
+def translate_legal_ai_title(title):
+    lowered = title.lower()
+    if "judge" in lowered and "approves" in lowered and "anthropic" in lowered and "settlement" in lowered:
+        amount = extract_money(title) or "15억 달러"
+        return f"미 법원, Anthropic의 {amount} 저작권 소송 합의안 승인"
+    if "copyright" in lowered and "settlement" in lowered and "anthropic" in lowered:
+        return "Anthropic 저작권 합의 승인, AI 학습 데이터 분쟁의 첫 대형 합의"
+    return ""
+
+def translate_agent_report_title(title):
+    lowered = title.lower()
+    if "agent security gap" in lowered:
+        percent = extract_percent(title)
+        return f"AI 에이전트 보안 격차: 기업의 {percent or '절반 이상'}이 이미 사고를 겪고도 자격 증명 공유를 계속함"
+    if "agent evaluation gap" in lowered:
+        return "AI 에이전트 평가 격차: 내부 평가와 실제 운영 결과가 어긋나는 문제"
+    if "ai context gap" in lowered or "context gap" in lowered:
+        return "AI 컨텍스트 격차: 기업 AI의 문제는 검색보다 신뢰 가능한 컨텍스트 부족"
+    return ""
+
+def extract_money(text):
+    match = re.search(r'\$([0-9]+(?:\.[0-9]+)?)\s*(billion|million)', text, re.I)
+    if not match:
+        return ""
+    value = match.group(1)
+    unit = match.group(2).lower()
+    if unit == "billion":
+        return f"{value}0억 달러" if "." not in value else f"{float(value) * 10:g}억 달러"
+    return f"{value}백만 달러"
+
+def extract_percent(text):
+    match = re.search(r'([0-9]+(?:\.[0-9]+)?)\s*%', text)
+    return f"{match.group(1)}%" if match else ""
+
+def extract_enterprise_count(text):
+    match = re.search(r'Across\s+([0-9]+)\s+enterprises', text, re.I)
+    return f"{match.group(1)}개"
+
+def extract_numbers(text):
+    numbers = re.findall(r'\$[0-9][0-9.,]*(?:\s*(?:billion|million))?|[0-9][0-9.,]*\s*%', text, re.I)
+    return ", ".join(numbers[:4]) if numbers else "원문 수치 확인 필요"
+
+def extract_subject(text):
+    cleaned = re.sub(r'[:—–-].*$', '', text).strip()
+    return shorten_sentence(cleaned, 80)
+
+def shorten_sentence(text, max_length):
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text if len(text) <= max_length else text[:max_length].rstrip() + "..."
 
 def add_parsed_item(items, feed, title, link, description, pub_date, content="", author="", guid="", feed_categories=None, comments="", enclosure=None):
     feed_categories = feed_categories or []

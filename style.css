@@ -1456,6 +1456,13 @@ footer {
   list-style: none;
 }
 
+.insight-panel p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .insight-panel li {
   color: var(--text-secondary);
   margin-bottom: 0.8rem;
