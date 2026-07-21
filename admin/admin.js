@@ -10,10 +10,6 @@ function authDefaults() {
       name: '',
       email: '',
       password: ''
-    },
-    verify: {
-      email: '',
-      code: ''
     }
   };
 }
@@ -33,7 +29,6 @@ createApp({
       messageType: 'success',
       loginForm: defaults.login,
       signupForm: defaults.signup,
-      verifyForm: defaults.verify,
       statusFilters: [
         { id: 'pending', label: '검토 대기' },
         { id: 'published', label: '공개됨' },
@@ -128,27 +123,8 @@ createApp({
             ...this.signupForm
           }
         });
-        this.verifyForm.email = payload.email || this.signupForm.email;
-        this.showMessage(payload.message || '가입 요청이 접수됐습니다.', payload.emailSent ? 'success' : 'error');
-      } catch (error) {
-        this.showMessage(error.message, 'error');
-      } finally {
-        this.authBusy = false;
-      }
-    },
-
-    async verify() {
-      this.authBusy = true;
-      try {
-        const payload = await this.api('/api/admin/auth', {
-          method: 'POST',
-          body: {
-            action: 'verify',
-            ...this.verifyForm
-          }
-        });
         this.user = payload.user;
-        this.showMessage(payload.message || '인증이 완료됐습니다.');
+        this.showMessage(payload.message || '관리자 가입이 완료됐습니다.');
         await this.loadGuides();
       } catch (error) {
         this.showMessage(error.message, 'error');

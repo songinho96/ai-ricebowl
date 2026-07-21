@@ -30,7 +30,7 @@
         <article class="panel auth-panel">
           <span class="eyebrow">ADMIN LOGIN</span>
           <h1>관리자 로그인</h1>
-          <p class="panel-copy">okestro.com 이메일로 인증된 관리자만 사용자 생존가이드를 승인할 수 있습니다.</p>
+          <p class="panel-copy">okestro.com 이메일 계정으로 사용자 생존가이드를 승인할 수 있습니다.</p>
 
           <form @submit.prevent="login">
             <label>
@@ -51,7 +51,7 @@
         <article class="panel auth-panel">
           <span class="eyebrow">OKESTRO ONLY</span>
           <h2>관리자 가입</h2>
-          <p class="panel-copy">회사 이메일만 가입할 수 있고, 인증코드를 입력해야 로그인이 활성화됩니다.</p>
+          <p class="panel-copy">회사 이메일이면 바로 가입할 수 있습니다.</p>
 
           <form @submit.prevent="signup">
             <label>
@@ -67,17 +67,7 @@
               <input v-model="signupForm.password" type="password" autocomplete="new-password" minlength="10" required>
             </label>
             <button class="secondary-btn" type="submit" :disabled="authBusy">
-              <i class="fa-solid fa-user-plus"></i> 가입 요청
-            </button>
-          </form>
-
-          <form class="verify-form" @submit.prevent="verify">
-            <label>
-              <span>인증코드</span>
-              <input v-model.trim="verifyForm.code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="6자리 코드">
-            </label>
-            <button class="secondary-btn" type="submit" :disabled="authBusy">
-              <i class="fa-solid fa-shield-check"></i> 인증 완료
+              <i class="fa-solid fa-user-plus"></i> 가입하기
             </button>
           </form>
         </article>
