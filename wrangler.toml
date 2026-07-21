@@ -1,0 +1,8 @@
+name = "ai-ricebowl"
+compatibility_date = "2026-07-07"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "ai_ricebowl"
+database_name = "ai-ricebowl"
+database_id = "91b543db-a5d1-4c38-8667-1a2984d4ba3d"

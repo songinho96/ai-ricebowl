@@ -43,6 +43,9 @@ bash scripts/install_launchd_daily_rss.sh
 - `caffeinate`로 실행 중 잠자기를 방지한다.
 - RSS 크롤러를 최대 3회 재시도한다.
 - `RUN_CODEX_ANALYSIS=1`이면 Codex CLI로 오늘자 분석 파일까지 갱신한다.
+- `SYNC_CLOUDFLARE=1`이면 분석 완료 후 `scripts/deploy_cloudflare_dynamic.sh`로 D1 seed와 Pages 배포를 실행해 `https://ai-ricebowl.pages.dev/`를 갱신한다.
+- `SEND_DISCORD_DIGEST=1`이면 `scripts/send_discord_digest.sh`로 오늘 리포트의 짧은 digest를 OpenClaw Discord 채널에 전송한다.
+- runner가 중간 실패하면 `scripts/send_discord_failure_alert.sh`가 최근 로그와 exit code를 Discord로 보낸다. OpenClaw cron에도 `failureAlert.after=1`이 설정되어 있어 command 자체가 실패해도 Discord 실패 알림을 받는다.
 - 로그는 `logs/` 아래에 남긴다.
 
 ## OpenClaw cron 등록
@@ -55,10 +58,10 @@ bash scripts/register_openclaw_cron.sh
 
 - 이름: `ai-ricebowl-daily-rss`
 - 스케줄: 매일 09:00, `Asia/Seoul`
-- 명령: `bash run_crawler.sh`
+- 명령: `RUN_CODEX_ANALYSIS=1 SYNC_CLOUDFLARE=1 SEND_DISCORD_DIGEST=1 bash scripts/run_daily_rss_with_retry.sh`
 - 작업 디렉터리: 프로젝트 루트
-- 동작: RSS 수집 후 `crawled_data.js` 갱신
-- 알림: 기본 없음. `DISCORD_NOTIFY_TO`를 지정하면 Discord 완료/실패 알림 전송
+- 동작: RSS 수집 후 Codex 분석 파일 갱신, D1 seed 반영, Cloudflare Pages 배포
+- 알림: 기본 Discord 채널 `channel:1522113030924664934`로 runner 완료 메시지, digest, 실패 알림 전송. 다른 채널을 쓰려면 `DISCORD_NOTIFY_TO`를 지정
 - Python: 기본값 `/usr/bin/python3`, 필요하면 `PYTHON_BIN` 환경 변수로 변경 가능
 
 Discord 알림을 함께 등록하려면 OpenClaw Discord 채널을 먼저 설정한 뒤 다음처럼 실행한다.

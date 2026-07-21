@@ -21,6 +21,11 @@ Thumbs.db
 *.xlsx
 *.json
 !manifest.json
+!package.json
+!package-lock.json
+!data/
+!data/daily-archives/
+!data/daily-archives/*.json
 
 # Local env files
 .env
@@ -34,6 +39,8 @@ Thumbs.db
 node_modules/
 dist/
 .npm
+.wrangler/
+.wrangler-home/
 
 # OpenClaw local agent workspace files
 AGENTS.md

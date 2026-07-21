@@ -64,6 +64,18 @@ OpenClaw로 매일 오전 9시에 자동 수집하려면 [docs/openclaw-automati
 - [docs/product-direction.md](docs/product-direction.md)
 - [docs/openclaw-skill-roadmap.md](docs/openclaw-skill-roadmap.md)
 
+### GitHub Pages 배포
+
+이 프로젝트는 별도 빌드 단계가 없는 정적 사이트입니다. `main` 브랜치에 변경 사항이 머지되면 `.github/workflows/pages.yml`이 `index.html`, JS/CSS, `assets/`, `reports/`를 GitHub Pages에 배포합니다.
+
+최초 1회만 GitHub 저장소의 **Settings > Pages**에서 Source를 **GitHub Actions**로 설정하세요. 이후 배포 URL은 GitHub Pages가 제공하는 `https://<owner>.github.io/<repo>/` 형식을 따릅니다.
+
+### Cloudflare 동적 배포
+
+DB 기반 동적 사이트로 운영하려면 Cloudflare Pages Functions + D1을 사용합니다. 앱은 `/api/bootstrap`에서 D1 데이터를 먼저 읽고, API가 없으면 기존 정적 JS 데이터로 fallback합니다.
+
+자세한 설정은 [docs/cloudflare-dynamic-deploy.md](docs/cloudflare-dynamic-deploy.md)를 참고하세요.
+
 ### 2. 프론트엔드 웹 대시보드 구동
 로컬 웹 서버를 띄워 대시보드 화면을 확인합니다.
 ```bash

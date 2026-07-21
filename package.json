@@ -1,0 +1,17 @@
+{
+  "name": "ai-ricebowl",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:cloudflare": "wrangler pages dev . --compatibility-date=2026-07-07",
+    "archive:daily": "node scripts/archive_daily_site_data.js",
+    "db:seed": "node scripts/archive_daily_site_data.js && node scripts/export_cloudflare_d1_seed.js",
+    "db:schema:local": "wrangler d1 execute ai-ricebowl --local --file=db/schema.sql",
+    "db:seed:local": "wrangler d1 execute ai-ricebowl --local --file=db/seed.sql",
+    "db:schema:remote": "wrangler d1 execute ai-ricebowl --remote --file=db/schema.sql",
+    "db:seed:remote": "wrangler d1 execute ai-ricebowl --remote --file=db/seed.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
