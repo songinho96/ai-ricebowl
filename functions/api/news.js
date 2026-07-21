@@ -42,7 +42,7 @@ export async function onRequestGet(context) {
   params.push(limit);
 
   const { results } = await db.prepare(
-    `SELECT source, title, korean_title, link, description, summary, full_summary, korean_summary,
+    `SELECT id, source, title, korean_title, link, description, summary, full_summary, korean_summary,
             pub_date, region, region_label, categories_json, feed_categories_json,
             author, guid, comments, enclosure_json, feed_meta_json
      FROM crawled_news
@@ -50,16 +50,34 @@ export async function onRequestGet(context) {
      ORDER BY sort_order ASC
      LIMIT ?`
   ).bind(...params).all();
+  const ids = results.map((row) => row.id);
+  const chunksByNewsId = {};
+
+  if (ids.length > 0) {
+    const placeholders = ids.map(() => '?').join(', ');
+    const { results: chunkRows } = await db.prepare(
+      `SELECT news_id, chunk_index, content
+       FROM crawled_news_summary_chunks
+       WHERE news_id IN (${placeholders})
+       ORDER BY news_id ASC, chunk_index ASC`
+    ).bind(...ids).all();
+
+    chunkRows.forEach((row) => {
+      chunksByNewsId[row.news_id] = chunksByNewsId[row.news_id] || [];
+      chunksByNewsId[row.news_id].push(row.content);
+    });
+  }
 
   return responseJson({
     news: results.map((row) => ({
+      id: row.id,
       source: row.source,
       title: row.title,
       koreanTitle: row.korean_title,
       link: row.link,
       description: row.description,
       summary: row.summary,
-      fullSummary: row.full_summary,
+      fullSummary: chunksByNewsId[row.id]?.join('') || row.full_summary,
       koreanSummary: row.korean_summary,
       pubDate: row.pub_date,
       region: row.region,

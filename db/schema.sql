@@ -2,6 +2,7 @@ PRAGMA foreign_keys = ON;
 
 DROP INDEX IF EXISTS idx_crawled_news_region_sort;
 DROP INDEX IF EXISTS idx_crawled_news_source;
+DROP TABLE IF EXISTS crawled_news_summary_chunks;
 DROP TABLE IF EXISTS crawled_news;
 
 CREATE TABLE IF NOT EXISTS crawled_news (
@@ -33,6 +34,13 @@ CREATE INDEX IF NOT EXISTS idx_crawled_news_region_sort
 
 CREATE INDEX IF NOT EXISTS idx_crawled_news_source
   ON crawled_news(source);
+
+CREATE TABLE IF NOT EXISTS crawled_news_summary_chunks (
+  news_id TEXT NOT NULL,
+  chunk_index INTEGER NOT NULL,
+  content TEXT NOT NULL,
+  PRIMARY KEY (news_id, chunk_index)
+);
 
 CREATE TABLE IF NOT EXISTS crawled_summaries (
   region TEXT NOT NULL,
