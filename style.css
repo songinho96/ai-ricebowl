@@ -1424,16 +1424,8 @@ footer {
   padding: 1.5rem;
 }
 
-.summary-panel-wide,
-.full-feed-panel {
+.summary-panel-wide {
   grid-column: 1 / -1;
-}
-
-.full-feed-panel p {
-  color: var(--text-secondary);
-  line-height: 1.75;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
 }
 
 .insight-panel h2,
