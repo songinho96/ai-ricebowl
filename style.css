@@ -485,6 +485,23 @@ main {
   overflow: hidden;
 }
 
+.realtime-full-summary {
+  display: block;
+  -webkit-line-clamp: initial;
+  -webkit-box-orient: initial;
+  overflow: visible;
+  white-space: pre-wrap;
+}
+
+.original-title,
+.news-original-title {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: -0.35rem 0 0.75rem;
+  overflow-wrap: anywhere;
+}
+
 .trend-bullets {
   list-style: none;
   margin-bottom: 1.5rem;
@@ -1364,6 +1381,12 @@ footer {
   max-width: 850px;
 }
 
+.news-detail-header .news-original-title {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
 .news-detail-actions {
   margin-top: 1.5rem;
 }
@@ -1399,6 +1422,17 @@ footer {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem;
+}
+
+.full-feed-panel {
+  grid-column: 1 / -1;
+}
+
+.full-feed-panel p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .insight-panel h2,

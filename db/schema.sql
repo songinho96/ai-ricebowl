@@ -1,15 +1,29 @@
 PRAGMA foreign_keys = ON;
 
+DROP INDEX IF EXISTS idx_crawled_news_region_sort;
+DROP INDEX IF EXISTS idx_crawled_news_source;
+DROP TABLE IF EXISTS crawled_news;
+
 CREATE TABLE IF NOT EXISTS crawled_news (
   id TEXT PRIMARY KEY,
   source TEXT NOT NULL,
   title TEXT NOT NULL,
+  korean_title TEXT,
   link TEXT NOT NULL UNIQUE,
   description TEXT,
+  summary TEXT,
+  full_summary TEXT,
+  korean_summary TEXT,
   pub_date TEXT,
   region TEXT NOT NULL CHECK (region IN ('overseas', 'domestic')),
   region_label TEXT NOT NULL,
   categories_json TEXT NOT NULL DEFAULT '[]',
+  feed_categories_json TEXT NOT NULL DEFAULT '[]',
+  author TEXT,
+  guid TEXT,
+  comments TEXT,
+  enclosure_json TEXT NOT NULL DEFAULT '{}',
+  feed_meta_json TEXT NOT NULL DEFAULT '{}',
   sort_order INTEGER NOT NULL DEFAULT 0,
   collected_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

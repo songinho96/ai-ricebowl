@@ -5,6 +5,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import json
 import re
+import html
 from collections import Counter
 from pathlib import Path
 
@@ -82,13 +83,25 @@ def parse_rss(xml_data, feed):
         atom_entries = root.findall('.//{http://www.w3.org/2005/Atom}entry')
 
         for item in rss_items:
+            raw_description = get_text(item.find('description'), "")
+            content = get_first_child_text(item, ["encoded", "content"])
+            rss_categories = get_child_values(item, "category")
             add_parsed_item(
                 items,
                 feed,
                 title=get_text(item.find('title'), "제목 없음"),
                 link=get_text(item.find('link'), "#"),
-                description=get_text(item.find('description'), ""),
-                pub_date=get_text(item.find('pubDate'), "")
+                description=raw_description,
+                pub_date=get_text(item.find('pubDate'), ""),
+                content=content,
+                author=(
+                    get_first_child_text(item, ["creator", "author", "dc:creator"])
+                    or get_text(item.find('author'), "")
+                ),
+                guid=get_text(item.find('guid'), ""),
+                feed_categories=rss_categories,
+                comments=get_text(item.find('comments'), ""),
+                enclosure=get_enclosure(item)
             )
 
         for entry in atom_entries:
@@ -108,7 +121,13 @@ def parse_rss(xml_data, feed):
                 title=get_text(entry.find('{http://www.w3.org/2005/Atom}title'), "제목 없음"),
                 link=link_text,
                 description=summary,
-                pub_date=pub_date
+                pub_date=pub_date,
+                content=get_text(entry.find('{http://www.w3.org/2005/Atom}content'), ""),
+                author=get_atom_author(entry),
+                guid=get_text(entry.find('{http://www.w3.org/2005/Atom}id'), ""),
+                feed_categories=get_atom_categories(entry),
+                comments="",
+                enclosure={}
             )
     except Exception as e:
         print(f"[{source_name}] XML 파싱 오류: {e}")
@@ -117,20 +136,143 @@ def parse_rss(xml_data, feed):
 def get_text(node, fallback=""):
     return node.text if node is not None and node.text is not None else fallback
 
-def add_parsed_item(items, feed, title, link, description, pub_date):
-    clean_desc = re.sub('<[^<]+?>', '', description).strip() if description else ""
-    if len(clean_desc) > 150:
-        clean_desc = clean_desc[:150] + "..."
+def local_name(tag):
+    return str(tag).split('}', 1)[-1].split(':')[-1]
 
+def clean_text(value):
+    if not value:
+        return ""
+    text = re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', value, flags=re.I | re.S)
+    text = re.sub('<[^<]+?>', ' ', text)
+    text = html.unescape(text)
+    return re.sub(r'\s+', ' ', text).strip()
+
+def get_first_child_text(node, names):
+    wanted = {name.split(':')[-1] for name in names}
+    for child in list(node):
+        if local_name(child.tag) in wanted and child.text:
+            return child.text
+    return ""
+
+def get_child_values(node, name):
+    values = []
+    for child in list(node):
+      if local_name(child.tag) == name:
+          value = child.get("term") or child.text
+          if value:
+              values.append(clean_text(value))
+    return values
+
+def get_atom_author(entry):
+    author = entry.find('{http://www.w3.org/2005/Atom}author')
+    if author is None:
+        return ""
+    return (
+        get_text(author.find('{http://www.w3.org/2005/Atom}name'), "")
+        or get_text(author.find('{http://www.w3.org/2005/Atom}email'), "")
+        or clean_text(get_text(author, ""))
+    )
+
+def get_atom_categories(entry):
+    return [
+        node.get("term") or clean_text(get_text(node, ""))
+        for node in entry.findall('{http://www.w3.org/2005/Atom}category')
+        if node.get("term") or get_text(node, "")
+    ]
+
+def get_enclosure(item):
+    enclosure = item.find('enclosure')
+    if enclosure is None:
+        return {}
+    return {
+        "url": enclosure.get("url", ""),
+        "type": enclosure.get("type", ""),
+        "length": enclosure.get("length", "")
+    }
+
+def korean_topic_label(text, categories):
+    lowered = text.lower()
+    category_set = set(categories or [])
+
+    if re.search(r'agent|mcp|orchestration|workflow|tool', lowered):
+        return "AI 에이전트와 도구 연동"
+    if re.search(r'context|rag|retrieval|prompt', lowered):
+        return "컨텍스트 엔지니어링과 RAG"
+    if re.search(r'llm|model|open-weight|gpt|gemini|claude|bedrock|inference', lowered):
+        return "모델 선택과 LLM 운영"
+    if re.search(r'gpu|chip|compute|serving|kubernetes|data center|cloudflare|aws', lowered):
+        return "AI 인프라와 서빙"
+    if re.search(r'security|vulnerability|privacy|copyright|lawsuit|policy|regulation', lowered):
+        return "보안, 정책, 데이터 경계"
+    if re.search(r'test|qa|review|verification|playwright|coding|copilot', lowered):
+        return "AI 개발 검증과 코드 리뷰"
+    if "FE" in category_set:
+        return "프론트엔드와 사용자 경험"
+    if "BE" in category_set:
+        return "백엔드와 API 운영"
+    if "DevOps" in category_set:
+        return "플랫폼 운영과 DevOps"
+    return "AI/IT 산업 변화"
+
+def build_korean_title(title, source, region_label, categories):
+    topic = korean_topic_label(title, categories)
+    return f"{topic}: {title}" if title else f"{region_label} {source} 주요 소식"
+
+def build_korean_summary(title, source, region_label, full_summary, categories, feed_categories, author):
+    topic = korean_topic_label(f"{title} {full_summary}", categories)
+    category_text = ", ".join(categories or ["General"])
+    feed_category_text = ", ".join(feed_categories[:6]) if feed_categories else "피드 카테고리 없음"
+    author_text = f" 작성자/제공자는 {author}입니다." if author else ""
+    body = full_summary or "RSS가 본문 요약을 제공하지 않아 원문 확인이 필요합니다."
+
+    return (
+        f"{region_label} {source}에서 수집한 {topic} 관련 피드입니다."
+        f"{author_text} 직무 분류는 {category_text}, 원문 피드 태그는 {feed_category_text}입니다.\n\n"
+        f"{body}"
+    )
+
+def add_parsed_item(items, feed, title, link, description, pub_date, content="", author="", guid="", feed_categories=None, comments="", enclosure=None):
+    feed_categories = feed_categories or []
+    enclosure = enclosure or {}
+    clean_desc = clean_text(description)
+    clean_content = clean_text(content)
+    summary_parts = []
+
+    for part in [clean_desc, clean_content]:
+        if part and part not in summary_parts:
+            summary_parts.append(part)
+
+    full_summary = "\n\n".join(summary_parts)
+    categories = classify_article(title, full_summary)
+    region_label = REGION_LABELS.get(feed["region"], "기타")
     items.append({
         "source": feed["name"],
         "title": title,
+        "koreanTitle": build_korean_title(title, feed["name"], region_label, categories),
         "link": link,
-        "description": clean_desc,
+        "description": full_summary,
+        "summary": full_summary,
+        "fullSummary": full_summary,
+        "koreanSummary": build_korean_summary(title, feed["name"], region_label, full_summary, categories, feed_categories, author),
         "pubDate": pub_date,
         "region": feed["region"],
-        "regionLabel": REGION_LABELS.get(feed["region"], "기타"),
-        "categories": classify_article(title, clean_desc)
+        "regionLabel": region_label,
+        "categories": categories,
+        "feedCategories": feed_categories,
+        "author": author,
+        "guid": guid,
+        "comments": comments,
+        "enclosure": enclosure,
+        "feedMeta": {
+            "sourceUrl": feed["url"],
+            "language": feed["lang"],
+            "originalTitle": title,
+            "author": author,
+            "guid": guid,
+            "comments": comments,
+            "feedCategories": feed_categories,
+            "enclosure": enclosure
+        }
     })
 
 def generate_region_summary(news_items, region_label):

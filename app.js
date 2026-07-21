@@ -850,8 +850,20 @@ createApp({
       return pubDate.split(' ').slice(0, 4).join(' ');
     },
 
+    newsDisplayTitle(item) {
+      return item?.koreanTitle || item?.title || '제목 없음';
+    },
+
+    newsFullSummary(item) {
+      return item?.fullSummary || item?.summary || item?.description || 'RSS 피드에서 제공된 요약 정보가 없습니다. 원문 링크에서 전체 내용을 확인하세요.';
+    },
+
     newsKoreanBrief(item) {
-      const text = `${item.title || ''} ${item.description || ''}`.toLowerCase();
+      if (item.koreanSummary) {
+        return item.koreanSummary.split('\n\n')[0];
+      }
+
+      const text = `${item.title || ''} ${this.newsFullSummary(item)}`.toLowerCase();
       const categories = item.categories || [];
       const topic = this.newsTopicLabel(text, categories);
       const action = this.newsActionLabel(text, categories);
@@ -860,7 +872,7 @@ createApp({
     },
 
     newsDeveloperPoints(item) {
-      const text = `${item.title || ''} ${item.description || ''}`.toLowerCase();
+      const text = `${item.title || ''} ${this.newsFullSummary(item)}`.toLowerCase();
       const points = [];
 
       if (/agent|mcp|orchestration|workflow|tool/.test(text)) {
